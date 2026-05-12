@@ -5,7 +5,7 @@ grade: "6-8"
 price: "$2.25"
 tpt_price: "$3.25"
 description: "Master solving systems of equations by substitution with a complete, no-prep lesson bundle built for 6th–9th grade math classrooms."
-gumroad_url: "#"
+gumroad_url: "https://payhip.com/b/RK1L0"
 thumbnail: "images/systems-of-equations-solving-by-substitution.png"
 tags: ""
 is_free: false
