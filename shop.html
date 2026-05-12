@@ -24,41 +24,47 @@
 /* PRODUCT CARD */
 .product-card { background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; transition:all 0.25s; display:flex; flex-direction:column; }
 .product-card:hover { border-color:var(--gold-border); transform:translateY(-4px); box-shadow:0 20px 48px rgba(0,0,0,0.3); }
-
-.product-thumb { width:100%; aspect-ratio:1/1; object-fit:cover; display:block; background:var(--navy-mid); }
-.product-thumb-placeholder { width:100%; aspect-ratio:1/1; background:linear-gradient(135deg,#1B3A6B,#0D1B2E); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; }
+.product-thumb { width:100%; aspect-ratio:1/1; object-fit:cover; display:block; }
+.product-thumb-placeholder { width:100%; aspect-ratio:1/1; background:linear-gradient(135deg,#1B3A6B,#0D1B2E); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:20px; }
 .product-thumb-placeholder span { font-family:'Playfair Display',serif; font-size:13px; font-weight:700; color:var(--gold); letter-spacing:0.1em; text-transform:uppercase; }
-.product-thumb-placeholder p { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:white; text-align:center; padding:0 16px; line-height:1.3; }
-
+.product-thumb-placeholder p { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:white; text-align:center; line-height:1.3; }
 .product-body { padding:20px; flex:1; display:flex; flex-direction:column; gap:10px; }
 .product-tags { display:flex; gap:6px; flex-wrap:wrap; }
 .product-tag { font-size:11px; font-weight:600; background:var(--gold-pale); border:1px solid var(--gold-border); color:var(--gold); padding:3px 9px; border-radius:5px; }
 .product-tag.grade { background:rgba(27,58,107,0.3); border-color:rgba(27,58,107,0.5); color:#93b4d4; }
 .product-title { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:var(--white); line-height:1.3; }
 .product-desc { font-size:13.5px; color:var(--text-dim); line-height:1.6; flex:1; }
-.product-includes { display:flex; gap:12px; font-size:12px; color:var(--text-dim); }
-.product-includes span { display:flex; align-items:center; gap:4px; }
-
+.product-includes { display:flex; gap:12px; font-size:12px; color:var(--text-dim); flex-wrap:wrap; }
 .product-footer { padding:16px 20px; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; gap:12px; }
-.product-price { display:flex; flex-direction:column; }
 .product-price-main { font-family:'Playfair Display',serif; font-size:24px; font-weight:900; color:var(--gold); line-height:1; }
-.product-price-note { font-size:11px; color:var(--text-dim); margin-top:2px; }
 .product-price-tpt { font-size:11px; color:var(--text-dim); text-decoration:line-through; }
-
+.product-price-note { font-size:11px; color:var(--text-dim); margin-top:2px; }
 .btn-buy { background:var(--gold); color:var(--navy); padding:10px 20px; border-radius:8px; font-size:14px; font-weight:700; text-decoration:none; transition:all 0.2s; white-space:nowrap; display:inline-flex; align-items:center; gap:6px; }
 .btn-buy:hover { background:var(--gold-light); transform:translateY(-1px); }
+.btn-buy.free { background:#34d399; }
+
+/* LOADING STATE */
+.loading-state { text-align:center; padding:80px 24px; }
+.loading-spinner { width:40px; height:40px; border:3px solid rgba(232,160,32,0.2); border-top-color:var(--gold); border-radius:50%; animation:spin 0.8s linear infinite; margin:0 auto 16px; }
+@keyframes spin { to { transform:rotate(360deg); } }
+.loading-state p { font-size:15px; color:var(--text-dim); }
 
 /* EMPTY STATE */
-.empty-state { text-align:center; padding:80px 24px; color:var(--text-dim); }
+.empty-state { text-align:center; padding:80px 24px; }
 .empty-state h3 { font-family:'Playfair Display',serif; font-size:22px; color:var(--white); margin-bottom:12px; }
+.empty-state p { font-size:14px; color:var(--text-dim); }
 
-/* COMING SOON BANNER */
+/* MORE COMING */
 .more-coming { background:var(--gold-pale); border:1px solid var(--gold-border); border-radius:var(--radius-lg); padding:32px; text-align:center; margin-top:48px; }
 .more-coming h3 { font-family:'Playfair Display',serif; font-size:20px; color:var(--white); margin-bottom:8px; }
 .more-coming p { font-size:14px; color:var(--text-dim); }
 
-@media(max-width:960px){ .product-grid { grid-template-columns:repeat(2,1fr); } }
-@media(max-width:600px){ .product-grid { grid-template-columns:1fr; } .shop-note { flex-direction:column; } }
+/* ERROR STATE */
+.error-state { background:rgba(248,113,113,0.08); border:1px solid rgba(248,113,113,0.2); border-radius:var(--radius-lg); padding:32px; text-align:center; }
+.error-state p { font-size:14px; color:#f87171; }
+
+@media(max-width:960px){ .product-grid { grid-template-columns:repeat(2,1fr); } .shop-note { flex-direction:column; } }
+@media(max-width:600px){ .product-grid { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -98,138 +104,27 @@
 <section class="section-wrap">
   <div class="section-inner" style="padding-top:0;">
 
-    <!-- TPT Comparison Note -->
-    <div class="shop-note reveal">
+    <!-- TPT Note -->
+    <div class="shop-note">
       <div class="shop-note-icon">💡</div>
-      <p>Everything here is <strong>$1 cheaper than our TPT store</strong> — same quality, better price. You get the editable Word file too, not just the PDF. Questions? Email <a href="mailto:euclidiamath@gmail.com" style="color:var(--gold);">euclidiamath@gmail.com</a></p>
+      <p>Everything here is <strong>$1 cheaper than our TPT store</strong> — same quality, better price. You get the editable Word file too. Questions? Email <a href="mailto:euclidiamath@gmail.com" style="color:var(--gold);">euclidiamath@gmail.com</a></p>
     </div>
 
-    <!-- FILTER BAR -->
-    <!-- TO ADD NEW FILTERS: copy a filter-btn and update the data-filter value to match your product tags -->
-    <div class="filter-bar" role="group" aria-label="Filter products">
+    <!-- Filter Bar -->
+    <div class="filter-bar" id="filter-bar" role="group" aria-label="Filter products">
       <button class="filter-btn active" data-filter="all" onclick="filterProducts(this,'all')">All Resources</button>
-      <button class="filter-btn" data-filter="6-8" onclick="filterProducts(this,'6-8')">Grades 6–8</button>
-      <button class="filter-btn" data-filter="8-9" onclick="filterProducts(this,'8-9')">Grades 8–9</button>
-      <button class="filter-btn" data-filter="equations" onclick="filterProducts(this,'equations')">Equations</button>
-      <button class="filter-btn" data-filter="exponents" onclick="filterProducts(this,'exponents')">Exponents</button>
-      <button class="filter-btn" data-filter="notation" onclick="filterProducts(this,'notation')">Scientific Notation</button>
     </div>
 
-    <!-- PRODUCT GRID -->
-    <!-- ============================================================
-         HOW TO ADD A NEW PRODUCT:
-         1. Copy one full product-card block below
-         2. Paste it inside the product-grid div
-         3. Update: title, description, standard tag, grade tag,
-            price, Gumroad link, and thumbnail image
-         4. Save the file and re-upload to Netlify
-         ============================================================ -->
-    <div class="product-grid" id="product-grid">
-
-      <!-- PRODUCT 1: Solving Multi-Step Equations -->
-      <!-- data-tags: used for filtering. Add any relevant keywords separated by spaces -->
-      <div class="product-card reveal" data-tags="6-8 equations 8-ee">
-
-        <!-- THUMBNAIL: replace the placeholder div with an <img> tag once you have your thumbnail
-             Example: <img src="images/solving-multi-step-equations.png" alt="Solving Multi-Step Equations thumbnail" class="product-thumb"> -->
-        <div class="product-thumb-placeholder">
-          <span>Euclidia</span>
-          <p>Solving Multi-Step Equations</p>
-        </div>
-
-        <div class="product-body">
-          <div class="product-tags">
-            <span class="product-tag">8.EE.C.7b</span>
-            <span class="product-tag grade">Grades 6–8</span>
-          </div>
-          <div class="product-title">Solving Multi-Step Equations</div>
-          <div class="product-desc">No-prep lesson bundle with scripted lesson plan, scaffolded worksheet, and full answer key. Covers combining like terms, inverse operations, and checking solutions.</div>
-          <div class="product-includes">
-            <span>📋 Lesson Plan</span>
-            <span>📝 Worksheet</span>
-            <span>✅ Answer Key</span>
-          </div>
-        </div>
-
-        <div class="product-footer">
-          <div class="product-price">
-            <div class="product-price-main">$2.25</div>
-            <div class="product-price-tpt">$3.25 on TPT</div>
-            <div class="product-price-note">PDF + editable DOCX</div>
-          </div>
-          <!-- GUMROAD LINK: replace # with your actual Gumroad product URL
-               Example: href="https://euclidiamath.gumroad.com/l/multi-step-equations" -->
-          <a href="#" class="btn-buy" target="_blank" rel="noopener">
-            Buy Now ↗
-          </a>
-        </div>
+    <!-- Product Grid — populated automatically by JavaScript -->
+    <div id="product-container">
+      <div class="loading-state">
+        <div class="loading-spinner"></div>
+        <p>Loading resources...</p>
       </div>
+    </div>
 
-      <!-- PRODUCT 2: Scientific Notation -->
-      <div class="product-card reveal" data-tags="6-8 notation 8-ee exponents">
-        <div class="product-thumb-placeholder">
-          <span>Euclidia</span>
-          <p>Scientific Notation</p>
-        </div>
-        <div class="product-body">
-          <div class="product-tags">
-            <span class="product-tag">8.EE.A.3</span>
-            <span class="product-tag grade">Grades 6–8</span>
-          </div>
-          <div class="product-title">Scientific Notation</div>
-          <div class="product-desc">Complete lesson bundle covering converting between standard and scientific notation, with real-world applications involving very large and very small numbers.</div>
-          <div class="product-includes">
-            <span>📋 Lesson Plan</span>
-            <span>📝 Worksheet</span>
-            <span>✅ Answer Key</span>
-          </div>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">
-            <div class="product-price-main">$2.25</div>
-            <div class="product-price-tpt">$3.25 on TPT</div>
-            <div class="product-price-note">PDF + editable DOCX</div>
-          </div>
-          <a href="#" class="btn-buy" target="_blank" rel="noopener">Buy Now ↗</a>
-        </div>
-      </div>
-
-      <!-- PRODUCT 3: Laws of Exponents (FREE) -->
-      <div class="product-card reveal" data-tags="6-8 exponents 8-ee">
-        <div class="product-thumb-placeholder">
-          <span>Euclidia</span>
-          <p>Laws of Exponents</p>
-        </div>
-        <div class="product-body">
-          <div class="product-tags">
-            <span class="product-tag">8.EE.A.1</span>
-            <span class="product-tag grade">Grades 6–8</span>
-          </div>
-          <div class="product-title">Laws of Exponents</div>
-          <div class="product-desc">Product of powers, quotient of powers, and power of a power rules. Includes the complete lesson plan, scaffolded worksheet, and detailed answer key.</div>
-          <div class="product-includes">
-            <span>📋 Lesson Plan</span>
-            <span>📝 Worksheet</span>
-            <span>✅ Answer Key</span>
-          </div>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">
-            <div class="product-price-main" style="color:#34d399;">FREE</div>
-            <div class="product-price-note">PDF + editable DOCX</div>
-          </div>
-          <a href="#" class="btn-buy" style="background:#34d399;" target="_blank" rel="noopener">Download ↗</a>
-        </div>
-      </div>
-
-      <!-- ============================================================
-           ADD MORE PRODUCTS HERE by copying the block above
-           ============================================================ -->
-
-    </div><!-- end product-grid -->
-
-    <!-- More coming soon -->
-    <div class="more-coming reveal">
+    <!-- More coming -->
+    <div class="more-coming" id="more-coming" style="display:none;">
       <h3>More resources added regularly</h3>
       <p>New lesson bundles are added as they're created. Follow us on TPT or check back here for the latest additions.</p>
     </div>
@@ -267,38 +162,230 @@
   </div>
   <div class="footer-bottom">
     <span class="footer-copy">© 2025 Euclidia · euclidiamath.com</span>
-    <div class="footer-legal">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-    </div>
+    <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
   </div>
 </footer>
 
 <script>
+// ── CONFIG ──────────────────────────────────────────
+const GITHUB_USER = 'emmanuelsimon123';
+const GITHUB_REPO = 'euclidia-site';
+const PRODUCTS_FOLDER = '_products';
+// ────────────────────────────────────────────────────
+
+let allProducts = [];
+let activeFilter = 'all';
+
+// Parse YAML frontmatter from a markdown file
+function parseFrontmatter(text) {
+  const match = text.match(/^---\n([\s\S]*?)\n---/);
+  if (!match) return {};
+  const yaml = match[1];
+  const result = {};
+  yaml.split('\n').forEach(line => {
+    const colonIdx = line.indexOf(':');
+    if (colonIdx === -1) return;
+    const key = line.slice(0, colonIdx).trim();
+    let val = line.slice(colonIdx + 1).trim();
+    // Remove surrounding quotes if present
+    if ((val.startsWith('"') && val.endsWith('"')) ||
+        (val.startsWith("'") && val.endsWith("'"))) {
+      val = val.slice(1, -1);
+    }
+    // Handle booleans
+    if (val === 'true') val = true;
+    if (val === 'false') val = false;
+    result[key] = val;
+  });
+  return result;
+}
+
+// Build a product card HTML string
+function buildProductCard(product) {
+  const isFree = product.is_free === true || product.is_free === 'true';
+
+  // Thumbnail
+  let thumbHtml = '';
+  if (product.thumbnail && product.thumbnail !== '') {
+    thumbHtml = `<img src="${product.thumbnail}" alt="${product.title} thumbnail" class="product-thumb" loading="lazy">`;
+  } else {
+    thumbHtml = `
+      <div class="product-thumb-placeholder">
+        <span>Euclidia</span>
+        <p>${product.title || 'Lesson Bundle'}</p>
+      </div>`;
+  }
+
+  // Price display
+  let priceHtml = '';
+  if (isFree) {
+    priceHtml = `
+      <div>
+        <div class="product-price-main" style="color:#34d399;">FREE</div>
+        <div class="product-price-note">PDF + editable DOCX</div>
+      </div>`;
+  } else {
+    priceHtml = `
+      <div>
+        <div class="product-price-main">${product.price || '$2.25'}</div>
+        ${product.tpt_price ? `<div class="product-price-tpt">${product.tpt_price}</div>` : ''}
+        <div class="product-price-note">PDF + editable DOCX</div>
+      </div>`;
+  }
+
+  // Buy button
+  const btnClass = isFree ? 'btn-buy free' : 'btn-buy';
+  const btnText = isFree ? 'Download ↗' : 'Buy Now ↗';
+  const btnHref = product.gumroad_url && product.gumroad_url !== '' ? product.gumroad_url : '#';
+
+  return `
+    <div class="product-card" data-tags="${product.tags || ''}">
+      ${thumbHtml}
+      <div class="product-body">
+        <div class="product-tags">
+          ${product.standard ? `<span class="product-tag">${product.standard}</span>` : ''}
+          ${product.grade ? `<span class="product-tag grade">Grades ${product.grade}</span>` : ''}
+        </div>
+        <div class="product-title">${product.title || 'Lesson Bundle'}</div>
+        <div class="product-desc">${product.description || ''}</div>
+        <div class="product-includes">
+          <span>📋 Lesson Plan</span>
+          <span>📝 Worksheet</span>
+          <span>✅ Answer Key</span>
+        </div>
+      </div>
+      <div class="product-footer">
+        ${priceHtml}
+        <a href="${btnHref}" class="${btnClass}" target="_blank" rel="noopener">${btnText}</a>
+      </div>
+    </div>`;
+}
+
+// Build filter buttons from product tags
+function buildFilters(products) {
+  const tagSet = new Set();
+  products.forEach(p => {
+    if (p.tags) {
+      p.tags.split(' ').forEach(t => { if(t.trim()) tagSet.add(t.trim()); });
+    }
+  });
+
+  const filterBar = document.getElementById('filter-bar');
+  // Keep the "All" button, add others
+  tagSet.forEach(tag => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    btn.dataset.filter = tag;
+    btn.textContent = tag;
+    btn.onclick = () => filterProducts(btn, tag);
+    filterBar.appendChild(btn);
+  });
+}
+
+// Filter products
+function filterProducts(btn, filter) {
+  activeFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid();
+}
+
+// Render product grid based on active filter
+function renderGrid() {
+  const container = document.getElementById('product-container');
+  const filtered = activeFilter === 'all'
+    ? allProducts
+    : allProducts.filter(p => p.tags && p.tags.includes(activeFilter));
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <h3>No resources found</h3>
+        <p>Try a different filter or check back soon.</p>
+      </div>`;
+    return;
+  }
+
+  container.innerHTML = `<div class="product-grid">${filtered.map(buildProductCard).join('')}</div>`;
+  document.getElementById('more-coming').style.display = 'block';
+}
+
+// Fetch products from GitHub
+async function loadProducts() {
+  const container = document.getElementById('product-container');
+  const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${PRODUCTS_FOLDER}`;
+
+  try {
+    const res = await fetch(apiUrl);
+
+    if (res.status === 404) {
+      // No products folder yet — show empty state
+      container.innerHTML = `
+        <div class="empty-state">
+          <h3>Products coming soon</h3>
+          <p>Check back shortly — resources are being added now.</p>
+        </div>`;
+      return;
+    }
+
+    if (!res.ok) throw new Error('GitHub API error: ' + res.status);
+
+    const files = await res.json();
+    const mdFiles = files.filter(f => f.name.endsWith('.md'));
+
+    if (mdFiles.length === 0) {
+      container.innerHTML = `
+        <div class="empty-state">
+          <h3>Products coming soon</h3>
+          <p>Check back shortly — resources are being added now.</p>
+        </div>`;
+      return;
+    }
+
+    // Fetch each file's content in parallel
+    const fileContents = await Promise.all(
+      mdFiles.map(file =>
+        fetch(file.url)
+          .then(r => r.json())
+          .then(data => atob(data.content.replace(/\n/g, '')))
+      )
+    );
+
+    // Parse frontmatter from each file
+    allProducts = fileContents.map(parseFrontmatter).filter(p => p.title);
+
+    // Sort: free products last, rest by title
+    allProducts.sort((a, b) => {
+      if (a.is_free && !b.is_free) return 1;
+      if (!a.is_free && b.is_free) return -1;
+      return (a.title || '').localeCompare(b.title || '');
+    });
+
+    buildFilters(allProducts);
+    renderGrid();
+
+  } catch (err) {
+    console.error('Error loading products:', err);
+    container.innerHTML = `
+      <div class="error-state">
+        <p>Couldn't load products right now. Please refresh the page or <a href="mailto:euclidiamath@gmail.com" style="color:var(--gold);">contact us</a>.</p>
+      </div>`;
+  }
+}
+
+// Mobile nav
 function toggleMenu(){
   document.getElementById('nav-mobile').classList.toggle('open');
 }
 
-function filterProducts(btn, filter){
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.product-card').forEach(card=>{
-    if(filter === 'all' || card.dataset.tags.includes(filter)){
-      card.style.display = '';
-    } else {
-      card.style.display = 'none';
-    }
-  });
-}
-
-setTimeout(()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible')),600);
-const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-window.addEventListener('scroll',()=>{
-  document.querySelector('nav').style.background = window.scrollY>60?'rgba(9,21,37,0.98)':'rgba(9,21,37,0.92)';
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.background =
+    window.scrollY > 60 ? 'rgba(9,21,37,0.98)' : 'rgba(9,21,37,0.92)';
 });
+
+// Load products on page load
+loadProducts();
 </script>
 </body>
 </html>
