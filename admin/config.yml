@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: emmanuelsimon123/euclidia-site
   branch: main
 
 media_folder: images
