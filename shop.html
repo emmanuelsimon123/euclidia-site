@@ -167,38 +167,8 @@
 </footer>
 
 <script>
-// ── CONFIG ──────────────────────────────────────────
-const GITHUB_USER = 'emmanuelsimon123';
-const GITHUB_REPO = 'euclidia-site';
-const PRODUCTS_FOLDER = '_products';
-// ────────────────────────────────────────────────────
-
 let allProducts = [];
 let activeFilter = 'all';
-
-// Parse YAML frontmatter from a markdown file
-function parseFrontmatter(text) {
-  const match = text.match(/^---\n([\s\S]*?)\n---/);
-  if (!match) return {};
-  const yaml = match[1];
-  const result = {};
-  yaml.split('\n').forEach(line => {
-    const colonIdx = line.indexOf(':');
-    if (colonIdx === -1) return;
-    const key = line.slice(0, colonIdx).trim();
-    let val = line.slice(colonIdx + 1).trim();
-    // Remove surrounding quotes if present
-    if ((val.startsWith('"') && val.endsWith('"')) ||
-        (val.startsWith("'") && val.endsWith("'"))) {
-      val = val.slice(1, -1);
-    }
-    // Handle booleans
-    if (val === 'true') val = true;
-    if (val === 'false') val = false;
-    result[key] = val;
-  });
-  return result;
-}
 
 // Build a product card HTML string
 function buildProductCard(product) {
@@ -236,7 +206,7 @@ function buildProductCard(product) {
   // Buy button
   const btnClass = isFree ? 'btn-buy free' : 'btn-buy';
   const btnText = isFree ? 'Download ↗' : 'Buy Now ↗';
-  const btnHref = product.gumroad_url && product.gumroad_url !== '' ? product.gumroad_url : '#';
+  const btnHref = product.buy_url && product.buy_url !== '' ? product.buy_url : '#';
 
   return `
     <div class="product-card" data-tags="${product.tags || ''}">
@@ -295,7 +265,7 @@ function renderGrid() {
   const container = document.getElementById('product-container');
   const filtered = activeFilter === 'all'
     ? allProducts
-    : allProducts.filter(p => p.tags && p.tags.includes(activeFilter));
+    : allProducts.filter(p => p.tags && p.tags.split(' ').includes(activeFilter));
 
   if (filtered.length === 0) {
     container.innerHTML = `
@@ -310,16 +280,17 @@ function renderGrid() {
   document.getElementById('more-coming').style.display = 'block';
 }
 
-// Fetch products from GitHub
+// Fetch products from products.json
 async function loadProducts() {
   const container = document.getElementById('product-container');
-  const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${PRODUCTS_FOLDER}`;
 
   try {
-    const res = await fetch(apiUrl);
+    const res = await fetch('products.json');
+    if (!res.ok) throw new Error('Failed to load products: ' + res.status);
 
-    if (res.status === 404) {
-      // No products folder yet — show empty state
+    const products = await res.json();
+
+    if (!products || products.length === 0) {
       container.innerHTML = `
         <div class="empty-state">
           <h3>Products coming soon</h3>
@@ -328,31 +299,7 @@ async function loadProducts() {
       return;
     }
 
-    if (!res.ok) throw new Error('GitHub API error: ' + res.status);
-
-    const files = await res.json();
-    const mdFiles = files.filter(f => f.name.endsWith('.md'));
-
-    if (mdFiles.length === 0) {
-      container.innerHTML = `
-        <div class="empty-state">
-          <h3>Products coming soon</h3>
-          <p>Check back shortly — resources are being added now.</p>
-        </div>`;
-      return;
-    }
-
-    // Fetch each file's content in parallel
-    const fileContents = await Promise.all(
-      mdFiles.map(file =>
-        fetch(file.url)
-          .then(r => r.json())
-          .then(data => atob(data.content.replace(/\n/g, '')))
-      )
-    );
-
-    // Parse frontmatter from each file
-    allProducts = fileContents.map(parseFrontmatter).filter(p => p.title);
+    allProducts = products;
 
     // Sort: free products last, rest by title
     allProducts.sort((a, b) => {
