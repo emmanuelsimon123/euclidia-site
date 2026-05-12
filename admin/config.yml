@@ -2,6 +2,7 @@ backend:
   name: github
   repo: emmanuelsimon123/euclidia-site
   branch: main
+  base_url: https://euclidia-oauth.onrender.com
 
 media_folder: images
 public_folder: images
