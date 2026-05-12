@@ -7,6 +7,6 @@ tpt_price: "FREE"
 description: "No-prep lesson bundle covering combining like terms, inverse operations, and checking solutions."
 gumroad_url: "https://payhip.com/b/8EzV2"
 thumbnail: "images/laws-of-exponents.png"
-tags: "8.EE"
+tags: "6-8 Exponents"
 is_free: true
 ---
