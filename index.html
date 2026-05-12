@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Euclidia — Standards-Aligned Math Lesson Plans in Under 2 Minutes</title>
+<meta name="description" content="Professional, print-ready math lesson bundles for secondary teachers. Buy ready-made resources or generate your own.">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* HOME-SPECIFIC STYLES */
+.hero { position:relative; min-height:100vh; display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:64px; max-width:1200px; margin:0 auto; padding:120px 48px 80px; z-index:1; }
+.hero-glow { position:absolute; width:700px; height:700px; border-radius:50%; background:radial-gradient(circle,rgba(27,58,107,0.35) 0%,transparent 70%); top:50%; left:30%; transform:translate(-50%,-50%); pointer-events:none; }
+.hero-eyebrow { display:inline-flex; align-items:center; gap:8px; background:var(--gold-pale); border:1px solid var(--gold-border); border-radius:100px; padding:5px 14px 5px 10px; font-size:12px; font-weight:700; color:var(--gold); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:28px; }
+.eyebrow-dot { width:7px; height:7px; border-radius:50%; background:var(--gold); animation:pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.7)} }
+.hero h1 { font-family:'Playfair Display',serif; font-size:clamp(36px,4.5vw,58px); font-weight:900; line-height:1.1; color:var(--white); margin-bottom:22px; animation:fadeUp 0.5s 0.1s ease both; }
+.hero h1 em { font-style:italic; color:var(--gold); }
+.hero-sub { font-size:17px; color:var(--text); line-height:1.75; margin-bottom:14px; font-weight:300; max-width:480px; animation:fadeUp 0.5s 0.2s ease both; }
+.hero-proof { font-size:13px; color:var(--text-dim); margin-bottom:34px; animation:fadeUp 0.5s 0.25s ease both; }
+.hero-proof strong { color:var(--gold); font-weight:600; }
+.hero-actions { display:flex; gap:14px; flex-wrap:wrap; animation:fadeUp 0.5s 0.3s ease both; }
+.hero-right { position:relative; z-index:1; animation:fadeUp 0.5s 0.2s ease both; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)} }
+
+/* TWO PATHS */
+.paths-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:56px; }
+.path-card { background:var(--card-bg); border:1px solid var(--border-gold); border-radius:var(--radius-lg); padding:40px 36px; display:flex; flex-direction:column; gap:16px; transition:background 0.25s; }
+.path-card:hover { background:rgba(27,58,107,0.3); }
+.path-card.featured { background:rgba(27,58,107,0.25); }
+.path-icon { font-size:36px; }
+.path-card h3 { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--white); }
+.path-card p { font-size:14.5px; color:var(--text); line-height:1.7; flex:1; }
+.path-tag { display:inline-block; background:var(--gold-pale); border:1px solid var(--gold-border); border-radius:6px; padding:3px 10px; font-size:11.5px; font-weight:600; color:var(--gold); margin-bottom:4px; }
+
+/* DOC MOCKUP */
+.hero-doc { background:white; border-radius:var(--radius-lg); overflow:hidden; box-shadow:0 40px 80px rgba(0,0,0,0.6); transform:perspective(1000px) rotateY(-3deg) rotateX(1deg); transition:transform 0.5s ease; }
+.hero-doc:hover { transform:perspective(1000px) rotateY(0) rotateX(0); }
+.doc-hdr { background:#1B3A6B; padding:18px 24px 14px; }
+.doc-hdr-brand { font-size:9px; font-weight:700; letter-spacing:0.15em; color:#E8A020; font-family:Georgia,serif; }
+.doc-hdr-title { font-size:16px; font-weight:700; color:white; margin:5px 0 3px; font-family:Georgia,serif; }
+.doc-hdr-sub { font-size:9.5px; color:rgba(189,215,238,0.85); font-family:Georgia,serif; font-style:italic; }
+.doc-infobar { background:#2E75B6; padding:7px 24px; font-size:9px; color:white; font-family:Georgia,serif; font-weight:600; }
+.doc-body { padding:16px 22px; }
+.doc-sec { margin-bottom:9px; border-radius:4px; overflow:hidden; }
+.doc-sec-hdr { padding:6px 12px; font-size:8px; font-weight:700; color:white; font-family:Georgia,serif; }
+.doc-sec-body { border-left:3px solid; padding:9px 12px; }
+.doc-sec-text { font-size:7.5px; color:#333; line-height:1.65; font-family:Georgia,serif; }
+.doc-blurred { filter:blur(3px); opacity:0.3; pointer-events:none; }
+
+/* BENEFITS */
+.benefits-row { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:56px; border:1px solid var(--border-gold); border-radius:var(--radius-lg); overflow:hidden; background:var(--border-gold); }
+.benefit-card { background:var(--card-bg); padding:36px 28px; transition:background 0.25s; }
+.benefit-card:hover { background:rgba(27,58,107,0.3); }
+.benefit-icon { font-size:22px; margin-bottom:14px; }
+.benefit-card h3 { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--white); margin-bottom:10px; }
+.benefit-card p { font-size:14px; color:var(--text); line-height:1.7; }
+.benefit-outcome { display:inline-block; font-size:12.5px; font-weight:600; color:var(--gold); margin-top:12px; }
+
+@media(max-width:960px){
+  .hero { grid-template-columns:1fr; padding:100px 24px 60px; text-align:center; gap:40px; }
+  .hero-right { display:none; }
+  .hero-actions { justify-content:center; }
+  .paths-grid { grid-template-columns:1fr; }
+  .benefits-row { grid-template-columns:1fr; }
+}
+@media(max-width:600px){
+  .hero h1 { font-size:34px; }
+  .hero-actions { flex-direction:column; align-items:stretch; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo">Eucli<span>dia</span></a>
+  <ul class="nav-links">
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="generator.html">Generator</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="about.html#faq">FAQ</a></li>
+    <li><a href="shop.html" class="nav-cta">Browse Resources</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile">
+  <a href="shop.html">Shop</a>
+  <a href="generator.html">Generator</a>
+  <a href="about.html">About</a>
+  <a href="about.html#faq">FAQ</a>
+  <a href="shop.html" class="nav-cta">Browse Resources</a>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section aria-label="Hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>For Secondary Math Teachers</div>
+      <h1>Complete Lesson Plans<br>in <em>Under 2 Minutes.</em></h1>
+      <p class="hero-sub">Professional, print-ready math lesson bundles aligned to Common Core standards. Buy ready-made resources or generate your own custom lessons.</p>
+      <p class="hero-proof"><strong>12-page bundle</strong> &nbsp;·&nbsp; Grades 6–9 &nbsp;·&nbsp; CCSS aligned &nbsp;·&nbsp; Schmoker's 7 Elements</p>
+      <div class="hero-actions">
+        <a href="shop.html" class="btn-primary">Browse the Shop</a>
+        <a href="generator.html" class="btn-secondary">Try the Generator →</a>
+      </div>
+    </div>
+    <div class="hero-right" aria-hidden="true">
+      <div class="hero-doc">
+        <div class="doc-hdr">
+          <div class="doc-hdr-brand">EUCLIDIA &nbsp;·&nbsp; euclidiamath.com</div>
+          <div class="doc-hdr-title">Solving Multi-Step Equations</div>
+          <div class="doc-hdr-sub">Based on the 7 Elements of Effective Teaching</div>
+        </div>
+        <div class="doc-infobar">Math &nbsp;|&nbsp; 6th – 8th Grade &nbsp;|&nbsp; 45 min &nbsp;|&nbsp; Introduction</div>
+        <div class="doc-body">
+          <div class="doc-sec">
+            <div class="doc-sec-hdr" style="background:#1B3A6B;">01 &nbsp; LEARNING OUTCOME</div>
+            <div class="doc-sec-body" style="border-color:#1B3A6B;background:#EBF3FB;">
+              <div class="doc-sec-text">I can solve multi-step equations using inverse operations in the correct order.<br>• Combine like terms before isolating the variable<br>• Use inverse operations to undo each operation</div>
+            </div>
+          </div>
+          <div class="doc-sec">
+            <div class="doc-sec-hdr" style="background:#B22222;">02 &nbsp; ANTICIPATORY SET — THE HOOK</div>
+            <div class="doc-sec-body" style="border-color:#B22222;background:#FFF5F5;">
+              <div class="doc-sec-text">You earn $12/hour and have $45 saved. You need $129 for headphones. Board: "12h + 45 = 129." Let students guess.<br><br><strong>Reveal:</strong> "Today we solve equations with multiple steps."</div>
+            </div>
+          </div>
+          <div class="doc-sec doc-blurred">
+            <div class="doc-sec-hdr" style="background:#2D6A2D;">03 &nbsp; TEACH AND MODEL</div>
+            <div class="doc-sec-body" style="border-color:#2D6A2D;background:#F2F9EE;">
+              <div class="doc-sec-text">Step 1: Identify the structure. Teacher says: Our goal is always to get the variable alone...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- TWO PATHS -->
+<section class="section-wrap" aria-labelledby="paths-h">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-label">Two Ways to Use Euclidia</span>
+      <h2 class="section-title" id="paths-h">Pick what works for you.</h2>
+      <div class="gold-rule"></div>
+      <p class="section-sub">Whether you want ready-made resources or custom-generated lessons, Euclidia has you covered.</p>
+    </div>
+    <div class="paths-grid reveal">
+      <div class="path-card">
+        <div class="path-icon">🛒</div>
+        <div class="path-tag">Ready Now</div>
+        <h3>Browse the Shop</h3>
+        <p>Professionally made lesson bundles ready to download instantly. Every resource includes a lesson plan, student worksheet, and answer key. Cheaper than TPT — same quality.</p>
+        <a href="shop.html" class="btn-primary" style="margin-top:8px; justify-content:center;">Browse Resources</a>
+      </div>
+      <div class="path-card featured">
+        <div class="path-icon">⚙️</div>
+        <div class="path-tag">Coming Soon</div>
+        <h3>Generate Your Own</h3>
+        <p>Enter any Common Core standard and get a complete, custom lesson bundle generated in under 2 minutes. Buy credits once, use whenever you need.</p>
+        <a href="generator.html" class="btn-secondary" style="margin-top:8px; justify-content:center;">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- BENEFITS -->
+<section class="section-wrap section-alt-bg" aria-labelledby="why-h">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-label">Why Euclidia</span>
+      <h2 class="section-title" id="why-h">Built for how teachers actually work.</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="benefits-row reveal">
+      <div class="benefit-card">
+        <div class="benefit-icon">⏱</div>
+        <h3>2 Minutes, Not 2 Hours</h3>
+        <p>A complete 12-page lesson bundle — no templates, no formatting, no hunting for problems.</p>
+        <div class="benefit-outcome">→ Save 2+ hours per lesson</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📐</div>
+        <h3>Real Math Typography</h3>
+        <p>Proper fraction bars, true superscripts, radical notation. No slash fractions, no blurry screenshots.</p>
+        <div class="benefit-outcome">→ Print-ready on any printer</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🎯</div>
+        <h3>Standards-Precise</h3>
+        <p>Every problem, example, and vocabulary term maps to the exact standard — not a grade-level approximation.</p>
+        <div class="benefit-outcome">→ Zero alignment guesswork</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- MISSION SNIPPET -->
+<section class="section-wrap" aria-labelledby="mission-snippet-h">
+  <div class="section-inner" style="text-align:center; max-width:700px; margin:0 auto;">
+    <div class="reveal">
+      <span class="section-label">Our Mission</span>
+      <h2 class="section-title" id="mission-snippet-h">We exist to give you<br>your time back.</h2>
+      <div class="gold-rule center"></div>
+      <p class="section-sub" style="margin:0 auto 32px;">Teachers do the most important work for underappreciated pay. Euclidia handles the formatting, the scaffolding, and the lesson plans — so you don't have to.</p>
+      <a href="about.html" class="btn-secondary">Read Our Story →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Eucli<span>dia</span></div>
+      <p class="footer-tagline">Professional lesson plans for secondary math teachers. Standards-aligned, print-ready, generated in under 2 minutes.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="generator.html">Generator</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="about.html#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Support</div>
+      <ul class="footer-links">
+        <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
+        <li><a href="about.html#faq">Help & FAQ</a></li>
+        <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank" rel="noopener">TPT Store ↗</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Euclidia · euclidiamath.com</span>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('nav-mobile').classList.toggle('open');
+}
+document.addEventListener('click', function(e){
+  if(!e.target.closest('nav') && !e.target.closest('#nav-mobile')){
+    document.getElementById('nav-mobile').classList.remove('open');
+  }
+});
+setTimeout(()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible')),600);
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.background = window.scrollY>60?'rgba(9,21,37,0.98)':'rgba(9,21,37,0.92)';
+});
+</script>
+</body>
+</html>

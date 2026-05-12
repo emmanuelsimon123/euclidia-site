@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Euclidia</title>
+<meta name="description" content="Euclidia is built by a secondary math teacher for secondary math teachers. Our mission is to give you your time back.">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ABOUT-SPECIFIC */
+.mission-body { background:var(--card-bg); border:1px solid var(--border-gold); border-radius:var(--radius-lg); padding:48px; position:relative; margin-top:40px; }
+.mission-body::before { content:'"'; font-family:'Playfair Display',serif; font-size:120px; color:var(--gold); opacity:0.08; position:absolute; top:-20px; left:24px; line-height:1; pointer-events:none; }
+.mission-body p { font-size:16px; color:var(--text); line-height:1.85; margin-bottom:18px; }
+.mission-body p:last-of-type { margin-bottom:0; }
+.mission-quote { font-family:'Playfair Display',serif; font-size:clamp(18px,2.5vw,24px); font-style:italic; color:var(--text-bright); line-height:1.7; margin-bottom:32px; text-align:center; }
+.mission-quote em { color:var(--gold); font-style:normal; font-weight:600; }
+.mission-sig { margin-top:28px; padding-top:22px; border-top:1px solid var(--border); display:flex; align-items:center; gap:14px; }
+.mission-sig-avatar { width:44px; height:44px; border-radius:50%; background:var(--gold); color:var(--navy); font-family:'Playfair Display',serif; font-size:18px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.mission-sig-name { font-size:14px; font-weight:600; color:var(--white); }
+.mission-sig-title { font-size:13px; color:var(--text-dim); }
+
+/* SCHMOKER */
+.schmoker-wrap { background:linear-gradient(135deg,rgba(27,58,107,0.3),rgba(9,21,37,0.8)); border:1px solid var(--border-gold); border-radius:var(--radius-lg); padding:48px; display:grid; grid-template-columns:auto 1fr; gap:40px; align-items:start; margin-top:40px; }
+.schmoker-num { font-family:'Playfair Display',serif; font-size:100px; font-weight:900; color:var(--gold); line-height:1; text-shadow:0 0 60px rgba(232,160,32,0.3); flex-shrink:0; }
+.schmoker-content h3 { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--white); margin-bottom:12px; }
+.schmoker-content p { font-size:15px; color:var(--text); line-height:1.75; margin-bottom:20px; }
+.schmoker-tags { display:flex; flex-wrap:wrap; gap:8px; }
+.schmoker-tag { background:var(--gold-pale); border:1px solid var(--gold-border); border-radius:7px; padding:6px 14px; font-size:12.5px; font-weight:600; color:var(--gold-light); }
+
+@media(max-width:960px){
+  .mission-body { padding:32px 24px; }
+  .schmoker-wrap { grid-template-columns:1fr; gap:20px; padding:32px 24px; }
+  .schmoker-num { font-size:64px; }
+}
+@media(max-width:600px){
+  .mission-body { padding:24px 18px; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo">Eucli<span>dia</span></a>
+  <ul class="nav-links">
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="generator.html">Generator</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="about.html#faq">FAQ</a></li>
+    <li><a href="shop.html" class="nav-cta">Browse Resources</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="generator.html">Generator</a>
+  <a href="about.html">About</a>
+  <a href="about.html#faq">FAQ</a>
+</div>
+
+<main id="main">
+
+<div class="page-hero">
+  <span class="section-label">Our Story</span>
+  <h1>Built by a teacher.<br><em>For teachers.</em></h1>
+  <p>Euclidia exists for one reason — to give you your time back.</p>
+</div>
+
+<!-- MISSION -->
+<section class="section-wrap" aria-labelledby="mission-h">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-label">Why We Exist</span>
+      <h2 class="section-title" id="mission-h">The mission.</h2>
+      <div class="gold-rule"></div>
+      <p class="mission-quote">Teachers do the most important work<br>for <em>underappreciated pay.</em></p>
+      <div class="mission-body">
+        <p>You are asked to deliver high-rigor instruction to a diverse range of students while managing an impossible workload — along with your own personal and family life.</p>
+        <p>We see you. We exist to give you your time back.</p>
+        <p>Our mission is to provide exceptional, high-rigor math resources at a strictly teacher-friendly price. We take care of the formatting, the scaffolding, and the lesson plans — so you don't have to play the role of full-time Curriculum Designer on top of everything else.</p>
+        <p>Let us handle the prep work so you can focus on being you: an incredible teacher, a present parent, and someone who finally gets to work at a more humane pace.</p>
+        <div class="mission-sig">
+          <div class="mission-sig-avatar" aria-hidden="true">E</div>
+          <div>
+            <div class="mission-sig-name">Euclidia</div>
+            <div class="mission-sig-title">Secondary math teacher, just like you</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Schmoker -->
+    <div class="schmoker-wrap reveal">
+      <div class="schmoker-num" aria-hidden="true">7</div>
+      <div class="schmoker-content">
+        <h3>Every lesson is built on Schmoker's 7 Elements of Effective Teaching</h3>
+        <p>Mike Schmoker's research-backed framework isn't a checkbox — it's the actual structure of how every Euclidia lesson is written, sequenced, and differentiated. Every element is present, every time.</p>
+        <div class="schmoker-tags">
+          <span class="schmoker-tag">Learning Outcome</span>
+          <span class="schmoker-tag">Anticipatory Set</span>
+          <span class="schmoker-tag">Teach & Model</span>
+          <span class="schmoker-tag">Guided Practice</span>
+          <span class="schmoker-tag">Check for Understanding</span>
+          <span class="schmoker-tag">Adjust / Reteach</span>
+          <span class="schmoker-tag">Independent Learning</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- FAQ -->
+<section id="faq" class="section-wrap section-alt-bg" aria-labelledby="faq-h">
+  <div class="section-inner narrow">
+    <div class="reveal">
+      <span class="section-label">Common Questions</span>
+      <h2 class="section-title" id="faq-h">Things teachers<br>actually ask.</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q">Who is behind Euclidia?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <p>Euclidia is created and run by an individual teacher, not a massive corporate publisher. I know exactly what it's like to manage a modern classroom because I am right there in the trenches with you. This was built out of genuine frustration with how long lesson prep takes — and a belief that teachers deserve better.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q">What is Euclidia's mission?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <p>To give you your time back. Our mission is to provide exceptional, high-rigor math resources that handle the heavy lifting of curriculum design so you can focus on your students and finally work at a more humane pace. Teachers do the most important work for underappreciated pay — Euclidia exists to make that workload a little more bearable.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q">Are these resources really "no-prep"?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <p>Yes. Really. Everything is provided. Every bundle includes a step-by-step teacher lesson plan, a scaffolded student worksheet, and a detailed answer key. All you need to do is print, copy, and teach. Editable Word files are also included if you want to make adjustments.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q">What is the recommended pacing?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <p>Lesson plans are written for a conservative 45-minute block, but pacing always varies by class. A highly effective structure is Day 1 for teaching and core practice, Day 2 for review and extension challenges. Regardless of your bell schedule, these lessons are designed to be flexible and useful.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q">Who are these resources designed for?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <p>Euclidia is built explicitly for secondary math teachers — grades 6 through 9 — who want standards-aligned, conceptual-to-procedural instruction without the fluff. Resources are also excellent for substitute teachers since every lesson plan is fully scripted and requires no math background to follow.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q">Does the math actually render correctly?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <p>Yes. Fractions render with a proper fraction bar, exponents appear as true superscripts, and radical symbols display with the vinculum overbar. No blurry screenshots, no slash fractions. Download the free sample from the shop to see for yourself.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q">Can I use these in my classroom?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <p>Yes. The outputs are yours. Print them, distribute them to students, use them however your classroom needs. The editable DOCX files are included so you can adapt them freely.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q">What math standards are covered?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <p>Currently focused on 6th–9th grade Common Core math — number systems, expressions and equations, functions, ratios, proportional relationships, and statistics. Geometry and coordinate plane content is expanding. New resources are added regularly to the shop.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q">Is my payment information safe?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <p>Shop purchases are handled through Gumroad, a trusted digital marketplace. Euclidia never stores your payment details. For the Generator (coming soon), payments will be processed securely through Stripe.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q">I have a question not listed here.</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <p>Email us at <a href="mailto:euclidiamath@gmail.com" style="color:var(--gold);">euclidiamath@gmail.com</a> — we read every message and respond quickly.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Eucli<span>dia</span></div>
+      <p class="footer-tagline">Professional lesson plans for secondary math teachers. Standards-aligned, print-ready, generated in under 2 minutes.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="generator.html">Generator</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="about.html#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Support</div>
+      <ul class="footer-links">
+        <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
+        <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank" rel="noopener">TPT Store ↗</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Euclidia · euclidiamath.com</span>
+    <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('nav-mobile').classList.toggle('open');
+}
+function toggleFaq(btn){
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el=>{
+    el.classList.remove('open');
+    el.querySelector('.faq-btn').setAttribute('aria-expanded','false');
+    el.querySelector('.faq-answer').setAttribute('aria-hidden','true');
+  });
+  if(!isOpen){
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
+    item.querySelector('.faq-answer').setAttribute('aria-hidden','false');
+  }
+}
+setTimeout(()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible')),600);
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.background = window.scrollY>60?'rgba(9,21,37,0.98)':'rgba(9,21,37,0.92)';
+});
+</script>
+</body>
+</html>

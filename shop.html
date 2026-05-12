@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — Euclidia Math Resources</title>
+<meta name="description" content="Browse and download professional, CCSS-aligned math lesson bundles for grades 6–9. Cheaper than TPT, same quality.">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* SHOP-SPECIFIC STYLES */
+.shop-note { background:linear-gradient(135deg,rgba(27,58,107,0.3),rgba(9,21,37,0.8)); border:1px solid var(--gold-border); border-radius:var(--radius-lg); padding:24px 32px; display:flex; align-items:center; gap:20px; margin-bottom:48px; flex-wrap:wrap; }
+.shop-note-icon { font-size:28px; flex-shrink:0; }
+.shop-note p { font-size:14.5px; color:var(--text); line-height:1.65; }
+.shop-note p strong { color:var(--gold); }
+
+/* FILTERS */
+.filter-bar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:40px; }
+.filter-btn { background:var(--card-bg); border:1px solid var(--border); border-radius:8px; padding:8px 18px; font-size:13px; font-weight:600; color:var(--text-dim); cursor:pointer; transition:all 0.2s; font-family:'DM Sans',sans-serif; }
+.filter-btn:hover, .filter-btn.active { background:var(--gold-pale); border-color:var(--gold-border); color:var(--gold); }
+
+/* PRODUCT GRID */
+.product-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+
+/* PRODUCT CARD */
+.product-card { background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; transition:all 0.25s; display:flex; flex-direction:column; }
+.product-card:hover { border-color:var(--gold-border); transform:translateY(-4px); box-shadow:0 20px 48px rgba(0,0,0,0.3); }
+
+.product-thumb { width:100%; aspect-ratio:1/1; object-fit:cover; display:block; background:var(--navy-mid); }
+.product-thumb-placeholder { width:100%; aspect-ratio:1/1; background:linear-gradient(135deg,#1B3A6B,#0D1B2E); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; }
+.product-thumb-placeholder span { font-family:'Playfair Display',serif; font-size:13px; font-weight:700; color:var(--gold); letter-spacing:0.1em; text-transform:uppercase; }
+.product-thumb-placeholder p { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:white; text-align:center; padding:0 16px; line-height:1.3; }
+
+.product-body { padding:20px; flex:1; display:flex; flex-direction:column; gap:10px; }
+.product-tags { display:flex; gap:6px; flex-wrap:wrap; }
+.product-tag { font-size:11px; font-weight:600; background:var(--gold-pale); border:1px solid var(--gold-border); color:var(--gold); padding:3px 9px; border-radius:5px; }
+.product-tag.grade { background:rgba(27,58,107,0.3); border-color:rgba(27,58,107,0.5); color:#93b4d4; }
+.product-title { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:var(--white); line-height:1.3; }
+.product-desc { font-size:13.5px; color:var(--text-dim); line-height:1.6; flex:1; }
+.product-includes { display:flex; gap:12px; font-size:12px; color:var(--text-dim); }
+.product-includes span { display:flex; align-items:center; gap:4px; }
+
+.product-footer { padding:16px 20px; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.product-price { display:flex; flex-direction:column; }
+.product-price-main { font-family:'Playfair Display',serif; font-size:24px; font-weight:900; color:var(--gold); line-height:1; }
+.product-price-note { font-size:11px; color:var(--text-dim); margin-top:2px; }
+.product-price-tpt { font-size:11px; color:var(--text-dim); text-decoration:line-through; }
+
+.btn-buy { background:var(--gold); color:var(--navy); padding:10px 20px; border-radius:8px; font-size:14px; font-weight:700; text-decoration:none; transition:all 0.2s; white-space:nowrap; display:inline-flex; align-items:center; gap:6px; }
+.btn-buy:hover { background:var(--gold-light); transform:translateY(-1px); }
+
+/* EMPTY STATE */
+.empty-state { text-align:center; padding:80px 24px; color:var(--text-dim); }
+.empty-state h3 { font-family:'Playfair Display',serif; font-size:22px; color:var(--white); margin-bottom:12px; }
+
+/* COMING SOON BANNER */
+.more-coming { background:var(--gold-pale); border:1px solid var(--gold-border); border-radius:var(--radius-lg); padding:32px; text-align:center; margin-top:48px; }
+.more-coming h3 { font-family:'Playfair Display',serif; font-size:20px; color:var(--white); margin-bottom:8px; }
+.more-coming p { font-size:14px; color:var(--text-dim); }
+
+@media(max-width:960px){ .product-grid { grid-template-columns:repeat(2,1fr); } }
+@media(max-width:600px){ .product-grid { grid-template-columns:1fr; } .shop-note { flex-direction:column; } }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo">Eucli<span>dia</span></a>
+  <ul class="nav-links">
+    <li><a href="shop.html" class="active">Shop</a></li>
+    <li><a href="generator.html">Generator</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="about.html#faq">FAQ</a></li>
+    <li><a href="shop.html" class="nav-cta">Browse Resources</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="generator.html">Generator</a>
+  <a href="about.html">About</a>
+  <a href="about.html#faq">FAQ</a>
+</div>
+
+<main id="main">
+
+<div class="page-hero">
+  <span class="section-label">Ready-Made Resources</span>
+  <h1>The <em>Euclidia</em> Shop</h1>
+  <p>Professional lesson bundles — lesson plan, worksheet, and answer key — ready to download instantly. Always cheaper than TPT.</p>
+</div>
+
+<section class="section-wrap">
+  <div class="section-inner" style="padding-top:0;">
+
+    <!-- TPT Comparison Note -->
+    <div class="shop-note reveal">
+      <div class="shop-note-icon">💡</div>
+      <p>Everything here is <strong>$1 cheaper than our TPT store</strong> — same quality, better price. You get the editable Word file too, not just the PDF. Questions? Email <a href="mailto:euclidiamath@gmail.com" style="color:var(--gold);">euclidiamath@gmail.com</a></p>
+    </div>
+
+    <!-- FILTER BAR -->
+    <!-- TO ADD NEW FILTERS: copy a filter-btn and update the data-filter value to match your product tags -->
+    <div class="filter-bar" role="group" aria-label="Filter products">
+      <button class="filter-btn active" data-filter="all" onclick="filterProducts(this,'all')">All Resources</button>
+      <button class="filter-btn" data-filter="6-8" onclick="filterProducts(this,'6-8')">Grades 6–8</button>
+      <button class="filter-btn" data-filter="8-9" onclick="filterProducts(this,'8-9')">Grades 8–9</button>
+      <button class="filter-btn" data-filter="equations" onclick="filterProducts(this,'equations')">Equations</button>
+      <button class="filter-btn" data-filter="exponents" onclick="filterProducts(this,'exponents')">Exponents</button>
+      <button class="filter-btn" data-filter="notation" onclick="filterProducts(this,'notation')">Scientific Notation</button>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <!-- ============================================================
+         HOW TO ADD A NEW PRODUCT:
+         1. Copy one full product-card block below
+         2. Paste it inside the product-grid div
+         3. Update: title, description, standard tag, grade tag,
+            price, Gumroad link, and thumbnail image
+         4. Save the file and re-upload to Netlify
+         ============================================================ -->
+    <div class="product-grid" id="product-grid">
+
+      <!-- PRODUCT 1: Solving Multi-Step Equations -->
+      <!-- data-tags: used for filtering. Add any relevant keywords separated by spaces -->
+      <div class="product-card reveal" data-tags="6-8 equations 8-ee">
+
+        <!-- THUMBNAIL: replace the placeholder div with an <img> tag once you have your thumbnail
+             Example: <img src="images/solving-multi-step-equations.png" alt="Solving Multi-Step Equations thumbnail" class="product-thumb"> -->
+        <div class="product-thumb-placeholder">
+          <span>Euclidia</span>
+          <p>Solving Multi-Step Equations</p>
+        </div>
+
+        <div class="product-body">
+          <div class="product-tags">
+            <span class="product-tag">8.EE.C.7b</span>
+            <span class="product-tag grade">Grades 6–8</span>
+          </div>
+          <div class="product-title">Solving Multi-Step Equations</div>
+          <div class="product-desc">No-prep lesson bundle with scripted lesson plan, scaffolded worksheet, and full answer key. Covers combining like terms, inverse operations, and checking solutions.</div>
+          <div class="product-includes">
+            <span>📋 Lesson Plan</span>
+            <span>📝 Worksheet</span>
+            <span>✅ Answer Key</span>
+          </div>
+        </div>
+
+        <div class="product-footer">
+          <div class="product-price">
+            <div class="product-price-main">$2.25</div>
+            <div class="product-price-tpt">$3.25 on TPT</div>
+            <div class="product-price-note">PDF + editable DOCX</div>
+          </div>
+          <!-- GUMROAD LINK: replace # with your actual Gumroad product URL
+               Example: href="https://euclidiamath.gumroad.com/l/multi-step-equations" -->
+          <a href="#" class="btn-buy" target="_blank" rel="noopener">
+            Buy Now ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- PRODUCT 2: Scientific Notation -->
+      <div class="product-card reveal" data-tags="6-8 notation 8-ee exponents">
+        <div class="product-thumb-placeholder">
+          <span>Euclidia</span>
+          <p>Scientific Notation</p>
+        </div>
+        <div class="product-body">
+          <div class="product-tags">
+            <span class="product-tag">8.EE.A.3</span>
+            <span class="product-tag grade">Grades 6–8</span>
+          </div>
+          <div class="product-title">Scientific Notation</div>
+          <div class="product-desc">Complete lesson bundle covering converting between standard and scientific notation, with real-world applications involving very large and very small numbers.</div>
+          <div class="product-includes">
+            <span>📋 Lesson Plan</span>
+            <span>📝 Worksheet</span>
+            <span>✅ Answer Key</span>
+          </div>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">
+            <div class="product-price-main">$2.25</div>
+            <div class="product-price-tpt">$3.25 on TPT</div>
+            <div class="product-price-note">PDF + editable DOCX</div>
+          </div>
+          <a href="#" class="btn-buy" target="_blank" rel="noopener">Buy Now ↗</a>
+        </div>
+      </div>
+
+      <!-- PRODUCT 3: Laws of Exponents (FREE) -->
+      <div class="product-card reveal" data-tags="6-8 exponents 8-ee">
+        <div class="product-thumb-placeholder">
+          <span>Euclidia</span>
+          <p>Laws of Exponents</p>
+        </div>
+        <div class="product-body">
+          <div class="product-tags">
+            <span class="product-tag">8.EE.A.1</span>
+            <span class="product-tag grade">Grades 6–8</span>
+          </div>
+          <div class="product-title">Laws of Exponents</div>
+          <div class="product-desc">Product of powers, quotient of powers, and power of a power rules. Includes the complete lesson plan, scaffolded worksheet, and detailed answer key.</div>
+          <div class="product-includes">
+            <span>📋 Lesson Plan</span>
+            <span>📝 Worksheet</span>
+            <span>✅ Answer Key</span>
+          </div>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">
+            <div class="product-price-main" style="color:#34d399;">FREE</div>
+            <div class="product-price-note">PDF + editable DOCX</div>
+          </div>
+          <a href="#" class="btn-buy" style="background:#34d399;" target="_blank" rel="noopener">Download ↗</a>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           ADD MORE PRODUCTS HERE by copying the block above
+           ============================================================ -->
+
+    </div><!-- end product-grid -->
+
+    <!-- More coming soon -->
+    <div class="more-coming reveal">
+      <h3>More resources added regularly</h3>
+      <p>New lesson bundles are added as they're created. Follow us on TPT or check back here for the latest additions.</p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Eucli<span>dia</span></div>
+      <p class="footer-tagline">Professional lesson plans for secondary math teachers. Standards-aligned, print-ready, generated in under 2 minutes.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="generator.html">Generator</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="about.html#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Support</div>
+      <ul class="footer-links">
+        <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
+        <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank" rel="noopener">TPT Store ↗</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Euclidia · euclidiamath.com</span>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('nav-mobile').classList.toggle('open');
+}
+
+function filterProducts(btn, filter){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(card=>{
+    if(filter === 'all' || card.dataset.tags.includes(filter)){
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+setTimeout(()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible')),600);
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.background = window.scrollY>60?'rgba(9,21,37,0.98)':'rgba(9,21,37,0.92)';
+});
+</script>
+</body>
+</html>
