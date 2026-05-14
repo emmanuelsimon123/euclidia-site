@@ -28,6 +28,7 @@
 .notify-btn { background:var(--gold); color:var(--navy); border:none; border-radius:9px; padding:12px 24px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:700; cursor:pointer; transition:all 0.2s; white-space:nowrap; }
 .notify-btn:hover { background:var(--gold-light); }
 .notify-success { display:none; font-size:14px; color:#34d399; margin-top:12px; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 
 /* HOW IT WORKS STEPS */
 .steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; border:1px solid var(--border-gold); border-radius:var(--radius-lg); overflow:hidden; background:var(--border-gold); margin-top:56px; }
@@ -131,6 +132,7 @@
       <p>We're putting the finishing touches on the tool. Leave your email and we'll let you know the moment it goes live — you'll get early access.</p>
       <form class="notify-form" name="notify" method="POST" action="generator.html?submitted=true" data-netlify="true" netlify>
         <input type="hidden" name="form-name" value="notify">
+        <label class="sr-only" for="notify-email">Email address</label>
         <input class="notify-input" type="email" id="notify-email" name="email" placeholder="your@email.com" required>
         <button class="notify-btn" type="submit">Notify Me</button>
       </form>

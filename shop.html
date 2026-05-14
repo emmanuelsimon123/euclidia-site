@@ -333,6 +333,16 @@ function toggleMenu(){
   document.getElementById('nav-mobile').classList.toggle('open');
 }
 
+document.querySelectorAll('a.nav-cta[href="#product-container"]').forEach(link=>{
+  link.addEventListener('click', e=>{
+    e.preventDefault();
+    const target = document.getElementById('product-container');
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
+  });
+});
+
 const obs = new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
 },{threshold:0.1});
