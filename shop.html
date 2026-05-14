@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shop — Euclidia Math Resources</title>
 <meta name="description" content="Browse and download professional, CCSS-aligned math lesson bundles for grades 6–9. Cheaper than TPT, same quality.">
+<meta property="og:title" content="Shop — Euclidia Math Resources">
+<meta property="og:description" content="Browse and download professional, CCSS-aligned math lesson bundles for grades 6–9. Cheaper than TPT, same quality.">
+<meta property="og:url" content="https://euclidiamath.com/shop.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="icon" href="favicon.ico">
 <link rel="stylesheet" href="styles.css">
 <style>
 /* SHOP-SPECIFIC STYLES */
@@ -78,7 +85,7 @@
     <li><a href="generator.html">Generator</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="about.html#faq">FAQ</a></li>
-    <li><a href="shop.html" class="nav-cta">Browse Resources</a></li>
+    <li><a href="#product-container" class="nav-cta">Browse Resources</a></li>
   </ul>
   <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
     <span></span><span></span><span></span>
@@ -91,6 +98,7 @@
   <a href="generator.html">Generator</a>
   <a href="about.html">About</a>
   <a href="about.html#faq">FAQ</a>
+  <a href="#product-container" class="nav-cta">Browse Resources</a>
 </div>
 
 <main id="main">
@@ -155,14 +163,14 @@
       <ul class="footer-links">
         <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
         <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank" rel="noopener">TPT Store ↗</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">© 2025 Euclidia · euclidiamath.com</span>
-    <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    <span class="footer-copy">© 2026 Euclidia · euclidiamath.com</span>
+    <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
   </div>
 </footer>
 
@@ -209,7 +217,7 @@ function buildProductCard(product) {
   const btnHref = product.buy_url && product.buy_url !== '' ? product.buy_url : '#';
 
   return `
-    <div class="product-card" data-tags="${product.tags || ''}">
+    <div class="product-card" data-tags="${(product.tags || []).join(' ')}">
       ${thumbHtml}
       <div class="product-body">
         <div class="product-tags">
@@ -236,7 +244,7 @@ function buildFilters(products) {
   const tagSet = new Set();
   products.forEach(p => {
     if (p.tags) {
-      p.tags.split(' ').forEach(t => { if(t.trim()) tagSet.add(t.trim()); });
+      p.tags.forEach(t => { if(t.trim()) tagSet.add(t.trim()); });
     }
   });
 
@@ -265,7 +273,7 @@ function renderGrid() {
   const container = document.getElementById('product-container');
   const filtered = activeFilter === 'all'
     ? allProducts
-    : allProducts.filter(p => p.tags && p.tags.split(' ').includes(activeFilter));
+    : allProducts.filter(p => p.tags && p.tags.includes(activeFilter));
 
   if (filtered.length === 0) {
     container.innerHTML = `
@@ -324,6 +332,18 @@ async function loadProducts() {
 function toggleMenu(){
   document.getElementById('nav-mobile').classList.toggle('open');
 }
+
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>{
+  const rect = el.getBoundingClientRect();
+  if(rect.top < window.innerHeight && rect.bottom >= 0){
+    setTimeout(()=>el.classList.add('visible'), 100);
+  } else {
+    obs.observe(el);
+  }
+});
 
 // Nav scroll effect
 window.addEventListener('scroll', () => {

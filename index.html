@@ -5,7 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Euclidia — Standards-Aligned Math Lesson Plans in Under 2 Minutes</title>
 <meta name="description" content="Professional, print-ready math lesson bundles for secondary teachers. Buy ready-made resources or generate your own.">
-<link rel="stylesheet" href="styles.css"><script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<meta property="og:title" content="Euclidia — Standards-Aligned Math Lesson Plans in Under 2 Minutes">
+<meta property="og:description" content="Professional, print-ready math lesson bundles for secondary teachers. Buy ready-made resources or generate your own.">
+<meta property="og:url" content="https://euclidiamath.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="styles.css">
 <style>
 /* HOME-SPECIFIC STYLES */
 .hero { position:relative; min-height:100vh; display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:64px; max-width:1200px; margin:0 auto; padding:120px 48px 80px; z-index:1; }
@@ -247,16 +254,16 @@
         <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
         <li><a href="about.html#faq">Help & FAQ</a></li>
         <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank" rel="noopener">TPT Store ↗</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">© 2025 Euclidia · euclidiamath.com</span>
+    <span class="footer-copy">© 2026 Euclidia · euclidiamath.com</span>
     <div class="footer-legal">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
     </div>
   </div>
 </footer>
@@ -270,11 +277,17 @@ document.addEventListener('click', function(e){
     document.getElementById('nav-mobile').classList.remove('open');
   }
 });
-setTimeout(()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible')),600);
 const obs = new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
 },{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('.reveal').forEach(el=>{
+  const rect = el.getBoundingClientRect();
+  if(rect.top < window.innerHeight && rect.bottom >= 0){
+    setTimeout(()=>el.classList.add('visible'), 100);
+  } else {
+    obs.observe(el);
+  }
+});
 window.addEventListener('scroll',()=>{
   document.querySelector('nav').style.background = window.scrollY>60?'rgba(9,21,37,0.98)':'rgba(9,21,37,0.92)';
 });

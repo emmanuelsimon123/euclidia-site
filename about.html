@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Euclidia</title>
 <meta name="description" content="Euclidia is built by a secondary math teacher for secondary math teachers. Our mission is to give you your time back.">
+<meta property="og:title" content="About — Euclidia">
+<meta property="og:description" content="Euclidia is built by a secondary math teacher for secondary math teachers. Our mission is to give you your time back.">
+<meta property="og:url" content="https://euclidiamath.com/about.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="icon" href="favicon.ico">
 <link rel="stylesheet" href="styles.css">
 <style>
 /* ABOUT-SPECIFIC */
@@ -61,6 +68,7 @@
   <a href="generator.html">Generator</a>
   <a href="about.html">About</a>
   <a href="about.html#faq">FAQ</a>
+  <a href="shop.html" class="nav-cta">Browse Resources</a>
 </div>
 
 <main id="main">
@@ -127,101 +135,101 @@
     <div class="faq-list reveal">
 
       <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-1">
           <span class="faq-q">Who is behind Euclidia?</span>
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
-        <div class="faq-answer" aria-hidden="true">
+        <div class="faq-answer" id="faq-answer-1" role="region" aria-hidden="true">
           <p>Euclidia is created and run by an individual teacher, not a massive corporate publisher. I know exactly what it's like to manage a modern classroom because I am right there in the trenches with you. This was built out of genuine frustration with how long lesson prep takes — and a belief that teachers deserve better.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-2">
           <span class="faq-q">What is Euclidia's mission?</span>
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
-        <div class="faq-answer" aria-hidden="true">
+        <div class="faq-answer" id="faq-answer-2" role="region" aria-hidden="true">
           <p>To give you your time back. Our mission is to provide exceptional, high-rigor math resources that handle the heavy lifting of curriculum design so you can focus on your students and finally work at a more humane pace. Teachers do the most important work for underappreciated pay — Euclidia exists to make that workload a little more bearable.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-3">
           <span class="faq-q">Are these resources really "no-prep"?</span>
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
-        <div class="faq-answer" aria-hidden="true">
+        <div class="faq-answer" id="faq-answer-3" role="region" aria-hidden="true">
           <p>Yes. Really. Everything is provided. Every bundle includes a step-by-step teacher lesson plan, a scaffolded student worksheet, and a detailed answer key. All you need to do is print, copy, and teach. Editable Word files are also included if you want to make adjustments.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-4">
           <span class="faq-q">What is the recommended pacing?</span>
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
-        <div class="faq-answer" aria-hidden="true">
+        <div class="faq-answer" id="faq-answer-4" role="region" aria-hidden="true">
           <p>Lesson plans are written for a conservative 45-minute block, but pacing always varies by class. A highly effective structure is Day 1 for teaching and core practice, Day 2 for review and extension challenges. Regardless of your bell schedule, these lessons are designed to be flexible and useful.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-5">
           <span class="faq-q">Who are these resources designed for?</span>
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
-        <div class="faq-answer" aria-hidden="true">
+        <div class="faq-answer" id="faq-answer-5" role="region" aria-hidden="true">
           <p>Euclidia is built explicitly for secondary math teachers — grades 6 through 9 — who want standards-aligned, conceptual-to-procedural instruction without the fluff. Resources are also excellent for substitute teachers since every lesson plan is fully scripted and requires no math background to follow.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-6">
           <span class="faq-q">Does the math actually render correctly?</span>
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
-        <div class="faq-answer" aria-hidden="true">
+        <div class="faq-answer" id="faq-answer-6" role="region" aria-hidden="true">
           <p>Yes. Fractions render with a proper fraction bar, exponents appear as true superscripts, and radical symbols display with the vinculum overbar. No blurry screenshots, no slash fractions. Download the free sample from the shop to see for yourself.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-7">
           <span class="faq-q">Can I use these in my classroom?</span>
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
-        <div class="faq-answer" aria-hidden="true">
+        <div class="faq-answer" id="faq-answer-7" role="region" aria-hidden="true">
           <p>Yes. The outputs are yours. Print them, distribute them to students, use them however your classroom needs. The editable DOCX files are included so you can adapt them freely.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-8">
           <span class="faq-q">What math standards are covered?</span>
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
-        <div class="faq-answer" aria-hidden="true">
+        <div class="faq-answer" id="faq-answer-8" role="region" aria-hidden="true">
           <p>Currently focused on 6th–9th grade Common Core math — number systems, expressions and equations, functions, ratios, proportional relationships, and statistics. Geometry and coordinate plane content is expanding. New resources are added regularly to the shop.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-9">
           <span class="faq-q">Is my payment information safe?</span>
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
-        <div class="faq-answer" aria-hidden="true">
+        <div class="faq-answer" id="faq-answer-9" role="region" aria-hidden="true">
           <p>Shop purchases are handled through Gumroad, a trusted digital marketplace. Euclidia never stores your payment details. For the Generator (coming soon), payments will be processed securely through Stripe.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-10">
           <span class="faq-q">I have a question not listed here.</span>
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
-        <div class="faq-answer" aria-hidden="true">
+        <div class="faq-answer" id="faq-answer-10" role="region" aria-hidden="true">
           <p>Email us at <a href="mailto:euclidiamath@gmail.com" style="color:var(--gold);">euclidiamath@gmail.com</a> — we read every message and respond quickly.</p>
         </div>
       </div>
@@ -253,14 +261,14 @@
       <ul class="footer-links">
         <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
         <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank" rel="noopener">TPT Store ↗</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">© 2025 Euclidia · euclidiamath.com</span>
-    <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    <span class="footer-copy">© 2026 Euclidia · euclidiamath.com</span>
+    <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
   </div>
 </footer>
 
@@ -270,6 +278,8 @@ function toggleMenu(){
 }
 function toggleFaq(btn){
   const item = btn.parentElement;
+  const answerId = btn.getAttribute('aria-controls');
+  const answer = answerId ? document.getElementById(answerId) : item.querySelector('.faq-answer');
   const isOpen = item.classList.contains('open');
   document.querySelectorAll('.faq-item.open').forEach(el=>{
     el.classList.remove('open');
@@ -279,14 +289,20 @@ function toggleFaq(btn){
   if(!isOpen){
     item.classList.add('open');
     btn.setAttribute('aria-expanded','true');
-    item.querySelector('.faq-answer').setAttribute('aria-hidden','false');
+    answer.setAttribute('aria-hidden','false');
   }
 }
-setTimeout(()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible')),600);
 const obs = new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
 },{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('.reveal').forEach(el=>{
+  const rect = el.getBoundingClientRect();
+  if(rect.top < window.innerHeight && rect.bottom >= 0){
+    setTimeout(()=>el.classList.add('visible'), 100);
+  } else {
+    obs.observe(el);
+  }
+});
 window.addEventListener('scroll',()=>{
   document.querySelector('nav').style.background = window.scrollY>60?'rgba(9,21,37,0.98)':'rgba(9,21,37,0.92)';
 });
