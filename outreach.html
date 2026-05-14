@@ -162,7 +162,8 @@
           <div class="calc-savings-box">
             <div class="calc-savings-label">Time value reclaimed every week</div>
             <div class="calc-savings-amt" id="outreach-savings-amount">$51.33</div>
-            <div class="calc-savings-sub" id="outreach-savings-sub">Pays for itself in less than one week</div>
+            <div style="font-size:14px;font-weight:700;margin:6px 0 2px;opacity:0.9;" id="outreach-savings-annual">That's $2,053 back over a school year</div>
+            <div class="calc-savings-sub" id="outreach-savings-sub">Pays for itself in less than one week. Then it's pure return.</div>
           </div>
           <p style="font-size:12px;color:var(--text-dim);text-align:center;line-height:1.6;">One-time purchase. No subscription. Your student data never leaves your computer.</p>
         </div>
@@ -215,7 +216,9 @@ function updateOutreachCalc() {
     document.getElementById('outreach-time-val').textContent = hours + ' hrs';
     document.getElementById('outreach-your-cost').textContent = '$' + yourCost.toFixed(2);
     document.getElementById('outreach-after-cost').textContent = '$' + afterCost.toFixed(2);
+    var annualSaved = weeklySaved * 40;
     document.getElementById('outreach-savings-amount').textContent = '$' + weeklySaved.toFixed(2);
+    document.getElementById('outreach-savings-annual').textContent = 'That\'s $' + Math.round(annualSaved).toLocaleString() + ' back over a school year';
     document.getElementById('outreach-savings-sub').textContent = recoupText;
   } catch (e) {}
 }
