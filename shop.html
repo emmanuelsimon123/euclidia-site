@@ -9,9 +9,9 @@
 <meta property="og:description" content="Browse and download professional, CCSS-aligned math lesson bundles for grades 6–9. Cheaper than TPT, same quality.">
 <meta property="og:url" content="https://euclidiamath.com/shop.html">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://euclidiamath.com/images/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="images/favicon.png">
-<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 <link rel="stylesheet" href="styles.css">
 <style>
 /* SHOP-SPECIFIC STYLES */
@@ -74,34 +74,9 @@
 @media(max-width:600px){ .product-grid { grid-template-columns:1fr; } }
 </style>
 </head>
-<body>
+<body data-page="shop">
 
 <a href="#main" class="skip-link">Skip to main content</a>
-
-<nav role="navigation" aria-label="Main navigation">
-  <a href="index.html" class="nav-logo">Eucli<span>dia</span></a>
-  <ul class="nav-links">
-    <li><a href="shop.html" class="active">Lessons</a></li>
-    <li><a href="generator.html">Generator</a></li>
-    <li><a href="outreach.html">Outreach</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="about.html#faq">FAQ</a></li>
-    <li><a href="shop.html" class="nav-cta">Browse Lessons</a></li>
-  </ul>
-  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<div class="nav-mobile" id="nav-mobile">
-  <a href="index.html">Home</a>
-  <a href="shop.html" class="active">Lessons</a>
-  <a href="generator.html">Generator</a>
-  <a href="outreach.html">Outreach</a>
-  <a href="about.html">About</a>
-  <a href="about.html#faq">FAQ</a>
-  <a href="shop.html" class="nav-cta">Browse Lessons</a>
-</div>
 
 <main id="main">
 
@@ -114,18 +89,15 @@
 <section class="section-wrap">
   <div class="section-inner" style="padding-top:0;">
 
-    <!-- TPT Note -->
     <div class="shop-note">
       <div class="shop-note-icon">💡</div>
       <p>Everything here is <strong>$1 cheaper than our TPT store</strong>. Same quality, better price. You get the editable Word file too. Questions? Email <a href="mailto:euclidiamath@gmail.com" style="color:var(--gold);">euclidiamath@gmail.com</a></p>
     </div>
 
-    <!-- Filter Bar -->
     <div class="filter-bar" id="filter-bar" role="group" aria-label="Filter products">
       <button class="filter-btn active" data-filter="all" onclick="filterProducts(this,'all')">All Resources</button>
     </div>
 
-    <!-- Product Grid, populated automatically by JavaScript -->
     <div id="product-container">
       <div class="loading-state">
         <div class="loading-spinner"></div>
@@ -133,7 +105,6 @@
       </div>
     </div>
 
-    <!-- More coming -->
     <div class="more-coming" id="more-coming" style="display:none;">
       <h3>More resources added regularly</h3>
       <p>New lesson bundles are added as they're created. Follow us on TPT or check back here for the latest additions.</p>
@@ -144,48 +115,15 @@
 
 </main>
 
-<footer role="contentinfo">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logo">Eucli<span>dia</span></div>
-      <p class="footer-tagline">Professional lesson plans for secondary math teachers. Standards-aligned, print-ready, generated in under 2 minutes.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Navigate</div>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Lessons</a></li>
-        <li><a href="generator.html">Generator</a></li>
-        <li><a href="outreach.html">Outreach</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="about.html#faq">FAQ</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Support</div>
-      <ul class="footer-links">
-        <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
-        <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank" rel="noopener">TPT Store ↗</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms of Service</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span class="footer-copy">© 2026 Euclidia · euclidiamath.com</span>
-    <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
-  </div>
-</footer>
-
+<script src="nav.js"></script>
+<script src="main.js"></script>
 <script>
 let allProducts = [];
 let activeFilter = 'all';
 
-// Build a product card HTML string
 function buildProductCard(product) {
   const isFree = product.is_free === true || product.is_free === 'true';
 
-  // Thumbnail
   let thumbHtml = '';
   if (product.thumbnail && product.thumbnail !== '') {
     thumbHtml = `<img src="${product.thumbnail}" alt="${product.title} thumbnail" class="product-thumb" loading="lazy">`;
@@ -197,7 +135,6 @@ function buildProductCard(product) {
       </div>`;
   }
 
-  // Price display
   let priceHtml = '';
   if (isFree) {
     priceHtml = `
@@ -214,7 +151,6 @@ function buildProductCard(product) {
       </div>`;
   }
 
-  // Buy button
   const btnClass = isFree ? 'btn-buy free' : 'btn-buy';
   const btnText = isFree ? 'Download ↗' : 'Buy Now ↗';
   const btnHref = product.buy_url && product.buy_url !== '' ? product.buy_url : '#';
@@ -242,41 +178,34 @@ function buildProductCard(product) {
     </div>`;
 }
 
-// Build filter buttons from product tags
 function buildFilters(products) {
   const tagSet = new Set();
-  products.forEach(p => {
-    if (p.tags) {
-      p.tags.forEach(t => { if(t.trim()) tagSet.add(t.trim()); });
-    }
+  products.forEach(function (p) {
+    if (p.tags) p.tags.forEach(function (t) { if (t.trim()) tagSet.add(t.trim()); });
   });
-
   const filterBar = document.getElementById('filter-bar');
-  // Keep the "All" button, add others
-  tagSet.forEach(tag => {
+  tagSet.forEach(function (tag) {
     const btn = document.createElement('button');
     btn.className = 'filter-btn';
     btn.dataset.filter = tag;
     btn.textContent = tag;
-    btn.onclick = () => filterProducts(btn, tag);
+    btn.onclick = function () { filterProducts(btn, tag); };
     filterBar.appendChild(btn);
   });
 }
 
-// Filter products
 function filterProducts(btn, filter) {
   activeFilter = filter;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
   btn.classList.add('active');
   renderGrid();
 }
 
-// Render product grid based on active filter
 function renderGrid() {
   const container = document.getElementById('product-container');
   const filtered = activeFilter === 'all'
     ? allProducts
-    : allProducts.filter(p => p.tags && p.tags.includes(activeFilter));
+    : allProducts.filter(function (p) { return p.tags && p.tags.includes(activeFilter); });
 
   if (filtered.length === 0) {
     container.innerHTML = `
@@ -291,14 +220,11 @@ function renderGrid() {
   document.getElementById('more-coming').style.display = 'block';
 }
 
-// Fetch products from products.json
 async function loadProducts() {
   const container = document.getElementById('product-container');
-
   try {
     const res = await fetch('products.json');
     if (!res.ok) throw new Error('Failed to load products: ' + res.status);
-
     const products = await res.json();
 
     if (!products || products.length === 0) {
@@ -311,9 +237,7 @@ async function loadProducts() {
     }
 
     allProducts = products;
-
-    // Sort: free products last, rest by title
-    allProducts.sort((a, b) => {
+    allProducts.sort(function (a, b) {
       if (a.is_free && !b.is_free) return 1;
       if (!a.is_free && b.is_free) return -1;
       return (a.title || '').localeCompare(b.title || '');
@@ -321,7 +245,6 @@ async function loadProducts() {
 
     buildFilters(allProducts);
     renderGrid();
-
   } catch (err) {
     console.error('Error loading products:', err);
     container.innerHTML = `
@@ -331,40 +254,6 @@ async function loadProducts() {
   }
 }
 
-// Mobile nav
-function toggleMenu(){
-  document.getElementById('nav-mobile').classList.toggle('open');
-}
-
-document.querySelectorAll('a.nav-cta[href="#product-container"]').forEach(link=>{
-  link.addEventListener('click', e=>{
-    e.preventDefault();
-    const target = document.getElementById('product-container');
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    target.setAttribute('tabindex', '-1');
-    target.focus({ preventScroll: true });
-  });
-});
-
-const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>{
-  const rect = el.getBoundingClientRect();
-  if(rect.top < window.innerHeight && rect.bottom >= 0){
-    setTimeout(()=>el.classList.add('visible'), 100);
-  } else {
-    obs.observe(el);
-  }
-});
-
-// Nav scroll effect
-window.addEventListener('scroll', () => {
-  document.querySelector('nav').style.background =
-    window.scrollY > 60 ? 'rgba(9,21,37,0.98)' : 'rgba(9,21,37,0.92)';
-});
-
-// Load products on page load
 loadProducts();
 </script>
 </body>

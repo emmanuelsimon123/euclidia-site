@@ -8,8 +8,8 @@ This guide walks you through adding a new product to euclidiamath.com/shop using
 
 Before running the script, make sure you have:
 
-- [ ] Your lesson bundle exported as a **ZIP file** uploaded to Gumroad (see Gumroad setup below)
-- [ ] Your **Gumroad product link** (looks like `https://euclidiamath.gumroad.com/l/your-product`)
+- [ ] Your lesson bundle uploaded to **Payhip** (see Payhip setup below)
+- [ ] Your **Payhip product link** (looks like `https://payhip.com/b/XXXXX`)
 - [ ] Your **Canva thumbnail** exported as a PNG file
 - [ ] The **CCSS standard** for the lesson (e.g. 8.EE.C.7b)
 
@@ -61,7 +61,7 @@ The script will ask you these questions one by one. Just type your answer and pr
 | Is this product free? | n |
 | Your website price | $2.25 |
 | TPT price | $3.25 on TPT |
-| Gumroad buy link | https://euclidiamath.gumroad.com/l/multi-step |
+| Payhip buy link | https://payhip.com/b/XXXXX |
 | Short description | No-prep lesson bundle covering combining like terms and inverse operations. |
 | Tags for filtering | 6-8 equations 8-ee |
 
@@ -105,7 +105,7 @@ The script shows you a preview of your product:
 If everything looks correct type **y** and press Enter.
 
 The script will:
-1. Create the product file
+1. Update products.json with your new product
 2. Copy the thumbnail to the right place
 3. Push everything to GitHub automatically
 
@@ -115,7 +115,7 @@ You'll see this when it's done:
 ==================================================
    Product Added Successfully!
 ==================================================
-✓ Product file created
+✓ products.json updated
 ✓ Thumbnail uploaded
 ✓ Pushed to GitHub
 
@@ -133,45 +133,44 @@ in about 60 seconds.
 
 ---
 
-## Setting Up Gumroad (One Time Only)
+## Setting Up Payhip (One Time Only)
 
-Gumroad handles your payments and file delivery. You only need to set this up once.
+Payhip handles your payments and file delivery. You only need to set this up once.
 
-1. Go to **gumroad.com** and create a free account using euclidiamath@gmail.com
-2. Click **New Product → Digital product**
+1. Go to **payhip.com** and create a free account using euclidiamath@gmail.com
+2. Click **Add a Product → Digital Download**
 3. Upload your lesson bundle as a ZIP file (lesson plan + worksheet + answer key)
 4. Set your price (e.g. $2.25)
 5. Add a title and short description
 6. Click **Publish**
-7. Copy the product URL — this is your Gumroad link
+7. Copy the product URL — this is your Payhip link (e.g. `https://payhip.com/b/XXXXX`)
 
-Gumroad takes about 10% per sale and handles everything — payments, receipts, and file delivery to the buyer automatically.
+Payhip handles payments, receipts, and file delivery to the buyer automatically.
 
 ---
 
 ## Adding a Free Product
 
-If the product is free (like your Laws of Exponents freebie):
+If the product is free (like the Laws of Exponents freebie):
 
 1. Run `python add_product.py` as normal
 2. When asked "Is this product free?" type **y**
 3. The script skips the price fields
-4. Enter your Gumroad link — on Gumroad set the price to $0 so it's a free download
+4. Enter your Payhip link — on Payhip set the price to $0 so it's a free download
 
 ---
 
 ## Updating an Existing Product
 
-To change the price, description, or Gumroad link of an existing product:
+To change the price, description, or buy link of an existing product:
 
 1. Open Codespaces
-2. In the left sidebar find the `_products` folder
-3. Click the product's `.md` file
-4. Edit the value you want to change
-5. In the Terminal run:
+2. In the left sidebar find **products.json**
+3. Edit the value you want to change directly in the file
+4. In the Terminal run:
 
 ```
-git add _products/your-product-name.md
+git add products.json
 git commit -m "Update product: Your Product Name"
 git push
 ```
@@ -183,13 +182,12 @@ Changes are live in about 60 seconds.
 ## Replacing a Thumbnail
 
 1. Upload the new image to the `images/` folder in Codespaces
-2. Open the product's `.md` file in `_products/`
-3. Find the line that says `thumbnail:` and update the filename
+2. Open `products.json` and find your product
+3. Update the `thumbnail` field with the new filename
 4. In the Terminal run:
 
 ```
-git add images/new-thumbnail.png
-git add _products/your-product-name.md
+git add images/new-thumbnail.png products.json
 git commit -m "Update thumbnail: Your Product Name"
 git push
 ```
@@ -215,7 +213,7 @@ If it asks for credentials, Codespaces handles this automatically — just wait 
 Go to your GitHub repo and check the **Actions** tab. Look for a green checkmark meaning the deployment succeeded. If there's a red X click it to see the error and send it to euclidiamath@gmail.com for help.
 
 **Thumbnail not showing on shop**
-Make sure the filename in your product's `.md` file exactly matches the filename in the `images/` folder — including capitalization.
+Make sure the filename in `products.json` exactly matches the filename in the `images/` folder — including capitalization.
 
 ---
 

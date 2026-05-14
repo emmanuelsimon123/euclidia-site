@@ -9,35 +9,11 @@
 <meta property="og:description" content="Generate custom, standards-aligned math lesson bundles in under 2 minutes. Buy credits, use whenever you want.">
 <meta property="og:url" content="https://euclidiamath.com/generator.html">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://euclidiamath.com/images/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="images/favicon.png">
-<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 <link rel="stylesheet" href="styles.css">
 <style>
-/* GENERATOR-SPECIFIC */
-.coming-soon-banner { background:linear-gradient(135deg,rgba(27,58,107,0.5),rgba(9,21,37,0.9)); border:1px solid var(--gold-border); border-radius:var(--radius-lg); padding:40px 48px; text-align:center; margin-bottom:80px; }
-.coming-soon-banner h2 { font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--white); margin-bottom:10px; }
-.coming-soon-banner p { font-size:15px; color:var(--text-dim); line-height:1.7; max-width:480px; margin:0 auto 24px; }
-.coming-soon-badge { display:inline-block; background:var(--gold-pale); border:1px solid var(--gold-border); border-radius:100px; padding:6px 18px; font-size:12px; font-weight:700; color:var(--gold); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:20px; }
-
-/* NOTIFY FORM */
-.notify-form { display:flex; gap:10px; max-width:400px; margin:0 auto; flex-wrap:wrap; justify-content:center; }
-.notify-input { flex:1; min-width:200px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:9px; padding:12px 16px; color:var(--white); font-family:'DM Sans',sans-serif; font-size:15px; outline:none; transition:border-color 0.2s; }
-.notify-input:focus { border-color:var(--gold); }
-.notify-input::placeholder { color:var(--text-dim); }
-.notify-btn { background:var(--gold); color:var(--navy); border:none; border-radius:9px; padding:12px 24px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:700; cursor:pointer; transition:background 0.2s; }
-.notify-btn:hover { background:var(--gold-light); }
-.notify-success { display:none; font-size:14px; color:#34d399; margin-top:12px; }
-.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-
-/* HOW IT WORKS STEPS */
-.steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; border:1px solid var(--border-gold); border-radius:var(--radius-lg); overflow:hidden; background:var(--border-gold); margin-top:32px; }
-.step-card { background:var(--card-bg); padding:36px 28px; }
-.step-num { font-family:'Playfair Display',serif; font-size:48px; font-weight:900; color:var(--gold); line-height:1; margin-bottom:16px; display:block; }
-.step-card h3 { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--white); margin-bottom:10px; }
-.step-card p { font-size:14px; color:var(--text); line-height:1.7; }
-.step-tag { display:inline-block; background:var(--gold-pale); border:1px solid var(--gold-border); border-radius:6px; padding:3px 10px; font-size:11px; font-weight:600; color:var(--gold); margin-top:14px; }
-
 /* PRICING */
 .pricing-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; border:1px solid var(--border-gold); border-radius:var(--radius-lg); overflow:hidden; background:var(--border-gold); margin-top:32px; }
 .pricing-card { background:var(--card-bg); padding:36px 28px; display:flex; flex-direction:column; }
@@ -88,34 +64,9 @@
 }
 </style>
 </head>
-<body>
+<body data-page="generator">
 
 <a href="#main" class="skip-link">Skip to main content</a>
-
-<nav role="navigation" aria-label="Main navigation">
-  <a href="index.html" class="nav-logo">Eucli<span>dia</span></a>
-  <ul class="nav-links">
-    <li><a href="shop.html">Lessons</a></li>
-    <li><a href="generator.html" class="active">Generator</a></li>
-    <li><a href="outreach.html">Outreach</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="about.html#faq">FAQ</a></li>
-    <li><a href="shop.html" class="nav-cta">Browse Lessons</a></li>
-  </ul>
-  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<div class="nav-mobile" id="nav-mobile">
-  <a href="index.html">Home</a>
-  <a href="shop.html">Lessons</a>
-  <a href="generator.html" class="active">Generator</a>
-  <a href="outreach.html">Outreach</a>
-  <a href="about.html">About</a>
-  <a href="about.html#faq">FAQ</a>
-  <a href="shop.html" class="nav-cta">Browse Lessons</a>
-</div>
 
 <main id="main">
 
@@ -128,7 +79,6 @@
 <section class="section-wrap">
   <div class="section-inner" style="padding-top:0;">
 
-    <!-- Coming Soon Banner -->
     <div class="coming-soon-banner reveal">
       <div class="coming-soon-badge">Coming Soon</div>
       <h2>The Generator is almost ready.</h2>
@@ -136,7 +86,7 @@
       <form class="notify-form" action="https://api.web3forms.com/submit" method="POST" id="notify-form">
         <input type="hidden" name="access_key" value="c8ebcae4-1442-4218-82d6-7b482f62f42a">
         <input type="hidden" name="subject" value="New Euclidia Generator Waitlist Signup">
-        <input type="hidden" name="redirect" value="https://euclidiamath.com/generator.html?submitted=true">
+        <input type="hidden" name="redirect" value="generator.html?submitted=true">
         <label class="sr-only" for="notify-email">Email address</label>
         <input class="notify-input" type="email" id="notify-email" name="email" placeholder="your@email.com" required>
         <button class="notify-btn" type="submit">Notify Me</button>
@@ -145,7 +95,6 @@
       <p style="font-size:13px;color:var(--text-dim);margin-top:16px;">While you wait — <a href="shop.html" style="color:var(--gold);">browse the shop</a> for ready-made resources.</p>
     </div>
 
-    <!-- How it works -->
     <div class="reveal">
       <span class="section-label">How It Works</span>
       <h2 class="section-title">Three steps to a complete lesson.</h2>
@@ -172,7 +121,6 @@
       </div>
     </div>
 
-    <!-- Pricing -->
     <div class="reveal" style="margin-top:80px;">
       <span class="section-label">Pricing</span>
       <h2 class="section-title">Buy bundles.<br>Use whenever you want.</h2>
@@ -256,7 +204,6 @@
 
     </div>
 
-    <!-- Calculator -->
     <div class="reveal" style="margin-top:80px;">
       <span class="section-label">Is It Worth It?</span>
       <h2 class="section-title">Your time is worth<br>more than you think.</h2>
@@ -311,50 +258,15 @@
 
 </main>
 
-<footer role="contentinfo">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logo">Eucli<span>dia</span></div>
-      <p class="footer-tagline">Professional lesson plans for secondary math teachers. Standards-aligned, print-ready, generated in under 2 minutes.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Navigate</div>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Lessons</a></li>
-        <li><a href="generator.html">Generator</a></li>
-        <li><a href="outreach.html">Outreach</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="about.html#faq">FAQ</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Support</div>
-      <ul class="footer-links">
-        <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
-        <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank" rel="noopener">TPT Store ↗</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms of Service</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span class="footer-copy">© 2026 Euclidia · euclidiamath.com</span>
-    <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
-  </div>
-</footer>
-
+<script src="nav.js"></script>
+<script src="main.js"></script>
 <script>
-function toggleMenu(){
-  document.getElementById('nav-mobile').classList.toggle('open');
-}
-
-if(new URLSearchParams(window.location.search).get('submitted') === 'true'){
+if (new URLSearchParams(window.location.search).get('submitted') === 'true') {
   document.getElementById('notify-success').style.display = 'block';
   document.getElementById('notify-form').style.display = 'none';
 }
 
-function updateCalc(){
+function updateCalc() {
   try {
     const salary = parseFloat(document.getElementById('salary-slider').value);
     const minutes = parseFloat(document.getElementById('time-slider').value);
@@ -367,24 +279,9 @@ function updateCalc(){
     document.getElementById('your-cost').textContent = '$' + yourCost.toFixed(2);
     document.getElementById('savings-amount').textContent = '$' + savings.toFixed(2);
     document.getElementById('savings-sub').textContent = "That's " + pct + "% of your time value back";
-  } catch(e) {}
+  } catch (e) {}
 }
 updateCalc();
-
-const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>{
-  const rect = el.getBoundingClientRect();
-  if(rect.top < window.innerHeight && rect.bottom >= 0){
-    setTimeout(()=>el.classList.add('visible'), 100);
-  } else {
-    obs.observe(el);
-  }
-});
-window.addEventListener('scroll',()=>{
-  document.querySelector('nav').style.background = window.scrollY>60?'rgba(9,21,37,0.98)':'rgba(9,21,37,0.92)';
-});
 </script>
 </body>
 </html>

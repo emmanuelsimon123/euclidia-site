@@ -9,9 +9,9 @@
   <meta property="og:description" content="Terms of Service for Euclidia and Euclidia Outreach.">
   <meta property="og:url" content="https://euclidiamath.com/terms.html">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://euclidiamath.com/images/og-image.png">
   <meta name="twitter:card" content="summary">
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="stylesheet" href="styles.css">
   <style>
     main {
@@ -83,34 +83,9 @@
     }
   </style>
 </head>
-<body>
+<body data-page="">
 
   <a href="#main" class="skip-link">Skip to main content</a>
-
-  <nav role="navigation" aria-label="Main navigation">
-    <a href="index.html" class="nav-logo">Eucli<span>dia</span></a>
-    <ul class="nav-links">
-    <li><a href="shop.html">Lessons</a></li>
-    <li><a href="generator.html">Generator</a></li>
-    <li><a href="outreach.html">Outreach</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="about.html#faq">FAQ</a></li>
-    <li><a href="shop.html" class="nav-cta">Browse Lessons</a></li>
-  </ul>
-    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <div class="nav-mobile" id="nav-mobile">
-    <a href="index.html">Home</a>
-    <a href="shop.html">Lessons</a>
-    <a href="generator.html">Generator</a>
-    <a href="outreach.html">Outreach</a>
-    <a href="about.html">About</a>
-    <a href="about.html#faq">FAQ</a>
-    <a href="shop.html" class="nav-cta">Browse Lessons</a>
-  </div>
 
   <main id="main">
 
@@ -183,48 +158,7 @@
 
   </main>
 
-  <footer role="contentinfo">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo">Eucli<span>dia</span></div>
-        <p class="footer-tagline">Professional lesson plans for secondary math teachers. Standards-aligned, print-ready, generated in under 2 minutes.</p>
-      </div>
-      <div>
-        <div class="footer-col-title">Navigate</div>
-        <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Lessons</a></li>
-        <li><a href="generator.html">Generator</a></li>
-        <li><a href="outreach.html">Outreach</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="about.html#faq">FAQ</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Support</div>
-        <ul class="footer-links">
-          <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
-          <li><a href="about.html#faq">Help &amp; FAQ</a></li>
-          <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank" rel="noopener">TPT Store ↗</a></li>
-          <li><a href="privacy.html">Privacy Policy</a></li>
-          <li><a href="terms.html">Terms of Service</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Euclidia · euclidiamath.com</span>
-      <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
-    </div>
-  </footer>
-
-  <script>
-  function toggleMenu(){
-    document.getElementById('nav-mobile').classList.toggle('open');
-  }
-  window.addEventListener('scroll',()=>{
-    document.querySelector('nav').style.background = window.scrollY>60?'rgba(9,21,37,0.98)':'rgba(9,21,37,0.92)';
-  });
-  </script>
-
+  <script src="nav.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>

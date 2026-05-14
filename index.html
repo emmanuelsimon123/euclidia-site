@@ -9,9 +9,9 @@
 <meta property="og:description" content="Standards-aligned lesson bundles, a custom lesson generator, and teacher automation tools. Built by a teacher for teachers.">
 <meta property="og:url" content="https://euclidiamath.com/">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://euclidiamath.com/images/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="images/favicon.png">
-<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 <link rel="stylesheet" href="styles.css">
 <style>
 /* HOME-SPECIFIC STYLES */
@@ -48,7 +48,6 @@
 .waitlist-btn { background:var(--gold); color:var(--navy); border:none; border-radius:9px; padding:12px 24px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:700; cursor:pointer; transition:background 0.2s; }
 .waitlist-btn:hover { background:var(--gold-light); }
 .waitlist-success { display:none; font-size:14px; color:#34d399; margin-top:12px; }
-.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 
 @media(max-width:960px){
   .home-hero { padding:120px 24px 72px; }
@@ -62,34 +61,9 @@
 }
 </style>
 </head>
-<body>
+<body data-page="home">
 
 <a href="#main" class="skip-link">Skip to main content</a>
-
-<nav role="navigation" aria-label="Main navigation">
-  <a href="index.html" class="nav-logo">Eucli<span>dia</span></a>
-  <ul class="nav-links">
-    <li><a href="shop.html">Lessons</a></li>
-    <li><a href="generator.html">Generator</a></li>
-    <li><a href="outreach.html">Outreach</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="about.html#faq">FAQ</a></li>
-    <li><a href="shop.html" class="nav-cta">Browse Lessons</a></li>
-  </ul>
-  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<div class="nav-mobile" id="nav-mobile">
-  <a href="index.html" class="active">Home</a>
-  <a href="shop.html">Lessons</a>
-  <a href="generator.html">Generator</a>
-  <a href="outreach.html">Outreach</a>
-  <a href="about.html">About</a>
-  <a href="about.html#faq">FAQ</a>
-  <a href="shop.html" class="nav-cta">Browse Lessons</a>
-</div>
 
 <main id="main">
 
@@ -143,7 +117,24 @@
 
 <div class="section-divider" aria-hidden="true"></div>
 
-<section class="section-wrap" aria-labelledby="story-h">
+<section class="section-wrap" aria-labelledby="economics-h">
+  <div class="section-inner">
+    <div class="reveal story-wrap">
+      <span class="section-label">The Real Math</span>
+      <h2 class="section-title" id="economics-h">What if your time was worth twice as much?</h2>
+      <div class="gold-rule center"></div>
+      <p>Here's something nobody says out loud.</p>
+      <p>Your raise this year was probably somewhere between 1 and 3 percent. Inflation was right there with it, sometimes ahead of it. Which means the hours you put in last year and the hours you will put in this year bought almost exactly the same amount of life. No real ground gained.</p>
+      <p>Euclidia can't change your hourly rate. That's not in our hands.</p>
+      <p>But what if you could cut your weekly prep from 50 hours to 25? The effective value of every hour you put in just doubled. Same salary. Half the time. That's not marketing. That's arithmetic.</p>
+      <p>We built Euclidia on the belief that teachers deserve more. Our hope is that our resources are an expression of our labor of love for teachers and students. We want to serve you, so you can serve your students.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<section class="section-wrap section-alt-bg" aria-labelledby="story-h">
   <div class="section-inner">
     <div class="reveal story-wrap">
       <span class="section-label">Our Mission</span>
@@ -157,7 +148,7 @@
 
 <div class="section-divider" aria-hidden="true"></div>
 
-<section class="section-wrap section-alt-bg" aria-labelledby="waitlist-h">
+<section class="section-wrap" aria-labelledby="waitlist-h">
   <div class="section-inner">
     <div class="waitlist-card reveal">
       <h3 id="waitlist-h">Stay in the loop.</h3>
@@ -177,78 +168,20 @@
 
 </main>
 
-<footer role="contentinfo">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logo">Eucli<span>dia</span></div>
-      <p class="footer-tagline">Professional lesson plans for secondary math teachers. Standards-aligned, print-ready, generated in under 2 minutes.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Navigate</div>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Lessons</a></li>
-        <li><a href="generator.html">Generator</a></li>
-        <li><a href="outreach.html">Outreach</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="about.html#faq">FAQ</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Support</div>
-      <ul class="footer-links">
-        <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
-        <li><a href="about.html#faq">Help & FAQ</a></li>
-        <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank" rel="noopener">TPT Store ↗</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms of Service</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span class="footer-copy">© 2026 Euclidia · euclidiamath.com</span>
-    <div class="footer-legal">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
-    </div>
-  </div>
-</footer>
-
+<script src="nav.js"></script>
+<script src="main.js"></script>
 <script>
-function toggleMenu(){
-  document.getElementById('nav-mobile').classList.toggle('open');
-}
-document.addEventListener('click', function(e){
-  if(!e.target.closest('nav') && !e.target.closest('#nav-mobile')){
-    document.getElementById('nav-mobile').classList.remove('open');
-  }
-});
 const allToolsLink = document.getElementById('all-tools-link');
-if(allToolsLink){
-  allToolsLink.addEventListener('click', function(e){
+if (allToolsLink) {
+  allToolsLink.addEventListener('click', function (e) {
     e.preventDefault();
-    const target = document.getElementById('products');
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }
-if(new URLSearchParams(window.location.search).get('submitted') === 'true'){
+if (new URLSearchParams(window.location.search).get('submitted') === 'true') {
   document.getElementById('homepage-waitlist-success').style.display = 'block';
   document.getElementById('homepage-waitlist-form').style.display = 'none';
 }
-const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>{
-  const rect = el.getBoundingClientRect();
-  if(rect.top < window.innerHeight && rect.bottom >= 0){
-    setTimeout(()=>el.classList.add('visible'), 100);
-  } else {
-    obs.observe(el);
-  }
-});
-window.addEventListener('scroll',()=>{
-  document.querySelector('nav').style.background = window.scrollY>60?'rgba(9,21,37,0.98)':'rgba(9,21,37,0.92)';
-});
 </script>
 </body>
 </html>

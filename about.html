@@ -9,9 +9,9 @@
 <meta property="og:description" content="Euclidia is built by a secondary math teacher for secondary math teachers. Our mission is to give you your time back.">
 <meta property="og:url" content="https://euclidiamath.com/about.html">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://euclidiamath.com/images/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="images/favicon.png">
-<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 <link rel="stylesheet" href="styles.css">
 <style>
 /* ABOUT-SPECIFIC */
@@ -26,7 +26,6 @@
 .mission-sig-name { font-size:14px; font-weight:600; color:var(--white); }
 .mission-sig-title { font-size:13px; color:var(--text-dim); }
 
-/* SCHMOKER */
 .schmoker-wrap { background:linear-gradient(135deg,rgba(27,58,107,0.3),rgba(9,21,37,0.8)); border:1px solid var(--border-gold); border-radius:var(--radius-lg); padding:48px; display:grid; grid-template-columns:auto 1fr; gap:40px; align-items:start; margin-top:40px; }
 .schmoker-num { font-family:'Playfair Display',serif; font-size:100px; font-weight:900; color:var(--gold); line-height:1; text-shadow:0 0 60px rgba(232,160,32,0.3); flex-shrink:0; }
 .schmoker-content h3 { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--white); margin-bottom:12px; }
@@ -44,34 +43,9 @@
 }
 </style>
 </head>
-<body>
+<body data-page="about">
 
 <a href="#main" class="skip-link">Skip to main content</a>
-
-<nav role="navigation" aria-label="Main navigation">
-  <a href="index.html" class="nav-logo">Eucli<span>dia</span></a>
-  <ul class="nav-links">
-    <li><a href="shop.html">Lessons</a></li>
-    <li><a href="generator.html">Generator</a></li>
-    <li><a href="outreach.html">Outreach</a></li>
-    <li><a href="about.html" class="active">About</a></li>
-    <li><a href="about.html#faq">FAQ</a></li>
-    <li><a href="shop.html" class="nav-cta">Browse Lessons</a></li>
-  </ul>
-  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<div class="nav-mobile" id="nav-mobile">
-  <a href="index.html">Home</a>
-  <a href="shop.html">Lessons</a>
-  <a href="generator.html">Generator</a>
-  <a href="outreach.html">Outreach</a>
-  <a href="about.html" class="active">About</a>
-  <a href="about.html#faq">FAQ</a>
-  <a href="shop.html" class="nav-cta">Browse Lessons</a>
-</div>
 
 <main id="main">
 
@@ -104,7 +78,6 @@
       </div>
     </div>
 
-    <!-- Schmoker -->
     <div class="schmoker-wrap reveal">
       <div class="schmoker-num" aria-hidden="true">7</div>
       <div class="schmoker-content">
@@ -222,7 +195,7 @@
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
         <div class="faq-answer" id="faq-answer-9" role="region" aria-hidden="true">
-          <p>Shop purchases are handled through Gumroad, a trusted digital marketplace. Euclidia never stores your payment details. For the Generator (coming soon), payments will be processed securely through Stripe.</p>
+          <p>Shop purchases are handled through Payhip, a trusted digital marketplace. Euclidia never stores your payment details. For the Generator (coming soon), payments will be processed through Payhip as well.</p>
         </div>
       </div>
 
@@ -242,73 +215,25 @@
 
 </main>
 
-<footer role="contentinfo">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logo">Eucli<span>dia</span></div>
-      <p class="footer-tagline">Professional lesson plans for secondary math teachers. Standards-aligned, print-ready, generated in under 2 minutes.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Navigate</div>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Lessons</a></li>
-        <li><a href="generator.html">Generator</a></li>
-        <li><a href="outreach.html">Outreach</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="about.html#faq">FAQ</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Support</div>
-      <ul class="footer-links">
-        <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
-        <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank" rel="noopener">TPT Store ↗</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms of Service</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span class="footer-copy">© 2026 Euclidia · euclidiamath.com</span>
-    <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
-  </div>
-</footer>
-
+<script src="nav.js"></script>
+<script src="main.js"></script>
 <script>
-function toggleMenu(){
-  document.getElementById('nav-mobile').classList.toggle('open');
-}
-function toggleFaq(btn){
+function toggleFaq(btn) {
   const item = btn.parentElement;
   const answerId = btn.getAttribute('aria-controls');
   const answer = document.getElementById(answerId);
   const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(el=>{
+  document.querySelectorAll('.faq-item.open').forEach(function (el) {
     el.classList.remove('open');
-    el.querySelector('.faq-btn').setAttribute('aria-expanded','false');
-    el.querySelector('.faq-answer').setAttribute('aria-hidden','true');
+    el.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+    el.querySelector('.faq-answer').setAttribute('aria-hidden', 'true');
   });
-  if(!isOpen){
+  if (!isOpen) {
     item.classList.add('open');
-    btn.setAttribute('aria-expanded','true');
-    answer.setAttribute('aria-hidden','false');
+    btn.setAttribute('aria-expanded', 'true');
+    answer.setAttribute('aria-hidden', 'false');
   }
 }
-const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>{
-  const rect = el.getBoundingClientRect();
-  if(rect.top < window.innerHeight && rect.bottom >= 0){
-    setTimeout(()=>el.classList.add('visible'), 100);
-  } else {
-    obs.observe(el);
-  }
-});
-window.addEventListener('scroll',()=>{
-  document.querySelector('nav').style.background = window.scrollY>60?'rgba(9,21,37,0.98)':'rgba(9,21,37,0.92)';
-});
 </script>
 </body>
 </html>
