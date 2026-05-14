@@ -120,6 +120,55 @@
       </div>
     </div>
 
+    <div class="reveal" style="margin-top:80px;">
+      <span class="section-label">Is It Worth It?</span>
+      <h2 class="section-title">Your first use pays<br>for itself. And then some.</h2>
+      <div class="gold-rule"></div>
+      <p class="section-sub">Move the sliders. The math will make the decision for you.</p>
+    </div>
+    <div class="calc-wrap reveal">
+      <div class="calc-grid">
+        <div style="display:flex;flex-direction:column;gap:28px;">
+          <div class="calc-field">
+            <label for="outreach-salary-slider">Your effective hourly rate</label>
+            <p class="calc-field-desc">Your annual salary divided by the hours you actually work each week. Most teachers land between $18 and $35.</p>
+            <div class="calc-slider-row">
+              <input class="calc-slider" type="range" id="outreach-salary-slider" min="15" max="60" value="28" step="1" oninput="updateOutreachCalc()">
+              <span class="calc-val" id="outreach-salary-val">$28/hr</span>
+            </div>
+          </div>
+          <div class="calc-field">
+            <label for="outreach-time-slider">Hours per week on student and parent outreach</label>
+            <p class="calc-field-desc">Writing emails, tracking missing work, notifying parents. Add it up honestly.</p>
+            <div class="calc-slider-row">
+              <input class="calc-slider" type="range" id="outreach-time-slider" min="0.5" max="5" value="2" step="0.5" oninput="updateOutreachCalc()">
+              <span class="calc-val" id="outreach-time-val">2 hrs</span>
+            </div>
+          </div>
+          <div style="background:rgba(232,160,32,0.08);border:1px solid var(--gold-border);border-radius:var(--radius);padding:16px 18px;">
+            <p style="font-size:13px;color:var(--text-dim);line-height:1.65;">With Euclidia Outreach, the same outreach takes <strong style="color:var(--gold);">under 10 minutes</strong> after your one-time roster setup.</p>
+          </div>
+        </div>
+        <div class="calc-result">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Weekly time value</div>
+          <div class="calc-cost-box">
+            <div class="calc-cost-label">Doing it manually<br><span style="font-size:11px;">at your hourly rate</span></div>
+            <div class="calc-cost-val" style="color:#f87171;" id="outreach-your-cost">$56.00</div>
+          </div>
+          <div class="calc-cost-box" style="background:rgba(52,211,153,0.08);border-color:rgba(52,211,153,0.2);">
+            <div class="calc-cost-label">With Euclidia Outreach<br><span style="font-size:11px;">under 10 min per week</span></div>
+            <div class="calc-cost-val" style="color:#34d399;" id="outreach-after-cost">$4.67</div>
+          </div>
+          <div class="calc-savings-box">
+            <div class="calc-savings-label">You come out ahead on first use by</div>
+            <div class="calc-savings-amt" id="outreach-savings-amount">$31.34</div>
+            <div class="calc-savings-sub" id="outreach-savings-sub">Then $51.33 in time value reclaimed every week after</div>
+          </div>
+          <p style="font-size:12px;color:var(--text-dim);text-align:center;line-height:1.6;">One-time purchase. No subscription. Your student data never leaves your computer.</p>
+        </div>
+      </div>
+    </div>
+
     <div class="reveal" style="margin-top:80px; text-align:center;">
       <span class="section-label">Pricing</span>
       <h2 class="section-title">One price, full access.</h2>
@@ -151,6 +200,24 @@
 <script src="nav.js"></script>
 <script src="main.js"></script>
 <script>
+function updateOutreachCalc() {
+  try {
+    var salary = parseFloat(document.getElementById('outreach-salary-slider').value);
+    var hours = parseFloat(document.getElementById('outreach-time-slider').value);
+    var yourCost = salary * hours;
+    var afterCost = salary * (10 / 60);
+    var weeklySaved = yourCost - afterCost;
+    var firstUseReturn = weeklySaved - 19.99;
+    document.getElementById('outreach-salary-val').textContent = '$' + salary + '/hr';
+    document.getElementById('outreach-time-val').textContent = hours % 1 === 0 ? hours + ' hrs' : hours + ' hrs';
+    document.getElementById('outreach-your-cost').textContent = '$' + yourCost.toFixed(2);
+    document.getElementById('outreach-after-cost').textContent = '$' + afterCost.toFixed(2);
+    document.getElementById('outreach-savings-amount').textContent = '$' + Math.max(0, firstUseReturn).toFixed(2);
+    document.getElementById('outreach-savings-sub').textContent = 'Then $' + weeklySaved.toFixed(2) + ' in time value reclaimed every week after';
+  } catch (e) {}
+}
+updateOutreachCalc();
+
 if (new URLSearchParams(window.location.search).get('submitted') === 'true') {
   document.getElementById('notify-success').style.display = 'block';
   document.getElementById('notify-form').style.display = 'none';

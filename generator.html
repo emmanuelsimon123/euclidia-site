@@ -32,29 +32,9 @@
 .pricing-features li .chk { color:var(--gold); font-weight:700; }
 .pricing-note { font-size:11.5px; color:var(--text-dim); text-align:center; margin-top:12px; }
 
-/* CALCULATOR */
-.calc-wrap { background:var(--card-bg); border:1px solid var(--border-gold); border-radius:var(--radius-lg); padding:40px; margin-top:56px; }
-.calc-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
-.calc-field label { display:block; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
-.calc-field-desc { font-size:13px; color:var(--text-dim); margin-bottom:10px; line-height:1.5; }
-.calc-slider-row { display:flex; align-items:center; gap:14px; }
-.calc-slider { flex:1; -webkit-appearance:none; appearance:none; height:6px; border-radius:3px; background:rgba(255,255,255,0.1); outline:none; cursor:pointer; }
-.calc-slider::-webkit-slider-thumb { -webkit-appearance:none; width:20px; height:20px; border-radius:50%; background:var(--gold); cursor:pointer; box-shadow:0 0 0 3px var(--gold-pale); }
-.calc-val { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--white); min-width:65px; text-align:right; }
-.calc-result { display:flex; flex-direction:column; gap:14px; }
-.calc-cost-box { background:rgba(248,113,113,0.08); border:1px solid rgba(248,113,113,0.2); border-radius:var(--radius); padding:18px 22px; display:flex; justify-content:space-between; align-items:center; gap:16px; }
-.calc-cost-label { font-size:13px; color:var(--text-dim); line-height:1.4; }
-.calc-cost-val { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; }
-.calc-savings-box { background:var(--gold); color:var(--navy); border-radius:var(--radius); padding:22px; text-align:center; }
-.calc-savings-label { font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:6px; }
-.calc-savings-amt { font-family:'Playfair Display',serif; font-size:44px; font-weight:900; line-height:1; }
-.calc-savings-sub { font-size:12px; margin-top:6px; opacity:0.75; }
-
 @media(max-width:960px){
   .steps-grid { grid-template-columns:1fr; }
   .pricing-grid { grid-template-columns:1fr 1fr; }
-  .calc-grid { grid-template-columns:1fr; }
-  .calc-wrap { padding:28px 20px; }
   .coming-soon-banner { padding:32px 24px; }
 }
 @media(max-width:600px){
