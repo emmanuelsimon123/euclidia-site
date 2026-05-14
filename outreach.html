@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outreach — Euclidia Teacher Automation</title>
+<meta name="description" content="Turn your gradebook into personalized student and parent outreach emails in under five minutes. Windows 10/11 desktop app. One-time purchase.">
+<meta property="og:title" content="Outreach — Euclidia Teacher Automation">
+<meta property="og:description" content="Turn your gradebook into personalized student and parent outreach emails in under five minutes. Windows 10/11 desktop app. One-time purchase.">
+<meta property="og:url" content="https://euclidiamath.com/outreach.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* OUTREACH-SPECIFIC */
+.coming-soon-banner { background:linear-gradient(135deg,rgba(27,58,107,0.5),rgba(9,21,37,0.9)); border:1px solid var(--gold-border); border-radius:var(--radius-lg); padding:40px 48px; text-align:center; margin-bottom:80px; }
+.coming-soon-banner h2 { font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--white); margin-bottom:10px; }
+.coming-soon-banner p { font-size:15px; color:var(--text-dim); line-height:1.7; max-width:720px; margin:0 auto 24px; }
+.coming-soon-badge { display:inline-block; background:var(--gold-pale); border:1px solid var(--gold-border); border-radius:100px; padding:6px 18px; font-size:12px; font-weight:700; color:var(--gold); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:20px; }
+
+.notify-form { display:flex; gap:10px; max-width:420px; margin:0 auto; flex-wrap:wrap; justify-content:center; }
+.notify-input { flex:1; min-width:220px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:9px; padding:12px 16px; color:var(--white); font-family:'DM Sans',sans-serif; font-size:15px; outline:none; transition:border-color 0.2s; }
+.notify-input:focus { border-color:var(--gold); }
+.notify-input::placeholder { color:var(--text-dim); }
+.notify-btn { background:var(--gold); color:var(--navy); border:none; border-radius:9px; padding:12px 24px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:700; cursor:pointer; transition:background 0.2s; }
+.notify-btn:hover { background:var(--gold-light); }
+.notify-success { display:none; font-size:14px; color:#34d399; margin-top:12px; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+.steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; border:1px solid var(--border-gold); border-radius:var(--radius-lg); overflow:hidden; background:var(--border-gold); margin-top:32px; }
+.step-card { background:var(--card-bg); padding:36px 28px; }
+.step-num { font-family:'Playfair Display',serif; font-size:48px; font-weight:900; color:var(--gold); line-height:1; margin-bottom:16px; display:block; }
+.step-card h3 { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--white); margin-bottom:10px; }
+.step-card p { font-size:14px; color:var(--text); line-height:1.7; }
+.step-tag { display:inline-block; background:var(--gold-pale); border:1px solid var(--gold-border); border-radius:6px; padding:3px 10px; font-size:11px; font-weight:600; color:var(--gold); margin-top:14px; }
+
+.includes-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; border:1px solid var(--border-gold); border-radius:var(--radius-lg); overflow:hidden; background:var(--border-gold); margin-top:32px; }
+.includes-card { background:var(--card-bg); padding:34px 26px; }
+.includes-card h3 { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--white); margin-bottom:10px; }
+.includes-card p { font-size:14px; color:var(--text); line-height:1.75; }
+
+.pricing-single { max-width:500px; margin:32px auto 0; background:rgba(27,58,107,0.35); border:1px solid var(--gold-border); border-radius:var(--radius-lg); padding:36px 30px; text-align:center; }
+.pricing-badge { display:inline-block; background:var(--gold-pale); border:1px solid var(--gold-border); border-radius:100px; padding:6px 14px; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+.pricing-name { font-family:'Playfair Display',serif; font-size:28px; color:var(--white); margin-bottom:10px; }
+.pricing-amount { font-family:'Playfair Display',serif; font-size:56px; font-weight:900; color:var(--gold); line-height:1; }
+.pricing-period { font-size:13px; color:var(--text-dim); margin:8px 0 18px; }
+.pricing-copy { font-size:14px; color:var(--text); line-height:1.75; margin-bottom:22px; }
+.pricing-note { font-size:13px; color:var(--text-dim); margin-top:14px; }
+.btn-coming-soon { display:inline-flex; align-items:center; justify-content:center; width:100%; background:rgba(232,160,32,0.7); color:var(--navy); padding:14px 20px; border-radius:8px; font-size:15px; font-weight:700; text-decoration:none; cursor:not-allowed; pointer-events:none; }
+
+.privacy-card { max-width:860px; margin:0 auto; background:linear-gradient(145deg,rgba(9,21,37,0.96),rgba(15,32,54,0.95)); border:1px solid var(--gold-border); border-radius:var(--radius-lg); padding:34px 30px; }
+.privacy-card h3 { font-family:'Playfair Display',serif; font-size:32px; color:var(--white); margin-bottom:12px; line-height:1.2; }
+.privacy-card p { font-size:15px; color:var(--text); line-height:1.8; }
+
+@media(max-width:960px){
+  .steps-grid, .includes-grid { grid-template-columns:1fr; }
+  .coming-soon-banner { padding:32px 24px; }
+}
+@media(max-width:600px){
+  .notify-form { flex-direction:column; }
+  .notify-input, .notify-btn { width:100%; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo">Eucli<span>dia</span></a>
+  <ul class="nav-links">
+    <li><a href="shop.html">Lessons</a></li>
+    <li><a href="generator.html">Generator</a></li>
+    <li><a href="outreach.html" class="active">Outreach</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="about.html#faq">FAQ</a></li>
+    <li><a href="shop.html" class="nav-cta">Browse Lessons</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="shop.html">Lessons</a>
+  <a href="generator.html">Generator</a>
+  <a href="outreach.html" class="active">Outreach</a>
+  <a href="about.html">About</a>
+  <a href="about.html#faq">FAQ</a>
+  <a href="shop.html" class="nav-cta">Browse Lessons</a>
+</div>
+
+<main id="main">
+
+<div class="page-hero">
+  <span class="section-label">Teacher Automation Tools</span>
+  <h1>Outreach, done in minutes.</h1>
+  <p>Upload your gradebook, generate personalized emails for every student who needs attention, and send from Outlook or Gmail. All in under five minutes.</p>
+</div>
+
+<section class="section-wrap">
+  <div class="section-inner" style="padding-top:0;">
+
+    <div class="coming-soon-banner reveal">
+      <div class="coming-soon-badge">Coming Soon</div>
+      <h2>Euclidia Outreach is almost ready.</h2>
+      <p>This is built for the other half of teaching. Lesson planning matters, and outreach matters just as much when students need support. We are almost ready. Leave your email and we will let you know the moment it launches.</p>
+      <form class="notify-form" action="https://api.web3forms.com/submit" method="POST" id="notify-form">
+        <input type="hidden" name="access_key" value="c8ebcae4-1442-4218-82d6-7b482f62f42a">
+        <input type="hidden" name="subject" value="Euclidia Outreach Waitlist Signup">
+        <input type="hidden" name="redirect" value="outreach.html?submitted=true">
+        <label class="sr-only" for="notify-email">Email address</label>
+        <input class="notify-input" type="email" id="notify-email" name="email" placeholder="your@email.com" required>
+        <button class="notify-btn" type="submit">Notify Me</button>
+      </form>
+      <div class="notify-success" id="notify-success">You're on the list.</div>
+      <p style="font-size:13px;color:var(--text-dim);margin-top:16px;">While you wait, <a href="shop.html" style="color:var(--gold);">browse the lessons</a>.</p>
+    </div>
+
+    <div class="reveal">
+      <span class="section-label">How It Works</span>
+      <h2 class="section-title">Three quick steps.</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="steps-grid reveal">
+      <div class="step-card">
+        <span class="step-num">1</span>
+        <h3>Build your roster</h3>
+        <p>Export your class roster from Canvas, PowerSchool, or any LMS that exports a CSV. Run the Roster Builder once at the start of term, or any time your roster changes.</p>
+        <span class="step-tag">One time setup</span>
+      </div>
+      <div class="step-card">
+        <span class="step-num">2</span>
+        <h3>Upload your gradebook</h3>
+        <p>Export your gradebook as a CSV from your LMS. Open Outreach, load the file, and the tool identifies every student who needs attention based on the thresholds you set.</p>
+        <span class="step-tag">Under 2 minutes</span>
+      </div>
+      <div class="step-card">
+        <span class="step-num">3</span>
+        <h3>Send from your inbox</h3>
+        <p>Choose Outlook or Gmail. Outreach generates personalized messages for every flagged student and parent, then creates drafts directly in your inbox. Review, adjust if you want, and send.</p>
+        <span class="step-tag">Under 5 minutes total</span>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:80px;">
+      <span class="section-label">What's Included</span>
+      <h2 class="section-title">Everything you need in one purchase.</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="includes-grid reveal">
+      <div class="includes-card">
+        <h3>Roster Builder</h3>
+        <p>Build your student and parent contact list from your LMS roster export. Works with Canvas, PowerSchool, and any system that exports a CSV. Run once per term.</p>
+      </div>
+      <div class="includes-card">
+        <h3>Gradebook Outreach (Outlook)</h3>
+        <p>For teachers using Microsoft Outlook. Generates personalized messages and creates drafts directly in Classic Outlook. Make sure Outlook is open before clicking Send.</p>
+      </div>
+      <div class="includes-card">
+        <h3>Gradebook Outreach (Gmail)</h3>
+        <p>For teachers using Gmail or Google Workspace. Generates personalized messages and creates drafts directly in your Gmail Drafts folder with one click.</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:80px; text-align:center;">
+      <span class="section-label">Pricing</span>
+      <h2 class="section-title">One price, full access.</h2>
+      <div class="gold-rule center"></div>
+    </div>
+    <div class="pricing-single reveal">
+      <div class="pricing-badge">One Time Purchase</div>
+      <div class="pricing-name">Euclidia Outreach</div>
+      <div class="pricing-amount">$19.99</div>
+      <div class="pricing-period">one-time, never expires</div>
+      <p class="pricing-copy">Includes Roster Builder, Outlook Outreach, and Gmail Outreach. Runs locally on your Windows PC. Your student data never leaves your computer. No subscription. No cloud account required.</p>
+      <!-- TODO: add Payhip link -->
+      <a href="#" class="btn-coming-soon" aria-disabled="true">Coming Soon</a>
+      <p class="pricing-note">Requires Windows 10 or Windows 11</p>
+    </div>
+
+    <div class="reveal" style="margin-top:80px;">
+      <div class="privacy-card">
+        <span class="section-label">Built for School Privacy</span>
+        <h3>Your student data never leaves your computer.</h3>
+        <p>This is a local desktop application. No data is uploaded to any server. No cloud login. No subscription tracking. What happens in your gradebook stays in your gradebook. This matters because student data is sensitive, and we take that seriously.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Eucli<span>dia</span></div>
+      <p class="footer-tagline">Professional lesson plans for secondary math teachers. Standards-aligned, print-ready, generated in under 2 minutes.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Lessons</a></li>
+        <li><a href="generator.html">Generator</a></li>
+        <li><a href="outreach.html">Outreach</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="about.html#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Support</div>
+      <ul class="footer-links">
+        <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
+        <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank" rel="noopener">TPT Store ↗</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Euclidia · euclidiamath.com</span>
+    <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('nav-mobile').classList.toggle('open');
+}
+
+if(new URLSearchParams(window.location.search).get('submitted') === 'true'){
+  document.getElementById('notify-success').style.display = 'block';
+  document.getElementById('notify-form').style.display = 'none';
+}
+
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>{
+  const rect = el.getBoundingClientRect();
+  if(rect.top < window.innerHeight && rect.bottom >= 0){
+    setTimeout(()=>el.classList.add('visible'), 100);
+  } else {
+    obs.observe(el);
+  }
+});
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.background = window.scrollY>60?'rgba(9,21,37,0.98)':'rgba(9,21,37,0.92)';
+});
+</script>
+</body>
+</html>
