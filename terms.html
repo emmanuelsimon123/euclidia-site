@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Terms of Service for Euclidia and Euclidia Outreach." />
+  <title>Terms of Service — Euclidia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0d1f35;
+      --navy-light: #112240;
+      --gold: #e8a020;
+      --gold-light: #f0b030;
+      --text: #ccd6f6;
+      --text-muted: #8892b0;
+      --text-body: #a8b2d8;
+      --white: #e6f1ff;
+      --rule: rgba(232,160,32,0.2);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--navy);
+      color: var(--text-body);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,31,53,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo em { font-style: italic; color: var(--gold); }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 500 !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+    main {
+      flex: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+      width: 100%;
+    }
+
+    .page-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 em { font-style: italic; color: var(--gold); }
+
+    .last-updated {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+    }
+
+    .gold-rule {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p { color: var(--text-body); margin-bottom: 1rem; font-size: 0.975rem; }
+
+    ul { margin: 0.75rem 0 1rem 1.5rem; color: var(--text-body); font-size: 0.975rem; }
+
+    li { margin-bottom: 0.4rem; }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .mission-box {
+      background: var(--navy-light);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem 1.75rem;
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    .mission-box p {
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 0;
+    }
+
+    .mission-box p + p { margin-top: 0.75rem; }
+
+    footer {
+      background: #0a1a2e;
+      border-top: 1px solid var(--rule);
+      padding: 3rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      max-width: 280px;
+    }
+
+    .footer-logo { font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 1rem; color: var(--white); }
+
+    .footer-col h4 {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul { list-style: none; margin: 0; padding: 0; }
+    .footer-col li { margin-bottom: 0.6rem; }
+
+    .footer-col a {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom-links { display: flex; gap: 1.5rem; }
+    .footer-bottom-links a { color: var(--text-muted); text-decoration: none; }
+    .footer-bottom-links a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://euclidiamath.com/index.html" class="nav-logo">Eucl<em>i</em>dia</a>
+    <ul class="nav-links">
+      <li><a href="https://euclidiamath.com/shop.html">Shop</a></li>
+      <li><a href="https://euclidiamath.com/generator.html">Generator</a></li>
+      <li><a href="https://euclidiamath.com/about.html">About</a></li>
+      <li><a href="https://euclidiamath.com/about.html#faq">FAQ</a></li>
+      <li><a href="https://euclidiamath.com/shop.html" class="nav-cta">Browse Resources</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+
+    <div class="page-eyebrow">Legal</div>
+    <h1>Terms of <em>Service</em></h1>
+    <p class="last-updated">Last updated: May 2026</p>
+    <div class="gold-rule"></div>
+
+    <div class="mission-box">
+      <p>Euclidia was built on a simple truth: teachers do the most important work for underappreciated pay. Every product we make exists for one reason. We want to give you your time back.</p>
+      <p>We price our products strictly for teacher budgets, not district budgets. We build in good faith, and we ask that you use our work the same way. The terms below are written to protect that relationship, not to bury you in legalese.</p>
+    </div>
+
+    <h2>1. Agreement to Terms</h2>
+    <p>By purchasing, downloading, or using any Euclidia product, including lesson plan resources, the Euclidia Generator, and Euclidia Outreach software, you agree to these Terms of Service. If you do not agree, please do not use our products.</p>
+
+    <h2>2. Products Covered</h2>
+    <p>These terms apply to all Euclidia products, including:</p>
+    <ul>
+      <li><strong style="color:#e6f1ff;">Euclidia lesson plan resources</strong> — downloadable PDF and DOCX lesson bundles sold through euclidiamath.com and Teachers Pay Teachers</li>
+      <li><strong style="color:#e6f1ff;">Euclidia Generator</strong> — a web-based tool that generates custom lesson plan bundles from any Common Core standard, purchased as one-time credit bundles</li>
+      <li><strong style="color:#e6f1ff;">Euclidia Outreach</strong> — downloadable Windows software for teacher gradebook outreach automation</li>
+    </ul>
+
+    <h2>3. License for Lesson Plan Resources</h2>
+    <p>When you purchase a lesson plan resource, you receive a personal, non-exclusive license to use it in your own classroom. You may print and distribute copies to your students and modify editable versions for your classroom needs.</p>
+    <p>Please do not resell, redistribute, or post the files publicly. These resources are priced for individual teachers. Sharing them freely undermines the mission that keeps prices low for everyone.</p>
+
+    <h2>4. License for the Euclidia Generator</h2>
+    <p>Generator credits are purchased as one-time bundles and never expire. Each credit generates one complete lesson bundle, including a lesson plan, worksheet, and answer key.</p>
+    <p>Generated bundles are licensed for personal classroom use under the same terms as our pre-made resources. You may print, distribute to your students, and modify the output freely. You may not resell or redistribute generated bundles as your own commercial product.</p>
+    <p>Credits are non-refundable once used. Unused credits do not expire and will remain available in your account as long as the Generator service is active.</p>
+
+    <h2>5. License for Euclidia Outreach Software</h2>
+    <p>When you purchase Euclidia Outreach, you receive a personal, non-exclusive license to install and use the software on one Windows computer for your own professional use as an educator.</p>
+    <p>Please do not redistribute or share the installer with others. Each teacher who benefits from this tool should have their own copy. That is what keeps it funded, maintained, and improving.</p>
+    <p>You may not reverse engineer, decompile, or use the software for any purpose other than legitimate outreach to your own students and their guardians.</p>
+
+    <h2>6. Pricing Philosophy</h2>
+    <p>Euclidia products are priced strictly for teacher budgets. Pre-made lesson bundles start at $3.25. Generator credits start at $1.99 per bundle and drop to $0.90 per bundle on larger purchases. Euclidia Outreach is a one-time purchase at $19.99.</p>
+    <p>Premium formatting, high-level math, and tools that save you hours every week should not be a luxury. That is not a marketing line. It is the actual reason these products exist at these prices.</p>
+    <p>Prices are subject to change for new purchases but will not change retroactively for existing purchasers or unused credits already purchased.</p>
+
+    <h2>7. Refund Policy</h2>
+    <p>We want every teacher to be genuinely happy with their purchase. Due to the digital nature of our products, all sales are generally final. But we are human beings, not a faceless corporation, and we treat every situation as such.</p>
+    <p>If a lesson plan resource is not what you expected, reach out. If Euclidia Outreach has a technical issue we cannot resolve, we will work with you directly. Generator credits that have not been used may be eligible for a refund within 14 days of purchase. Email us at <a href="mailto:euclidiamath@gmail.com">euclidiamath@gmail.com</a> and we will respond promptly.</p>
+
+    <h2>8. Updates to Euclidia Outreach</h2>
+    <p>Purchasers may re-download updated versions of Euclidia Outreach from the same purchase link at no additional charge for as long as that version line is supported. We build this software as a fellow teacher. When we improve it, you get those improvements.</p>
+
+    <h2>9. Student Data and FERPA</h2>
+    <p>Euclidia Outreach runs entirely on your local machine. Student data is never transmitted to Euclidia. You remain in full control of your students' data at all times. We designed it this way on purpose.</p>
+    <p>The Gmail version uses Google's Gmail API solely to create draft emails in your own account. Please ensure this use is consistent with your school or district's policies before using it with real student data. See our <a href="https://euclidiamath.com/privacy.html">Privacy Policy</a> for full details.</p>
+    <p>The Euclidia Generator processes the Common Core standards and settings you enter to generate lesson content. No student data is ever entered into or processed by the Generator.</p>
+
+    <h2>10. Disclaimer</h2>
+    <p>Euclidia products are provided as-is. We make no guarantees that the software or Generator will be error-free or available without interruption. We are a small, teacher-run operation doing our best, and we stand behind our work. If something goes wrong, email us.</p>
+
+    <h2>11. Limitation of Liability</h2>
+    <p>To the extent permitted by law, Euclidia's total liability shall not exceed the amount you paid for the product in question. We are not liable for indirect or consequential damages arising from use of our products.</p>
+
+    <h2>12. Acceptable Use</h2>
+    <p>Use Euclidia products for what they are designed for: supporting great teaching and genuine outreach to students and their families. Do not use our software to send unsolicited communications or for any purpose that violates applicable law or the professional standards you hold yourself to as an educator.</p>
+
+    <h2>13. Changes to These Terms</h2>
+    <p>We may update these Terms from time to time. The current version will always be at euclidiamath.com/terms.html. Continued use after an update means you accept the revised terms.</p>
+
+    <h2>14. Contact</h2>
+    <p>Questions, concerns, or just want to say hello. We read every email. Reach us at <a href="mailto:euclidiamath@gmail.com">euclidiamath@gmail.com</a>.</p>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">Euclidia</div>
+        <p>Professional lesson plans for secondary math teachers. Standards-aligned, print-ready, generated in under 2 minutes.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="https://euclidiamath.com/index.html">Home</a></li>
+          <li><a href="https://euclidiamath.com/shop.html">Shop</a></li>
+          <li><a href="https://euclidiamath.com/generator.html">Generator</a></li>
+          <li><a href="https://euclidiamath.com/about.html">About</a></li>
+          <li><a href="https://euclidiamath.com/about.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
+          <li><a href="https://euclidiamath.com/about.html#faq">Help &amp; FAQ</a></li>
+          <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank">TPT Store ↗</a></li>
+          <li><a href="https://euclidiamath.com/privacy.html">Privacy Policy</a></li>
+          <li><a href="https://euclidiamath.com/terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Euclidia · euclidiamath.com</span>
+      <div class="footer-bottom-links">
+        <a href="https://euclidiamath.com/privacy.html">Privacy Policy</a>
+        <a href="https://euclidiamath.com/terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

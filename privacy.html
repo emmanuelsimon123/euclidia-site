@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Privacy Policy for Euclidia and Euclidia Outreach." />
+  <title>Privacy Policy — Euclidia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0d1f35;
+      --navy-light: #112240;
+      --gold: #e8a020;
+      --gold-light: #f0b030;
+      --text: #ccd6f6;
+      --text-muted: #8892b0;
+      --text-body: #a8b2d8;
+      --white: #e6f1ff;
+      --rule: rgba(232,160,32,0.2);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--navy);
+      color: var(--text-body);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,31,53,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo em { font-style: italic; color: var(--gold); }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 500 !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+    main {
+      flex: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+      width: 100%;
+    }
+
+    .page-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 em { font-style: italic; color: var(--gold); }
+
+    .last-updated {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+    }
+
+    .gold-rule {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p { color: var(--text-body); margin-bottom: 1rem; font-size: 0.975rem; }
+
+    ul { margin: 0.75rem 0 1rem 1.5rem; color: var(--text-body); font-size: 0.975rem; }
+
+    li { margin-bottom: 0.4rem; }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .highlight-box {
+      background: var(--navy-light);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    .highlight-box p { margin-bottom: 0; }
+
+    footer {
+      background: #0a1a2e;
+      border-top: 1px solid var(--rule);
+      padding: 3rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      max-width: 280px;
+    }
+
+    .footer-logo { font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 1rem; color: var(--white); }
+
+    .footer-col h4 {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul { list-style: none; margin: 0; padding: 0; }
+    .footer-col li { margin-bottom: 0.6rem; }
+
+    .footer-col a {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom-links { display: flex; gap: 1.5rem; }
+    .footer-bottom-links a { color: var(--text-muted); text-decoration: none; }
+    .footer-bottom-links a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://euclidiamath.com/index.html" class="nav-logo">Eucl<em>i</em>dia</a>
+    <ul class="nav-links">
+      <li><a href="https://euclidiamath.com/shop.html">Shop</a></li>
+      <li><a href="https://euclidiamath.com/generator.html">Generator</a></li>
+      <li><a href="https://euclidiamath.com/about.html">About</a></li>
+      <li><a href="https://euclidiamath.com/about.html#faq">FAQ</a></li>
+      <li><a href="https://euclidiamath.com/shop.html" class="nav-cta">Browse Resources</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+
+    <div class="page-eyebrow">Legal</div>
+    <h1>Privacy <em>Policy</em></h1>
+    <p class="last-updated">Last updated: May 2026</p>
+    <div class="gold-rule"></div>
+
+    <div class="highlight-box">
+      <p><strong style="color:#e6f1ff;">The short version:</strong> Euclidia Outreach runs entirely on your computer. Your student data never leaves your machine. We do not collect, store, or sell your personal information or your students' data.</p>
+    </div>
+
+    <h2>1. Who We Are</h2>
+    <p>Euclidia is an independent teacher resource company operated by an individual educator. We offer math lesson plan resources and a custom lesson generator through our website, and teacher automation software under the Euclidia Outreach product line. You can reach us at <a href="mailto:euclidiamath@gmail.com">euclidiamath@gmail.com</a>.</p>
+
+    <h2>2. What This Policy Covers</h2>
+    <p>This Privacy Policy covers all Euclidia products and services:</p>
+    <ul>
+      <li><strong style="color:#e6f1ff;">Euclidia website</strong> — euclidiamath.com, including the shop and lesson plan resources</li>
+      <li><strong style="color:#e6f1ff;">Euclidia Generator</strong> — our web-based custom lesson bundle generator</li>
+      <li><strong style="color:#e6f1ff;">Euclidia Outreach</strong> — our downloadable local teacher automation software</li>
+    </ul>
+
+    <h2>3. Euclidia Website and Shop</h2>
+    <p>When you visit euclidiamath.com:</p>
+    <ul>
+      <li>We do not run advertising or sell your data to third parties.</li>
+      <li>Standard server logs may record your IP address and browser type for security purposes. These are not shared or sold.</li>
+      <li>Shop purchases are processed through Payhip and Teachers Pay Teachers. We do not store your payment information. Please review <a href="https://payhip.com/privacy" target="_blank">Payhip's Privacy Policy</a> for details on how they handle payment data.</li>
+      <li>If you contact us by email, we retain that correspondence to respond to your inquiry.</li>
+    </ul>
+
+    <h2>4. Euclidia Generator</h2>
+    <p>The Euclidia Generator is a web-based tool that generates custom lesson plan bundles from Common Core standards you enter. Here is how we handle data in the Generator:</p>
+    <ul>
+      <li>The Generator processes the standards, grade level, and settings you enter in order to generate lesson content. This input is sent to an AI generation service to produce your lesson bundle.</li>
+      <li>No student data is ever entered into or processed by the Generator. It is a curriculum creation tool, not a student data tool.</li>
+      <li>Generator credit purchases are processed through Payhip. We do not store your payment information.</li>
+      <li>We may retain account information such as your email address and remaining credit balance in order to provide the service.</li>
+    </ul>
+
+    <h2>5. Euclidia Outreach — Local Software</h2>
+    <p>Euclidia Outreach is software that runs entirely on your local Windows computer. It does not transmit your data to Euclidia or any third party operated by us.</p>
+
+    <p><strong style="color:#e6f1ff;">Student data stays on your machine.</strong> When you upload a gradebook or roster CSV, that data is processed locally on your computer. It is never sent to our servers, stored in a database, or shared with any third party by Euclidia.</p>
+
+    <p><strong style="color:#e6f1ff;">Gmail API (if used).</strong> The Gmail version of Euclidia Outreach uses Google's Gmail API to create draft emails in your own Gmail or Google Workspace account. When drafts are created, the email content passes through Google's servers as part of normal Gmail operation. If your school email runs on Google Workspace, Google is already a FERPA-compliant service provider for your district. If you use a personal Gmail account, please review <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>. Euclidia does not receive or store any of this data.</p>
+
+    <p><strong style="color:#e6f1ff;">Microsoft Outlook (if used).</strong> The Outlook version creates drafts using Classic Outlook automation running entirely on your local machine. No data leaves your computer through this method.</p>
+
+    <p><strong style="color:#e6f1ff;">Credentials.</strong> The Google OAuth credentials file included with Euclidia Outreach is limited in scope to creating Gmail drafts only. It cannot read your email, access your files, or perform any other action.</p>
+
+    <h2>6. FERPA Compliance</h2>
+    <p>Euclidia Outreach is designed with FERPA in mind. Because the software runs locally on your machine, student education records processed by the app are not transmitted to or stored by Euclidia. You, as the educator, remain in full control of your students' data at all times. We strongly recommend following your school or district's acceptable use policies when using any software that handles student information.</p>
+
+    <h2>7. Children's Privacy</h2>
+    <p>Euclidia products are designed for use by educators, not directly by students. We do not knowingly collect personal information from children under 13. The student data processed by Euclidia Outreach is handled locally on the teacher's machine and is never transmitted to us.</p>
+
+    <h2>8. Cookies</h2>
+    <p>Our website may use minimal cookies for basic functionality. We do not use tracking cookies or advertising cookies. Euclidia Outreach does not use cookies.</p>
+
+    <h2>9. Third-Party Links</h2>
+    <p>Our site and software may contain links to third-party services such as Google, Payhip, and Teachers Pay Teachers. We are not responsible for the privacy practices of those services. We encourage you to review their privacy policies directly.</p>
+
+    <h2>10. Data Security</h2>
+    <p>We take reasonable measures to protect the information we handle. For Euclidia Outreach, the best security measure is the design itself. Student data never leaves your machine in the first place.</p>
+
+    <h2>11. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. The most current version will always be available at euclidiamath.com/privacy.html. Continued use of our products after an update constitutes acceptance of the revised policy.</p>
+
+    <h2>12. Contact</h2>
+    <p>If you have questions about this Privacy Policy, please contact us at <a href="mailto:euclidiamath@gmail.com">euclidiamath@gmail.com</a>.</p>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">Euclidia</div>
+        <p>Professional lesson plans for secondary math teachers. Standards-aligned, print-ready, generated in under 2 minutes.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="https://euclidiamath.com/index.html">Home</a></li>
+          <li><a href="https://euclidiamath.com/shop.html">Shop</a></li>
+          <li><a href="https://euclidiamath.com/generator.html">Generator</a></li>
+          <li><a href="https://euclidiamath.com/about.html">About</a></li>
+          <li><a href="https://euclidiamath.com/about.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
+          <li><a href="https://euclidiamath.com/about.html#faq">Help &amp; FAQ</a></li>
+          <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank">TPT Store ↗</a></li>
+          <li><a href="https://euclidiamath.com/privacy.html">Privacy Policy</a></li>
+          <li><a href="https://euclidiamath.com/terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Euclidia · euclidiamath.com</span>
+      <div class="footer-bottom-links">
+        <a href="https://euclidiamath.com/privacy.html">Privacy Policy</a>
+        <a href="https://euclidiamath.com/terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
