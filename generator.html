@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Generator — Euclidia Custom Lesson Builder</title>
 <meta name="description" content="Generate custom, standards-aligned math lesson bundles in under 2 minutes. Buy credits, use whenever you want. Coming soon.">
+<meta property="og:title" content="Generator — Euclidia Custom Lesson Builder">
+<meta property="og:description" content="Generate custom, standards-aligned math lesson bundles in under 2 minutes. Buy credits, use whenever you want.">
+<meta property="og:url" content="https://euclidiamath.com/generator.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="icon" href="favicon.ico">
 <link rel="stylesheet" href="styles.css">
 <style>
 /* GENERATOR-SPECIFIC */
@@ -21,6 +28,7 @@
 .notify-btn { background:var(--gold); color:var(--navy); border:none; border-radius:9px; padding:12px 24px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:700; cursor:pointer; transition:all 0.2s; white-space:nowrap; }
 .notify-btn:hover { background:var(--gold-light); }
 .notify-success { display:none; font-size:14px; color:#34d399; margin-top:12px; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 
 /* HOW IT WORKS STEPS */
 .steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; border:1px solid var(--border-gold); border-radius:var(--radius-lg); overflow:hidden; background:var(--border-gold); margin-top:56px; }
@@ -122,10 +130,12 @@
       <div class="coming-soon-badge">Coming Soon</div>
       <h2>The Generator is almost ready.</h2>
       <p>We're putting the finishing touches on the tool. Leave your email and we'll let you know the moment it goes live — you'll get early access.</p>
-      <div class="notify-form">
-        <input class="notify-input" type="email" id="notify-email" placeholder="your@email.com">
-        <button class="notify-btn" onclick="notifyMe()">Notify Me</button>
-      </div>
+      <form class="notify-form" name="notify" method="POST" action="generator.html?submitted=true" data-netlify="true" netlify>
+        <input type="hidden" name="form-name" value="notify">
+        <label class="sr-only" for="notify-email">Email address</label>
+        <input class="notify-input" type="email" id="notify-email" name="email" placeholder="your@email.com" required>
+        <button class="notify-btn" type="submit">Notify Me</button>
+      </form>
       <div class="notify-success" id="notify-success">✓ You're on the list — we'll be in touch soon!</div>
       <p style="font-size:13px;color:var(--text-dim);margin-top:16px;">While you wait — <a href="shop.html" style="color:var(--gold);">browse the shop</a> for ready-made resources.</p>
     </div>
@@ -317,14 +327,14 @@
       <ul class="footer-links">
         <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
         <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank" rel="noopener">TPT Store ↗</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">© 2025 Euclidia · euclidiamath.com</span>
-    <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    <span class="footer-copy">© 2026 Euclidia · euclidiamath.com</span>
+    <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
   </div>
 </footer>
 
@@ -333,12 +343,8 @@ function toggleMenu(){
   document.getElementById('nav-mobile').classList.toggle('open');
 }
 
-function notifyMe(){
-  const email = document.getElementById('notify-email').value;
-  if(email && email.includes('@')){
-    document.getElementById('notify-success').style.display = 'block';
-    document.getElementById('notify-email').value = '';
-  }
+if(new URLSearchParams(window.location.search).get('submitted') === 'true'){
+  document.getElementById('notify-success').style.display = 'block';
 }
 
 function updateCalc(){
@@ -358,11 +364,17 @@ function updateCalc(){
 }
 updateCalc();
 
-setTimeout(()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible')),600);
 const obs = new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
 },{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('.reveal').forEach(el=>{
+  const rect = el.getBoundingClientRect();
+  if(rect.top < window.innerHeight && rect.bottom >= 0){
+    setTimeout(()=>el.classList.add('visible'), 100);
+  } else {
+    obs.observe(el);
+  }
+});
 window.addEventListener('scroll',()=>{
   document.querySelector('nav').style.background = window.scrollY>60?'rgba(9,21,37,0.98)':'rgba(9,21,37,0.92)';
 });

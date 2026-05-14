@@ -5,93 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Terms of Service for Euclidia and Euclidia Outreach." />
   <title>Terms of Service — Euclidia</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <meta property="og:title" content="Terms of Service — Euclidia">
+  <meta property="og:description" content="Terms of Service for Euclidia and Euclidia Outreach.">
+  <meta property="og:url" content="https://euclidiamath.com/terms.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy: #0d1f35;
-      --navy-light: #112240;
-      --gold: #e8a020;
-      --gold-light: #f0b030;
-      --text: #ccd6f6;
-      --text-muted: #8892b0;
-      --text-body: #a8b2d8;
-      --white: #e6f1ff;
-      --rule: rgba(232,160,32,0.2);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background-color: var(--navy);
-      color: var(--text-body);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(13,31,53,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--rule);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-    }
-
-    .nav-logo {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      font-size: 1.1rem;
-      color: var(--white);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-    }
-
-    .nav-logo em { font-style: italic; color: var(--gold); }
-
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 400;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--white); }
-
-    .nav-cta {
-      background: var(--gold);
-      color: var(--navy) !important;
-      padding: 0.5rem 1.2rem;
-      border-radius: 6px;
-      font-weight: 500 !important;
-      transition: background 0.2s !important;
-    }
-
-    .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
-
     main {
-      flex: 1;
       max-width: 800px;
       margin: 0 auto;
-      padding: 5rem 2rem 6rem;
+      padding: 120px 24px 80px;
       width: 100%;
+      position: relative;
+      z-index: 1;
     }
-
     .page-eyebrow {
       font-size: 0.8rem;
       font-weight: 500;
@@ -100,7 +30,6 @@
       text-transform: uppercase;
       margin-bottom: 1rem;
     }
-
     h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2.8rem;
@@ -109,22 +38,18 @@
       line-height: 1.2;
       margin-bottom: 0.5rem;
     }
-
     h1 em { font-style: italic; color: var(--gold); }
-
     .last-updated {
       font-size: 0.85rem;
-      color: var(--text-muted);
+      color: var(--text-dim);
       margin-bottom: 3rem;
     }
-
     .gold-rule {
       width: 48px;
       height: 2px;
       background: var(--gold);
       margin-bottom: 3rem;
     }
-
     h2 {
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem;
@@ -133,114 +58,57 @@
       margin-top: 3rem;
       margin-bottom: 1rem;
     }
-
-    p { color: var(--text-body); margin-bottom: 1rem; font-size: 0.975rem; }
-
-    ul { margin: 0.75rem 0 1rem 1.5rem; color: var(--text-body); font-size: 0.975rem; }
-
+    p { color: var(--text); margin-bottom: 1rem; font-size: 0.975rem; line-height: 1.7; }
+    ul { margin: 0.75rem 0 1rem 1.5rem; color: var(--text); font-size: 0.975rem; }
     li { margin-bottom: 0.4rem; }
-
-    a { color: var(--gold); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
+    main a { color: var(--gold); text-decoration: none; }
+    main a:hover { text-decoration: underline; }
     .mission-box {
-      background: var(--navy-light);
+      background: rgba(27,58,107,0.3);
       border-left: 3px solid var(--gold);
       border-radius: 0 8px 8px 0;
       padding: 1.5rem 1.75rem;
       margin: 1.5rem 0 2.5rem;
     }
-
     .mission-box p {
-      color: var(--text);
+      color: var(--text-bright);
       font-size: 1rem;
       line-height: 1.8;
       margin-bottom: 0;
     }
-
     .mission-box p + p { margin-top: 0.75rem; }
-
-    footer {
-      background: #0a1a2e;
-      border-top: 1px solid var(--rule);
-      padding: 3rem 2rem 2rem;
-    }
-
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .footer-brand p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-top: 0.5rem;
-      max-width: 280px;
-    }
-
-    .footer-logo { font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 1rem; color: var(--white); }
-
-    .footer-col h4 {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-
-    .footer-col ul { list-style: none; margin: 0; padding: 0; }
-    .footer-col li { margin-bottom: 0.6rem; }
-
-    .footer-col a {
-      color: var(--text-muted);
-      font-size: 0.875rem;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-col a:hover { color: var(--gold); }
-
-    .footer-bottom {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--rule);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .footer-bottom-links { display: flex; gap: 1.5rem; }
-    .footer-bottom-links a { color: var(--text-muted); text-decoration: none; }
-    .footer-bottom-links a:hover { color: var(--gold); }
-
     @media (max-width: 768px) {
       h1 { font-size: 2rem; }
-      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-      .nav-links { display: none; }
+      main { padding: 104px 20px 64px; }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="https://euclidiamath.com/index.html" class="nav-logo">Eucl<em>i</em>dia</a>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo">Eucli<span>dia</span></a>
     <ul class="nav-links">
-      <li><a href="https://euclidiamath.com/shop.html">Shop</a></li>
-      <li><a href="https://euclidiamath.com/generator.html">Generator</a></li>
-      <li><a href="https://euclidiamath.com/about.html">About</a></li>
-      <li><a href="https://euclidiamath.com/about.html#faq">FAQ</a></li>
-      <li><a href="https://euclidiamath.com/shop.html" class="nav-cta">Browse Resources</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="generator.html">Generator</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="about.html#faq">FAQ</a></li>
+      <li><a href="shop.html" class="nav-cta">Browse Resources</a></li>
     </ul>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="generator.html">Generator</a>
+    <a href="about.html">About</a>
+    <a href="about.html#faq">FAQ</a>
+    <a href="shop.html" class="nav-cta">Browse Resources</a>
+  </div>
 
   <main id="main">
 
@@ -280,7 +148,7 @@
     <p>You may not reverse engineer, decompile, or use the software for any purpose other than legitimate outreach to your own students and their guardians.</p>
 
     <h2>6. Pricing Philosophy</h2>
-    <p>Euclidia products are priced strictly for teacher budgets. Pre-made lesson bundles start at $3.25. Generator credits start at $1.99 per bundle and drop to $0.90 per bundle on larger purchases. Euclidia Outreach is a one-time purchase at $19.99.</p>
+    <p>Euclidia products are priced strictly for teacher budgets. Pre-made lesson bundles start at $2.25. Generator credits start at $1.99 per bundle and drop to $0.90 per bundle on larger purchases. Euclidia Outreach is a one-time purchase at $19.99.</p>
     <p>Premium formatting, high-level math, and tools that save you hours every week should not be a luxury. That is not a marketing line. It is the actual reason these products exist at these prices.</p>
     <p>Prices are subject to change for new purchases but will not change retroactively for existing purchasers or unused credits already purchased.</p>
 
@@ -293,7 +161,7 @@
 
     <h2>9. Student Data and FERPA</h2>
     <p>Euclidia Outreach runs entirely on your local machine. Student data is never transmitted to Euclidia. You remain in full control of your students' data at all times. We designed it this way on purpose.</p>
-    <p>The Gmail version uses Google's Gmail API solely to create draft emails in your own account. Please ensure this use is consistent with your school or district's policies before using it with real student data. See our <a href="https://euclidiamath.com/privacy.html">Privacy Policy</a> for full details.</p>
+    <p>The Gmail version uses Google's Gmail API solely to create draft emails in your own account. Please ensure this use is consistent with your school or district's policies before using it with real student data. See our <a href="privacy.html">Privacy Policy</a> for full details.</p>
     <p>The Euclidia Generator processes the Common Core standards and settings you enter to generate lesson content. No student data is ever entered into or processed by the Generator.</p>
 
     <h2>10. Disclaimer</h2>
@@ -313,41 +181,47 @@
 
   </main>
 
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-logo">Euclidia</div>
-        <p>Professional lesson plans for secondary math teachers. Standards-aligned, print-ready, generated in under 2 minutes.</p>
+  <footer role="contentinfo">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Eucli<span>dia</span></div>
+        <p class="footer-tagline">Professional lesson plans for secondary math teachers. Standards-aligned, print-ready, generated in under 2 minutes.</p>
       </div>
-      <div class="footer-col">
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="https://euclidiamath.com/index.html">Home</a></li>
-          <li><a href="https://euclidiamath.com/shop.html">Shop</a></li>
-          <li><a href="https://euclidiamath.com/generator.html">Generator</a></li>
-          <li><a href="https://euclidiamath.com/about.html">About</a></li>
-          <li><a href="https://euclidiamath.com/about.html#faq">FAQ</a></li>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="generator.html">Generator</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#faq">FAQ</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Support</h4>
-        <ul>
+      <div>
+        <div class="footer-col-title">Support</div>
+        <ul class="footer-links">
           <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
-          <li><a href="https://euclidiamath.com/about.html#faq">Help &amp; FAQ</a></li>
-          <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank">TPT Store ↗</a></li>
-          <li><a href="https://euclidiamath.com/privacy.html">Privacy Policy</a></li>
-          <li><a href="https://euclidiamath.com/terms.html">Terms of Service</a></li>
+          <li><a href="about.html#faq">Help &amp; FAQ</a></li>
+          <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank" rel="noopener">TPT Store ↗</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 Euclidia · euclidiamath.com</span>
-      <div class="footer-bottom-links">
-        <a href="https://euclidiamath.com/privacy.html">Privacy Policy</a>
-        <a href="https://euclidiamath.com/terms.html">Terms of Service</a>
-      </div>
+      <span class="footer-copy">© 2026 Euclidia · euclidiamath.com</span>
+      <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
     </div>
   </footer>
+
+  <script>
+  function toggleMenu(){
+    document.getElementById('nav-mobile').classList.toggle('open');
+  }
+  window.addEventListener('scroll',()=>{
+    document.querySelector('nav').style.background = window.scrollY>60?'rgba(9,21,37,0.98)':'rgba(9,21,37,0.92)';
+  });
+  </script>
 
 </body>
 </html>
