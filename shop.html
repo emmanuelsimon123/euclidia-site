@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shop — Euclidia Math Resources</title>
+<title>Lessons — Ready to Go Lesson Bundles | Euclidia</title>
 <meta name="description" content="Browse and download professional, CCSS-aligned math lesson bundles for grades 6–9. Cheaper than TPT, same quality.">
-<meta property="og:title" content="Shop — Euclidia Math Resources">
+<meta property="og:title" content="Ready to Go Lessons — Euclidia">
 <meta property="og:description" content="Browse and download professional, CCSS-aligned math lesson bundles for grades 6–9. Cheaper than TPT, same quality.">
 <meta property="og:url" content="https://euclidiamath.com/shop.html">
 <meta property="og:type" content="website">
@@ -81,11 +81,12 @@
 <nav role="navigation" aria-label="Main navigation">
   <a href="index.html" class="nav-logo">Eucli<span>dia</span></a>
   <ul class="nav-links">
-    <li><a href="shop.html" class="active">Shop</a></li>
+    <li><a href="shop.html" class="active">Lessons</a></li>
     <li><a href="generator.html">Generator</a></li>
+    <li><a href="outreach.html">Outreach</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="about.html#faq">FAQ</a></li>
-    <li><a href="#product-container" class="nav-cta">Browse Resources</a></li>
+    <li><a href="shop.html" class="nav-cta">Browse Lessons</a></li>
   </ul>
   <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
     <span></span><span></span><span></span>
@@ -94,19 +95,20 @@
 
 <div class="nav-mobile" id="nav-mobile">
   <a href="index.html">Home</a>
-  <a href="shop.html">Shop</a>
+  <a href="shop.html" class="active">Lessons</a>
   <a href="generator.html">Generator</a>
+  <a href="outreach.html">Outreach</a>
   <a href="about.html">About</a>
   <a href="about.html#faq">FAQ</a>
-  <a href="#product-container" class="nav-cta">Browse Resources</a>
+  <a href="shop.html" class="nav-cta">Browse Lessons</a>
 </div>
 
 <main id="main">
 
 <div class="page-hero">
-  <span class="section-label">Ready-Made Resources</span>
-  <h1>The <em>Euclidia</em> Shop</h1>
-  <p>Professional lesson bundles — lesson plan, worksheet, and answer key — ready to download instantly. Always cheaper than TPT.</p>
+  <span class="section-label">Ready to Go Lessons</span>
+  <h1>No prep. No fluff. Just teach.</h1>
+  <p>Every bundle includes a teacher lesson plan, a scaffolded student worksheet, and a detailed answer key. Standards-aligned for grades 6 through 9. Print, copy, and teach.</p>
 </div>
 
 <section class="section-wrap">
@@ -115,7 +117,7 @@
     <!-- TPT Note -->
     <div class="shop-note">
       <div class="shop-note-icon">💡</div>
-      <p>Everything here is <strong>$1 cheaper than our TPT store</strong> — same quality, better price. You get the editable Word file too. Questions? Email <a href="mailto:euclidiamath@gmail.com" style="color:var(--gold);">euclidiamath@gmail.com</a></p>
+      <p>Everything here is <strong>$1 cheaper than our TPT store</strong>. Same quality, better price. You get the editable Word file too. Questions? Email <a href="mailto:euclidiamath@gmail.com" style="color:var(--gold);">euclidiamath@gmail.com</a></p>
     </div>
 
     <!-- Filter Bar -->
@@ -123,7 +125,7 @@
       <button class="filter-btn active" data-filter="all" onclick="filterProducts(this,'all')">All Resources</button>
     </div>
 
-    <!-- Product Grid — populated automatically by JavaScript -->
+    <!-- Product Grid, populated automatically by JavaScript -->
     <div id="product-container">
       <div class="loading-state">
         <div class="loading-spinner"></div>
@@ -152,8 +154,9 @@
       <div class="footer-col-title">Navigate</div>
       <ul class="footer-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
+        <li><a href="shop.html">Lessons</a></li>
         <li><a href="generator.html">Generator</a></li>
+        <li><a href="outreach.html">Outreach</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="about.html#faq">FAQ</a></li>
       </ul>
@@ -302,7 +305,7 @@ async function loadProducts() {
       container.innerHTML = `
         <div class="empty-state">
           <h3>Products coming soon</h3>
-          <p>Check back shortly — resources are being added now.</p>
+          <p>Check back shortly. Resources are being added now.</p>
         </div>`;
       return;
     }
