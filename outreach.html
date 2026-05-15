@@ -204,10 +204,10 @@ function updateOutreachCalc() {
     var yourCost = salary * hours;
     var afterCost = salary * (10 / 60);
     var weeklySaved = yourCost - afterCost;
-    var weeksToRecoup = Math.ceil(4.99 / weeklySaved);
+    var weeksToRecoup = Math.ceil(39.99 / weeklySaved);
     var recoupText = weeksToRecoup <= 1
-      ? 'Pays for itself in the first use. Then it\'s pure return.'
-      : 'Pays for itself in ' + weeksToRecoup + ' weeks. Then it\'s pure return.';
+      ? 'The annual plan pays for itself in the first week. Then it\'s pure return.'
+      : 'The annual plan pays for itself in ' + weeksToRecoup + ' weeks. Then it\'s pure return.';
     document.getElementById('outreach-salary-val').textContent = '$' + salary + '/hr';
     document.getElementById('outreach-time-val').textContent = hours + ' hrs';
     document.getElementById('outreach-your-cost').textContent = '$' + yourCost.toFixed(2);
