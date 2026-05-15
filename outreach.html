@@ -204,10 +204,8 @@ function updateOutreachCalc() {
     var yourCost = salary * hours;
     var afterCost = salary * (10 / 60);
     var weeklySaved = yourCost - afterCost;
-    var weeksToRecoup = Math.ceil(39.99 / weeklySaved);
-    var recoupText = weeksToRecoup <= 1
-      ? 'The annual plan pays for itself in the first week. Then it\'s pure return.'
-      : 'The annual plan pays for itself in ' + weeksToRecoup + ' weeks. Then it\'s pure return.';
+    var monthlyReturn = Math.round(weeklySaved * 4.33);
+    var recoupText = 'You save $' + weeklySaved.toFixed(2) + ' a week in time value. The monthly plan is $4.99. That\'s a ' + Math.round(monthlyReturn / 4.99) + '× return every month.';
     document.getElementById('outreach-salary-val').textContent = '$' + salary + '/hr';
     document.getElementById('outreach-time-val').textContent = hours + ' hrs';
     document.getElementById('outreach-your-cost').textContent = '$' + yourCost.toFixed(2);
