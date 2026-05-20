@@ -91,6 +91,72 @@ a.product-thumb-placeholder:hover { opacity:0.95; }
 
 @media(max-width:960px){ .product-grid { grid-template-columns:repeat(2,1fr); } .shop-note { flex-direction:column; } }
 @media(max-width:600px){ .product-grid { grid-template-columns:1fr; } }
+
+/* SHOP HERO REDESIGN */
+.shop-hero-section { padding-top:120px; padding-bottom:60px; max-width:1280px; margin:0 auto; padding-left:48px; padding-right:48px; position:relative; z-index:1; }
+.shop-hero-grid { display:grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap:64px; align-items:center; }
+.shop-hero-content { max-width:560px; }
+.shop-hero-eyebrow { display:inline-flex; align-items:center; gap:10px; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+.shop-hero-eyebrow .eyebrow-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); }
+.shop-hero-eyebrow .eyebrow-divider { color:var(--text-dim); font-weight:500; }
+.shop-hero-rule { width:56px; height:1px; background:var(--gold); margin-bottom:32px; opacity:0.85; }
+.shop-hero-title { font-family:'Playfair Display',serif; font-size:5rem; font-weight:700; color:var(--white); line-height:1.02; letter-spacing:-0.025em; margin-bottom:28px; }
+.shop-hero-title em { font-style:italic; font-weight:600; color:var(--gold); display:block; }
+.shop-hero-sub { font-size:1.05rem; line-height:1.7; color:var(--text); margin-bottom:36px; max-width:520px; }
+.shop-hero-sub strong { color:var(--white); font-weight:700; }
+.shop-hero-ctas { display:flex; gap:24px; align-items:center; margin-bottom:30px; flex-wrap:wrap; }
+.shop-cta-primary { display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:var(--navy); padding:15px 26px; border-radius:8px; font-size:15px; font-weight:700; text-decoration:none; transition:all 0.2s; }
+.shop-cta-primary:hover { background:var(--gold-light); transform:translateY(-1px); }
+.shop-cta-secondary { display:inline-flex; align-items:center; gap:6px; color:var(--text-bright); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.2s; }
+.shop-cta-secondary:hover { color:var(--gold); }
+.shop-hero-trust { display:flex; flex-wrap:wrap; gap:14px; font-size:12px; color:var(--text-dim); letter-spacing:0.02em; align-items:center; }
+.shop-hero-trust .trust-sep { opacity:0.4; }
+
+/* SHOP CARD STACK — three real product cards fanned */
+.shop-stack-wrap { position:relative; min-height:480px; }
+.shop-stack-tag { display:flex; align-items:center; justify-content:center; gap:10px; font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-dim); margin-bottom:18px; }
+.shop-stack-tag::before { content:'\25C6'; color:var(--gold); font-size:9px; }
+.shop-stack-tag strong { color:var(--white); font-weight:700; letter-spacing:0.12em; }
+.shop-stack { position:relative; height:380px; }
+.shop-card { position:absolute; width:240px; background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:14px 14px 16px; box-shadow:0 18px 32px rgba(0,0,0,0.45), 0 4px 8px rgba(0,0,0,0.3); }
+.shop-card-1 { left:0; top:8px; transform:rotate(-6deg); z-index:1; }
+.shop-card-2 { left:130px; top:18px; transform:rotate(-1deg); z-index:2; }
+.shop-card-3 { left:260px; top:0; transform:rotate(5deg); z-index:3; }
+.shop-card-tags { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px; }
+.shop-card-tag { font-size:9px; font-weight:700; background:var(--gold-pale); border:1px solid var(--gold-border); color:var(--gold); padding:3px 8px; border-radius:4px; letter-spacing:0.04em; }
+.shop-card-tag.grade { background:rgba(27,58,107,0.3); border-color:rgba(27,58,107,0.5); color:#93b4d4; }
+.shop-card-img { width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:6px; display:block; margin-bottom:10px; }
+.shop-card h6 { font-family:'Playfair Display',serif; font-size:13px; font-weight:700; line-height:1.25; color:var(--white); margin-bottom:8px; min-height:32px; }
+.shop-card-foot { display:flex; justify-content:space-between; align-items:center; padding-top:8px; border-top:1px solid var(--border); }
+.shop-card-price { font-family:'Playfair Display',serif; font-size:18px; font-weight:900; color:var(--gold); line-height:1; }
+.shop-card-price.free { color:#34d399; }
+.shop-card-meta { font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-dim); }
+
+.shop-stack-footer { position:absolute; bottom:-8px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:8px; font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-dim); }
+.shop-stack-footer::before { content:'\25CF'; color:var(--gold); font-size:6px; }
+
+.shop-hero-footer-strip { display:flex; justify-content:space-between; padding-top:36px; border-top:1px solid var(--border); margin-top:60px; font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-dim); }
+.shop-hero-footer-strip span { display:inline-flex; align-items:center; gap:10px; }
+.shop-hero-footer-strip span:first-child::before { content:'\25CF'; color:var(--gold); font-size:8px; }
+.shop-hero-footer-strip span:last-child::after { content:'\25CF'; color:var(--gold); font-size:8px; }
+
+@media (max-width: 1100px) {
+  .shop-hero-title { font-size:4rem; }
+  .shop-card { width:200px; }
+  .shop-card-2 { left:110px; }
+  .shop-card-3 { left:215px; }
+}
+@media (max-width: 960px) {
+  .shop-hero-section { padding-top:104px; padding-bottom:30px; padding-left:24px; padding-right:24px; }
+  .shop-hero-grid { grid-template-columns:1fr; gap:24px; }
+  .shop-stack-wrap { display:none; }
+  .shop-hero-title { font-size:3.2rem; }
+  .shop-hero-footer-strip { margin-top:36px; padding-top:24px; }
+}
+@media (max-width: 600px) {
+  .shop-hero-title { font-size:2.4rem; }
+  .shop-hero-footer-strip { flex-direction:column; gap:10px; text-align:center; }
+}
 </style>
 </head>
 <body data-page="shop">
@@ -99,18 +165,99 @@ a.product-thumb-placeholder:hover { opacity:0.95; }
 
 <main id="main">
 
-<div class="page-hero">
-  <span class="section-label">Ready to Go Lessons</span>
-  <h1>No prep. No fluff. Just teach.</h1>
-  <p>Every bundle includes a teacher lesson plan, a scaffolded student worksheet, and a detailed answer key. Standards-aligned for grades 6 through 9. Print, copy, and teach.</p>
-</div>
+<section class="shop-hero-section">
+  <div class="shop-hero-grid">
+
+    <div class="shop-hero-content">
+      <div class="shop-hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span>Ready to teach</span>
+        <span class="eyebrow-divider">&middot; The Catalog</span>
+      </div>
+      <div class="shop-hero-rule"></div>
+
+      <h1 class="shop-hero-title">Lessons,<em>already made.</em></h1>
+      <p class="shop-hero-sub">Browse and buy print-ready lesson bundles. Lesson plan, student worksheet, teacher answer key. Standards-aligned, built on the <strong>7 Elements of Effective Teaching</strong>. <strong>$1 cheaper than our TPT store.</strong></p>
+
+      <div class="shop-hero-ctas">
+        <a href="#product-container" class="shop-cta-primary">Browse the catalog &darr;</a>
+        <a href="generator.html" class="shop-cta-secondary">Or make your own with the Generator &rarr;</a>
+      </div>
+
+      <div class="shop-hero-trust">
+        <span>Print-ready PDF</span>
+        <span class="trust-sep">&middot;</span>
+        <span>Standards-aligned</span>
+        <span class="trust-sep">&middot;</span>
+        <span>No subscription</span>
+        <span class="trust-sep">&middot;</span>
+        <span>Built by a teacher</span>
+      </div>
+    </div>
+
+    <div class="shop-stack-wrap" aria-hidden="true">
+      <div class="shop-stack-tag"><strong>Latest bundles</strong> &middot; 3 of 3 &middot; Grades 6&ndash;8</div>
+
+      <div class="shop-stack">
+
+        <a href="#product-container" class="shop-card shop-card-1">
+          <div class="shop-card-tags">
+            <span class="shop-card-tag">8.EE.A.1</span>
+            <span class="shop-card-tag grade">Grades 6&ndash;8</span>
+          </div>
+          <img src="images/laws-of-exponents.webp" alt="" class="shop-card-img">
+          <h6>Laws of <em style="font-style:italic;color:var(--gold-light);">Exponents</em></h6>
+          <div class="shop-card-foot">
+            <span class="shop-card-price free">FREE</span>
+            <span class="shop-card-meta">Plan &middot; WS &middot; Key</span>
+          </div>
+        </a>
+
+        <a href="#product-container" class="shop-card shop-card-2">
+          <div class="shop-card-tags">
+            <span class="shop-card-tag">8.EE.C.8</span>
+            <span class="shop-card-tag grade">Grades 6&ndash;8</span>
+          </div>
+          <img src="images/systems-of-equations-solving-by-substitution.webp" alt="" class="shop-card-img">
+          <h6>Systems by <em style="font-style:italic;color:var(--gold-light);">Substitution</em></h6>
+          <div class="shop-card-foot">
+            <span class="shop-card-price">$2.25</span>
+            <span class="shop-card-meta">Plan &middot; WS &middot; Key</span>
+          </div>
+        </a>
+
+        <a href="#product-container" class="shop-card shop-card-3">
+          <div class="shop-card-tags">
+            <span class="shop-card-tag">8.EE.C.8</span>
+            <span class="shop-card-tag grade">Grades 6&ndash;8</span>
+          </div>
+          <img src="images/systems-of-equations-elimination.webp" alt="" class="shop-card-img">
+          <h6>Systems by <em style="font-style:italic;color:var(--gold-light);">Elimination</em></h6>
+          <div class="shop-card-foot">
+            <span class="shop-card-price">$2.25</span>
+            <span class="shop-card-meta">Plan &middot; WS &middot; Key</span>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="shop-stack-footer">3 bundles &middot; In stock</div>
+    </div>
+
+  </div>
+
+  <div class="shop-hero-footer-strip">
+    <span>Same product. Lower price than TPT.</span>
+    <span>Updated as new lessons are made</span>
+  </div>
+</section>
 
 <section class="section-wrap">
   <div class="section-inner" style="padding-top:0;">
 
     <div class="shop-note">
       <div class="shop-note-icon">💡</div>
-      <p>Everything here is <strong>$1 cheaper than our TPT store</strong>. Same quality, better price. You get the editable Word file too. Questions? Email <a href="mailto:euclidiamath@gmail.com" style="color:var(--gold);">euclidiamath@gmail.com</a></p>
+      <p>Everything here is <strong>$1 cheaper than our TPT store</strong>. Same quality, better price. Every bundle is a print-ready PDF you can use immediately. Questions? Email <a href="mailto:euclidiamath@gmail.com" style="color:var(--gold);">euclidiamath@gmail.com</a></p>
     </div>
 
     <div class="filter-bar" id="filter-bar" role="group" aria-label="Filter products">
@@ -122,9 +269,9 @@ a.product-thumb-placeholder:hover { opacity:0.95; }
     <div id="product-container">
 <!-- BUILD:PRODUCTS:START -->
 <div class="product-grid">
-<div class="product-card" data-tags="8.EE Exponents"><a href="lessons/laws-of-exponents.html" aria-label="View Laws of Exponents | No-Prep Lesson, Worksheet, &amp; Answer Key"><img src="images/laws-of-exponents.webp" alt="Laws of Exponents | No-Prep Lesson, Worksheet, &amp; Answer Key thumbnail" class="product-thumb" loading="lazy"></a><div class="product-body"><div class="product-tags"><span class="product-tag">8.EE.A.1</span><span class="product-tag grade">Grades 6-8</span></div><a href="lessons/laws-of-exponents.html" class="product-title-link"><div class="product-title">Laws of Exponents | No-Prep Lesson, Worksheet, &amp; Answer Key</div></a><div class="product-desc">No-prep lesson bundle covering the product, quotient, and power of a power rules for exponents.</div><div class="product-includes"><span>&#128203; Lesson Plan</span><span>&#128221; Worksheet</span><span>&#9989; Answer Key</span></div></div><div class="product-footer"><div><div class="product-price-main" style="color:#34d399;">FREE</div><div class="product-price-note">PDF + editable DOCX</div></div><a href="https://payhip.com/b/8EzV2" class="btn-buy free" target="_blank" rel="noopener">Download &uarr;</a></div></div>
-<div class="product-card" data-tags="8.EE.C.8 8.EE Systems-of-Equations"><a href="lessons/systems-of-equations-solving-by-substitution.html" aria-label="View Systems of Equations: Solving by Substitution"><img src="images/systems-of-equations-solving-by-substitution.webp" alt="Systems of Equations: Solving by Substitution thumbnail" class="product-thumb" loading="lazy"></a><div class="product-body"><div class="product-tags"><span class="product-tag">8.EE.C.8.b</span><span class="product-tag grade">Grades 6-8</span></div><a href="lessons/systems-of-equations-solving-by-substitution.html" class="product-title-link"><div class="product-title">Systems of Equations: Solving by Substitution</div></a><div class="product-desc">A complete 45-minute lesson bundle with a &quot;Secret Identity&quot; hook, scaffolded worksheet with proper math typography, a detailed answer key with misconception alerts, and DOK 3 extension tasks where neither variable is initially isolated.</div><div class="product-includes"><span>&#128203; Lesson Plan</span><span>&#128221; Worksheet</span><span>&#9989; Answer Key</span></div></div><div class="product-footer"><div><div class="product-price-main">$2.25</div><div class="product-price-tpt">$3.25</div><div class="product-price-note">PDF + editable DOCX</div></div><a href="https://payhip.com/b/RK1L0" class="btn-buy" target="_blank" rel="noopener">Buy Now &uarr;</a></div></div>
-<div class="product-card" data-tags="8.EE.C.8 8.EE Systems-of-Equations"><a href="lessons/systems-of-equations-elimination.html" aria-label="View Solving Systems by Elimination | No-Prep Lesson Bundle | 8.EE.C.8.b Mastery"><img src="images/systems-of-equations-elimination.webp" alt="Solving Systems by Elimination | No-Prep Lesson Bundle | 8.EE.C.8.b Mastery thumbnail" class="product-thumb" loading="lazy"></a><div class="product-body"><div class="product-tags"><span class="product-tag">8.EE.C.8.b</span><span class="product-tag grade">Grades 6-8</span></div><a href="lessons/systems-of-equations-elimination.html" class="product-title-link"><div class="product-title">Solving Systems by Elimination | No-Prep Lesson Bundle | 8.EE.C.8.b Mastery</div></a><div class="product-desc">Includes a detailed 45-minute guide featuring a real-world money hook asking students to find individual amounts when two friends share 14 dollars with a 4 dollar difference, high-quality math typography for adding or subtracting equations to eliminate one variable, and a detailed answer key.</div><div class="product-includes"><span>&#128203; Lesson Plan</span><span>&#128221; Worksheet</span><span>&#9989; Answer Key</span></div></div><div class="product-footer"><div><div class="product-price-main">$2.25</div><div class="product-price-tpt">$3.25</div><div class="product-price-note">PDF + editable DOCX</div></div><a href="https://payhip.com/b/q3W50" class="btn-buy" target="_blank" rel="noopener">Buy Now &uarr;</a></div></div>
+<div class="product-card" data-tags="8.EE Exponents"><a href="lessons/laws-of-exponents.html" aria-label="View Laws of Exponents | No-Prep Lesson, Worksheet, &amp; Answer Key"><img src="images/laws-of-exponents.webp" alt="Laws of Exponents | No-Prep Lesson, Worksheet, &amp; Answer Key thumbnail" class="product-thumb" loading="lazy"></a><div class="product-body"><div class="product-tags"><span class="product-tag">8.EE.A.1</span><span class="product-tag grade">Grades 6-8</span></div><a href="lessons/laws-of-exponents.html" class="product-title-link"><div class="product-title">Laws of Exponents | No-Prep Lesson, Worksheet, &amp; Answer Key</div></a><div class="product-desc">No-prep lesson bundle covering the product, quotient, and power of a power rules for exponents.</div><div class="product-includes"><span>&#128203; Lesson Plan</span><span>&#128221; Worksheet</span><span>&#9989; Answer Key</span></div></div><div class="product-footer"><div><div class="product-price-main" style="color:#34d399;">FREE</div><div class="product-price-note">Print-ready PDF</div></div><a href="https://payhip.com/b/8EzV2" class="btn-buy free" target="_blank" rel="noopener">Download &uarr;</a></div></div>
+<div class="product-card" data-tags="8.EE.C.8 8.EE Systems-of-Equations"><a href="lessons/systems-of-equations-solving-by-substitution.html" aria-label="View Systems of Equations: Solving by Substitution"><img src="images/systems-of-equations-solving-by-substitution.webp" alt="Systems of Equations: Solving by Substitution thumbnail" class="product-thumb" loading="lazy"></a><div class="product-body"><div class="product-tags"><span class="product-tag">8.EE.C.8.b</span><span class="product-tag grade">Grades 6-8</span></div><a href="lessons/systems-of-equations-solving-by-substitution.html" class="product-title-link"><div class="product-title">Systems of Equations: Solving by Substitution</div></a><div class="product-desc">A complete 45-minute lesson bundle with a &quot;Secret Identity&quot; hook, scaffolded worksheet with proper math typography, a detailed answer key with misconception alerts, and DOK 3 extension tasks where neither variable is initially isolated.</div><div class="product-includes"><span>&#128203; Lesson Plan</span><span>&#128221; Worksheet</span><span>&#9989; Answer Key</span></div></div><div class="product-footer"><div><div class="product-price-main">$2.25</div><div class="product-price-tpt">$3.25</div><div class="product-price-note">Print-ready PDF</div></div><a href="https://payhip.com/b/RK1L0" class="btn-buy" target="_blank" rel="noopener">Buy Now &uarr;</a></div></div>
+<div class="product-card" data-tags="8.EE.C.8 8.EE Systems-of-Equations"><a href="lessons/systems-of-equations-elimination.html" aria-label="View Solving Systems by Elimination | No-Prep Lesson Bundle | 8.EE.C.8.b Mastery"><img src="images/systems-of-equations-elimination.webp" alt="Solving Systems by Elimination | No-Prep Lesson Bundle | 8.EE.C.8.b Mastery thumbnail" class="product-thumb" loading="lazy"></a><div class="product-body"><div class="product-tags"><span class="product-tag">8.EE.C.8.b</span><span class="product-tag grade">Grades 6-8</span></div><a href="lessons/systems-of-equations-elimination.html" class="product-title-link"><div class="product-title">Solving Systems by Elimination | No-Prep Lesson Bundle | 8.EE.C.8.b Mastery</div></a><div class="product-desc">Includes a detailed 45-minute guide featuring a real-world money hook asking students to find individual amounts when two friends share 14 dollars with a 4 dollar difference, high-quality math typography for adding or subtracting equations to eliminate one variable, and a detailed answer key.</div><div class="product-includes"><span>&#128203; Lesson Plan</span><span>&#128221; Worksheet</span><span>&#9989; Answer Key</span></div></div><div class="product-footer"><div><div class="product-price-main">$2.25</div><div class="product-price-tpt">$3.25</div><div class="product-price-note">Print-ready PDF</div></div><a href="https://payhip.com/b/q3W50" class="btn-buy" target="_blank" rel="noopener">Buy Now &uarr;</a></div></div>
 </div>
 <!-- BUILD:PRODUCTS:END -->
     </div>

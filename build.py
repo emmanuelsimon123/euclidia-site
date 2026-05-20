@@ -122,7 +122,7 @@ def build_card_html(product, slug):
         price_html = (
             '<div>'
             '<div class="product-price-main" style="color:#34d399;">FREE</div>'
-            '<div class="product-price-note">PDF + editable DOCX</div>'
+            '<div class="product-price-note">Print-ready PDF</div>'
             '</div>'
         )
         btn_class = "btn-buy free"
@@ -135,7 +135,7 @@ def build_card_html(product, slug):
             '<div>'
             f'<div class="product-price-main">{price}</div>'
             f"{tpt_block}"
-            '<div class="product-price-note">PDF + editable DOCX</div>'
+            '<div class="product-price-note">Print-ready PDF</div>'
             '</div>'
         )
         btn_class = "btn-buy"
@@ -299,7 +299,7 @@ main {{ max-width: 980px; margin: 0 auto; padding: 120px 24px 80px; width: 100%;
       <div class="lesson-includes">
         <h3>What's included</h3>
         <ul>
-          <li>&#128203; Teacher lesson plan (PDF + editable DOCX)</li>
+          <li>&#128203; Teacher lesson plan (print-ready PDF)</li>
           <li>&#128221; Scaffolded student worksheet</li>
           <li>&#9989; Detailed answer key with misconception alerts</li>
         </ul>
@@ -390,7 +390,7 @@ def build_lesson_page(product):
     if is_free:
         price_block = (
             '<div class="lesson-buy-price free">FREE</div>'
-            '<div class="lesson-buy-note">PDF + editable DOCX &middot; instant download</div>'
+            '<div class="lesson-buy-note">Print-ready PDF &middot; instant download</div>'
         )
         btn_modifier = " free"
         btn_text = "Download free &rarr;"
@@ -403,7 +403,7 @@ def build_lesson_page(product):
         price_block = (
             f'<div class="lesson-buy-price">{html_escape(price)}</div>'
             f"{tpt_block}"
-            '<div class="lesson-buy-note">PDF + editable DOCX &middot; instant download</div>'
+            '<div class="lesson-buy-note">Print-ready PDF &middot; instant download</div>'
         )
         btn_modifier = ""
         btn_text = "Buy on Payhip &rarr;"
