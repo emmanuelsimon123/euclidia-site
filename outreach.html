@@ -98,7 +98,9 @@
 .visual-meta::before { content:'\25C6'; color:var(--gold); font-size:9px; }
 
 .gradebook-card { position:absolute; top:46px; left:0; width:340px; background:var(--card-bg); border:1px solid var(--border); border-radius:12px; padding:20px 22px; z-index:1; }
-.gradebook-card h4 { font-family:'Playfair Display',serif; font-size:15px; color:var(--white); margin-bottom:14px; font-weight:700; }
+.gradebook-card h4 { font-family:'Playfair Display',serif; font-size:15px; color:var(--white); margin-bottom:6px; font-weight:700; }
+.gradebook-threshold { font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-dim); margin-bottom:14px; }
+.gradebook-threshold .threshold-flag { color:var(--gold); }
 .gradebook-table { width:100%; font-size:13px; color:var(--text); border-collapse:collapse; }
 .gradebook-table thead th { font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-dim); padding-bottom:8px; border-bottom:1px solid var(--border); text-align:left; }
 .gradebook-table td { padding:6px 0; }
@@ -186,6 +188,7 @@
 
         <div class="gradebook-card">
           <h4>Gradebook &middot; Q3 Progress</h4>
+          <div class="gradebook-threshold">Threshold: 75% &middot; <span class="threshold-flag">3 flagged</span></div>
           <table class="gradebook-table">
             <thead>
               <tr><th>Student</th><th>Current %</th><th>Missing</th></tr>
