@@ -86,6 +86,65 @@
   .waitlist-form { flex-direction:column; }
   .waitlist-input, .waitlist-btn { width:100%; }
 }
+
+/* HOME HERO REDESIGN */
+.home-hero-section { padding-top:120px; padding-bottom:60px; max-width:1280px; margin:0 auto; padding-left:48px; padding-right:48px; position:relative; z-index:1; }
+.home-hero-grid { display:grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap:80px; align-items:start; }
+.home-hero-content { max-width:560px; padding-top:8px; }
+.home-hero-eyebrow { display:inline-flex; align-items:center; gap:10px; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+.home-hero-eyebrow .eyebrow-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); }
+.home-hero-rule { width:56px; height:1px; background:var(--gold); margin-bottom:36px; opacity:0.85; }
+.home-hero-title { font-family:'Playfair Display',serif; font-size:5.4rem; font-weight:700; color:var(--white); line-height:1.02; letter-spacing:-0.025em; margin-bottom:28px; }
+.home-hero-title em { font-style:italic; font-weight:600; color:var(--gold); display:block; }
+.home-hero-sub { font-size:1.05rem; line-height:1.7; color:var(--text); margin-bottom:36px; max-width:480px; }
+.home-hero-ctas { display:flex; gap:24px; align-items:center; margin-bottom:30px; flex-wrap:wrap; }
+.home-cta-primary { display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:var(--navy); padding:15px 26px; border-radius:8px; font-size:15px; font-weight:700; text-decoration:none; transition:all 0.2s; }
+.home-cta-primary:hover { background:var(--gold-light); transform:translateY(-1px); }
+.home-cta-secondary { display:inline-flex; align-items:center; gap:6px; color:var(--text-bright); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.2s; }
+.home-cta-secondary:hover { color:var(--gold); }
+.home-hero-trust { display:flex; flex-wrap:wrap; gap:14px; font-size:12px; color:var(--text-dim); letter-spacing:0.02em; align-items:center; }
+.home-hero-trust .trust-sep { opacity:0.4; }
+
+.home-hero-tools { position:relative; padding:24px 0 24px 28px; }
+.home-hero-tools::before, .home-hero-tools::after { content:''; position:absolute; left:0; width:14px; height:14px; border-color:var(--gold-border); border-style:solid; }
+.home-hero-tools::before { top:0; border-width:1px 0 0 1px; }
+.home-hero-tools::after { bottom:0; border-width:0 0 1px 1px; }
+.tools-eyebrow { display:inline-flex; align-items:center; gap:10px; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:24px; }
+.tools-eyebrow .eyebrow-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); }
+.tools-list { display:flex; flex-direction:column; }
+.tool-item { display:grid; grid-template-columns: 36px 1fr 48px; gap:18px; align-items:center; padding:22px 0; border-top:1px solid var(--border); }
+.tool-item:first-child { border-top:1px solid var(--border-gold); }
+.tool-item:last-child { border-bottom:1px solid var(--border); }
+.tool-num { font-family:'Playfair Display',serif; font-style:italic; font-size:24px; font-weight:600; color:var(--text-dim); }
+.tool-body h3 { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; color:var(--white); margin-bottom:4px; line-height:1.2; }
+.tool-body p { font-size:13.5px; color:var(--text); line-height:1.5; }
+.tool-glyph { display:flex; align-items:center; justify-content:center; opacity:0.6; }
+.tool-glyph svg { width:36px; height:24px; }
+.tool-glyph-lines svg line { stroke:var(--gold); stroke-width:1.5; }
+.tool-glyph-grid svg circle { fill:var(--gold); }
+.tool-glyph-arrow svg { stroke:var(--gold); fill:none; stroke-width:1.5; }
+
+.home-hero-footer-strip { display:flex; justify-content:space-between; padding-top:36px; border-top:1px solid var(--border); margin-top:64px; font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-dim); }
+.home-hero-footer-strip span { display:inline-flex; align-items:center; gap:10px; }
+.home-hero-footer-strip span:first-child::before { content:'\25CF'; color:var(--gold); font-size:8px; }
+.home-hero-footer-strip span:last-child::after { content:'\25CF'; color:var(--gold); font-size:8px; }
+
+@media (max-width: 1100px) {
+  .home-hero-title { font-size:4.4rem; }
+  .home-hero-grid { gap:48px; }
+}
+@media (max-width: 960px) {
+  .home-hero-section { padding-top:104px; padding-bottom:30px; padding-left:24px; padding-right:24px; }
+  .home-hero-grid { grid-template-columns:1fr; gap:48px; }
+  .home-hero-title { font-size:3.4rem; }
+  .home-hero-footer-strip { margin-top:36px; padding-top:24px; }
+}
+@media (max-width: 600px) {
+  .home-hero-title { font-size:2.6rem; }
+  .home-hero-footer-strip { flex-direction:column; gap:10px; text-align:center; }
+  .tool-item { grid-template-columns: 28px 1fr 32px; gap:12px; padding:18px 0; }
+  .tool-body h3 { font-size:1.2rem; }
+}
 </style>
 </head>
 <body data-page="home">
@@ -94,13 +153,92 @@
 
 <main id="main">
 
-<section class="home-hero" aria-label="Hero">
-  <span class="section-label">Built by a teacher. For teachers.</span>
-  <h1>Give teachers their time back.</h1>
-  <p>Teachers do the most important work for underappreciated pay. Euclidia exists to give you your time back.</p>
-  <div class="home-actions">
-    <a href="shop.html" class="btn-primary">Browse Lessons</a>
-    <a href="#products" class="btn-secondary" id="all-tools-link">See All Tools</a>
+<section class="home-hero-section" aria-label="Hero">
+  <div class="home-hero-grid">
+
+    <div class="home-hero-content">
+      <div class="home-hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span>Built by a teacher. For teachers.</span>
+      </div>
+      <div class="home-hero-rule"></div>
+
+      <h1 class="home-hero-title">Give teachers their <em>time back.</em></h1>
+      <p class="home-hero-sub">Three tools that take care of the formatting, scaffolding, and admin work. So you can teach at a humane pace.</p>
+
+      <div class="home-hero-ctas">
+        <a href="shop.html" class="home-cta-primary">Browse Lessons &rarr;</a>
+        <a href="#products" class="home-cta-secondary" id="all-tools-link">See all tools &rarr;</a>
+      </div>
+
+      <div class="home-hero-trust">
+        <span>Built by a teacher</span>
+        <span class="trust-sep">&middot;</span>
+        <span>Math first</span>
+        <span class="trust-sep">&middot;</span>
+        <span>Student data never stored</span>
+      </div>
+    </div>
+
+    <div class="home-hero-tools" aria-label="Three tools">
+      <div class="tools-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span>Three tools &middot; One quiet idea</span>
+      </div>
+      <div class="tools-list">
+
+        <article class="tool-item">
+          <span class="tool-num">I.</span>
+          <div class="tool-body">
+            <h3>Lesson Library</h3>
+            <p>Standards-aligned bundles for secondary math.</p>
+          </div>
+          <div class="tool-glyph tool-glyph-lines" aria-hidden="true">
+            <svg viewBox="0 0 36 24" xmlns="http://www.w3.org/2000/svg">
+              <line x1="2" y1="6" x2="34" y2="6"/>
+              <line x1="2" y1="12" x2="28" y2="12"/>
+              <line x1="2" y1="18" x2="22" y2="18"/>
+            </svg>
+          </div>
+        </article>
+
+        <article class="tool-item">
+          <span class="tool-num">II.</span>
+          <div class="tool-body">
+            <h3>Lesson Generator</h3>
+            <p>Generate a scaffolded plan, worksheet, and answer key in seconds.</p>
+          </div>
+          <div class="tool-glyph tool-glyph-grid" aria-hidden="true">
+            <svg viewBox="0 0 36 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="4" cy="4" r="1.2"/><circle cx="12" cy="4" r="1.2"/><circle cx="20" cy="4" r="1.2"/><circle cx="28" cy="4" r="1.2"/>
+              <circle cx="4" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="20" cy="12" r="1.2"/><circle cx="28" cy="12" r="1.2"/>
+              <circle cx="4" cy="20" r="1.2"/><circle cx="12" cy="20" r="1.2"/><circle cx="20" cy="20" r="1.2"/><circle cx="28" cy="20" r="1.2"/>
+            </svg>
+          </div>
+        </article>
+
+        <article class="tool-item">
+          <span class="tool-num">III.</span>
+          <div class="tool-body">
+            <h3>Outreach</h3>
+            <p>Turn your gradebook into personalized parent emails in minutes.</p>
+          </div>
+          <div class="tool-glyph tool-glyph-arrow" aria-hidden="true">
+            <svg viewBox="0 0 36 24" xmlns="http://www.w3.org/2000/svg">
+              <line x1="4" y1="20" x2="30" y2="6"/>
+              <polyline points="22,5 30,6 29,14"/>
+            </svg>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="home-hero-footer-strip">
+    <span>Built for the parts of teaching no one funds</span>
+    <span>By a teacher, for teachers</span>
   </div>
 </section>
 
