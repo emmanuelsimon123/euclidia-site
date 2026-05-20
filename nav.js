@@ -7,14 +7,14 @@
 
   const navHTML = `
 <nav role="navigation" aria-label="Main navigation">
-  <a href="index.html" class="nav-logo">Eucli<span>dia</span></a>
+  <a href="/index.html" class="nav-logo">Eucli<span>dia</span></a>
   <ul class="nav-links">
-    <li><a href="shop.html"${activeIf('shop')}>Lessons</a></li>
-    <li><a href="generator.html"${activeIf('generator')}>Generator</a></li>
-    <li><a href="outreach.html"${activeIf('outreach')}>Outreach</a></li>
-    <li><a href="about.html"${activeIf('about')}>About</a></li>
-    <li><a href="about.html#faq">FAQ</a></li>
-    <li><a href="shop.html" class="nav-cta">Browse Lessons</a></li>
+    <li><a href="/shop.html"${activeIf('shop')}>Lessons</a></li>
+    <li><a href="/generator.html"${activeIf('generator')}>Generator</a></li>
+    <li><a href="/outreach.html"${activeIf('outreach')}>Outreach</a></li>
+    <li><a href="/about.html"${activeIf('about')}>About</a></li>
+    <li><a href="/about.html#faq">FAQ</a></li>
+    <li><a href="/shop.html" class="nav-cta">Browse Lessons</a></li>
   </ul>
   <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-mobile">
     <span></span><span></span><span></span>
@@ -22,13 +22,13 @@
 </nav>
 
 <div class="nav-mobile" id="nav-mobile">
-  <a href="index.html"${activeIf('home')}>Home</a>
-  <a href="shop.html"${activeIf('shop')}>Lessons</a>
-  <a href="generator.html"${activeIf('generator')}>Generator</a>
-  <a href="outreach.html"${activeIf('outreach')}>Outreach</a>
-  <a href="about.html"${activeIf('about')}>About</a>
-  <a href="about.html#faq">FAQ</a>
-  <a href="shop.html" class="nav-cta">Browse Lessons</a>
+  <a href="/index.html"${activeIf('home')}>Home</a>
+  <a href="/shop.html"${activeIf('shop')}>Lessons</a>
+  <a href="/generator.html"${activeIf('generator')}>Generator</a>
+  <a href="/outreach.html"${activeIf('outreach')}>Outreach</a>
+  <a href="/about.html"${activeIf('about')}>About</a>
+  <a href="/about.html#faq">FAQ</a>
+  <a href="/shop.html" class="nav-cta">Browse Lessons</a>
 </div>`;
 
   const footerHTML = `
@@ -41,30 +41,30 @@
     <div>
       <div class="footer-col-title">Navigate</div>
       <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Lessons</a></li>
-        <li><a href="generator.html">Generator</a></li>
-        <li><a href="outreach.html">Outreach</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="about.html#faq">FAQ</a></li>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/shop.html">Lessons</a></li>
+        <li><a href="/generator.html">Generator</a></li>
+        <li><a href="/outreach.html">Outreach</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/about.html#faq">FAQ</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Support</div>
       <ul class="footer-links">
         <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
-        <li><a href="about.html#faq">Help &amp; FAQ</a></li>
+        <li><a href="/about.html#faq">Help &amp; FAQ</a></li>
         <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank" rel="noopener">TPT Store &#8599;</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <li><a href="/terms.html">Terms of Service</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <span class="footer-copy">&copy; 2026 Euclidia &middot; euclidiamath.com</span>
     <div class="footer-legal">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
     </div>
   </div>
 </footer>`;

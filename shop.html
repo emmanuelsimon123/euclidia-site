@@ -54,7 +54,11 @@
 .product-tags { display:flex; gap:6px; flex-wrap:wrap; }
 .product-tag { font-size:11px; font-weight:600; background:var(--gold-pale); border:1px solid var(--gold-border); color:var(--gold); padding:3px 9px; border-radius:5px; }
 .product-tag.grade { background:rgba(27,58,107,0.3); border-color:rgba(27,58,107,0.5); color:#93b4d4; }
-.product-title { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:var(--white); line-height:1.3; }
+.product-title { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:var(--white); line-height:1.3; transition:color 0.2s; }
+.product-title-link { text-decoration:none; color:inherit; display:block; }
+.product-title-link:hover .product-title { color:var(--gold); }
+.product-thumb-placeholder { text-decoration:none; }
+a.product-thumb-placeholder:hover { opacity:0.95; }
 .product-desc { font-size:13.5px; color:var(--text-dim); line-height:1.6; flex:1; }
 .product-includes { display:flex; gap:12px; font-size:12px; color:var(--text-dim); flex-wrap:wrap; }
 .product-footer { padding:16px 20px; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; gap:12px; }
@@ -110,17 +114,22 @@
     </div>
 
     <div class="filter-bar" id="filter-bar" role="group" aria-label="Filter products">
-      <button class="filter-btn active" data-filter="all" onclick="filterProducts(this,'all')">All Resources</button>
+<!-- BUILD:FILTERS:START -->
+<button class="filter-btn active" data-filter="all" onclick="filterProducts(this,'all')">All Resources</button><button class="filter-btn" data-filter="8.EE" onclick="filterProducts(this,'8.EE')">8.EE</button><button class="filter-btn" data-filter="8.EE.C.8" onclick="filterProducts(this,'8.EE.C.8')">8.EE.C.8</button><button class="filter-btn" data-filter="Exponents" onclick="filterProducts(this,'Exponents')">Exponents</button><button class="filter-btn" data-filter="Systems-of-Equations" onclick="filterProducts(this,'Systems-of-Equations')">Systems-of-Equations</button>
+<!-- BUILD:FILTERS:END -->
     </div>
 
     <div id="product-container">
-      <div class="loading-state">
-        <div class="loading-spinner"></div>
-        <p>Loading resources...</p>
-      </div>
+<!-- BUILD:PRODUCTS:START -->
+<div class="product-grid">
+<div class="product-card" data-tags="8.EE Exponents"><a href="lessons/laws-of-exponents.html" aria-label="View Laws of Exponents | No-Prep Lesson, Worksheet, &amp; Answer Key"><img src="images/laws-of-exponents.webp" alt="Laws of Exponents | No-Prep Lesson, Worksheet, &amp; Answer Key thumbnail" class="product-thumb" loading="lazy"></a><div class="product-body"><div class="product-tags"><span class="product-tag">8.EE.A.1</span><span class="product-tag grade">Grades 6-8</span></div><a href="lessons/laws-of-exponents.html" class="product-title-link"><div class="product-title">Laws of Exponents | No-Prep Lesson, Worksheet, &amp; Answer Key</div></a><div class="product-desc">No-prep lesson bundle covering the product, quotient, and power of a power rules for exponents.</div><div class="product-includes"><span>&#128203; Lesson Plan</span><span>&#128221; Worksheet</span><span>&#9989; Answer Key</span></div></div><div class="product-footer"><div><div class="product-price-main" style="color:#34d399;">FREE</div><div class="product-price-note">PDF + editable DOCX</div></div><a href="https://payhip.com/b/8EzV2" class="btn-buy free" target="_blank" rel="noopener">Download &uarr;</a></div></div>
+<div class="product-card" data-tags="8.EE.C.8 8.EE Systems-of-Equations"><a href="lessons/systems-of-equations-solving-by-substitution.html" aria-label="View Systems of Equations: Solving by Substitution"><img src="images/systems-of-equations-solving-by-substitution.webp" alt="Systems of Equations: Solving by Substitution thumbnail" class="product-thumb" loading="lazy"></a><div class="product-body"><div class="product-tags"><span class="product-tag">8.EE.C.8.b</span><span class="product-tag grade">Grades 6-8</span></div><a href="lessons/systems-of-equations-solving-by-substitution.html" class="product-title-link"><div class="product-title">Systems of Equations: Solving by Substitution</div></a><div class="product-desc">A complete 45-minute lesson bundle with a &quot;Secret Identity&quot; hook, scaffolded worksheet with proper math typography, a detailed answer key with misconception alerts, and DOK 3 extension tasks where neither variable is initially isolated.</div><div class="product-includes"><span>&#128203; Lesson Plan</span><span>&#128221; Worksheet</span><span>&#9989; Answer Key</span></div></div><div class="product-footer"><div><div class="product-price-main">$2.25</div><div class="product-price-tpt">$3.25</div><div class="product-price-note">PDF + editable DOCX</div></div><a href="https://payhip.com/b/RK1L0" class="btn-buy" target="_blank" rel="noopener">Buy Now &uarr;</a></div></div>
+<div class="product-card" data-tags="8.EE.C.8 8.EE Systems-of-Equations"><a href="lessons/systems-of-equations-elimination.html" aria-label="View Solving Systems by Elimination | No-Prep Lesson Bundle | 8.EE.C.8.b Mastery"><img src="images/systems-of-equations-elimination.webp" alt="Solving Systems by Elimination | No-Prep Lesson Bundle | 8.EE.C.8.b Mastery thumbnail" class="product-thumb" loading="lazy"></a><div class="product-body"><div class="product-tags"><span class="product-tag">8.EE.C.8.b</span><span class="product-tag grade">Grades 6-8</span></div><a href="lessons/systems-of-equations-elimination.html" class="product-title-link"><div class="product-title">Solving Systems by Elimination | No-Prep Lesson Bundle | 8.EE.C.8.b Mastery</div></a><div class="product-desc">Includes a detailed 45-minute guide featuring a real-world money hook asking students to find individual amounts when two friends share 14 dollars with a 4 dollar difference, high-quality math typography for adding or subtracting equations to eliminate one variable, and a detailed answer key.</div><div class="product-includes"><span>&#128203; Lesson Plan</span><span>&#128221; Worksheet</span><span>&#9989; Answer Key</span></div></div><div class="product-footer"><div><div class="product-price-main">$2.25</div><div class="product-price-tpt">$3.25</div><div class="product-price-note">PDF + editable DOCX</div></div><a href="https://payhip.com/b/q3W50" class="btn-buy" target="_blank" rel="noopener">Buy Now &uarr;</a></div></div>
+</div>
+<!-- BUILD:PRODUCTS:END -->
     </div>
 
-    <div class="more-coming" id="more-coming" style="display:none;">
+    <div class="more-coming" id="more-coming">
       <h3>More resources added regularly</h3>
       <p>New lesson bundles are added as they're created. Follow us on TPT or check back here for the latest additions.</p>
     </div>
@@ -133,143 +142,20 @@
 <script src="nav.js"></script>
 <script src="main.js"></script>
 <script>
-let allProducts = [];
-let activeFilter = 'all';
-
-function buildProductCard(product) {
-  const isFree = product.is_free === true || product.is_free === 'true';
-
-  let thumbHtml = '';
-  if (product.thumbnail && product.thumbnail !== '') {
-    thumbHtml = `<img src="${product.thumbnail}" alt="${product.title} thumbnail" class="product-thumb" loading="lazy">`;
-  } else {
-    thumbHtml = `
-      <div class="product-thumb-placeholder">
-        <span>Euclidia</span>
-        <p>${product.title || 'Lesson Bundle'}</p>
-      </div>`;
-  }
-
-  let priceHtml = '';
-  if (isFree) {
-    priceHtml = `
-      <div>
-        <div class="product-price-main" style="color:#34d399;">FREE</div>
-        <div class="product-price-note">PDF + editable DOCX</div>
-      </div>`;
-  } else {
-    priceHtml = `
-      <div>
-        <div class="product-price-main">${product.price || '$2.25'}</div>
-        ${product.tpt_price ? `<div class="product-price-tpt">${product.tpt_price}</div>` : ''}
-        <div class="product-price-note">PDF + editable DOCX</div>
-      </div>`;
-  }
-
-  const btnClass = isFree ? 'btn-buy free' : 'btn-buy';
-  const btnText = isFree ? 'Download ↗' : 'Buy Now ↗';
-  const btnHref = product.buy_url && product.buy_url !== '' ? product.buy_url : '#';
-
-  return `
-    <div class="product-card" data-tags="${(product.tags || []).join(' ')}">
-      ${thumbHtml}
-      <div class="product-body">
-        <div class="product-tags">
-          ${product.standard ? `<span class="product-tag">${product.standard}</span>` : ''}
-          ${product.grade ? `<span class="product-tag grade">Grades ${product.grade}</span>` : ''}
-        </div>
-        <div class="product-title">${product.title || 'Lesson Bundle'}</div>
-        <div class="product-desc">${product.description || ''}</div>
-        <div class="product-includes">
-          <span>📋 Lesson Plan</span>
-          <span>📝 Worksheet</span>
-          <span>✅ Answer Key</span>
-        </div>
-      </div>
-      <div class="product-footer">
-        ${priceHtml}
-        <a href="${btnHref}" class="${btnClass}" target="_blank" rel="noopener">${btnText}</a>
-      </div>
-    </div>`;
-}
-
-function buildFilters(products) {
-  const tagSet = new Set();
-  products.forEach(function (p) {
-    if (p.tags) p.tags.forEach(function (t) { if (t.trim()) tagSet.add(t.trim()); });
-  });
-  const filterBar = document.getElementById('filter-bar');
-  tagSet.forEach(function (tag) {
-    const btn = document.createElement('button');
-    btn.className = 'filter-btn';
-    btn.dataset.filter = tag;
-    btn.textContent = tag;
-    btn.onclick = function () { filterProducts(btn, tag); };
-    filterBar.appendChild(btn);
-  });
-}
-
 function filterProducts(btn, filter) {
-  activeFilter = filter;
   document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
   btn.classList.add('active');
-  renderGrid();
+
+  var anyVisible = false;
+  document.querySelectorAll('.product-card').forEach(function (card) {
+    var tags = (card.dataset.tags || '').split(/\s+/);
+    var show = filter === 'all' || tags.indexOf(filter) !== -1;
+    card.style.display = show ? '' : 'none';
+    if (show) anyVisible = true;
+  });
+
+  document.getElementById('more-coming').style.display = anyVisible ? '' : 'none';
 }
-
-function renderGrid() {
-  const container = document.getElementById('product-container');
-  const filtered = activeFilter === 'all'
-    ? allProducts
-    : allProducts.filter(function (p) { return p.tags && p.tags.includes(activeFilter); });
-
-  if (filtered.length === 0) {
-    container.innerHTML = `
-      <div class="empty-state">
-        <h3>No resources found</h3>
-        <p>Try a different filter or check back soon.</p>
-      </div>`;
-    return;
-  }
-
-  container.innerHTML = `<div class="product-grid">${filtered.map(buildProductCard).join('')}</div>`;
-  document.getElementById('more-coming').style.display = 'block';
-}
-
-async function loadProducts() {
-  const container = document.getElementById('product-container');
-  try {
-    const res = await fetch('products.json');
-    if (!res.ok) throw new Error('Failed to load products: ' + res.status);
-    const products = await res.json();
-
-    if (!products || products.length === 0) {
-      container.innerHTML = `
-        <div class="empty-state">
-          <h3>Products coming soon</h3>
-          <p>Check back shortly. Resources are being added now.</p>
-        </div>`;
-      return;
-    }
-
-    allProducts = products;
-    allProducts.sort(function (a, b) {
-      if (a.is_free && !b.is_free) return 1;
-      if (!a.is_free && b.is_free) return -1;
-      return (a.title || '').localeCompare(b.title || '');
-    });
-
-    buildFilters(allProducts);
-    renderGrid();
-  } catch (err) {
-    console.error('Error loading products:', err);
-    container.innerHTML = `
-      <div class="error-state">
-        <p>Couldn't load products right now. Please refresh the page or <a href="mailto:euclidiamath@gmail.com" style="color:var(--gold);">contact us</a>.</p>
-      </div>`;
-  }
-}
-
-loadProducts();
 </script>
 </body>
 </html>

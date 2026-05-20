@@ -236,8 +236,19 @@ def main():
     products.append(data)
     save_products(products)
 
-    # Push to GitHub
-    files_to_push = [PRODUCTS_FILE]
+    # Rebuild static shop + lesson pages + sitemap from the updated catalog
+    print_info("Rebuilding shop, lesson pages, and sitemap...")
+    result = subprocess.run([sys.executable, 'build.py'], capture_output=True, text=True)
+    if result.returncode != 0:
+        print_error("build.py failed:")
+        print(result.stdout)
+        print(result.stderr)
+        print_info("products.json was updated but the build did not complete.")
+        sys.exit(1)
+    print_success("Build complete.")
+
+    # Push to GitHub (push everything build.py touched)
+    files_to_push = [PRODUCTS_FILE, 'shop.html', 'sitemap.xml', 'lessons']
     if data['thumbnail']:
         files_to_push.append(data['thumbnail'])
 

@@ -32,10 +32,27 @@ The fastest path is the included Python script that does git push for you.
 2. Make sure you have a Payhip link and a thumbnail image ready
 3. Run: `python add_product.py`
 4. Answer the questions one at a time
-5. The script updates `products.json`, copies the thumbnail, and pushes to GitHub
+5. The script updates `products.json`, runs `build.py` (which regenerates the static shop, individual lesson pages, and sitemap), and pushes everything to GitHub
 6. The product is live on the shop page within ~60 seconds (GitHub Pages deploy)
 
 Full step-by-step is in `HOW_TO_ADD_PRODUCTS.md`.
+
+---
+
+## How the shop is built
+
+The shop is a static site, but the product cards on `shop.html` and the
+individual lesson pages under `lessons/` are **generated** from
+`products.json` by `build.py`. This gives Google fully-rendered HTML
+to index (instead of JS-rendered cards that crawlers see less reliably).
+
+When you change `products.json` directly (instead of running
+`add_product.py`), you must run `python build.py` afterward so the static
+HTML reflects the new catalog. The GitHub Actions workflow also runs
+`build.py` on every push as a safety net.
+
+`build.py` is idempotent — running it twice in a row produces the same
+output, and it removes lesson pages for products that no longer exist.
 
 ---
 
