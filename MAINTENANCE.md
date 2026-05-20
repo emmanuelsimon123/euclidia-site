@@ -70,6 +70,7 @@ There is **no staging environment**. Every push to main goes straight to live. I
 - `styles.css` — site-wide design system (colors, typography, components)
 - `nav.js` — injects the top nav and footer into every page
 - `main.js` — scroll reveal animation + nav background on scroll
+- `fonts/` — self-hosted Playfair Display and DM Sans (.woff2 files, latin subset). Regenerate with `python regenerate_fonts.py` if you change which weights the site uses.
 
 **SEO assets (recently added):**
 - `robots.txt` — tells crawlers to index everything
