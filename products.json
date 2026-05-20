@@ -7,7 +7,7 @@
     "tpt_price": "FREE",
     "description": "No-prep lesson bundle covering the product, quotient, and power of a power rules for exponents.",
     "buy_url": "https://payhip.com/b/8EzV2",
-    "thumbnail": "images/laws-of-exponents.png",
+    "thumbnail": "images/laws-of-exponents.webp",
     "tags": ["8.EE", "Exponents"],
     "is_free": true
   },
@@ -21,7 +21,7 @@
     "buy_url": "https://payhip.com/b/RK1L0",
     "description": "A complete 45-minute lesson bundle with a \"Secret Identity\" hook, scaffolded worksheet with proper math typography, a detailed answer key with misconception alerts, and DOK 3 extension tasks where neither variable is initially isolated.",
     "tags": ["8.EE.C.8", "8.EE", "Systems-of-Equations"],
-    "thumbnail": "images/systems-of-equations-solving-by-substitution.png"
+    "thumbnail": "images/systems-of-equations-solving-by-substitution.webp"
   },
   {
     "title": "Solving Systems by Elimination | No-Prep Lesson Bundle | 8.EE.C.8.b Mastery",
@@ -33,6 +33,6 @@
     "buy_url": "https://payhip.com/b/q3W50",
     "description": "Includes a detailed 45-minute guide featuring a real-world money hook asking students to find individual amounts when two friends share 14 dollars with a 4 dollar difference, high-quality math typography for adding or subtracting equations to eliminate one variable, and a detailed answer key.",
     "tags": ["8.EE.C.8", "8.EE", "Systems-of-Equations"],
-    "thumbnail": "images/systems-of-equations-elimination.png"
+    "thumbnail": "images/systems-of-equations-elimination.webp"
   }
 ]
