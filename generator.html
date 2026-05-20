@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Generator | Euclidia Custom Lesson Builder</title>
-<meta name="description" content="Generate custom, standards-aligned math lesson bundles in under 2 minutes. Buy credits, use whenever you want. Coming soon.">
+<meta name="description" content="Enter a math topic and grade level. Get a complete lesson plan, worksheet, and answer key in three seconds. Each lesson follows the 7 Elements of Effective Teaching. Crafted by a teacher, not by AI. Grades 7-12.">
 <meta property="og:title" content="Generator | Euclidia Custom Lesson Builder">
-<meta property="og:description" content="Generate custom, standards-aligned math lesson bundles in under 2 minutes. Buy credits, use whenever you want.">
+<meta property="og:description" content="Enter a topic and grade. Get a lesson plan, worksheet, and answer key in three seconds. Each lesson follows the 7 Elements of Effective Teaching.">
 <meta property="og:url" content="https://euclidiamath.com/generator.html">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://euclidiamath.com/images/og-image.png">
@@ -20,7 +20,7 @@
   "@type": "SoftwareApplication",
   "name": "Euclidia Generator",
   "url": "https://euclidiamath.com/generator.html",
-  "description": "Custom lesson bundle generator. Enter any Common Core math standard and get a complete lesson plan, worksheet, and answer key in under two minutes.",
+  "description": "Custom math lesson generator for grades 7-12. Enter a topic and grade level. Get a complete lesson plan, worksheet, and answer key in under three seconds. Each lesson is built on the 7 Elements of Effective Teaching.",
   "applicationCategory": "EducationalApplication",
   "operatingSystem": "Web Browser",
   "offers": {
@@ -66,6 +66,80 @@
   .notify-form { flex-direction:column; }
   .notify-input, .notify-btn { width:100%; }
 }
+
+/* GENERATOR HERO REDESIGN */
+.gen-hero-section { padding-top:120px; padding-bottom:60px; max-width:1280px; margin:0 auto; padding-left:48px; padding-right:48px; position:relative; z-index:1; }
+.gen-hero-grid { display:grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.1fr); gap:64px; align-items:center; }
+.gen-hero-content { max-width:560px; }
+.gen-hero-eyebrow { display:inline-flex; align-items:center; gap:10px; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+.gen-hero-eyebrow .eyebrow-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); }
+.gen-hero-eyebrow .eyebrow-divider { color:var(--text-dim); font-weight:500; }
+.gen-hero-rule { width:56px; height:1px; background:var(--gold); margin-bottom:32px; opacity:0.85; }
+.gen-hero-title { font-family:'Playfair Display',serif; font-size:5rem; font-weight:700; color:var(--white); line-height:1.02; letter-spacing:-0.025em; margin-bottom:28px; }
+.gen-hero-title em { font-style:italic; font-weight:600; color:var(--gold); display:block; }
+.gen-hero-sub { font-size:1.05rem; line-height:1.7; color:var(--text); margin-bottom:36px; }
+.gen-hero-sub strong { color:var(--white); font-weight:700; }
+.gen-hero-ctas { display:flex; gap:24px; align-items:center; margin-bottom:30px; flex-wrap:wrap; }
+.gen-cta-primary { display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:var(--navy); padding:15px 26px; border-radius:8px; font-size:15px; font-weight:700; text-decoration:none; transition:all 0.2s; }
+.gen-cta-primary:hover { background:var(--gold-light); transform:translateY(-1px); }
+.gen-cta-secondary { display:inline-flex; align-items:center; gap:6px; color:var(--text-bright); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.2s; }
+.gen-cta-secondary:hover { color:var(--gold); }
+.gen-hero-trust { display:flex; flex-wrap:wrap; gap:14px; font-size:12px; color:var(--text-dim); letter-spacing:0.02em; align-items:center; }
+.gen-hero-trust .trust-sep { opacity:0.4; }
+
+/* OUTPUT VISUAL — fanned paper stack */
+.gen-output { position:relative; min-height:480px; }
+.gen-output-tag { display:flex; align-items:center; justify-content:center; gap:10px; font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-dim); margin-bottom:18px; }
+.gen-output-tag::before { content:'\25C6'; color:var(--gold); font-size:9px; }
+.gen-output-tag strong { color:var(--white); font-weight:700; letter-spacing:0.12em; }
+
+.gen-paper-stack { position:relative; height:400px; }
+.gen-paper { position:absolute; width:240px; background:#F5EFE0; color:#2A2418; border-radius:6px; padding:18px 18px 22px; box-shadow:0 18px 32px rgba(0,0,0,0.45), 0 4px 8px rgba(0,0,0,0.3); font-family:'DM Sans',sans-serif; }
+.gen-paper-1 { left:0; top:8px; transform:rotate(-8deg); z-index:1; }
+.gen-paper-2 { left:130px; top:18px; transform:rotate(-2deg); z-index:2; }
+.gen-paper-3 { left:260px; top:0; transform:rotate(5deg); z-index:3; }
+.gen-paper-label { display:flex; justify-content:space-between; align-items:center; font-size:9px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#8a7a55; margin-bottom:10px; }
+.gen-paper h6 { font-family:'Playfair Display',serif; font-size:14px; font-weight:700; line-height:1.25; color:#1a1408; margin-bottom:6px; }
+.gen-paper h6 em { font-style:italic; color:#a8771a; font-weight:600; }
+.gen-paper-meta { font-size:9px; color:#8a7a55; letter-spacing:0.06em; margin-bottom:12px; }
+.gen-paper-rule { border-top:1px solid rgba(168,119,26,0.35); margin:8px 0 10px; }
+.gen-paper-section { font-family:'Playfair Display',serif; font-size:11px; font-weight:700; color:#5a4a20; margin-bottom:6px; letter-spacing:0.02em; }
+.gen-paper-line { height:5px; background:rgba(42,36,24,0.13); border-radius:3px; margin-bottom:5px; }
+.gen-paper-line.short { width:60%; }
+.gen-paper-line.shorter { width:40%; }
+.gen-paper ol.gen-paper-list { list-style:none; padding:0; margin:0; counter-reset:item; }
+.gen-paper ol.gen-paper-list li { font-size:10px; color:#3a3020; padding:3px 0; counter-increment:item; }
+.gen-paper ol.gen-paper-list li::before { content:counter(item, lower-roman) "."; font-family:'Playfair Display',serif; font-style:italic; color:#8a7a55; margin-right:6px; }
+.gen-paper-eq { font-family:'Courier New',monospace; font-size:10.5px; color:#1a1408; padding:2px 0; }
+.gen-paper-answer { display:flex; justify-content:space-between; font-family:'Courier New',monospace; font-size:10px; color:#1a1408; padding:3px 0; border-bottom:1px dotted rgba(42,36,24,0.15); }
+.gen-paper-answer .check { color:#7a8a3a; }
+
+.gen-timeline { position:absolute; bottom:-10px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:16px; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-dim); }
+.gen-timeline-dot { width:5px; height:5px; border-radius:50%; background:var(--gold); }
+.gen-timeline-dot.future { background:var(--text-dim); opacity:0.4; }
+
+.gen-hero-footer-strip { display:flex; justify-content:space-between; padding-top:36px; border-top:1px solid var(--border); margin-top:60px; font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-dim); }
+.gen-hero-footer-strip span { display:inline-flex; align-items:center; gap:10px; }
+.gen-hero-footer-strip span:first-child::before { content:'\25CF'; color:var(--gold); font-size:8px; }
+.gen-hero-footer-strip span:last-child::after { content:'\25CF'; color:var(--gold); font-size:8px; }
+
+@media (max-width: 1100px) {
+  .gen-hero-title { font-size:4rem; }
+  .gen-paper { width:200px; }
+  .gen-paper-2 { left:110px; }
+  .gen-paper-3 { left:215px; }
+}
+@media (max-width: 960px) {
+  .gen-hero-section { padding-top:104px; padding-bottom:30px; padding-left:24px; padding-right:24px; }
+  .gen-hero-grid { grid-template-columns:1fr; gap:24px; }
+  .gen-output { display:none; }
+  .gen-hero-title { font-size:3.2rem; }
+  .gen-hero-footer-strip { margin-top:36px; padding-top:24px; }
+}
+@media (max-width: 600px) {
+  .gen-hero-title { font-size:2.4rem; }
+  .gen-hero-footer-strip { flex-direction:column; gap:10px; text-align:center; }
+}
 </style>
 </head>
 <body data-page="generator">
@@ -74,16 +148,111 @@
 
 <main id="main">
 
-<div class="page-hero">
-  <span class="section-label">The Generator</span>
-  <h1>Your Standard.<br><em>Your Lesson.</em></h1>
-  <p>Enter any Common Core standard. Get a complete, custom lesson bundle in under 2 minutes. You get a lesson plan, worksheet, and answer key.</p>
-</div>
+<section class="gen-hero-section">
+  <div class="gen-hero-grid">
+
+    <div class="gen-hero-content">
+      <div class="gen-hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span>The Generator</span>
+        <span class="eyebrow-divider">/ 02 / Generator</span>
+      </div>
+      <div class="gen-hero-rule"></div>
+
+      <h1 class="gen-hero-title"><em>Three seconds</em>to a complete lesson.</h1>
+      <p class="gen-hero-sub">Enter a math topic and a grade level. Get a complete lesson plan, worksheet, and answer key. Each lesson is built on the <strong>7 Elements of Effective Teaching</strong>. <strong>No AI. No hallucinations.</strong> Print-ready in three seconds.</p>
+
+      <div class="gen-hero-ctas">
+        <a href="#waitlist" class="gen-cta-primary">Try the Generator &rarr;</a>
+        <a href="shop.html" class="gen-cta-secondary">See examples in the shop &rarr;</a>
+      </div>
+
+      <div class="gen-hero-trust">
+        <span>Built by a teacher</span>
+        <span class="trust-sep">&middot;</span>
+        <span>7 Elements aligned</span>
+        <span class="trust-sep">&middot;</span>
+        <span>No hallucinations</span>
+        <span class="trust-sep">&middot;</span>
+        <span>Math, grades 7&ndash;12</span>
+      </div>
+    </div>
+
+    <div class="gen-output" aria-hidden="true">
+      <div class="gen-output-tag"><strong>Output</strong> &middot; 3 docs &middot; 2.4s</div>
+
+      <div class="gen-paper-stack">
+
+        <article class="gen-paper gen-paper-1">
+          <div class="gen-paper-label"><span>I &middot; Lesson Plan</span><span>1 / 5</span></div>
+          <h6>Slope From <em>Two Points</em></h6>
+          <div class="gen-paper-meta">Math &middot; 6&ndash;8 &middot; 45 min &middot; Intro</div>
+          <div class="gen-paper-rule"></div>
+          <div class="gen-paper-section">01 Learning Outcome</div>
+          <div class="gen-paper-line short" style="background:rgba(42,36,24,0.22);"></div>
+          <div class="gen-paper-line"></div>
+          <div class="gen-paper-line shorter"></div>
+          <div class="gen-paper-rule"></div>
+          <div class="gen-paper-section">02 Readiness Check</div>
+          <div class="gen-paper-line"></div>
+          <div class="gen-paper-line short"></div>
+        </article>
+
+        <article class="gen-paper gen-paper-2">
+          <div class="gen-paper-label"><span>II &middot; Worksheet</span><span>1 / 3</span></div>
+          <h6>Slope From <em>Two Points</em></h6>
+          <div class="gen-paper-meta">Student copy &middot; Math 6&ndash;8</div>
+          <div class="gen-paper-rule"></div>
+          <div class="gen-paper-section">Guided Problems</div>
+          <ol class="gen-paper-list">
+            <li class="gen-paper-eq">Slope through (3, 1) and (5, 3)</li>
+            <li class="gen-paper-eq">Slope from a graphed line</li>
+            <li class="gen-paper-eq">Equation given slope and y-int</li>
+          </ol>
+          <div class="gen-paper-rule"></div>
+          <div class="gen-paper-section">Practice</div>
+          <div class="gen-paper-line"></div>
+          <div class="gen-paper-line short"></div>
+        </article>
+
+        <article class="gen-paper gen-paper-3">
+          <div class="gen-paper-label"><span>III &middot; Answer Key</span><span>Teacher</span></div>
+          <h6>Slope From <em>Two Points</em></h6>
+          <div class="gen-paper-meta">Solutions &middot; Verified &middot; 12 items</div>
+          <div class="gen-paper-rule"></div>
+          <div class="gen-paper-section">Problem 1</div>
+          <div class="gen-paper-answer"><span>slope = (y&#8322; &minus; y&#8321;) / (x&#8322; &minus; x&#8321;)</span></div>
+          <div class="gen-paper-answer"><span>(3 &minus; 1) / (5 &minus; 3) = 2/2</span></div>
+          <div class="gen-paper-answer"><span>The slope is 1.</span><span class="check">&#10003;</span></div>
+          <div class="gen-paper-rule"></div>
+          <div class="gen-paper-section">Problem 2</div>
+          <div class="gen-paper-answer"><span>Slope is &minus;1.</span><span class="check">&#10003;</span></div>
+        </article>
+
+      </div>
+
+      <div class="gen-timeline">
+        <span class="gen-timeline-dot"></span>
+        <span>0.8s</span>
+        <span class="gen-timeline-dot"></span>
+        <span>1.6s</span>
+        <span class="gen-timeline-dot"></span>
+        <span>2.4s</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="gen-hero-footer-strip">
+    <span>Not artificial. Not generated by a model.</span>
+    <span>Made by a teacher who needed it first</span>
+  </div>
+</section>
 
 <section class="section-wrap">
   <div class="section-inner" style="padding-top:0;">
 
-    <div class="coming-soon-banner reveal">
+    <div class="coming-soon-banner reveal" id="waitlist">
       <div class="coming-soon-badge">Coming Soon</div>
       <h2>The Generator is almost ready.</h2>
       <p>We're putting the finishing touches on the tool. Leave your email and we'll let you know the moment it goes live. You'll get early access.</p>
@@ -108,21 +277,21 @@
     <div class="steps-grid reveal">
       <div class="step-card">
         <span class="step-num">1</span>
-        <h3>Enter your standard</h3>
-        <p>Type any CCSS code like 8.EE.C.7b or 6.RP.A.3. Select your grade level, lesson type, and duration.</p>
-        <span class="step-tag">0:00 - 0:15</span>
+        <h3>Enter your topic and grade</h3>
+        <p>Type the math topic you want to teach (like "slope from two points" or "factoring quadratics") and pick a grade level. Standards alignment happens automatically.</p>
+        <span class="step-tag">Under 30 seconds</span>
       </div>
       <div class="step-card">
         <span class="step-num">2</span>
-        <h3>Euclidia generates</h3>
-        <p>A live progress indicator shows each document as it's built. Do not refresh. Your complete bundle is ready in under 2 minutes.</p>
-        <span class="step-tag">0:15 - 2:00</span>
+        <h3>Euclidia builds your bundle</h3>
+        <p>Your complete lesson plan, student worksheet, and teacher answer key are built and ready in under three seconds. Each lesson follows the 7 Elements of Effective Teaching.</p>
+        <span class="step-tag">Under 3 seconds</span>
       </div>
       <div class="step-card">
         <span class="step-num">3</span>
         <h3>Download and teach</h3>
         <p>Files download as print-ready PDFs with editable Word source files. Print, copy, distribute. Walk into class.</p>
-        <span class="step-tag">2:00</span>
+        <span class="step-tag">Instant</span>
       </div>
     </div>
 
@@ -235,7 +404,7 @@
             </div>
           </div>
           <div style="background:rgba(232,160,32,0.08);border:1px solid var(--gold-border);border-radius:var(--radius);padding:16px 18px;">
-            <p style="font-size:13px;color:var(--text-dim);line-height:1.65;">Euclidia generates a complete bundle in <strong style="color:var(--gold);">under 2 minutes.</strong></p>
+            <p style="font-size:13px;color:var(--text-dim);line-height:1.65;">Euclidia generates a complete bundle in <strong style="color:var(--gold);">under three seconds.</strong></p>
           </div>
         </div>
         <div class="calc-result">
