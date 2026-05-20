@@ -16,7 +16,7 @@
     <li><a href="about.html#faq">FAQ</a></li>
     <li><a href="shop.html" class="nav-cta">Browse Lessons</a></li>
   </ul>
-  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-mobile">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -73,12 +73,17 @@
   document.querySelector('main').insertAdjacentHTML('afterend', footerHTML);
 
   window.toggleMenu = function () {
-    document.getElementById('nav-mobile').classList.toggle('open');
+    const mobile = document.getElementById('nav-mobile');
+    const btn = document.querySelector('.nav-hamburger');
+    const isOpen = mobile.classList.toggle('open');
+    if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   };
 
   document.addEventListener('click', function (e) {
     if (!e.target.closest('nav') && !e.target.closest('#nav-mobile')) {
       document.getElementById('nav-mobile').classList.remove('open');
+      const btn = document.querySelector('.nav-hamburger');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
     }
   });
 })();
