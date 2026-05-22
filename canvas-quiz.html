@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canvas Quiz Generator | Euclidia Teacher Automation</title>
+<meta name="description" content="Generate verified-math Canvas quizzes for any CCSS 7-12 standard. Push directly to your Canvas course in one click. Every problem computed deterministically, no AI guessing.">
+<meta property="og:title" content="Canvas Quiz Generator | Euclidia Teacher Automation">
+<meta property="og:description" content="Generate verified-math Canvas quizzes for any CCSS 7-12 standard. Push directly to your Canvas course in one click. Every problem computed deterministically, no AI guessing.">
+<meta property="og:url" content="https://euclidiamath.com/canvas-quiz.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://euclidiamath.com/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://euclidiamath.com/canvas-quiz.html">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Euclidia Quiz",
+  "url": "https://euclidiamath.com/canvas-quiz.html",
+  "description": "Generate verified-math Canvas quizzes for any CCSS 7-12 standard. Web-based teacher tool that pushes quizzes directly to your Canvas course using your own API token (stored in your browser only).",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web Browser",
+  "offers": [
+    {
+      "@type": "Offer",
+      "price": "6.99",
+      "priceCurrency": "USD",
+      "name": "Monthly Subscription"
+    },
+    {
+      "@type": "Offer",
+      "price": "59.99",
+      "priceCurrency": "USD",
+      "name": "Annual Subscription"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "Euclidia",
+    "url": "https://euclidiamath.com"
+  }
+}
+</script>
+<style>
+.quiz-hero-section { padding-top:120px; padding-bottom:60px; }
+.quiz-hero { max-width:780px; margin:0 auto; text-align:center; }
+.quiz-hero-eyebrow { display:inline-flex; align-items:center; gap:10px; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+.quiz-hero-eyebrow .eyebrow-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); }
+.quiz-hero-rule { width:56px; height:1px; background:var(--gold); margin:0 auto 32px; opacity:0.85; }
+.quiz-hero-title { font-family:'Playfair Display',serif; font-size:4rem; font-weight:700; color:var(--white); line-height:1.05; letter-spacing:-0.02em; margin-bottom:24px; }
+.quiz-hero-title em { font-style:italic; font-weight:600; color:var(--gold); }
+.quiz-hero-sub { font-size:1.1rem; line-height:1.7; color:var(--text); margin-bottom:36px; max-width:640px; margin-left:auto; margin-right:auto; }
+
+.steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:1000px; margin:32px auto 0; }
+.step-card { background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius-lg); padding:30px 24px; text-align:left; }
+.step-num { font-family:'Playfair Display',serif; font-size:36px; color:var(--gold); margin-bottom:8px; line-height:1; }
+.step-card h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--white); margin-bottom:10px; font-weight:700; }
+.step-card p { font-size:14px; color:var(--text); line-height:1.65; margin-bottom:0; }
+
+.coverage-card { max-width:760px; margin:32px auto 0; background:linear-gradient(135deg,rgba(27,58,107,0.4),rgba(9,21,37,0.85)); border:1px solid var(--gold-border); border-radius:var(--radius-lg); padding:36px 32px; text-align:center; }
+.coverage-stat { font-family:'Playfair Display',serif; font-size:64px; font-weight:900; color:var(--gold); line-height:1; margin-bottom:8px; }
+.coverage-label { font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--text); margin-bottom:18px; }
+.coverage-card p { color:var(--text); font-size:15px; line-height:1.7; max-width:560px; margin:0 auto; }
+
+.pricing-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; max-width:760px; margin:32px auto 0; }
+.pricing-tier { background:rgba(27,58,107,0.35); border:1px solid var(--gold-border); border-radius:var(--radius-lg); padding:34px 28px; text-align:center; }
+.pricing-tier h3 { font-family:'Playfair Display',serif; font-size:22px; color:var(--white); margin-bottom:6px; }
+.pricing-amount { font-family:'Playfair Display',serif; font-size:48px; font-weight:900; color:var(--gold); line-height:1; }
+.pricing-period { font-size:13px; color:var(--text-dim); margin:8px 0 18px; }
+.pricing-tier p { font-size:14px; color:var(--text); line-height:1.7; margin-bottom:0; }
+.pricing-save { display:inline-block; background:var(--gold-pale); border:1px solid var(--gold-border); border-radius:100px; padding:4px 12px; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+
+.privacy-callout { max-width:780px; margin:0 auto; background:linear-gradient(145deg,rgba(9,21,37,0.96),rgba(15,32,54,0.95)); border:1px solid var(--gold-border); border-radius:var(--radius-lg); padding:34px 30px; }
+.privacy-callout h3 { font-family:'Playfair Display',serif; font-size:28px; color:var(--white); margin-bottom:12px; line-height:1.25; }
+.privacy-callout p { font-size:15px; color:var(--text); line-height:1.8; }
+.privacy-callout p + p { margin-top:14px; }
+
+@media(max-width:960px){
+  .steps-grid { grid-template-columns:1fr; }
+  .pricing-grid { grid-template-columns:1fr; }
+  .quiz-hero-title { font-size:2.8rem; }
+}
+@media(max-width:600px){
+  .quiz-hero-section { padding-top:104px; padding-bottom:30px; }
+  .quiz-hero-title { font-size:2.2rem; }
+  .coverage-stat { font-size:48px; }
+}
+</style>
+</head>
+<body data-page="canvas-quiz">
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<main id="main">
+
+<section class="quiz-hero-section">
+  <div class="section-inner" style="padding-top:0;">
+    <div class="quiz-hero">
+      <div class="quiz-hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span>Canvas Quiz Tools</span>
+        <span class="eyebrow-divider">&middot; Built for Math Teachers</span>
+      </div>
+      <div class="quiz-hero-rule"></div>
+      <h1 class="quiz-hero-title">Canvas quizzes, <em>verified math.</em></h1>
+      <p class="quiz-hero-sub">Pick a CCSS standard (grades 7-12). Generate a quiz where every question's math is computed by a deterministic kernel &mdash; never by AI. Push the quiz directly to your Canvas course in one click, or download as QTI. Every quiz auto-grades in Canvas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-wrap">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;">
+      <span class="section-label">How It Works</span>
+      <h2 class="section-title">Three quick steps.</h2>
+      <div class="gold-rule center"></div>
+    </div>
+    <div class="steps-grid reveal">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Connect Canvas (once)</h3>
+        <p>Paste your Canvas URL and a personal API token. Both stay in your browser only &mdash; never on our server. Clear them anytime via Reset Settings.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Pick a CCSS standard</h3>
+        <p>Filter by grade or by specific CCSS code. 131 verified topics covering grades 7-12 math. Choose question count and difficulty.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Push to Canvas</h3>
+        <p>One click. The quiz appears as a Classic Quiz in your Canvas course, auto-graded on submission. Or download as QTI to import manually.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<section class="section-wrap">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;">
+      <span class="section-label">Coverage</span>
+      <h2 class="section-title">Every standard. Every time.</h2>
+      <div class="gold-rule center"></div>
+    </div>
+    <div class="coverage-card reveal">
+      <div class="coverage-stat">131</div>
+      <div class="coverage-label">Verified CCSS 7-12 Math Topics</div>
+      <p>Same kernel that powers the Euclidia lesson catalog on TPT. Every question's correct answer is computed by deterministic Python, not generated by AI. No surprise non-integer answers mid-class. No "wait, let me recalculate" moments. Distractors come from the kernel's curated common-mistake set, so wrong choices reflect actual student misconceptions, not random noise.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<section class="section-wrap">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;">
+      <span class="section-label">Pricing</span>
+      <h2 class="section-title">Less than two cups of coffee a month.</h2>
+      <div class="gold-rule center"></div>
+    </div>
+    <div class="pricing-grid reveal">
+      <div class="pricing-tier">
+        <h3>Monthly</h3>
+        <div class="pricing-amount">$6.99</div>
+        <div class="pricing-period">per month, cancel anytime</div>
+        <p>Full access to all 131 topics. Unlimited quiz generation. Direct Canvas push or QTI download.</p>
+      </div>
+      <div class="pricing-tier">
+        <span class="pricing-save">Save ~30%</span>
+        <h3>Annual</h3>
+        <div class="pricing-amount">$59.99</div>
+        <div class="pricing-period">per year, billed annually</div>
+        <p>Everything in monthly, billed once a year. Best value for teachers who use the tool through the school year.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<section class="section-wrap">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;">
+      <span class="section-label">Built for School Privacy</span>
+      <h2 class="section-title">Your Canvas credentials never touch our database.</h2>
+      <div class="gold-rule center"></div>
+    </div>
+    <div class="privacy-callout reveal">
+      <h3>Stateless server. Browser-only credentials.</h3>
+      <p>Most Canvas tools store your API token on their server. We don't. Your Canvas URL and personal access token live in <strong>your browser's localStorage only</strong> &mdash; the same place your browser stores any other website's preferences. When you click "Push to Canvas," the token flows through our app for that single API call, then is discarded.</p>
+      <p>We don't run a database. We don't store student data (the app never sees student answers &mdash; Canvas handles those). We don't store your quizzes. The only thing our server ever sees about you is your email (for subscription verification) and the quiz content during the brief moment it's being assembled for upload.</p>
+      <p>You can clear all stored values anytime by clicking "Reset Settings." You can revoke the API token in your Canvas account at any moment.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<section class="section-wrap">
+  <div class="section-inner">
+    <div class="coming-soon-banner reveal" style="max-width:680px;margin:0 auto;text-align:center;background:rgba(27,58,107,0.35);border:1px solid var(--gold-border);border-radius:var(--radius-lg);padding:40px 32px;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:28px;color:var(--white);margin-bottom:12px;">Launching shortly.</h2>
+      <p style="color:var(--text);font-size:15px;line-height:1.7;margin-bottom:20px;">Euclidia Quiz is in final setup. Email us if you want to be a beta tester or get notified at launch.</p>
+      <a href="mailto:euclidiamath@gmail.com" class="btn-primary">Contact us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+</body>
+</html>
