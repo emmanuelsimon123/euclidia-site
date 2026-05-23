@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Use Euclidia Quiz, Step by Step | Euclidia Quiz</title>
+<meta name="description" content="A clear, step-by-step walkthrough for using Euclidia Quiz to build Canvas math quizzes. Written for teachers, no technical background needed.">
+<meta property="og:title" content="How to Use Euclidia Quiz, Step by Step">
+<meta property="og:description" content="A clear, step-by-step walkthrough for using Euclidia Quiz to build Canvas math quizzes. Written for teachers, no technical background needed.">
+<meta property="og:url" content="https://euclidiamath.com/canvas-quiz-guide.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://euclidiamath.com/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://euclidiamath.com/canvas-quiz-guide.html">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Euclidia Quiz",
+  "description": "Build verified-math Canvas quizzes from a CCSS standard, then push to Canvas, download as QTI, or print a Word doc.",
+  "url": "https://euclidiamath.com/canvas-quiz-guide.html",
+  "totalTime": "PT5M",
+  "supply": [
+    {"@type": "HowToSupply", "name": "A Google account (your school email works)"},
+    {"@type": "HowToSupply", "name": "Optional: a Canvas account, if you want one-click push"}
+  ],
+  "step": [
+    {"@type": "HowToStep", "name": "Sign in", "text": "Go to canvas.euclidiamath.com and click Sign in with Google."},
+    {"@type": "HowToStep", "name": "Start your 3-day free trial", "text": "Pick Monthly or Annual. Stripe collects your card; you are not charged until day 3."},
+    {"@type": "HowToStep", "name": "Connect Canvas (optional)", "text": "Only needed for one-click push. Paste your Canvas URL and a personal access token from Canvas Settings."},
+    {"@type": "HowToStep", "name": "Build a quiz", "text": "Pick a CCSS standard, set the question count and difficulty, choose multiple choice or fill-in-the-blank, then click Build."},
+    {"@type": "HowToStep", "name": "Deliver the quiz", "text": "Push to Canvas with one click, or download as QTI for any LMS, or download a printable Word doc with answer key."}
+  ]
+}
+</script>
+<style>
+.guide-hero-section { padding-top: 120px; padding-bottom: 40px; }
+.guide-hero { max-width: 780px; margin: 0 auto; text-align: center; }
+.guide-hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; flex-wrap: wrap; justify-content: center; }
+.guide-hero-eyebrow .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+.guide-hero-rule { width: 56px; height: 1px; background: var(--gold); margin: 0 auto 32px; opacity: 0.85; }
+.guide-hero-title { font-family: 'Playfair Display', serif; font-size: 3.4rem; font-weight: 700; color: var(--white); line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 18px; }
+.guide-hero-title em { font-style: italic; font-weight: 600; color: var(--gold); }
+.guide-hero-sub { font-size: 1.05rem; line-height: 1.7; color: var(--text); margin-bottom: 28px; max-width: 620px; margin-left: auto; margin-right: auto; }
+
+.guide-toc { background: var(--card-bg); border: 1px solid var(--gold-border); border-radius: var(--radius-lg); padding: 28px 32px; max-width: 720px; margin: 0 auto; }
+.guide-toc-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--white); margin-bottom: 14px; letter-spacing: 0.02em; }
+.guide-toc ol { list-style: none; counter-reset: toc-counter; padding: 0; margin: 0; }
+.guide-toc li { counter-increment: toc-counter; padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; align-items: baseline; gap: 14px; }
+.guide-toc li:last-child { border-bottom: none; }
+.guide-toc li::before { content: counter(toc-counter); font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); font-weight: 700; min-width: 20px; }
+.guide-toc a { color: var(--text); text-decoration: none; transition: color 0.2s; font-size: 0.97rem; }
+.guide-toc a:hover { color: var(--gold); }
+
+.guide-step { max-width: 780px; margin: 0 auto; padding-top: 12px; }
+.guide-step-number { display: inline-block; font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.guide-step h2 { font-family: 'Playfair Display', serif; font-size: 2.1rem; font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 10px; }
+.guide-step .gold-rule { margin: 0 0 22px; }
+.guide-step p { font-size: 1rem; line-height: 1.75; color: var(--text); margin-bottom: 16px; }
+.guide-step p strong { color: var(--white); }
+.guide-step ul, .guide-step ol { font-size: 1rem; line-height: 1.85; color: var(--text); padding-left: 1.3rem; margin-bottom: 16px; }
+.guide-step ul li, .guide-step ol li { margin-bottom: 6px; }
+.guide-step ul li strong, .guide-step ol li strong { color: var(--white); }
+
+.guide-tip { background: rgba(232, 160, 32, 0.06); border-left: 3px solid var(--gold); border-radius: 4px; padding: 16px 22px; margin: 20px 0; }
+.guide-tip-label { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.guide-tip p { color: var(--text-bright); font-size: 0.95rem; margin: 0; line-height: 1.7; }
+
+.guide-screenshot { background: rgba(15, 32, 54, 0.55); border: 1px dashed rgba(232, 160, 32, 0.35); border-radius: 10px; padding: 28px 24px; margin: 24px 0; text-align: center; color: var(--text-dim); font-size: 0.85rem; line-height: 1.6; font-style: italic; }
+.guide-screenshot strong { color: var(--gold); font-style: normal; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.7rem; display: block; margin-bottom: 6px; }
+
+.guide-options { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 24px 0; }
+.guide-option { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px 26px; }
+.guide-option h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--white); margin-bottom: 8px; }
+.guide-option .guide-option-tag { display: inline-block; background: var(--gold-pale); border: 1px solid var(--gold-border); border-radius: 100px; padding: 3px 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.guide-option p { font-size: 0.93rem; color: var(--text); line-height: 1.7; margin-bottom: 0; }
+
+.guide-cta-card { max-width: 680px; margin: 0 auto; text-align: center; background: rgba(27, 58, 107, 0.35); border: 1px solid var(--gold-border); border-radius: var(--radius-lg); padding: 40px 32px; }
+.guide-cta-card h2 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--white); margin-bottom: 12px; }
+.guide-cta-card p { color: var(--text); font-size: 15px; line-height: 1.7; margin-bottom: 20px; }
+
+@media (max-width: 720px) {
+  .guide-hero-title { font-size: 2.3rem; }
+  .guide-step h2 { font-size: 1.7rem; }
+  .guide-step { padding-left: 4px; padding-right: 4px; }
+  .guide-toc { padding: 22px 22px; }
+}
+
+.no-js .reveal { opacity: 1 !important; transform: none !important; }
+</style>
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+</head>
+<body data-page="canvas-quiz-guide">
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<main id="main">
+
+<section class="guide-hero-section">
+  <div class="section-inner" style="padding-top: 0;">
+    <div class="guide-hero">
+      <div class="guide-hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span>Step-by-Step Guide</span>
+        <span class="eyebrow-divider">&middot; Built for teachers, not techies</span>
+      </div>
+      <div class="guide-hero-rule"></div>
+      <h1 class="guide-hero-title">How to use <em>Euclidia Quiz.</em></h1>
+      <p class="guide-hero-sub">A real walkthrough. Click this, paste that, save here. If you have never used a tool like this before, you are in the right place. Average teacher gets their first quiz built in about 5 minutes.</p>
+
+      <div class="guide-toc reveal">
+        <div class="guide-toc-title">What this guide covers</div>
+        <ol>
+          <li><a href="#step-1">Sign in with your Google account</a></li>
+          <li><a href="#step-2">Start your 3-day free trial</a></li>
+          <li><a href="#step-3">Connect Canvas (this part is optional)</a></li>
+          <li><a href="#step-4">Build your first quiz</a></li>
+          <li><a href="#step-5">Send the quiz to your students</a></li>
+          <li><a href="#step-6">Troubleshooting and common questions</a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- BEFORE YOU START -->
+<section class="section-wrap">
+  <div class="section-inner">
+    <div class="guide-step reveal">
+      <span class="guide-step-number">Before you start</span>
+      <h2>What you will need.</h2>
+      <div class="gold-rule"></div>
+      <p>Two things. That is it.</p>
+      <ul>
+        <li><strong>A Google account.</strong> If you have a school email through Gmail (most schools on Google Workspace do), you already have one. If not, you can make a free Google account at <a href="https://accounts.google.com/signup" style="color:var(--gold);">accounts.google.com</a> in about 60 seconds.</li>
+        <li><strong>A Canvas account (optional).</strong> Only if you want one-click push from this app into your Canvas course. If you do not have Canvas, or do not want to use it, you can still use Euclidia Quiz. We will explain how in Step 5.</li>
+      </ul>
+      <div class="guide-tip">
+        <div class="guide-tip-label">No card needed yet</div>
+        <p>You do not have to enter a credit card to look around. The card only comes up once you decide to start the 3-day free trial in Step 2.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- STEP 1 -->
+<section class="section-wrap" id="step-1">
+  <div class="section-inner">
+    <div class="guide-step reveal">
+      <span class="guide-step-number">Step 1</span>
+      <h2>Sign in with your Google account.</h2>
+      <div class="gold-rule"></div>
+      <p>Open your web browser and go to <strong>canvas.euclidiamath.com</strong>. You will see a page with the Euclidia Quiz logo and a big gold button that says <strong>Sign in with Google</strong>.</p>
+      <ol>
+        <li>Click the <strong>Sign in with Google</strong> button.</li>
+        <li>Google opens its own sign-in window. Pick the Google account you want to use, or type your Gmail address and password.</li>
+        <li>Google will ask you to confirm that Euclidia Quiz can see your email address. That is the only thing we ask for. Click <strong>Continue</strong> or <strong>Allow</strong>.</li>
+        <li>You will be sent back to Euclidia Quiz.</li>
+      </ol>
+      <div class="guide-screenshot">
+        <strong>Screenshot</strong>
+        canvas.euclidiamath.com sign-in page with the gold "Sign in with Google" button highlighted.
+      </div>
+      <div class="guide-tip">
+        <div class="guide-tip-label">What we see</div>
+        <p>Only your email address. We do not see your inbox, your Drive files, your calendar, or anything else in your Google account. The only reason we ask for your email is to know who is signed in for the subscription.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- STEP 2 -->
+<section class="section-wrap" id="step-2">
+  <div class="section-inner">
+    <div class="guide-step reveal">
+      <span class="guide-step-number">Step 2</span>
+      <h2>Start your 3-day free trial.</h2>
+      <div class="gold-rule"></div>
+      <p>After you sign in, you will see a page that asks you to pick a plan.</p>
+      <ul>
+        <li><strong>Monthly</strong> is $6.99 per month after the free trial.</li>
+        <li><strong>Annual</strong> is $59.99 per year after the free trial (works out to about $5 per month).</li>
+      </ul>
+      <p>Either way, you get 3 days free. You can cancel before day 3 and you will not be charged.</p>
+      <p>Click one of the <strong>Start trial</strong> buttons. Stripe (a trusted payment company) will open a checkout page. Type in your card details and click <strong>Subscribe</strong>.</p>
+      <div class="guide-screenshot">
+        <strong>Screenshot</strong>
+        "Choose a plan" page showing the Monthly and Annual cards side by side.
+      </div>
+      <div class="guide-tip">
+        <div class="guide-tip-label">About your card</div>
+        <p>Stripe holds your card, not Euclidia. We never see or store your card number. Stripe requires a card on file so that, if you decide to keep going after the 3 days, the subscription continues without you having to do anything.</p>
+      </div>
+      <div class="guide-tip">
+        <div class="guide-tip-label">How to cancel</div>
+        <p>Click the <strong>Manage subscription</strong> button in the Euclidia Quiz sidebar at any time. That opens your personal Stripe billing page where you can cancel in one click. No emails, no phone calls.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- STEP 3 -->
+<section class="section-wrap" id="step-3">
+  <div class="section-inner">
+    <div class="guide-step reveal">
+      <span class="guide-step-number">Step 3</span>
+      <h2>Connect Canvas (optional).</h2>
+      <div class="gold-rule"></div>
+      <p><strong>Skip this step</strong> if you do not use Canvas, or if you are happy to upload your quiz to Canvas yourself instead of having Euclidia push it for you. You can still build quizzes and use them.</p>
+      <p>If you do want one-click push into your Canvas course, here is how to connect.</p>
+
+      <h3 style="font-family:'Playfair Display',serif;color:var(--white);font-size:1.2rem;margin-top:24px;margin-bottom:8px;">Get a Canvas access token</h3>
+      <p>In a new browser tab, log into your school's Canvas.</p>
+      <ol>
+        <li>In Canvas, click on your <strong>Account</strong> icon in the very left sidebar (it usually has your photo or initials).</li>
+        <li>Click <strong>Settings</strong>.</li>
+        <li>Scroll all the way down until you see a section called <strong>Approved Integrations</strong>.</li>
+        <li>Click the <strong>+ New Access Token</strong> button.</li>
+        <li>In the <strong>Purpose</strong> box, type something like <em>Euclidia Quiz</em>. You can leave the <strong>Expires</strong> box blank.</li>
+        <li>Click <strong>Generate Token</strong>.</li>
+        <li>Canvas will show you a long string of letters and numbers. <strong>Copy that whole string.</strong> This is your token.</li>
+      </ol>
+      <div class="guide-screenshot">
+        <strong>Screenshot</strong>
+        Canvas Approved Integrations section with the "+ New Access Token" button circled.
+      </div>
+      <div class="guide-tip">
+        <div class="guide-tip-label">Important</div>
+        <p>Canvas only shows you that token <strong>one time</strong>. If you close the window before copying it, you have to make a new one. Do not panic if that happens, it just takes another 30 seconds.</p>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif;color:var(--white);font-size:1.2rem;margin-top:32px;margin-bottom:8px;">Paste it into Euclidia Quiz</h3>
+      <ol>
+        <li>Go back to your Euclidia Quiz tab.</li>
+        <li>On the Welcome page, click <strong>Open Canvas Settings</strong>.</li>
+        <li>In the <strong>Canvas URL</strong> box, type the address of your school's Canvas (it usually looks like <code>https://yourschool.instructure.com</code>). You can copy this from your browser when you are logged into Canvas. The app will often guess this for you based on your email.</li>
+        <li>In the <strong>Canvas API Token</strong> box, paste the long string you copied from Canvas.</li>
+        <li>(Optional) In the <strong>Default Course ID</strong> box, you can paste a course number if you usually push quizzes to the same class. You can find this number in the Canvas URL when you visit the course, after <code>/courses/</code>.</li>
+        <li>Click <strong>Save</strong>.</li>
+      </ol>
+      <div class="guide-screenshot">
+        <strong>Screenshot</strong>
+        Euclidia Quiz Canvas Settings page with the three filled-in boxes and the gold Save button.
+      </div>
+      <div class="guide-tip">
+        <div class="guide-tip-label">Where your token lives</div>
+        <p>Your token is saved only in your own browser. It is never sent to our servers and we cannot see it. If you sign out, or click <strong>Reset (delete all saved values)</strong>, your token is wiped from your browser. You can also revoke it in Canvas at any time under the same Approved Integrations area.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- STEP 4 -->
+<section class="section-wrap" id="step-4">
+  <div class="section-inner">
+    <div class="guide-step reveal">
+      <span class="guide-step-number">Step 4</span>
+      <h2>Build your first quiz.</h2>
+      <div class="gold-rule"></div>
+      <p>Back on the Welcome page, click <strong>Open Quiz Builder</strong>.</p>
+      <ol>
+        <li>At the top, type a <strong>Quiz title</strong> (for example, "Pythagorean Theorem Practice").</li>
+        <li>Slide the <strong>Questions per topic</strong> slider left or right. Most teachers pick 5 or 10.</li>
+        <li>Pick a <strong>Difficulty</strong> from the dropdown.</li>
+        <li>In <strong>Pick topics</strong>, either:
+          <ul>
+            <li>Pick a <strong>Grade</strong> from the dropdown to narrow the list, or</li>
+            <li>Pick a specific <strong>CCSS standard</strong> if you know which one you want, or</li>
+            <li>Just scroll through and pick topics by name.</li>
+          </ul>
+        </li>
+        <li>Click on one or more topics. Each one you pick will show as a tag.</li>
+        <li>Choose <strong>Multiple Choice</strong> or <strong>Fill in the Blank</strong> (Fill in the Blank only works for topics that have a single numeric answer, like Pythagorean Theorem).</li>
+        <li>Click the gold <strong>Build quiz</strong> button.</li>
+      </ol>
+      <div class="guide-screenshot">
+        <strong>Screenshot</strong>
+        Quiz Builder showing topic picker, slider, and difficulty dropdown filled in.
+      </div>
+      <p>The questions appear right below. You can click any question to expand it and see the answer choices and the explanation.</p>
+      <div class="guide-tip">
+        <div class="guide-tip-label">Do not like one of the questions?</div>
+        <p>You can click the small refresh icon on the question to swap it for a new one without rebuilding the whole quiz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- STEP 5 -->
+<section class="section-wrap" id="step-5">
+  <div class="section-inner">
+    <div class="guide-step reveal">
+      <span class="guide-step-number">Step 5</span>
+      <h2>Send the quiz to your students.</h2>
+      <div class="gold-rule"></div>
+      <p>Scroll down past the preview to the <strong>Export</strong> section. You have three ways to deliver your quiz. You can pick whichever fits your classroom.</p>
+
+      <div class="guide-options">
+        <div class="guide-option">
+          <span class="guide-option-tag">Option A</span>
+          <h3>One-click push to Canvas</h3>
+          <p>Only works if you finished Step 3. If you did, just paste your Canvas course ID into the box (or it is already filled in from your settings) and click <strong>Push to Canvas</strong>. The quiz appears in your Canvas course as a Classic Quiz, ready for students to take. Canvas grades it automatically.</p>
+        </div>
+        <div class="guide-option">
+          <span class="guide-option-tag">Option B</span>
+          <h3>Download as a QTI file</h3>
+          <p>Click <strong>Build QTI .zip</strong>. A file downloads to your computer. In Canvas, go to your course's <strong>Settings</strong>, click <strong>Import Course Content</strong>, choose <strong>QTI .zip file</strong>, and upload the file you just downloaded. This also works with Schoology, Blackboard, and most other learning systems that accept QTI.</p>
+        </div>
+        <div class="guide-option">
+          <span class="guide-option-tag">Option C</span>
+          <h3>Print a Word doc with answer key</h3>
+          <p>Click <strong>Build Word Doc</strong>. A Microsoft Word file downloads. Open it and you will see a clean, branded student worksheet on the first pages and an answer key with explanations at the end. Print and hand it out. Perfect for in-person classes or pencil-and-paper days.</p>
+        </div>
+      </div>
+
+      <div class="guide-tip">
+        <div class="guide-tip-label">About the Canvas QTI quirk</div>
+        <p>If you import as a QTI file and Canvas asks you to convert it to "New Quizzes" (the new format), Canvas has a known quirk where you will have to open each question and click Save once. This is a Canvas issue, not ours. The simpler path is to use the one-click push (Option A), which avoids the quirk entirely.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- STEP 6 / FAQ -->
+<section class="section-wrap" id="step-6">
+  <div class="section-inner">
+    <div class="guide-step reveal">
+      <span class="guide-step-number">Step 6</span>
+      <h2>Troubleshooting and common questions.</h2>
+      <div class="gold-rule"></div>
+
+      <details style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 22px;margin-bottom:10px;">
+        <summary style="font-family:'Playfair Display',serif;font-size:1.02rem;color:var(--white);cursor:pointer;font-weight:700;">I clicked Push to Canvas and got an error.</summary>
+        <p style="color:var(--text);font-size:0.93rem;line-height:1.7;margin-top:12px;">Three things to check, in this order. (1) Is your Canvas token correct? Go to <strong>Canvas Settings</strong> and paste it again. (2) Is your Canvas URL correct? It should look like <code>https://yourschool.instructure.com</code> with no slash at the end. (3) Is your Course ID right? You can find it in the Canvas URL when you visit the course. If all three look right and it still fails, email us.</p>
+      </details>
+
+      <details style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 22px;margin-bottom:10px;">
+        <summary style="font-family:'Playfair Display',serif;font-size:1.02rem;color:var(--white);cursor:pointer;font-weight:700;">My quiz pushed but the math looks weird in Canvas.</summary>
+        <p style="color:var(--text);font-size:0.93rem;line-height:1.7;margin-top:12px;">If you imported as a QTI file and converted to New Quizzes, Canvas has a bug that breaks the math rendering until you click into each question and hit Save once. The simpler fix is to use the one-click push (Option A) which avoids this. If it is still wrong, email us with a screenshot.</p>
+      </details>
+
+      <details style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 22px;margin-bottom:10px;">
+        <summary style="font-family:'Playfair Display',serif;font-size:1.02rem;color:var(--white);cursor:pointer;font-weight:700;">I do not see my Canvas course in the dropdown.</summary>
+        <p style="color:var(--text);font-size:0.93rem;line-height:1.7;margin-top:12px;">You type the Course ID in by hand, not pick it from a dropdown. To find the ID, log into Canvas, click on your course, and look at the address bar. After <code>/courses/</code> you will see a number. That is your Course ID.</p>
+      </details>
+
+      <details style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 22px;margin-bottom:10px;">
+        <summary style="font-family:'Playfair Display',serif;font-size:1.02rem;color:var(--white);cursor:pointer;font-weight:700;">I want to cancel before day 3. How?</summary>
+        <p style="color:var(--text);font-size:0.93rem;line-height:1.7;margin-top:12px;">Click the <strong>Manage subscription</strong> button in the Euclidia Quiz sidebar. It opens your personal Stripe billing page. Click <strong>Cancel subscription</strong>. Done. You will not be charged.</p>
+      </details>
+
+      <details style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 22px;margin-bottom:10px;">
+        <summary style="font-family:'Playfair Display',serif;font-size:1.02rem;color:var(--white);cursor:pointer;font-weight:700;">I signed up but did not get a confirmation email.</summary>
+        <p style="color:var(--text);font-size:0.93rem;line-height:1.7;margin-top:12px;">Stripe sends a receipt email after the first charge on day 3, not when you start the trial. If you want a record of the trial start, you can take a screenshot of the "Choose a plan" page after subscribing. We do not send any other emails.</p>
+      </details>
+
+      <details style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 22px;margin-bottom:10px;">
+        <summary style="font-family:'Playfair Display',serif;font-size:1.02rem;color:var(--white);cursor:pointer;font-weight:700;">Is this safe for student data?</summary>
+        <p style="color:var(--text);font-size:0.93rem;line-height:1.7;margin-top:12px;">Yes. We never see your students. The only data we ever hold is your email address. Quiz answers, student names, grades, and submissions all live in your Canvas, not in our system. Your Canvas token stays in your browser only. We do not run a database.</p>
+      </details>
+
+      <details style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 22px;margin-bottom:10px;">
+        <summary style="font-family:'Playfair Display',serif;font-size:1.02rem;color:var(--white);cursor:pointer;font-weight:700;">Can I use this without Canvas?</summary>
+        <p style="color:var(--text);font-size:0.93rem;line-height:1.7;margin-top:12px;">Yes. Skip Step 3 entirely. Build a quiz in Step 4, then use Option B (download a QTI file for Schoology, Blackboard, or any other system) or Option C (print the Word doc) in Step 5.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- HELP -->
+<section class="section-wrap">
+  <div class="section-inner">
+    <div class="guide-cta-card reveal">
+      <h2>Still stuck?</h2>
+      <p>If something in this guide does not match what you are seeing, or you run into a problem we did not cover, email <a href="mailto:euclidiamath@gmail.com" style="color:var(--gold);text-decoration:underline;">euclidiamath@gmail.com</a>. We answer every message personally, usually within a day.</p>
+      <a href="https://canvas.euclidiamath.com" class="btn-primary">Go to Euclidia Quiz</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script src="nav.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
