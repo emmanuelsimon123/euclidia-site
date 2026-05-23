@@ -14,5 +14,21 @@
     "thumbnail": "images/expand-factor-linear-expressions.png",
     "is_free": false,
     "slug": "expand_factor_linear_expressions"
+  },
+  {
+    "title": "Two-Step Equations | No-Prep Lesson, Worksheet & Answer Key",
+    "standard": "7.EE.B.4",
+    "grade": "6-8",
+    "price": "$2.25",
+    "tpt_price": "$2.50",
+    "buy_url": "https://payhip.com/b/snbkV",
+    "description": "A complete ~50-minute Grade 7 Math lesson aligned to CCSS 7.EE.B.4. Includes a teacher lesson plan, student worksheet, and full answer key (16 pages total) in print-ready PDF plus editable Word files. Every problem verified, no AI guessing.",
+    "tags": [
+      "7.EE",
+      "Two-Step-Equations"
+    ],
+    "thumbnail": "images/two-step-equations.png",
+    "is_free": false,
+    "slug": "two_step_equations"
   }
 ]
