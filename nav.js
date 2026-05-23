@@ -11,6 +11,7 @@
   <ul class="nav-links">
     <li><a href="/shop.html"${activeIf('shop')}>Lessons</a></li>
     <li><a href="/generator.html"${activeIf('generator')}>Generator</a></li>
+    <li><a href="/canvas-quiz.html"${activeIf('canvas-quiz')}>Canvas Quiz</a></li>
     <li><a href="/outreach.html"${activeIf('outreach')}>Outreach</a></li>
     <li><a href="/about.html"${activeIf('about')}>About</a></li>
     <li><a href="/about.html#faq">FAQ</a></li>
@@ -25,6 +26,7 @@
   <a href="/index.html"${activeIf('home')}>Home</a>
   <a href="/shop.html"${activeIf('shop')}>Lessons</a>
   <a href="/generator.html"${activeIf('generator')}>Generator</a>
+  <a href="/canvas-quiz.html"${activeIf('canvas-quiz')}>Canvas Quiz</a>
   <a href="/outreach.html"${activeIf('outreach')}>Outreach</a>
   <a href="/about.html"${activeIf('about')}>About</a>
   <a href="/about.html#faq">FAQ</a>
@@ -44,6 +46,7 @@
         <li><a href="/index.html">Home</a></li>
         <li><a href="/shop.html">Lessons</a></li>
         <li><a href="/generator.html">Generator</a></li>
+        <li><a href="/canvas-quiz.html">Canvas Quiz</a></li>
         <li><a href="/outreach.html">Outreach</a></li>
         <li><a href="/about.html">About</a></li>
         <li><a href="/about.html#faq">FAQ</a></li>
