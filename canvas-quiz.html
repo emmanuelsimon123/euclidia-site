@@ -85,12 +85,14 @@
 <style>
 .quiz-hero-section { padding-top:120px; padding-bottom:60px; }
 .quiz-hero { max-width:780px; margin:0 auto; text-align:center; }
-.quiz-hero-eyebrow { display:inline-flex; align-items:center; gap:10px; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+.quiz-hero-eyebrow { display:inline-flex; align-items:center; gap:10px; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; flex-wrap:wrap; justify-content:center; }
 .quiz-hero-eyebrow .eyebrow-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); }
+.quiz-hero-eyebrow .eyebrow-divider { color:var(--gold); }
 .quiz-hero-rule { width:56px; height:1px; background:var(--gold); margin:0 auto 32px; opacity:0.85; }
 .quiz-hero-title { font-family:'Playfair Display',serif; font-size:4rem; font-weight:700; color:var(--white); line-height:1.05; letter-spacing:-0.02em; margin-bottom:24px; }
 .quiz-hero-title em { font-style:italic; font-weight:600; color:var(--gold); }
 .quiz-hero-sub { font-size:1.1rem; line-height:1.7; color:var(--text); margin-bottom:36px; max-width:640px; margin-left:auto; margin-right:auto; }
+.quiz-hero-ctas { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
 
 .steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:1000px; margin:32px auto 0; }
 .step-card { background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius-lg); padding:30px 24px; text-align:left; }
@@ -116,6 +118,29 @@
 .privacy-callout p { font-size:15px; color:var(--text); line-height:1.8; }
 .privacy-callout p + p { margin-top:14px; }
 
+/* Feature-grid icons — replace the previous mixed-emoji approach. Each
+   feature card uses .feature-card with a uniform SVG-circle icon. */
+.feature-card { background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius-lg); padding:22px 24px; }
+.feature-icon { width:36px; height:36px; border-radius:8px; background:var(--gold-pale); border:1px solid var(--gold-border); display:inline-flex; align-items:center; justify-content:center; margin-bottom:12px; color:var(--gold); }
+.feature-icon svg { width:18px; height:18px; stroke:var(--gold); stroke-width:1.75; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.feature-card h3 { font-family:'Playfair Display',serif; font-size:1rem; color:var(--white); margin-bottom:8px; }
+.feature-card p { color:var(--text); font-size:0.88rem; line-height:1.6; margin:0; }
+
+/* Reserve the SAVE-badge slot on Monthly so the two pricing cards' h3
+   align vertically. Annual still renders the badge; Monthly renders an
+   invisible placeholder of the same height. */
+.pricing-tier .pricing-save-spacer { display:inline-block; height:24px; margin-bottom:10px; }
+
+/* Comparison table — mobile horizontal scroll cue. The shadow on the
+   right edge tells users the column is cut off (otherwise "Manual in
+   Canvas" silently disappears off-screen on phones). */
+.compare-scroll { position:relative; overflow-x:auto; margin-top:32px; -webkit-overflow-scrolling:touch; }
+.compare-scroll::after { content:''; position:absolute; top:0; right:0; bottom:0; width:32px; background:linear-gradient(to right,transparent,rgba(9,21,37,0.85)); pointer-events:none; }
+.compare-scroll table { width:100%; min-width:680px; max-width:900px; margin:0 auto; border-collapse:collapse; color:var(--text); font-size:0.92rem; }
+@media(max-width:720px){
+  .compare-scroll::before { content:'← scroll →'; display:block; text-align:center; color:var(--gold); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; padding:6px 0 10px; opacity:0.7; }
+}
+
 @media(max-width:960px){
   .steps-grid { grid-template-columns:1fr; }
   .pricing-grid { grid-template-columns:1fr; }
@@ -125,8 +150,17 @@
   .quiz-hero-section { padding-top:104px; padding-bottom:30px; }
   .quiz-hero-title { font-size:2.2rem; }
   .coverage-stat { font-size:48px; }
+  /* Eyebrow chip wraps cleanly: stack the divider phrase below on phones */
+  .quiz-hero-eyebrow .eyebrow-divider { display:block; flex-basis:100%; opacity:0.85; }
 }
+
+/* No-JS fallback — the reveal animation runs in main.js. Without it, all
+   .reveal blocks stay at opacity:0 forever. Show everything for visitors
+   who block JS, and for the no-script crawlers (social previews, archive
+   readers). prefers-reduced-motion is already handled in styles.css. */
+.no-js .reveal { opacity:1 !important; transform:none !important; }
 </style>
+<noscript><style>.reveal { opacity:1 !important; transform:none !important; }</style></noscript>
 </head>
 <body data-page="canvas-quiz">
 
@@ -145,6 +179,10 @@
       <div class="quiz-hero-rule"></div>
       <h1 class="quiz-hero-title">Canvas quizzes, <em>verified math.</em></h1>
       <p class="quiz-hero-sub">Pick a CCSS standard (grades 7-12). Build a quiz from our in-house verified math content &mdash; math you can trust the first time, never the kind of AI-written answers you have to fact-check. Push directly to your Canvas course in one click, or download as QTI or a printable Word doc. Every quiz auto-grades in Canvas.</p>
+      <div class="quiz-hero-ctas">
+        <a href="https://canvas.euclidiamath.com" class="btn-primary">Start 3-day free trial</a>
+        <a href="#pricing" class="btn-secondary">See pricing</a>
+      </div>
     </div>
   </div>
 </section>
@@ -257,45 +295,45 @@
       <p style="color:var(--text);font-size:0.95rem;max-width:600px;margin:18px auto 0;">No "premium" tier. No upsells. The $6.99 plan and the $59.99 plan get the same product &mdash; just billed differently.</p>
     </div>
     <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:32px;max-width:1000px;margin-left:auto;margin-right:auto;">
-      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;">
-        <div style="color:var(--gold);font-size:1.4rem;margin-bottom:6px;">&#9787;</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:8px;">Unlimited quizzes</h3>
-        <p style="color:var(--text);font-size:0.88rem;line-height:1.6;margin:0;">Build as many as you want, as often as you want, across as many Canvas courses as you teach. No per-quiz limits.</p>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
+        <h3>Unlimited quizzes</h3>
+        <p>Build as many as you want, as often as you want, across as many Canvas courses as you teach. No per-quiz limits.</p>
       </div>
-      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;">
-        <div style="color:var(--gold);font-size:1.4rem;margin-bottom:6px;">&#9881;</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:8px;">One-click Canvas push</h3>
-        <p style="color:var(--text);font-size:0.88rem;line-height:1.6;margin:0;">Quiz appears in your Canvas course as a Classic Quiz, auto-graded on submission. No copy-paste, no import dance.</p>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h11"/><path d="M13 7l5 5-5 5"/></svg></div>
+        <h3>One-click Canvas push</h3>
+        <p>Quiz appears in your Canvas course as a Classic Quiz, auto-graded on submission. No copy-paste, no import dance.</p>
       </div>
-      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;">
-        <div style="color:var(--gold);font-size:1.4rem;margin-bottom:6px;">&#10146;</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:8px;">QTI export</h3>
-        <p style="color:var(--text);font-size:0.88rem;line-height:1.6;margin:0;">Prefer to import manually or use the quiz with a non-Canvas LMS that accepts QTI? Download the .zip with one click.</p>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 14h6"/></svg></div>
+        <h3>QTI export</h3>
+        <p>Prefer to import manually or use the quiz with a non-Canvas LMS that accepts QTI? Download the .zip with one click.</p>
       </div>
-      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;">
-        <div style="color:var(--gold);font-size:1.4rem;margin-bottom:6px;">&#128196;</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:8px;">Branded Word doc</h3>
-        <p style="color:var(--text);font-size:0.88rem;line-height:1.6;margin:0;">Printable Euclidia-branded student worksheet and answer key in one Word doc. For days you want pencil-and-paper.</p>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg></div>
+        <h3>Branded Word doc</h3>
+        <p>Printable Euclidia-branded student worksheet and answer key in one Word doc. For days you want pencil-and-paper.</p>
       </div>
-      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;">
-        <div style="color:var(--gold);font-size:1.4rem;margin-bottom:6px;">&#9999;</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:8px;">Fill-in-the-blank or MC</h3>
-        <p style="color:var(--text);font-size:0.88rem;line-height:1.6;margin:0;">For numeric-answer topics, build as fill-in-the-blank (accepts equivalent forms like 1/2 and 0.5) instead of multiple choice.</p>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div>
+        <h3>Fill-in-the-blank or MC</h3>
+        <p>For numeric-answer topics, build as fill-in-the-blank (accepts equivalent forms like 1/2 and 0.5) instead of multiple choice.</p>
       </div>
-      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;">
-        <div style="color:var(--gold);font-size:1.4rem;margin-bottom:6px;">&#127919;</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:8px;">Standards filter</h3>
-        <p style="color:var(--text);font-size:0.88rem;line-height:1.6;margin:0;">Pick by grade, by specific CCSS code, or browse by topic name. Every quiz comes tagged with the standard it covers.</p>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <h3>Standards filter</h3>
+        <p>Pick by grade, by specific CCSS code, or browse by topic name. Every quiz comes tagged with the standard it covers.</p>
       </div>
-      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;">
-        <div style="color:var(--gold);font-size:1.4rem;margin-bottom:6px;">&#128338;</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:8px;">Quiz history</h3>
-        <p style="color:var(--text);font-size:0.88rem;line-height:1.6;margin:0;">Re-build any past quiz in one click. History lives in your browser only &mdash; not on our servers.</p>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Quiz history</h3>
+        <p>Re-build any past quiz in one click. History lives in your browser only &mdash; not on our servers.</p>
       </div>
-      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;">
-        <div style="color:var(--gold);font-size:1.4rem;margin-bottom:6px;">&#128274;</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:8px;">Browser-only credentials</h3>
-        <p style="color:var(--text);font-size:0.88rem;line-height:1.6;margin:0;">Your Canvas API token stays in your browser. We literally cannot leak it because we never store it.</p>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <h3>Browser-only credentials</h3>
+        <p>Your Canvas API token stays in your browser. We literally cannot leak it because we never store it.</p>
       </div>
     </div>
   </div>
@@ -303,7 +341,7 @@
 
 <div class="section-divider" aria-hidden="true"></div>
 
-<section class="section-wrap">
+<section class="section-wrap" id="pricing">
   <div class="section-inner">
     <div class="reveal" style="text-align:center;">
       <span class="section-label">Pricing</span>
@@ -312,6 +350,7 @@
     </div>
     <div class="pricing-grid reveal">
       <div class="pricing-tier">
+        <span class="pricing-save-spacer" aria-hidden="true"></span>
         <h3>Monthly</h3>
         <div class="pricing-amount">$6.99</div>
         <div class="pricing-period">per month after 3-day free trial</div>
@@ -339,8 +378,8 @@
       <h2 class="section-title">Why not just use what's already free?</h2>
       <div class="gold-rule center"></div>
     </div>
-    <div class="reveal" style="overflow-x:auto;margin-top:32px;">
-      <table style="width:100%;max-width:900px;margin:0 auto;border-collapse:collapse;color:var(--text);font-size:0.92rem;">
+    <div class="reveal compare-scroll">
+      <table>
         <thead>
           <tr style="border-bottom:2px solid var(--gold-border);">
             <th style="padding:14px 12px;text-align:left;font-family:'Playfair Display',serif;color:var(--white);font-size:1rem;">What you want</th>
@@ -374,7 +413,7 @@
           </tr>
           <tr style="border-bottom:1px solid rgba(232,160,32,0.15);">
             <td style="padding:12px;">Covers every CCSS 7-12 standard</td>
-            <td style="text-align:center;color:#7ee2a0;">Yes &mdash; all 162</td>
+            <td style="text-align:center;color:#7ee2a0;">Yes &mdash; 131 topics, all 162 standards</td>
             <td style="text-align:center;color:#f0a060;">Most</td>
             <td style="text-align:center;color:#f0a060;">Depends on prompt</td>
             <td style="text-align:center;color:#e57373;">Only if you build them</td>
@@ -474,5 +513,7 @@
 
 </main>
 
+<script src="nav.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
