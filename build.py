@@ -38,6 +38,8 @@ SHOP_FILTERS_END = "<!-- BUILD:FILTERS:END -->"
 STATIC_PAGES = [
     ("https://euclidiamath.com/", "weekly", "1.0"),
     ("https://euclidiamath.com/shop.html", "weekly", "0.9"),
+    ("https://euclidiamath.com/canvas-quiz.html", "weekly", "0.9"),
+    ("https://euclidiamath.com/canvas-quiz-guide.html", "monthly", "0.7"),
     ("https://euclidiamath.com/outreach.html", "monthly", "0.8"),
     ("https://euclidiamath.com/generator.html", "monthly", "0.8"),
     ("https://euclidiamath.com/about.html", "monthly", "0.7"),

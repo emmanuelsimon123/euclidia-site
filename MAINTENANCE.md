@@ -8,7 +8,7 @@ This is the human-readable operations guide for the marketing site at euclidiama
 
 ## What this site is, in one sentence
 
-A static marketing + commerce site for the Euclidia brand, deployed via GitHub Pages, selling math lesson bundles (via Payhip) and marketing two upcoming products (the Generator and Euclidia Outreach).
+A static marketing + commerce site for the Euclidia brand, deployed via GitHub Pages. It sells math lesson bundles (via Payhip and Teachers Pay Teachers) and markets three software products: Euclidia Quiz (live at canvas.euclidiamath.com, subscription), Euclidia Outreach (in OAuth verification, subscription), and Euclidia Generator (Coming Soon, credit bundles).
 
 ---
 
@@ -16,7 +16,7 @@ A static marketing + commerce site for the Euclidia brand, deployed via GitHub P
 
 - **Pure static site** — no build step, no server, no database
 - **GitHub Pages** auto-deploys on push to main
-- **Pages**: index, shop, generator, outreach, about, privacy, terms (7 total)
+- **Pages**: index, shop, generator, canvas-quiz, canvas-quiz-guide, outreach, about, privacy, terms (9 total)
 - **Shared parts** injected via JavaScript (nav.js handles the top nav + footer)
 - **Product catalog** lives in `products.json` and is rendered client-side on shop.html
 - **Form submissions** go to web3forms (free third-party form forwarder)
