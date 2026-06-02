@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Outreach | Euclidia Teacher Automation</title>
-<meta name="description" content="Turn your gradebook into personalized student and parent outreach emails in under five minutes. No download. Sign in with Google and you're ready.">
+<meta name="description" content="Turn your gradebook into personalized outreach emails sent through your Gmail with parents CC'd, in about ten minutes a week. 3-day free trial.">
 <meta property="og:title" content="Outreach | Euclidia Teacher Automation">
-<meta property="og:description" content="Turn your gradebook into personalized student and parent outreach emails in under five minutes. No download. Sign in with Google and you're ready.">
+<meta property="og:description" content="Turn your gradebook into personalized outreach emails sent through your Gmail with parents CC'd, in about ten minutes a week. 3-day free trial.">
 <meta property="og:url" content="https://euclidiamath.com/outreach.html">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://euclidiamath.com/images/og-image.png">
@@ -19,8 +19,8 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Euclidia Outreach",
-  "url": "https://euclidiamath.com/outreach.html",
-  "description": "Turn your gradebook into personalized student and parent outreach emails in under five minutes. Web-based teacher tool that sends emails through your own Gmail account after you review each one.",
+  "url": "https://outreach.euclidiamath.com",
+  "description": "Turn your gradebook into personalized outreach emails sent through your own Gmail account with parents CC'd. Web-based teacher tool, 3-day free trial.",
   "applicationCategory": "EducationalApplication",
   "operatingSystem": "Web Browser",
   "offers": [
@@ -46,7 +46,7 @@
 </script>
 <style>
 /* OUTREACH-SPECIFIC */
-.includes-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; border:1px solid var(--border-gold); border-radius:var(--radius-lg); overflow:hidden; background:var(--border-gold); margin-top:32px; max-width:700px; margin-left:auto; margin-right:auto; }
+.includes-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; border:1px solid var(--border-gold); border-radius:var(--radius-lg); overflow:hidden; background:var(--border-gold); margin-top:32px; max-width:1040px; margin-left:auto; margin-right:auto; }
 .includes-card { background:var(--card-bg); padding:34px 26px; }
 .includes-card h3 { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--white); margin-bottom:10px; }
 .includes-card p { font-size:14px; color:var(--text); line-height:1.75; }
@@ -170,14 +170,14 @@
         <p class="outreach-hero-sub">Upload your gradebook, generate personalized emails for every student who needs attention, review each one in the app, then click Send. Emails go through your Gmail account with parents CC'd.</p>
 
         <div class="outreach-hero-ctas">
-          <a href="#waitlist" class="outreach-cta-primary">Join the waitlist &rarr;</a>
+          <a href="https://outreach.euclidiamath.com" class="outreach-cta-primary">Sign in with Google &rarr;</a>
           <a href="privacy.html" class="outreach-cta-secondary">See how your data stays yours &rarr;</a>
         </div>
 
         <div class="outreach-hero-trust">
-          <span>No download. Sign in with Google.</span>
+          <span>3-day free trial</span>
           <span class="trust-sep">&middot;</span>
-          <span>Student data never stored</span>
+          <span>Student data not stored on our servers</span>
           <span class="trust-sep">&middot;</span>
           <span>FERPA aligned</span>
         </div>
@@ -220,10 +220,10 @@
               <span class="pill">j.alvarez@home.com</span>
             </div>
           </div>
-          <h5>A quick check-in on Maya's progress</h5>
+          <h5>Algebra 1 progress update for Maya</h5>
           <div class="email-body">
-            <p>Hi Mr. and Mrs. Alvarez,</p>
-            <p>I'm reaching out about Maya's grade so far this quarter. She is currently at a 68%, and has 3 missing assignments from the past two weeks. I wanted to make sure you had a chance to see this together with her...</p>
+            <p>Hi Maya,</p>
+            <p>A quick check-in about Algebra 1. As of Tuesday, you have 3 missing assignments from the past two weeks. If you can take a look at these by Friday, you will be back on track. Come find me if you want to walk through any of this...</p>
           </div>
           <span class="email-send-btn">Send via Gmail &rarr;</span>
         </div>
@@ -247,23 +247,6 @@
 <section class="section-wrap">
   <div class="section-inner" style="padding-top:0;">
 
-    <div class="coming-soon-banner reveal" id="waitlist">
-      <div class="coming-soon-badge">Coming Soon</div>
-      <h2>Euclidia Outreach is almost ready.</h2>
-      <p>This is built for the other half of teaching. Outreach matters as much as lesson planning when students need support. Right now most teachers are doing it entirely by hand. No download. Sign in with Google and you're ready. Leave your email and we will let you know the moment it launches.</p>
-      <form class="notify-form" action="https://api.web3forms.com/submit" method="POST" id="notify-form">
-        <input type="hidden" name="access_key" value="c8ebcae4-1442-4218-82d6-7b482f62f42a">
-        <input type="hidden" name="subject" value="Euclidia Outreach Waitlist Signup">
-        <input type="hidden" name="redirect" value="outreach.html?submitted=true">
-        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <label class="sr-only" for="notify-email">Email address</label>
-        <input class="notify-input" type="email" id="notify-email" name="email" placeholder="your@email.com" required>
-        <button class="notify-btn" type="submit">Notify Me</button>
-      </form>
-      <div class="notify-success" id="notify-success">You're on the list.</div>
-      <p style="font-size:13px;color:var(--text-dim);margin-top:16px;">While you wait, <a href="shop.html" style="color:var(--gold);">browse the lessons</a>.</p>
-    </div>
-
     <div class="reveal">
       <span class="section-label">How It Works</span>
       <h2 class="section-title">Three quick steps.</h2>
@@ -279,20 +262,20 @@
       <div class="step-card">
         <span class="step-num">2</span>
         <h3>Upload your gradebook</h3>
-        <p>Export your gradebook as a CSV from Canvas, PowerSchool, or your LMS. Sign in and upload. The tool identifies every student who needs attention based on the thresholds you set. No download needed.</p>
-        <span class="step-tag">Under 2 minutes</span>
+        <p>Export your gradebook as a CSV from Canvas, PowerSchool, or your LMS. Sign in and upload. The app auto-detects your columns and identifies every student who needs attention based on the thresholds you set.</p>
+        <span class="step-tag">About 1 minute</span>
       </div>
       <div class="step-card">
         <span class="step-num">3</span>
         <h3>Send from your inbox</h3>
-        <p>Outreach generates warm, personalized messages for every flagged student and parent. Review and edit each one in the app, then click Send. The app sends each email through your Gmail account, parent CC'd, and it lands in your Sent folder.</p>
-        <span class="step-tag">Under 5 minutes total</span>
+        <p>Outreach generates warm, personalized messages for every flagged student. Review and edit each one in the app, then click Send. Emails go through your Gmail account with parents CC'd, and each one lands in your Sent folder.</p>
+        <span class="step-tag">About 8 minutes</span>
       </div>
     </div>
 
     <div class="reveal" style="margin-top:80px;">
       <span class="section-label">What's Included</span>
-      <h2 class="section-title">Everything you need, in one place.</h2>
+      <h2 class="section-title">Three tools, one sign-in.</h2>
       <div class="gold-rule"></div>
     </div>
     <div class="includes-grid reveal">
@@ -302,8 +285,19 @@
       </div>
       <div class="includes-card">
         <h3>Gradebook Outreach</h3>
-        <p>Upload your gradebook, generate warm personalized messages for every student who needs attention, review each one in the app, then click Send. Emails go through your Gmail account with parents CC'd. All in under five minutes.</p>
+        <p>Upload your gradebook, generate personalized messages for every student who needs attention, review each one, then click Send. Emails go through your Gmail account with parents CC'd. About ten minutes a week.</p>
       </div>
+      <div class="includes-card">
+        <h3>Broadcast</h3>
+        <p>Send a progress note to your whole class, sorted into four tiers by current grade. Excellent students get an affirming note. On-track students get encouragement. Check-in students get a nudge. Struggling students get a direct, supportive ask. All from one upload.</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:80px;">
+      <span class="section-label">No AI</span>
+      <h2 class="section-title">Real teacher voice, not generic AI.</h2>
+      <div class="gold-rule"></div>
+      <p class="section-sub">In a market full of ChatGPT wrappers, this one is different. Every message is built from a library of phrases written by a math teacher. The app picks the right tone by severity, uplifting when a student is doing well, urgent when missing work or low scores pile up, standard otherwise. The exact phrasing rotates each week so the same student never gets the same opener two weeks in a row. No LLM. No "I hope this finds you well." No corporate fill.</p>
     </div>
 
     <div class="reveal" style="margin-top:80px;">
@@ -346,12 +340,12 @@
             <div class="calc-cost-val" style="color:#34d399;" id="outreach-after-cost">$4.67</div>
           </div>
           <div class="calc-savings-box">
-            <div class="calc-savings-label">Time value reclaimed every week</div>
-            <div class="calc-savings-amt" id="outreach-savings-amount">$51.33</div>
-            <div style="font-size:14px;font-weight:700;margin:6px 0 2px;opacity:0.9;" id="outreach-savings-annual">That's $2,053 back over a school year</div>
-            <div class="calc-savings-sub" id="outreach-savings-sub">Pays for itself in less than one week. Then it's pure return.</div>
+            <div class="calc-savings-label">Hours reclaimed every week</div>
+            <div class="calc-savings-amt" id="outreach-savings-amount">1.8 hrs</div>
+            <div style="font-size:14px;font-weight:700;margin:6px 0 2px;opacity:0.9;" id="outreach-savings-annual">That's 72 hours back over a school year, or about $2,053 at this rate</div>
+            <div class="calc-savings-sub" id="outreach-savings-sub">Most of your week back. For the cost of two cups of coffee a month.</div>
           </div>
-          <p style="font-size:12px;color:var(--text-dim);text-align:center;line-height:1.6;">$4.99/month or $39.99/year. No download. Student data never stored on our servers.</p>
+          <p style="font-size:12px;color:var(--text-dim);text-align:center;line-height:1.6;">$4.99/month or $39.99/year. 3-day free trial. Gradebook and roster data are processed in memory only.</p>
         </div>
       </div>
     </div>
@@ -365,17 +359,17 @@
       <div class="pricing-badge">Monthly or Annual</div>
       <div class="pricing-name">Euclidia Outreach</div>
       <div class="pricing-amount">$4.99</div>
-      <div class="pricing-period">per month &nbsp;·&nbsp; or $39.99/year (save 33%)</div>
-      <p class="pricing-copy">Includes Roster Builder and Gradebook Outreach. No download. Sign in with Google and you're ready. Student data is processed in memory only for your session and is never written to a database or saved to disk.</p>
-      <a href="#" class="btn-coming-soon" aria-disabled="true">Coming Soon</a>
+      <div class="pricing-period">per month after 3-day free trial &nbsp;·&nbsp; or $39.99/year (save 33%)</div>
+      <p class="pricing-copy">Includes Roster Builder, Gradebook Outreach, and Broadcast. Sign in with Google and you are ready. Your gradebook and roster are processed in memory only for the duration of your session. The only data we persist is your saved Settings (name, course, grading scale, threshold, closing note).</p>
+      <a href="https://outreach.euclidiamath.com" class="btn-primary" style="width:100%;justify-content:center;">Start 3-day free trial</a>
       <p class="pricing-note">Works in any modern browser. No installation required.</p>
     </div>
 
     <div class="reveal" style="margin-top:80px;">
       <div class="privacy-card">
         <span class="section-label">Built for School Privacy</span>
-        <h3>Your student data is never stored. Anywhere.</h3>
-        <p>When you upload a gradebook, that data is held in memory only for the duration of your session. It is never written to a database or saved to disk. The moment you close the tab or sign out, it's gone and no copy is kept anywhere. No tracking. What happens in your gradebook stays in your gradebook. This matters because student data is sensitive, and we take that seriously.</p>
+        <h3>Your student data is never written to a database or saved to disk.</h3>
+        <p>When you upload a gradebook or roster, that data is processed in memory only for the duration of your session. It is never written to a database, never saved to disk, and never retained after the session ends. The only data we persist on our side is your saved Settings (your name, course name, grading thresholds, closing note). No student names, grades, or emails are ever saved.</p>
         <p>Most education tools collect and store far more student data than they need to. We did the opposite. Euclidia Outreach holds none of it, so there is no database of student records to leak, sell, or breach. FERPA exists to keep schools in control of student data. Our design keeps that control with you, the teacher, by never holding the data in the first place.</p>
       </div>
     </div>
@@ -395,24 +389,19 @@ function updateOutreachCalc() {
     var yourCost = salary * hours;
     var afterCost = salary * (10 / 60);
     var weeklySaved = yourCost - afterCost;
-    var monthlyReturn = Math.round(weeklySaved * 4.33);
-    var recoupText = 'You save $' + weeklySaved.toFixed(2) + ' a week in time value. The monthly plan is $4.99. That\'s a ' + Math.round(monthlyReturn / 4.99) + '× return every month.';
+    var hoursSaved = hours - (10 / 60);
     document.getElementById('outreach-salary-val').textContent = '$' + salary + '/hr';
     document.getElementById('outreach-time-val').textContent = hours + ' hrs';
     document.getElementById('outreach-your-cost').textContent = '$' + yourCost.toFixed(2);
     document.getElementById('outreach-after-cost').textContent = '$' + afterCost.toFixed(2);
-    var annualSaved = weeklySaved * 40;
-    document.getElementById('outreach-savings-amount').textContent = '$' + weeklySaved.toFixed(2);
-    document.getElementById('outreach-savings-annual').textContent = 'That\'s $' + Math.round(annualSaved).toLocaleString() + ' back over a school year';
-    document.getElementById('outreach-savings-sub').textContent = recoupText;
+    var annualHours = Math.round(hoursSaved * 40);
+    var annualDollars = Math.round(weeklySaved * 40);
+    document.getElementById('outreach-savings-amount').textContent = hoursSaved.toFixed(1) + ' hrs';
+    document.getElementById('outreach-savings-annual').textContent = 'That\'s ' + annualHours + ' hours back over a school year, or about $' + annualDollars.toLocaleString() + ' of your time at this rate';
+    document.getElementById('outreach-savings-sub').textContent = 'Most of your week back. For the cost of two cups of coffee a month.';
   } catch (e) {}
 }
 updateOutreachCalc();
-
-if (new URLSearchParams(window.location.search).get('submitted') === 'true') {
-  document.getElementById('notify-success').style.display = 'block';
-  document.getElementById('notify-form').style.display = 'none';
-}
 </script>
 </body>
 </html>
