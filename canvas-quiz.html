@@ -14,6 +14,7 @@
 <link rel="canonical" href="https://euclidiamath.com/canvas-quiz.html">
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 <link rel="stylesheet" href="styles.css">
+<noscript><style id="noscript-reveal-fallback">/* Show scroll-reveal sections when JS is disabled (otherwise content stays at opacity:0 for crawlers and no-JS visitors). */.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -78,6 +79,11 @@
       "@type": "Question",
       "name": "Can I cancel anytime?",
       "acceptedAnswer": {"@type": "Answer", "text": "Yes. Click Manage subscription in the app sidebar. That takes you to Stripe's billing portal where you can cancel in one click. Cancellation takes effect at the end of your current billing period."}
+    },
+    {
+      "@type": "Question",
+      "name": "Why $6.99? That seems specific.",
+      "acceptedAnswer": {"@type": "Answer", "text": "It's roughly the cost of two coffees a month, which we figured was about right for a tool that saves you 5-10 hours of quiz building per month. The annual plan ($59.99/yr) works out to about $5/mo if you want to lock in. We're a bootstrapped one-person operation; pricing covers hosting, infrastructure, and occasional sleep."}
     }
   ]
 }
@@ -208,7 +214,7 @@
       <div class="step-card">
         <div class="step-num">3</div>
         <h3>Deliver, three ways</h3>
-        <p>One-click push to Canvas (Classic Quiz, auto-graded). Or download as QTI to import into any LMS. Or print a branded Word doc with answer key for in-person classes.</p>
+        <p>One-click push to Canvas (New Quiz by default, Classic Quiz if you prefer). Auto-graded on submission. Or download as QTI to import into any LMS. Or print a branded Word doc with answer key for in-person classes.</p>
       </div>
     </div>
   </div>
@@ -303,7 +309,7 @@
       <div class="feature-card">
         <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h11"/><path d="M13 7l5 5-5 5"/></svg></div>
         <h3>One-click Canvas push</h3>
-        <p>Quiz appears in your Canvas course as a Classic Quiz, auto-graded on submission. No copy-paste, no import dance.</p>
+        <p>Quiz appears in your Canvas course as a New Quiz (or Classic, if you pick that option), auto-graded on submission. No copy-paste, no import dance.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 14h6"/></svg></div>
@@ -345,7 +351,7 @@
   <div class="section-inner">
     <div class="reveal" style="text-align:center;">
       <span class="section-label">Pricing</span>
-      <h2 class="section-title">Less than two cups of coffee a month.</h2>
+      <h2 class="section-title">Less than two coffees a month.</h2>
       <div class="gold-rule center"></div>
     </div>
     <div class="pricing-grid reveal">
@@ -492,7 +498,7 @@
     </div>
     <div class="privacy-callout reveal">
       <h3>Stateless server. Browser-only credentials.</h3>
-      <p>Most Canvas tools store your API token on their server. We don't. Your Canvas URL and personal access token live in <strong>your browser's localStorage only</strong>, the same place your browser stores any other website's preferences. When you click "Push to Canvas," the token flows through our app for that single API call, then is discarded.</p>
+      <p>Most Canvas tools store your API token on their server. We don't. Your Canvas URL and personal access token live in <strong>your browser's localStorage only</strong>, the same place your browser stores any other website's preferences. When you click "Push to Canvas," the token flows through our app for the brief window of that push (a series of REST calls to your Canvas course), then is discarded.</p>
       <p>We don't run a database. We don't store student data (the app never sees student answers; Canvas handles those). We don't store your quizzes. The only thing our server ever sees about you is your email (for subscription verification) and the quiz content during the brief moment it's being assembled for upload.</p>
       <p>You can clear all stored values anytime by clicking "Reset Settings." You can revoke the API token in your Canvas account at any moment.</p>
     </div>

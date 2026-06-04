@@ -38,7 +38,7 @@
   <div class="footer-grid">
     <div>
       <div class="footer-logo">Eucli<span>dia</span></div>
-      <p class="footer-tagline">Professional lesson plans for secondary math teachers. Standards-aligned, print-ready, generated in under 2 minutes.</p>
+      <p class="footer-tagline">Tools for secondary math teachers: print-ready lesson plans, ready-to-push Canvas quizzes, and parent outreach that doesn't take all night.</p>
     </div>
     <div>
       <div class="footer-col-title">Navigate</div>
