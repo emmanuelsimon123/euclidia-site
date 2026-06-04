@@ -54,9 +54,17 @@
 .product-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
 .product-card { background:var(--card-bg); border:1px solid var(--border-gold); border-radius:var(--radius-lg); padding:28px; display:flex; flex-direction:column; }
 .product-card.featured { background:rgba(27,58,107,0.36); }
-.product-badge { display:inline-block; background:var(--gold-pale); border:1px solid var(--gold-border); border-radius:100px; padding:5px 12px; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+/* .product-badge: retired in favor of .product-status as the single top-of-card label. Kept selector empty so old anchors don't break. */
+.product-badge { display:none; }
 .product-title { font-family:'Playfair Display',serif; font-size:28px; color:var(--white); margin-bottom:10px; line-height:1.2; }
-.product-status { display:inline-block; background:rgba(232,160,32,0.2); border:1px solid var(--gold-border); border-radius:6px; color:var(--gold-light); font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:4px 8px; margin-bottom:14px; }
+/* Single top-of-card label. Two variants:
+   .product-status-live  = green (for Available now, Live · 3-day free trial)
+   .product-status-soon  = gold/amber (for Coming Soon)
+   Previously the cards stacked a category-badge above this status badge;
+   that read as visual noise once the title alone already named the product. */
+.product-status { display:inline-block; border-radius:100px; padding:5px 12px; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:14px; border:1px solid transparent; }
+.product-status-live { background:rgba(46,160,67,0.15); color:#7ee2a0; border-color:rgba(46,160,67,0.4); }
+.product-status-soon { background:rgba(232,160,32,0.18); color:var(--gold-light); border-color:var(--gold-border); }
 .product-card p { font-size:14.5px; color:var(--text); line-height:1.75; margin-bottom:20px; flex:1; }
 .product-card .btn-primary,
 .product-card .btn-secondary { width:100%; justify-content:center; }
@@ -256,33 +264,30 @@
 
     <div class="product-cards reveal">
       <article class="product-card">
-        <span class="product-badge">Lesson Bundles</span>
+        <span class="product-status product-status-live">Available now</span>
         <h3 class="product-title">Ready to Go Lessons</h3>
         <p>Standards-aligned, no-prep math lesson bundles for grades 6 to 9. Every bundle includes a teacher lesson plan, scaffolded student worksheet, and answer key. Print, copy, and teach. Starting at $2.25.</p>
         <a href="shop.html" class="btn-primary">Browse Lessons</a>
       </article>
 
       <article class="product-card featured">
-        <span class="product-badge">Custom Lessons</span>
+        <span class="product-status product-status-soon">Coming Soon</span>
         <h3 class="product-title">The Generator</h3>
-        <span class="product-status">Coming Soon</span>
         <p>Enter any Common Core standard and get a complete, custom lesson bundle in under two minutes. Lesson plan, worksheet, and answer key. Generated for your exact standard.</p>
         <a href="generator.html" class="btn-secondary">Learn More</a>
       </article>
 
       <article class="product-card">
-        <span class="product-badge">Outreach Tools</span>
+        <span class="product-status product-status-live">Live · 3-day free trial</span>
         <h3 class="product-title">Euclidia Outreach</h3>
-        <span class="product-status" style="background:rgba(46,160,67,0.15);color:#7ee2a0;border-color:rgba(46,160,67,0.4);">Live · 3-day free trial</span>
         <p>Turn your gradebook into personalized outreach emails sent through your Gmail with parents CC'd, in about ten minutes a week. Includes Roster Builder, Gradebook Outreach for flagged students, and Broadcast for tier-based class-wide notes. Gradebook and roster data are processed in memory only and are never written to a database or saved to disk.</p>
         <a href="outreach.html" class="btn-secondary">Learn More</a>
         <a href="https://outreach.euclidiamath.com" class="btn-primary" style="margin-top:8px;">Start 3-day free trial</a>
       </article>
 
       <article class="product-card">
-        <span class="product-badge">Canvas Quiz Tools</span>
+        <span class="product-status product-status-live">Live · 3-day free trial</span>
         <h3 class="product-title">Euclidia Quiz</h3>
-        <span class="product-status" style="background:rgba(46,160,67,0.15);color:#7ee2a0;border-color:rgba(46,160,67,0.4);">Live · 3-day free trial</span>
         <p>Build verified-math quizzes for any CCSS 7-12 standard. Pick a topic, set the question count, and deliver three ways: one-click push to Canvas, download as a QTI .zip for any LMS, or print a branded Word doc with answer key for in-person classes. Every problem is professionally authored and verified. No AI-written mistakes to double-check, no surprise wrong answers. Your Canvas API token (if you use one) stays in your browser, never on our server.</p>
         <a href="canvas-quiz.html" class="btn-secondary">Learn More</a>
         <a href="https://canvas.euclidiamath.com" class="btn-primary" style="margin-top:8px;">Start free trial</a>
