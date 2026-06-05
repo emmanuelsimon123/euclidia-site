@@ -30,5 +30,21 @@
     "thumbnail": "images/two-step-equations.png",
     "is_free": false,
     "slug": "two_step_equations"
+  },
+  {
+    "title": "Two-Step Inequalities | No-Prep Lesson, Worksheet & Answer Key",
+    "standard": "7.EE.B.4",
+    "grade": "6-8",
+    "price": "$0.00",
+    "tpt_price": "FREE",
+    "buy_url": "https://payhip.com/b/J0QAM",
+    "description": "A complete ~50-minute Grade 7 Math lesson aligned to CCSS 7.EE.B.4. Includes a teacher lesson plan, student worksheet, and full answer key (20 pages total) in print-ready PDF plus editable Word files. Every problem verified, no AI guessing.",
+    "tags": [
+      "7.EE",
+      "Two-Step-Inequalities"
+    ],
+    "thumbnail": "images/two-step-inequalities.png",
+    "is_free": true,
+    "slug": "two_step_inequalities"
   }
 ]
