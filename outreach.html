@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Outreach | Euclidia Teacher Automation</title>
+<title>Euclidia Outreach | Parent Emails from Your Gradebook</title>
 <meta name="description" content="Turn your gradebook into personalized outreach emails sent through your Gmail with parents CC'd, in about ten minutes a week. 3-day free trial.">
-<meta property="og:title" content="Outreach | Euclidia Teacher Automation">
+<meta property="og:title" content="Euclidia Outreach | Parent Emails from Your Gradebook">
 <meta property="og:description" content="Turn your gradebook into personalized outreach emails sent through your Gmail with parents CC'd, in about ten minutes a week. 3-day free trial.">
 <meta property="og:url" content="https://euclidiamath.com/outreach.html">
 <meta property="og:type" content="website">
@@ -162,7 +162,7 @@
       <div class="outreach-hero-content">
         <div class="outreach-hero-eyebrow">
           <span class="eyebrow-dot"></span>
-          <span>Teacher Automation Tools</span>
+          <span>Euclidia Outreach</span>
           <span class="eyebrow-divider">/ 01 / Outreach</span>
         </div>
         <div class="outreach-hero-rule"></div>
@@ -178,7 +178,7 @@
         <div class="outreach-hero-trust">
           <span>3-day free trial</span>
           <span class="trust-sep">&middot;</span>
-          <span>Student data not stored on our servers</span>
+          <span>Student data never stored</span>
           <span class="trust-sep">&middot;</span>
           <span>FERPA aligned</span>
         </div>
@@ -240,7 +240,7 @@
 
     <div class="outreach-hero-footer-strip">
       <span>Any subject &middot; Any grade level</span>
-      <span>A quiet tool for a noisy week</span>
+      <span>About ten minutes a week</span>
     </div>
   </div>
 </section>
@@ -269,7 +269,7 @@
       <div class="step-card">
         <span class="step-num">3</span>
         <h3>Send from your inbox</h3>
-        <p>Outreach generates warm, personalized messages for every flagged student. Review and edit each one in the app, then click Send. Emails go through your Gmail account with parents CC'd, and each one lands in your Sent folder.</p>
+        <p>Outreach generates warm, personalized emails for every flagged student. Review and edit each one in the app, then click Send. Emails go through your Gmail account with parents CC'd, and each one lands in your Sent folder.</p>
         <span class="step-tag">About 8 minutes</span>
       </div>
     </div>
@@ -286,7 +286,7 @@
       </div>
       <div class="includes-card">
         <h3>Gradebook Outreach</h3>
-        <p>Upload your gradebook, generate personalized messages for every student who needs attention, review each one, then click Send. Emails go through your Gmail account with parents CC'd. About ten minutes a week.</p>
+        <p>Upload your gradebook, generate personalized emails for every student who needs attention, review each one, then click Send. Emails go through your Gmail account with parents CC'd. About ten minutes a week.</p>
       </div>
       <div class="includes-card">
         <h3>Broadcast</h3>
@@ -298,12 +298,12 @@
       <span class="section-label">No AI</span>
       <h2 class="section-title">Real teacher voice, not generic AI.</h2>
       <div class="gold-rule"></div>
-      <p class="section-sub">In a market full of ChatGPT wrappers, this one is different. Every message is built from a library of phrases written by a math teacher. The app picks the right tone by severity, uplifting when a student is doing well, urgent when missing work or low scores pile up, standard otherwise. The exact phrasing rotates each week so the same student never gets the same opener two weeks in a row. No LLM. No "I hope this finds you well." No corporate fill.</p>
+      <p class="section-sub">Every email is built from a library of phrases written by a math teacher. The app picks the right tone by severity, uplifting when a student is doing well, urgent when missing work or low scores pile up, standard otherwise. The exact phrasing rotates each week so the same student never gets the same opener two weeks in a row. No LLM. No "I hope this finds you well." No corporate fill.</p>
     </div>
 
     <div class="reveal" style="margin-top:80px;">
       <span class="section-label">Is It Worth It?</span>
-      <h2 class="section-title">Your time is worth<br>more than you think.</h2>
+      <h2 class="section-title">Add up what your outreach<br>time actually costs.</h2>
       <div class="gold-rule"></div>
       <p class="section-sub">Every grade check and parent follow-up you write by hand has a real dollar value. The question is how much of it you want back.</p>
     </div>
@@ -344,7 +344,7 @@
             <div class="calc-savings-label">Hours reclaimed every week</div>
             <div class="calc-savings-amt" id="outreach-savings-amount">1.8 hrs</div>
             <div style="font-size:14px;font-weight:700;margin:6px 0 2px;opacity:0.9;" id="outreach-savings-annual">That's 72 hours back over a school year, or about $2,053 at this rate</div>
-            <div class="calc-savings-sub" id="outreach-savings-sub">Most of your week back. For the cost of two cups of coffee a month.</div>
+            <div class="calc-savings-sub" id="outreach-savings-sub">Most of your week back. For the cost of a cup of coffee a month.</div>
           </div>
           <p style="font-size:12px;color:var(--text-dim);text-align:center;line-height:1.6;">$4.99/month or $39.99/year. 3-day free trial. Gradebook and roster data are processed in memory only.</p>
         </div>
@@ -399,7 +399,7 @@ function updateOutreachCalc() {
     var annualDollars = Math.round(weeklySaved * 40);
     document.getElementById('outreach-savings-amount').textContent = hoursSaved.toFixed(1) + ' hrs';
     document.getElementById('outreach-savings-annual').textContent = 'That\'s ' + annualHours + ' hours back over a school year, or about $' + annualDollars.toLocaleString() + ' of your time at this rate';
-    document.getElementById('outreach-savings-sub').textContent = 'Most of your week back. For the cost of two cups of coffee a month.';
+    document.getElementById('outreach-savings-sub').textContent = 'Most of your week back. For the cost of a cup of coffee a month.';
   } catch (e) {}
 }
 updateOutreachCalc();

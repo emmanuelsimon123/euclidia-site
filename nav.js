@@ -16,7 +16,7 @@
     <li><a href="/writing-grammar.html">Writing &amp; Grammar</a></li>
     <li><a href="/about.html"${activeIf('about')}>About</a></li>
     <li><a href="/about.html#faq">FAQ</a></li>
-    <li><a href="/shop.html" class="nav-cta">Browse Lessons</a></li>
+    <li><a href="/shop.html" class="nav-cta">Browse lessons</a></li>
   </ul>
   <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-mobile">
     <span></span><span></span><span></span>
@@ -32,7 +32,7 @@
   <a href="/writing-grammar.html">Writing &amp; Grammar</a>
   <a href="/about.html"${activeIf('about')}>About</a>
   <a href="/about.html#faq">FAQ</a>
-  <a href="/shop.html" class="nav-cta">Browse Lessons</a>
+  <a href="/shop.html" class="nav-cta">Browse lessons</a>
 </div>`;
 
   const footerHTML = `
@@ -58,8 +58,8 @@
     <div>
       <div class="footer-col-title">Support</div>
       <ul class="footer-links">
-        <li><a href="mailto:euclidiamath@gmail.com">Contact Us</a></li>
-        <li><a href="/about.html#faq">Help &amp; FAQ</a></li>
+        <li><a href="mailto:euclidiamath@gmail.com">Contact</a></li>
+        <li><a href="/about.html#faq">FAQ</a></li>
         <li><a href="https://www.teacherspayteachers.com/store/euclidia" target="_blank" rel="noopener">TPT Store &#8599;</a></li>
         <li><a href="/privacy.html">Privacy Policy</a></li>
         <li><a href="/terms.html">Terms of Service</a></li>

@@ -92,6 +92,14 @@ def parse_price(price_str):
     return None
 
 
+def grade_label(grade):
+    """Render a grade tag. '7' -> 'Grade 7'; '6-8' -> 'Grades 6-8'."""
+    grade = str(grade).strip()
+    if not grade:
+        return ""
+    return f"Grades {grade}" if "-" in grade else f"Grade {grade}"
+
+
 def build_card_html(product, slug):
     """Static product card. Same visual structure as the prior JS-rendered
     version, but title + thumbnail now link to the lesson page."""
@@ -142,14 +150,14 @@ def build_card_html(product, slug):
             '</div>'
         )
         btn_class = "btn-buy"
-        btn_text = "Buy Now &uarr;"
+        btn_text = "Buy now &uarr;"
 
     tags_attr = " ".join(product.get("tags", []))
     tag_chips = ""
     if standard:
         tag_chips += f'<span class="product-tag">{standard}</span>'
     if grade:
-        tag_chips += f'<span class="product-tag grade">Grades {grade}</span>'
+        tag_chips += f'<span class="product-tag grade">{grade_label(grade)}</span>'
 
     return (
         f'<div class="product-card" data-tags="{html_escape(tags_attr)}">'
@@ -380,7 +388,7 @@ def build_lesson_page(product):
     if standard:
         chips += f'<span class="lesson-chip">{html_escape(standard)}</span>'
     if grade:
-        chips += f'<span class="lesson-chip grade">Grades {html_escape(grade)}</span>'
+        chips += f'<span class="lesson-chip grade">{grade_label(html_escape(grade))}</span>'
 
     if thumb:
         thumb_block = (
@@ -420,7 +428,7 @@ def build_lesson_page(product):
     return slug, LESSON_TEMPLATE.format(
         title=html_escape(title),
         slug=slug,
-        meta_desc=html_escape(description[:160]),
+        meta_desc=html_escape(description),
         og_image=html_escape(og_image),
         json_ld=json.dumps(schema, indent=2),
         chips=chips,
