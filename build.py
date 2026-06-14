@@ -42,6 +42,7 @@ STATIC_PAGES = [
     ("https://euclidiamath.com/canvas-quiz-guide.html", "monthly", "0.7"),
     ("https://euclidiamath.com/outreach.html", "monthly", "0.8"),
     ("https://euclidiamath.com/generator.html", "monthly", "0.8"),
+    ("https://euclidiamath.com/writing-grammar.html", "monthly", "0.8"),
     ("https://euclidiamath.com/about.html", "monthly", "0.7"),
     ("https://euclidiamath.com/privacy.html", "yearly", "0.3"),
     ("https://euclidiamath.com/terms.html", "yearly", "0.3"),
