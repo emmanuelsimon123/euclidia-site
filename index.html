@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Euclidia | Lesson Plans, Generator, Outreach & Canvas Quizzes for Teachers</title>
+<title>Euclidia | Math Game, Lesson Plans, Outreach & Canvas Quizzes for Teachers</title>
 <meta name="description" content="Professional, print-ready math lesson bundles for secondary teachers. Buy ready-made resources or generate your own.">
 <meta property="og:title" content="Euclidia | Give Teachers Their Time Back">
-<meta property="og:description" content="Standards-aligned lesson bundles, a custom lesson generator, and teacher automation tools. Built by a teacher for teachers.">
+<meta property="og:description" content="A live classroom math game, standards-aligned lesson bundles, and teacher automation tools. Built by a teacher for teachers.">
 <meta property="og:url" content="https://euclidiamath.com/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://euclidiamath.com/images/og-image.png">
@@ -22,7 +22,7 @@
   "name": "Euclidia",
   "url": "https://euclidiamath.com",
   "logo": "https://euclidiamath.com/images/favicon.svg",
-  "description": "Standards-aligned math lesson bundles, a custom lesson generator, and teacher automation tools. Built by a teacher for teachers.",
+  "description": "A live classroom math game, standards-aligned lesson bundles, and teacher automation tools. Built by a teacher for teachers.",
   "email": "euclidiamath@gmail.com",
   "sameAs": [
     "https://www.teacherspayteachers.com/store/euclidia"
@@ -214,21 +214,6 @@
         <article class="tool-item">
           <span class="tool-num">II.</span>
           <div class="tool-body">
-            <h3>Lesson Generator</h3>
-            <p>Generate a scaffolded plan, worksheet, and answer key in seconds.</p>
-          </div>
-          <div class="tool-glyph tool-glyph-grid" aria-hidden="true">
-            <svg viewBox="0 0 36 24" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="4" cy="4" r="1.2"/><circle cx="12" cy="4" r="1.2"/><circle cx="20" cy="4" r="1.2"/><circle cx="28" cy="4" r="1.2"/>
-              <circle cx="4" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="20" cy="12" r="1.2"/><circle cx="28" cy="12" r="1.2"/>
-              <circle cx="4" cy="20" r="1.2"/><circle cx="12" cy="20" r="1.2"/><circle cx="20" cy="20" r="1.2"/><circle cx="28" cy="20" r="1.2"/>
-            </svg>
-          </div>
-        </article>
-
-        <article class="tool-item">
-          <span class="tool-num">III.</span>
-          <div class="tool-body">
             <h3>Euclidia Outreach</h3>
             <p>Turn your gradebook into personalized parent emails in minutes.</p>
           </div>
@@ -276,13 +261,6 @@
         <h3 class="product-title">Ready-to-Go Lessons</h3>
         <p>Standards-aligned, no-prep math lesson bundles for grades 6 to 9. Every bundle includes a teacher lesson plan, scaffolded student worksheet, and answer key. Print, copy, and teach. Starting at $2.25.</p>
         <a href="shop.html" class="btn-primary">Browse lessons</a>
-      </article>
-
-      <article class="product-card featured">
-        <span class="product-status product-status-soon">Coming Soon</span>
-        <h3 class="product-title">Lesson Generator</h3>
-        <p>Enter any Common Core standard and get a complete, custom lesson bundle in under two minutes. Lesson plan, worksheet, and answer key. Generated for your exact standard.</p>
-        <a href="generator.html" class="btn-secondary">Learn more</a>
       </article>
 
       <article class="product-card">
@@ -338,27 +316,6 @@
   </div>
 </section>
 
-<div class="section-divider" aria-hidden="true"></div>
-
-<section class="section-wrap" aria-labelledby="waitlist-h">
-  <div class="section-inner">
-    <div class="waitlist-card reveal">
-      <h3 id="waitlist-h">Stay in the loop.</h3>
-      <p>Be first to know when the Lesson Generator launches.</p>
-      <form class="waitlist-form" action="https://api.web3forms.com/submit" method="POST" id="homepage-waitlist-form">
-        <input type="hidden" name="access_key" value="c8ebcae4-1442-4218-82d6-7b482f62f42a">
-        <input type="hidden" name="subject" value="Euclidia Homepage Waitlist Signup">
-        <input type="hidden" name="redirect" value="index.html?submitted=true">
-        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <label class="sr-only" for="homepage-waitlist-email">Email address</label>
-        <input class="waitlist-input" type="email" id="homepage-waitlist-email" name="email" placeholder="your@email.com" required>
-        <button class="waitlist-btn" type="submit">Notify me</button>
-      </form>
-      <div class="waitlist-success" id="homepage-waitlist-success">You're on the list.</div>
-    </div>
-  </div>
-</section>
-
 </main>
 
 <script src="nav.js"></script>
@@ -370,10 +327,6 @@ if (allToolsLink) {
     e.preventDefault();
     document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
-}
-if (new URLSearchParams(window.location.search).get('submitted') === 'true') {
-  document.getElementById('homepage-waitlist-success').style.display = 'block';
-  document.getElementById('homepage-waitlist-form').style.display = 'none';
 }
 </script>
 </body>
