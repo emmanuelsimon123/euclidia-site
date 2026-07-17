@@ -24,54 +24,54 @@ You never touch HTML. You write; the build makes the page.
 github.com/emmanuelsimon123/euclidia-site → green **Code** button →
 **Codespaces** tab → open or create one.
 
-**2. Make a new file in the `posts/` folder.** Right-click the `posts` folder
-→ **New File**. Name it with the date and a short title, using hyphens and
-ending in `.md`, for example:
+**2. Run the helper.** In the terminal (Terminal → New Terminal), run:
 
 ```
-posts/2026-09-03-grading-less-teaching-more.md
+python new_post.py
 ```
 
-The file name (minus the date and `.md`) becomes the web address, so keep it
-short and readable.
-
-**3. Write the post.** Start with three info lines and a `---`, then your
-article:
+It asks you three quick things and makes the file for you:
 
 ```
-title: Grading less, teaching more
-date: 2026-09-03
-description: One sentence that shows up on the blog list and in Google search results.
----
-Your first paragraph goes here. Just write normally.
+Post title: Grading less, teaching more
+Date (press enter for today):
+One-line description (shows on the blog list + in Google): A quick take on cutting grading time.
 
-## A section heading
-
-Another paragraph. You can make a word **bold** or *italic*, add a
-[link like this](https://play.euclidiamath.com), and make a list:
-
-- first point
-- second point
-
-> A line like this becomes a nice pulled-out quote.
+✓ Created posts/grading-less-teaching-more.md
 ```
 
-That is the whole format. `title`, `date` (as YYYY-MM-DD), and `description`
-are the only required lines.
+No setup lines to type, no formatting to remember. The title, date, and
+description are already filled in.
 
-**4. Build it.** In the Codespaces terminal (Terminal → New Terminal), run:
+**3. Write your article.** Open the file it made
+(`posts/<your-title>.md`) and replace the starter text with your post. Write
+normally. A few optional marks:
+
+- `## A heading` makes a section heading
+- `**bold**` and `*italic*`
+- `[words to show](https://the-link.com)` makes a link
+- a line starting with `-` makes a bullet; `>` makes a pulled-out quote
+
+That's it. Anything you don't use, just ignore.
+
+**4. Build it.** Back in the terminal:
 
 ```
 python build.py
 ```
 
-You'll see `Building blog... wrote blog.html + N post page(s)`. That created
-your page at `blog/your-file-name.html` and added it to the blog list.
+You'll see `Building blog... wrote blog.html + N post page(s)`. That turned
+your post into a real web page and added it to the blog list.
 
 **5. Publish.** Commit and push (the green **Source Control** panel, or
 `git add -A && git commit -m "New post" && git push`). The site updates itself
-in about a minute. Your post is live at `euclidiamath.com/blog/<your-file-name>.html`
+in about a minute. Your post is live at `euclidiamath.com/blog/<your-title>.html`
 and linked from `euclidiamath.com/blog.html`.
+
+*(Prefer to skip the helper and just make the file yourself? You can — a post
+is a plain `.md` file in `posts/` with three lines at the top: `title:`,
+`date:` as YYYY-MM-DD, `description:`, then a `---`, then your article. The
+helper just fills those in for you.)*
 
 ---
 
