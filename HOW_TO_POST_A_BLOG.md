@@ -20,6 +20,13 @@ You never touch HTML. You write; the build makes the page.
 
 ## Writing a post (about 5 minutes)
 
+> **The command word: `python` vs `py`.** In **GitHub Codespaces** (the cloud
+> editor) the command is **`python`**. On **your own Windows computer** (VS
+> Code terminal), type **`py`** instead — so `py new_post.py` and
+> `py build.py`. Windows doesn't answer to `python` unless you install it;
+> `py` is already there. Everything below uses `python`; swap in `py` if
+> you're on your own machine.
+
 **1. Open GitHub Codespaces** (same as adding a product):
 github.com/emmanuelsimon123/euclidia-site → green **Code** button →
 **Codespaces** tab → open or create one.
