@@ -7,3 +7,7 @@
 
 # Claude Code local config (personal, not site content)
 .claude/
+
+# Python build cache (blog.py / build.py)
+__pycache__/
+*.pyc

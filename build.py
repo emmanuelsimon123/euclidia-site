@@ -23,6 +23,8 @@ import re
 import sys
 from datetime import date
 
+import blog  # zero-dep blog builder (posts/*.md -> blog/*.html + blog.html)
+
 PRODUCTS_FILE = "products.json"
 SHOP_FILE = "shop.html"
 SITEMAP_FILE = "sitemap.xml"
@@ -459,12 +461,14 @@ def write_lesson_pages(products):
         print(f"  removed stale {stale_path}")
 
 
-def write_sitemap(products):
+def write_sitemap(products, extra_urls=None):
     today = date.today().isoformat()
     urls = list(STATIC_PAGES)
     for product in products:
         slug = product_slug(product)
         urls.append((f"https://euclidiamath.com/lessons/{slug}.html", "monthly", "0.6"))
+    if extra_urls:
+        urls.extend(extra_urls)
 
     lines = ['<?xml version="1.0" encoding="UTF-8"?>']
     lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
@@ -498,8 +502,11 @@ def main():
     print("Writing lesson pages...")
     write_lesson_pages(products)
 
+    print("Building blog...")
+    blog_urls = blog.build_blog()
+
     print("Updating sitemap.xml...")
-    write_sitemap(products)
+    write_sitemap(products, blog_urls)
 
     print("Done.")
 
