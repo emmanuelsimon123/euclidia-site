@@ -111,7 +111,7 @@
 .coverage-label { font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--text); margin-bottom:18px; }
 .coverage-card p { color:var(--text); font-size:15px; line-height:1.7; max-width:560px; margin:0 auto; }
 
-.pricing-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; max-width:760px; margin:32px auto 0; }
+.pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:1040px; margin:32px auto 0; }
 .pricing-tier { background:rgba(27,58,107,0.35); border:1px solid var(--gold-border); border-radius:var(--radius-lg); padding:34px 28px; text-align:center; }
 .pricing-tier h3 { font-family:'Playfair Display',serif; font-size:22px; color:var(--white); margin-bottom:6px; }
 .pricing-amount { font-family:'Playfair Display',serif; font-size:48px; font-weight:900; color:var(--gold); line-height:1; }
@@ -124,7 +124,7 @@
 .privacy-callout p { font-size:15px; color:var(--text); line-height:1.8; }
 .privacy-callout p + p { margin-top:14px; }
 
-/* Feature-grid icons — replace the previous mixed-emoji approach. Each
+/* Feature-grid icons, replacing the previous mixed-emoji approach. Each
    feature card uses .feature-card with a uniform SVG-circle icon. */
 .feature-card { background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius-lg); padding:22px 24px; }
 .feature-icon { width:36px; height:36px; border-radius:8px; background:var(--gold-pale); border:1px solid var(--gold-border); display:inline-flex; align-items:center; justify-content:center; margin-bottom:12px; color:var(--gold); }
@@ -137,7 +137,7 @@
    invisible placeholder of the same height. */
 .pricing-tier .pricing-save-spacer { display:inline-block; height:24px; margin-bottom:10px; }
 
-/* Comparison table — mobile horizontal scroll cue. The shadow on the
+/* Comparison table, mobile horizontal scroll cue. The shadow on the
    right edge tells users the column is cut off (otherwise "Manual in
    Canvas" silently disappears off-screen on phones). */
 .compare-scroll { position:relative; overflow-x:auto; margin-top:32px; -webkit-overflow-scrolling:touch; }
@@ -149,7 +149,7 @@
 
 @media(max-width:960px){
   .steps-grid { grid-template-columns:1fr; }
-  .pricing-grid { grid-template-columns:1fr; }
+  .pricing-grid { grid-template-columns:1fr; max-width:420px; }
   .quiz-hero-title { font-size:2.8rem; }
 }
 @media(max-width:600px){
@@ -160,7 +160,7 @@
   .quiz-hero-eyebrow .eyebrow-divider { display:block; flex-basis:100%; opacity:0.85; }
 }
 
-/* No-JS fallback — the reveal animation runs in main.js. Without it, all
+/* No-JS fallback. The reveal animation runs in main.js. Without it, all
    .reveal blocks stay at opacity:0 forever. Show everything for visitors
    who block JS, and for the no-script crawlers (social previews, archive
    readers). prefers-reduced-motion is already handled in styles.css. */
@@ -204,7 +204,7 @@
       <div class="step-card">
         <div class="step-num">1</div>
         <h3>Pick a CCSS standard and build</h3>
-        <p>Filter by grade or by specific CCSS code. 131 verified topics covering grades 7-12 math. Choose question count, difficulty, and multiple choice or fill-in-the-blank. Click Build.</p>
+        <p>Filter by grade or by specific CCSS code. 131 verified topics covering grades 7-12 math. Choose how many questions and whether they are multiple choice or fill-in-the-blank, or open a topic and hand-pick the questions yourself. Click Build.</p>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
@@ -298,7 +298,7 @@
       <span class="section-label">What's Included</span>
       <h2 class="section-title">Every feature on every plan.</h2>
       <div class="gold-rule center"></div>
-      <p style="color:var(--text);font-size:0.95rem;max-width:600px;margin:18px auto 0;">No "premium" tier. No upsells. The $6.99 plan and the $59.99 plan get the same product, just billed differently.</p>
+      <p style="color:var(--text);font-size:0.95rem;max-width:600px;margin:18px auto 0;">No "premium" tier. No upsells. Monthly, annual and department plans all get the same product, just billed differently.</p>
     </div>
     <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:32px;max-width:1000px;margin-left:auto;margin-right:auto;">
       <div class="feature-card">
@@ -324,7 +324,7 @@
       <div class="feature-card">
         <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div>
         <h3>Fill-in-the-blank or MC</h3>
-        <p>For numeric-answer topics, build as fill-in-the-blank (accepts equivalent forms like 1/2 and 0.5) instead of multiple choice.</p>
+        <p>For numeric-answer topics, build as fill-in-the-blank. Every reasonable way to write the answer is accepted, so a student who types 27pi/4, 6.75pi or 21.21 is marked correct instead of being punished for spelling it differently. Instead of multiple choice.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
@@ -335,6 +335,26 @@
         <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
         <h3>Quiz history</h3>
         <p>Re-build any past quiz in one click. History lives in your browser only, not on our servers.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="19" cy="18" r="2.5"/></svg></div>
+        <h3>Browse and hand-pick</h3>
+        <p>Open a topic, read through its questions, and choose the ones you want. Random draws are still one click, but you are not stuck with them.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="16" rx="1.5"/><rect x="13" y="4" width="8" height="16" rx="1.5"/></svg></div>
+        <h3>Form A and Form B</h3>
+        <p>Tick one box and get two versions of the same quiz with no overlapping questions. For seating rows, make-ups, and anyone who missed test day.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg></div>
+        <h3>Shareable quiz links</h3>
+        <p>Copy a link that carries the whole recipe. A colleague opens it and builds the same quiz, with nothing to email around.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></div>
+        <h3>Pick your course from a list</h3>
+        <p>No hunting for a numeric Canvas course ID. Load your courses and choose the one you want by name.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
@@ -370,6 +390,14 @@
         <div class="pricing-period">per year after 3-day free trial</div>
         <p>Everything in monthly, billed once a year. Best value for teachers who use the tool through the school year.</p>
         <a href="https://canvas.euclidiamath.com" class="btn-primary" style="margin-top:12px;display:inline-block;">Start 3-day free trial</a>
+      </div>
+      <div class="pricing-tier">
+        <span class="pricing-save">For departments</span>
+        <h3>Per teacher</h3>
+        <div class="pricing-amount">$4</div>
+        <div class="pricing-period">per teacher, per month</div>
+        <p>Buy a seat for every teacher in the department, then share one link. Whoever opens it takes a seat. Same product, one invoice, and cheaper per teacher than paying separately.</p>
+        <a href="https://canvas.euclidiamath.com" class="btn-primary" style="margin-top:12px;display:inline-block;">Set up a department</a>
       </div>
     </div>
   </div>
@@ -499,7 +527,7 @@
     <div class="privacy-callout reveal">
       <h3>Stateless server. Browser-only credentials.</h3>
       <p>Most Canvas tools store your API token on their server. We don't. Your Canvas URL and personal access token live in <strong>your browser's localStorage only</strong>, the same place your browser stores any other website's preferences. When you click "Push to Canvas," the token flows through our app for the brief window of that push (a series of REST calls to your Canvas course), then is discarded.</p>
-      <p>We don't run a database. We don't store student data (the app never sees student answers; Canvas handles those). We don't store your quizzes. The only thing our server ever sees about you is your email (for subscription verification) and the quiz content during the brief moment it's being assembled for upload.</p>
+      <p>We don't store student data (the app never sees student answers; Canvas handles those). We don't store your quizzes. If you buy a department plan we keep one record of the department: its name, how many seats were bought, and the email of each teacher holding one. That is the only database we run, and no student information goes near it. The only thing our server ever sees about you is your email (for subscription verification) and the quiz content during the brief moment it's being assembled for upload.</p>
       <p>You can clear all stored values anytime by clicking "Reset Settings." You can revoke the API token in your Canvas account at any moment.</p>
     </div>
   </div>
