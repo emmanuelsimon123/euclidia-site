@@ -40,3 +40,10 @@ This redesign changes the public marketing site, not the separate paid applicati
 - Live HTTPS verification: all 15 HTML pages plus 8 styles/scripts/images returned HTTP 200. SHA-256 comparisons matched local verified contents for all 23 resources (text line endings normalized).
 - Opened https://euclidiamath.com/ in the browser after deployment. Confirmed the new headline, loaded home.css, all four tool sections, and working shared navigation. Visually inspected the actual public homepage.
 - This final ledger update changes documentation only; deployed product files remain identical to the verified implementation commit.
+
+
+## 2026-09-06: familiar classroom geometry
+
+Replaced the original Elements example with a right triangle inside an 8-by-5 rectangle. Removed the classical attribution and proposition reference. Kept the notebook styling and supplied a matching accessible description.
+
+Checks: rendered the actual edited homepage at desktop and 390px phone widths; moved the area label clear of the diagonal. SVG rectangle dimensions 336 by 210 have the correct 8:5 ratio. At 42 pixels per unit, the shaded half has area 20 square units. Source check confirms no standalone Euclid, Book I, Proposition, or em-dash text. `py verify_site.py` and `git diff --check` pass. Production workflow builds and verifies again on publication.
