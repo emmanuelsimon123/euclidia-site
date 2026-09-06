@@ -47,3 +47,23 @@ This redesign changes the public marketing site, not the separate paid applicati
 Replaced the original Elements example with a right triangle inside an 8-by-5 rectangle. Removed the classical attribution and proposition reference. Kept the notebook styling and supplied a matching accessible description.
 
 Checks: rendered the actual edited homepage at desktop and 390px phone widths; moved the area label clear of the diagonal. SVG rectangle dimensions 336 by 210 have the correct 8:5 ratio. At 42 pixels per unit, the shaded half has area 20 square units. Source check confirms no standalone Euclid, Book I, Proposition, or em-dash text. `py verify_site.py` and `git diff --check` pass. Production workflow builds and verifies again on publication.
+
+
+## 2026-09-06: motion and product showcases
+
+Conditions: preserve the notebook identity and triangle math; reveal the geometry once; show actual product material at a useful size; vary the homepage layout; support keyboard, touch, reduced motion, and no-script image links; preserve catalog and trial paths.
+
+Changes: a 2.25-second rectangle/diagonal/shading/result sequence with replay; a broad gameplay showcase ahead of the lesson section; a wider quiz screenshot; selectable worksheet, answer-key, and lesson-plan excerpts on the home and shop pages; native dialog enlargement; restrained shared hover feedback.
+
+Asset evidence: three image excerpts rendered at 2x directly from lesson-plan-generator/tpt_listings/two_step_equations/preview.pdf. Its catalog thumbnail SHA-256 matches the website's existing product image. The excerpts were visually inspected and retain the original mathematics. Game screenshots copied unchanged from Learning Game/qa-shots/climb-widescreen-fixed.png and proof-figure-question.png, with screenshot labeling. No generated imitation interfaces or new dependencies.
+
+Checks completed:
+- Browser computed styles confirm sequential animation durations/delays and final complete state.
+- Browser switched through all three lesson previews on the shop page at 390px; every image loaded and the selected state matched. On the homepage, Answer key updated source, caption, and pressed state together. The phone dialog measured 352px within a 390px viewport, loaded its image, and focused Close.
+- Browser opened the enlarged original, focused Close, closed via Escape, restored the source link's focus and page scrolling.
+- Browser layout checks for homepage, shop, quiz, and outreach at 320, 390, 768, and 1280 pixels: no unintended horizontal overflow in all 16 cases.
+- Nine assertions execute the shipped main.js with system motion preferences: reduced motion suppresses auto/manual motion; normal motion waits for visibility and disconnects its observer after the first reveal; changing the preference stops motion.
+- Source copy has no em dash or standalone Euclid reference.
+- New gallery image links fall back to the original files without JavaScript; enhancement-only controls remain hidden until initialized.
+
+Earned limitation: the in-app browser's Page.captureScreenshot operation repeatedly timed out, including after tab recreation and on the nonanimated shop page. Both documented screenshot interfaces and browser visibility recovery were attempted. DOM interaction and geometry checks succeeded, and source images were visually inspected, but a composed-page screenshot review could not be completed in this run. A functioning browser capture would close this remaining visual-review condition.

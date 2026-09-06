@@ -39,6 +39,10 @@ jobs:
         run: python build.py
       - name: Verify pages and local links
         run: python verify_site.py
+      - name: Verify interactive enhancements
+        run: |
+          node --check main.js
+          node tests/motion.cjs
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

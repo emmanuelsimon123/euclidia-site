@@ -64,20 +64,21 @@
         <desc id="construction-desc">A rectangle 8 units wide and 5 units tall is split diagonally into two equal right triangles. One triangle is shaded. Its area is one half times 8 times 5, or 20 square units.</desc>
         <defs><pattern id="notebook-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M 28 0 L 0 0 0 28" fill="none" stroke="currentColor" stroke-opacity=".09" stroke-width="1"/></pattern></defs>
         <rect width="560" height="430" fill="url(#notebook-grid)"/>
-        <path d="M112 90 H448 V300" fill="none" stroke="#84938d" stroke-width="1.5" stroke-dasharray="6 6"/>
-        <path d="M112 90 L448 300 H112 Z" fill="#c9983b" fill-opacity=".12" stroke="#b78024" stroke-width="2"/>
-        <path d="M112 90 V300 H448" fill="none" stroke="#152c3e" stroke-width="2"/>
+        <path class="math-outline" pathLength="100" d="M112 90 H448 V300 H112 Z" fill="none" stroke="#84938d" stroke-width="1.5"/>
+        <path class="math-shade" d="M112 90 L448 300 H112 Z" fill="#c9983b" fill-opacity=".18"/>
+        <path class="math-diagonal" pathLength="100" d="M112 90 L448 300" fill="none" stroke="#b78024" stroke-width="2"/>
+        <path class="math-base" pathLength="100" d="M112 90 V300 H448" fill="none" stroke="#152c3e" stroke-width="2"/>
         <path d="M112 282 H130 V300" fill="none" stroke="#152c3e" stroke-width="1.3"/>
         <g fill="#152c3e"><circle cx="112" cy="90" r="3"/><circle cx="112" cy="300" r="3"/><circle cx="448" cy="300" r="3"/></g>
-        <g class="point-label" fill="#152c3e"><text x="160" y="255">20 square units</text></g>
+        <g class="point-label math-result" fill="#152c3e"><text x="160" y="255">20 square units</text></g>
         <g class="diagram-note" text-anchor="middle"><text x="280" y="330">base = 8</text><text x="78" y="195" transform="rotate(-90 78 195)">height = 5</text><text x="280" y="386">Area = ½ × base × height</text></g>
       </svg>
-      <figcaption><span class="figure-number">½</span><p>See the shape.<br><strong>Understand the rule.</strong></p><span class="figure-ref">Area of<br>a triangle</span></figcaption>
+      <figcaption><span class="figure-number">½</span><p>See the shape.<br><strong>Understand the rule.</strong></p><button class="diagram-replay" type="button" hidden aria-label="Replay the triangle animation">Replay <span aria-hidden="true">↺</span></button></figcaption>
     </figure>
   </div>
   <div class="home-frame tool-index" aria-label="Explore classroom tools">
-    <a href="#lessons"><span>01</span> Plan a lesson <b aria-hidden="true">↓</b></a>
-    <a href="#play"><span>02</span> Make practice play <b aria-hidden="true">↓</b></a>
+    <a href="#play"><span>01</span> Make practice play <b aria-hidden="true">↓</b></a>
+    <a href="#lessons"><span>02</span> Plan a lesson <b aria-hidden="true">↓</b></a>
     <a href="#quiz"><span>03</span> Build a quiz <b aria-hidden="true">↓</b></a>
     <a href="#outreach"><span>04</span> Reach a parent <b aria-hidden="true">↓</b></a>
   </div>
@@ -85,17 +86,31 @@
 <section id="products" class="tool-collection" aria-labelledby="products-title">
   <div class="home-frame">
     <header class="collection-heading"><div><p class="eyebrow">The teacher's toolkit</p><h2 id="products-title">For the work around<br><em>the work you love.</em></h2></div><p>Choose what helps today.<br>Each tool works on its own.</p></header>
+    <article class="play-spotlight" id="play">
+      <div class="spotlight-heading"><div><p class="feature-number">01 / Practice · Euclidia Play</p><h3>Math practice.<br><em>With a little altitude.</em></h3></div><div class="spotlight-intro"><p>Students answer the math to keep moving. Give them a room code and a reason to try one more question.</p><a class="light-button" href="https://play.euclidiamath.com">Play for free <span aria-hidden="true">↗</span></a></div></div>
+      <div class="game-showcase">
+        <figure class="game-window"><div class="window-label"><span>Inside Sky Climb</span><span>Gameplay screenshot</span></div><a href="images/play-gameplay.png" data-preview data-title="Sky Climb gameplay" aria-label="Enlarge the Sky Climb gameplay screenshot"><img src="images/play-gameplay.png" alt="Sky Climb gameplay with a character beneath climbing platforms above a mountain landscape" width="2560" height="1000" loading="lazy"><span class="enlarge-label">Take a closer look ↗</span></a></figure>
+        <figure class="math-window"><a href="images/play-math.png" data-preview data-title="A math question in Euclidia Play" aria-label="Enlarge a math question from the game"><img src="images/play-math.png" alt="Actual game question asking students to interpret a scatter plot" width="886" height="905" loading="lazy"></a><figcaption>The math is part of the game.</figcaption></figure>
+      </div>
+      <div class="spotlight-footer"><span>Room-code entry</span><span>Free to play</span><a href="https://play.euclidiamath.com/canvas-setup.html">Connect to Canvas ↗</a></div>
+    </article>
     <article class="tool-feature" id="lessons">
-      <div class="feature-copy"><p class="feature-number">01 / Prepare</p><h3>Your next lesson.<br>Already thought through.</h3><p>A lesson plan, scaffolded student worksheet, and answer key, together in one bundle. Print the PDF or make it your own in Word.</p><ul class="feature-facts"><li>Standards-aligned math</li><li>Free sample available</li><li>Paid bundles from $2.25</li></ul><a class="light-button" href="shop.html">Explore the lessons <span aria-hidden="true">↗</span></a><a class="quiet-link" href="lessons/two-step-inequalities.html">Start with the free inequalities lesson →</a></div>
-      <figure class="feature-visual lesson-visual"><a href="lessons/two-step-equations.html" aria-label="View the Two-Step Equations lesson bundle"><img src="images/two-step-equations.png" alt="Two-Step Equations bundle: previews of the lesson plan, student worksheet, and worked answer key" width="2000" height="2000" loading="lazy"></a><figcaption>From the catalog <span>Grade 7 · 7.EE.B.4</span></figcaption></figure>
+      <div class="feature-copy"><p class="feature-number">02 / Prepare</p><h3>Your next lesson.<br>Already thought through.</h3><p>A lesson plan, scaffolded student worksheet, and answer key, together in one bundle. Print the PDF or make it your own in Word.</p><ul class="feature-facts"><li>Standards-aligned math</li><li>Free sample available</li><li>Paid bundles from $2.25</li></ul><a class="light-button" href="shop.html">Explore the lessons <span aria-hidden="true">↗</span></a><a class="quiet-link" href="lessons/two-step-inequalities.html">Start with the free inequalities lesson →</a></div>
+      <div class="lesson-gallery" data-gallery>
+        <div class="gallery-heading"><span>Open the lesson notebook</span><span>7.EE.B.4</span></div>
+        <div class="preview-choices" role="group" aria-label="Choose a lesson preview">
+          <button type="button" aria-pressed="true" data-src="images/worksheet-detail.png" data-title="Two-Step Equations: worksheet excerpt">Worksheet</button>
+          <button type="button" aria-pressed="false" data-src="images/answer-detail.png" data-title="Two-Step Equations: answer key excerpt">Answer key</button>
+          <button type="button" aria-pressed="false" data-src="images/lesson-detail.png" data-title="Two-Step Equations: lesson plan excerpt">Lesson plan</button>
+        </div>
+        <a class="lesson-page" href="images/worksheet-detail.png" data-preview data-title="Two-Step Equations: worksheet excerpt" aria-label="Enlarge the selected lesson preview"><img src="images/worksheet-detail.png" alt="Two-Step Equations: worksheet excerpt" width="1024" height="438" loading="lazy"><span class="enlarge-label">Read the page ↗</span></a>
+        <p class="gallery-caption" aria-live="polite">Two-Step Equations: worksheet excerpt</p>
+      </div>
     </article>
-    <article class="tool-feature reverse" id="play">
-      <div class="feature-copy"><p class="feature-number">02 / Practice</p><h3>A little competition.<br>A lot of mathematics.</h3><p>Give practice a place in the game. Students join Euclidia Play with a room code and answer math questions to move forward.</p><ul class="feature-facts"><li>Free to play</li><li>Join with a room code</li><li>Canvas connection available</li></ul><a class="light-button" href="https://play.euclidiamath.com">Open Euclidia Play <span aria-hidden="true">↗</span></a><a class="quiet-link" href="https://play.euclidiamath.com/canvas-setup.html">Connect it to Canvas →</a></div>
-      <figure class="feature-visual play-visual"><a href="https://play.euclidiamath.com" aria-label="Explore Euclidia Play"><img src="images/play-sky-climb.webp" alt="Sky Climb game artwork: a colorful world of floating islands and climbing characters" width="1280" height="720" loading="lazy"></a><figcaption>Euclidia Play <span>Sky Climb · Game artwork</span></figcaption></figure>
-    </article>
-    <article class="tool-feature" id="quiz">
+
+    <article class="tool-feature quiz-wide" id="quiz">
       <div class="feature-copy"><p class="feature-number">03 / Assess</p><h3>Choose the math.<br>The quiz comes together.</h3><p>Build from authored math questions, organized by topic and standard. Send your quiz to Canvas, export a QTI file, or print it with an answer key.</p><ul class="feature-facts"><li>Grades 7–12</li><li>Canvas, QTI, or Word</li><li>3-day free trial</li></ul><a class="light-button" href="canvas-quiz.html">Explore Euclidia Quiz <span aria-hidden="true">↗</span></a><a class="quiet-link" href="https://canvas.euclidiamath.com">Start your free trial →</a></div>
-      <figure class="feature-visual quiz-visual"><a href="canvas-quiz-guide.html" aria-label="See the quiz builder step-by-step guide"><img src="images/guide/step4-quiz-builder.png" alt="Euclidia Quiz builder with question count, difficulty, grade, standard, and topic controls" width="1280" height="800" loading="lazy"></a><figcaption>Inside the quiz builder <span>See the setup guide ↗</span></figcaption></figure>
+      <figure class="feature-visual quiz-visual"><a href="images/guide/step4-quiz-builder.png" data-preview data-title="Inside the Euclidia Quiz builder" aria-label="Enlarge the quiz builder"><img src="images/guide/step4-quiz-builder.png" alt="Euclidia Quiz builder with question count, difficulty, grade, standard, and topic controls" width="1280" height="800" loading="lazy"></a><figcaption>Inside the quiz builder <span>Enlarge the preview ↗</span></figcaption></figure>
     </article>
     <article class="tool-feature reverse" id="outreach">
       <div class="feature-copy"><p class="feature-number">04 / Connect</p><h3>A parent update.<br>With your voice in it.</h3><p>Turn your gradebook into personalized email drafts. Review and edit each message, then send through your Gmail account.</p><ul class="feature-facts"><li>You review before sending</li><li>Roster and broadcast tools</li><li>3-day free trial</li></ul><a class="light-button" href="outreach.html">Explore Outreach <span aria-hidden="true">↗</span></a><a class="quiet-link" href="https://outreach.euclidiamath.com">Start your free trial →</a></div>
