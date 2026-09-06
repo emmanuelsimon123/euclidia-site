@@ -100,7 +100,7 @@
 .game-window { background:#102333; border:1px solid #6a8997; box-shadow:0 16px 40px #07152340; }
 .window-label { display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; padding:13px 20px; font-size:.75rem; color:#c6d4da; }
 .game-window a { display:block; position:relative; overflow:hidden; }
-.game-window img { width:100%; height:auto; display:block; aspect-ratio:3.8; object-fit:cover; object-position:50% 25%; }
+.game-window img { width:100%; height:auto; display:block; aspect-ratio:16/9; object-fit:cover; object-position:50% 25%; }
 .math-window { width:27%; position:absolute; right:24px; bottom:0; background:#fff; border:5px solid #f5f2ea; box-shadow:0 12px 32px #06101b55; transform:rotate(2deg); }
 .math-window a { display:block; overflow:hidden; }
 .math-window img { width:100%; height:auto; display:block; aspect-ratio:1; object-fit:cover; object-position:top left; }
@@ -130,11 +130,6 @@
  .math-window { transition:transform .25s; }
  .math-window:hover { transform:rotate(0deg) translateY(-3px); }
 }
-@media(max-width:800px){.play-spotlight{padding:30px 24px 0;margin-bottom:40px}.spotlight-heading{grid-template-columns:1fr;gap:24px}.game-window img{aspect-ratio:2.5}.math-window{width:34%;right:12px}.game-showcase{padding-bottom:80px}.quiz-wide .feature-copy{display:block}.quiz-wide .feature-facts{display:block}}
-@media(max-width:480px){.play-spotlight{padding:25px 16px 0;margin-inline:-8px}.spotlight-heading h3{font-size:2.2rem}.game-window img{aspect-ratio:1.45;object-fit:cover;object-position:50% 25%}.game-showcase{padding-bottom:0}.math-window{position:relative;right:auto;bottom:auto;width:68%;margin:20px auto 0;transform:none}.window-label{padding:10px;font-size:.75rem}.spotlight-footer{gap:12px 18px}.spotlight-footer a{margin-left:0}.game-window .enlarge-label{font-size:.75rem;left:10px;bottom:10px}}
+@media(max-width:800px){.play-spotlight{padding:30px 24px 0;margin-bottom:40px}.spotlight-heading{grid-template-columns:1fr;gap:24px}.game-window img{aspect-ratio:16/9}.math-window{width:34%;right:12px}.game-showcase{padding-bottom:80px}.quiz-wide .feature-copy{display:block}.quiz-wide .feature-facts{display:block}}
+@media(max-width:480px){.play-spotlight{padding:25px 16px 0;margin-inline:-8px}.spotlight-heading h3{font-size:2.2rem}.game-window img{aspect-ratio:16/9;object-fit:cover;object-position:50% 25%}.game-showcase{padding-bottom:0}.math-window{position:relative;right:auto;bottom:auto;width:68%;margin:20px auto 0;transform:none}.window-label{padding:10px;font-size:.75rem}.spotlight-footer{gap:12px 18px}.spotlight-footer a{margin-left:0}.game-window .enlarge-label{font-size:.75rem;left:10px;bottom:10px}}
 @media(prefers-reduced-motion:reduce){.is-drawing .math-outline,.is-drawing .math-base,.is-drawing .math-diagonal{animation:none;stroke-dashoffset:0}.is-drawing .math-shade,.is-drawing .math-result{animation:none;opacity:1}}
-/* Crop the capture's unused bottom margin inside the game frame. */
-.game-window a { aspect-ratio:3.8; }
-.game-window img { position:absolute; inset:0; width:100%; height:125%; aspect-ratio:auto; object-fit:cover; object-position:50% 0; }
-@media(max-width:800px){.game-window a{aspect-ratio:2.5}}
-@media(max-width:480px){.game-window a{aspect-ratio:1.45}}
