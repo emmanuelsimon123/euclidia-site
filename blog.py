@@ -223,8 +223,8 @@ def _head(title, description, canonical, jsonld):
 <meta property="og:image" content="https://euclidiamath.com/images/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="{canonical}">
-<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="stylesheet" href="/styles.css">
 <noscript><style>.reveal{{opacity:1!important;transform:none!important;}}</style></noscript>
 <style>
   .blog-wrap {{ max-width:760px; margin:0 auto; padding:120px 20px 80px; }}
@@ -266,6 +266,7 @@ def _head(title, description, canonical, jsonld):
 <script type="application/ld+json">
 {jsonld}
 </script>
+<link rel="stylesheet" href="/notebook.css">
 </head>
 <body data-page="blog">
 <a href="#main" class="skip-link">Skip to main content</a>
@@ -273,8 +274,8 @@ def _head(title, description, canonical, jsonld):
 
 
 _TAIL = """</main>
-<script src="nav.js"></script>
-<script src="main.js"></script>
+<script src="/nav.js"></script>
+<script src="/main.js"></script>
 </body>
 </html>"""
 

@@ -2,20 +2,21 @@
   const page = document.body.dataset.page || '';
 
   function activeIf(p) {
-    return p === page ? ' class="active"' : '';
+    return p === page ? ' class="active" aria-current="page"' : '';
   }
 
   const navHTML = `
 <nav role="navigation" aria-label="Main navigation">
   <a href="/index.html" class="nav-logo">Eucli<span>dia</span></a>
   <ul class="nav-links">
+    <li><a href="https://play.euclidiamath.com">Play ↗</a></li>
     <li><a href="/shop.html"${activeIf('shop')}>Lessons</a></li>
     <li><a href="/canvas-quiz.html"${activeIf('canvas-quiz')}>Canvas Quiz</a></li>
     <li><a href="/outreach.html"${activeIf('outreach')}>Outreach</a></li>
     <li><a href="/writing-grammar.html">Writing &amp; Grammar</a></li>
     <li><a href="/blog.html"${activeIf('blog')}>Blog</a></li>
     <li><a href="/about.html"${activeIf('about')}>About</a></li>
-    <li><a href="/about.html#faq">FAQ</a></li>
+
     <li><a href="/shop.html" class="nav-cta">Browse lessons</a></li>
   </ul>
   <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-mobile">
@@ -26,6 +27,7 @@
 <div class="nav-mobile" id="nav-mobile">
   <a href="/index.html"${activeIf('home')}>Home</a>
   <a href="/shop.html"${activeIf('shop')}>Lessons</a>
+  <a href="https://play.euclidiamath.com">Play ↗</a>
   <a href="/canvas-quiz.html"${activeIf('canvas-quiz')}>Canvas Quiz</a>
   <a href="/outreach.html"${activeIf('outreach')}>Outreach</a>
   <a href="/writing-grammar.html">Writing &amp; Grammar</a>
@@ -40,12 +42,13 @@
   <div class="footer-grid">
     <div>
       <div class="footer-logo">Eucli<span>dia</span></div>
-      <p class="footer-tagline">Tools for secondary math teachers: print-ready lesson plans, ready-to-push Canvas quizzes, and parent outreach that doesn't take all night.</p>
+      <p class="footer-tagline">Thoughtful tools for the work of teaching. Math lessons, classroom games, quizzes, and parent outreach.</p>
     </div>
     <div>
       <div class="footer-col-title">Navigate</div>
       <ul class="footer-links">
         <li><a href="/index.html">Home</a></li>
+        <li><a href="https://play.euclidiamath.com">Euclidia Play ↗</a></li>
         <li><a href="/shop.html">Lessons</a></li>
         <li><a href="/canvas-quiz.html">Canvas Quiz</a></li>
         <li><a href="/outreach.html">Outreach</a></li>
@@ -84,6 +87,13 @@
     const isOpen = mobile.classList.toggle('open');
     if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   };
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && document.getElementById('nav-mobile').classList.contains('open')) {
+      window.toggleMenu();
+      document.querySelector('.nav-hamburger').focus();
+    }
+  });
 
   document.addEventListener('click', function (e) {
     if (!e.target.closest('nav') && !e.target.closest('#nav-mobile')) {

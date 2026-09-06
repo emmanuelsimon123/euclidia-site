@@ -37,6 +37,8 @@ jobs:
           python-version: '3.x'
       - name: Build static shop + lesson pages
         run: python build.py
+      - name: Verify pages and local links
+        run: python verify_site.py
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

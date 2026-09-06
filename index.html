@@ -41,293 +41,69 @@
   }
 }
 </script>
-<style>
-/* HOME-SPECIFIC STYLES */
-.home-hero { max-width:1140px; margin:0 auto; padding:140px 48px 90px; position:relative; z-index:1; }
-.home-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(38px,5vw,66px); font-weight:900; color:var(--white); line-height:1.08; margin-bottom:18px; max-width:780px; }
-.home-hero p { font-size:18px; color:var(--text); line-height:1.8; max-width:720px; }
-.home-actions { display:flex; gap:14px; margin-top:30px; flex-wrap:wrap; }
-
-.problem-copy { max-width:860px; margin-bottom:34px; }
-.problem-copy p { font-size:16px; color:var(--text); line-height:1.85; }
-
-.product-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-.product-card { background:var(--card-bg); border:1px solid var(--border-gold); border-radius:var(--radius-lg); padding:28px; display:flex; flex-direction:column; }
-.product-card.featured { background:rgba(27,58,107,0.36); }
-/* .product-badge: retired in favor of .product-status as the single top-of-card label. Kept selector empty so old anchors don't break. */
-.product-badge { display:none; }
-.product-title { font-family:'Playfair Display',serif; font-size:28px; color:var(--white); margin-bottom:10px; line-height:1.2; }
-/* Single top-of-card label. Two variants:
-   .product-status-live  = green (for Available now, Live · 3-day free trial)
-   .product-status-soon  = gold/amber (for Coming Soon)
-   Previously the cards stacked a category-badge above this status badge;
-   that read as visual noise once the title alone already named the product. */
-.product-status { display:inline-block; border-radius:100px; padding:5px 12px; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:14px; border:1px solid transparent; }
-.product-status-live { background:rgba(46,160,67,0.15); color:#7ee2a0; border-color:rgba(46,160,67,0.4); }
-.product-status-soon { background:rgba(232,160,32,0.18); color:var(--gold-light); border-color:var(--gold-border); }
-.product-card p { font-size:14.5px; color:var(--text); line-height:1.75; margin-bottom:20px; flex:1; }
-.product-card .btn-primary,
-.product-card .btn-secondary { width:100%; justify-content:center; }
-
-.story-wrap { max-width:860px; margin:0 auto; text-align:center; }
-.story-wrap p { font-size:17px; line-height:1.85; color:var(--text); margin-bottom:18px; }
-.story-wrap a { color:var(--gold); text-decoration:none; font-weight:700; }
-.story-wrap a:hover { text-decoration:underline; }
-
-.waitlist-card { max-width:760px; margin:0 auto; background:linear-gradient(145deg,rgba(9,21,37,0.96),rgba(15,32,54,0.95)); border:1px solid var(--gold-border); border-radius:var(--radius-lg); padding:38px 32px; text-align:center; }
-.waitlist-card h3 { font-family:'Playfair Display',serif; font-size:36px; color:var(--white); margin-bottom:10px; }
-.waitlist-card p { font-size:15px; color:var(--text); line-height:1.7; margin-bottom:20px; }
-.waitlist-form { display:flex; gap:10px; max-width:420px; margin:0 auto; flex-wrap:wrap; justify-content:center; }
-.waitlist-input { flex:1; min-width:220px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:9px; padding:12px 16px; color:var(--white); font-family:'DM Sans',sans-serif; font-size:15px; outline:none; }
-.waitlist-input:focus { border-color:var(--gold); }
-.waitlist-input::placeholder { color:var(--text-dim); }
-.waitlist-btn { background:var(--gold); color:var(--navy); border:none; border-radius:9px; padding:12px 24px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:700; cursor:pointer; transition:background 0.2s; }
-.waitlist-btn:hover { background:var(--gold-light); }
-.waitlist-success { display:none; font-size:14px; color:#34d399; margin-top:12px; }
-
-@media(max-width:960px){
-  .home-hero { padding:120px 24px 72px; }
-  .product-cards { grid-template-columns:1fr; }
-}
-@media(max-width:600px){
-  .home-actions { flex-direction:column; }
-  .home-actions a { width:100%; justify-content:center; }
-  .waitlist-form { flex-direction:column; }
-  .waitlist-input, .waitlist-btn { width:100%; }
-}
-
-/* HOME HERO REDESIGN */
-.home-hero-section { padding-top:120px; padding-bottom:60px; max-width:1280px; margin:0 auto; padding-left:48px; padding-right:48px; position:relative; z-index:1; }
-.home-hero-grid { display:grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap:80px; align-items:start; }
-.home-hero-content { max-width:560px; padding-top:8px; }
-.home-hero-eyebrow { display:inline-flex; align-items:center; gap:10px; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
-.home-hero-eyebrow .eyebrow-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); }
-.home-hero-rule { width:56px; height:1px; background:var(--gold); margin-bottom:36px; opacity:0.85; }
-.home-hero-title { font-family:'Playfair Display',serif; font-size:5.4rem; font-weight:700; color:var(--white); line-height:1.02; letter-spacing:-0.025em; margin-bottom:28px; }
-.home-hero-title em { font-style:italic; font-weight:600; color:var(--gold); display:block; }
-.home-hero-sub { font-size:1.05rem; line-height:1.7; color:var(--text); margin-bottom:36px; max-width:480px; }
-.home-hero-ctas { display:flex; gap:24px; align-items:center; margin-bottom:30px; flex-wrap:wrap; }
-.home-cta-primary { display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:var(--navy); padding:15px 26px; border-radius:8px; font-size:15px; font-weight:700; text-decoration:none; transition:all 0.2s; }
-.home-cta-primary:hover { background:var(--gold-light); transform:translateY(-1px); }
-.home-cta-secondary { display:inline-flex; align-items:center; gap:6px; color:var(--text-bright); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.2s; }
-.home-cta-secondary:hover { color:var(--gold); }
-.home-hero-trust { display:flex; flex-wrap:wrap; gap:14px; font-size:12px; color:var(--text-dim); letter-spacing:0.02em; align-items:center; }
-.home-hero-trust .trust-sep { opacity:0.4; }
-
-.home-hero-tools { position:relative; padding:24px 0 24px 28px; }
-.home-hero-tools::before, .home-hero-tools::after { content:''; position:absolute; left:0; width:14px; height:14px; border-color:var(--gold-border); border-style:solid; }
-.home-hero-tools::before { top:0; border-width:1px 0 0 1px; }
-.home-hero-tools::after { bottom:0; border-width:0 0 1px 1px; }
-.tools-eyebrow { display:inline-flex; align-items:center; gap:10px; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:24px; }
-.tools-eyebrow .eyebrow-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); }
-.tools-list { display:flex; flex-direction:column; }
-.tool-item { display:grid; grid-template-columns: 36px 1fr 48px; gap:18px; align-items:center; padding:22px 0; border-top:1px solid var(--border); }
-.tool-item:first-child { border-top:1px solid var(--border-gold); }
-.tool-item:last-child { border-bottom:1px solid var(--border); }
-.tool-num { font-family:'Playfair Display',serif; font-style:italic; font-size:24px; font-weight:600; color:var(--text-dim); }
-.tool-body h3 { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; color:var(--white); margin-bottom:4px; line-height:1.2; }
-.tool-body p { font-size:13.5px; color:var(--text); line-height:1.5; }
-.tool-glyph { display:flex; align-items:center; justify-content:center; opacity:0.6; }
-.tool-glyph svg { width:36px; height:24px; }
-.tool-glyph-lines svg line { stroke:var(--gold); stroke-width:1.5; }
-.tool-glyph-grid svg circle { fill:var(--gold); }
-.tool-glyph-arrow svg { stroke:var(--gold); fill:none; stroke-width:1.5; }
-
-.home-hero-footer-strip { display:flex; justify-content:space-between; padding-top:36px; border-top:1px solid var(--border); margin-top:64px; font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-dim); }
-.home-hero-footer-strip span { display:inline-flex; align-items:center; gap:10px; }
-.home-hero-footer-strip span:first-child::before { content:'\25CF'; color:var(--gold); font-size:8px; }
-.home-hero-footer-strip span:last-child::after { content:'\25CF'; color:var(--gold); font-size:8px; }
-
-@media (max-width: 1100px) {
-  .home-hero-title { font-size:4.4rem; }
-  .home-hero-grid { gap:48px; }
-}
-@media (max-width: 960px) {
-  .home-hero-section { padding-top:104px; padding-bottom:30px; padding-left:24px; padding-right:24px; }
-  .home-hero-grid { grid-template-columns:1fr; gap:48px; }
-  .home-hero-title { font-size:3.4rem; }
-  .home-hero-footer-strip { margin-top:36px; padding-top:24px; }
-}
-@media (max-width: 600px) {
-  .home-hero-title { font-size:2.6rem; }
-  .home-hero-footer-strip { flex-direction:column; gap:10px; text-align:center; }
-  .tool-item { grid-template-columns: 28px 1fr 32px; gap:12px; padding:18px 0; }
-  .tool-body h3 { font-size:1.2rem; }
-}
-</style>
+<link rel="stylesheet" href="notebook.css">
+<link rel="stylesheet" href="home.css">
 </head>
 <body data-page="home">
-
 <a href="#main" class="skip-link">Skip to main content</a>
-
 <main id="main">
-
-<section class="home-hero-section" aria-label="Hero">
-  <div class="home-hero-grid">
-
-    <div class="home-hero-content">
-      <div class="home-hero-eyebrow">
-        <span class="eyebrow-dot"></span>
-        <span>Built by a teacher. For teachers.</span>
-      </div>
-      <div class="home-hero-rule"></div>
-
-      <h1 class="home-hero-title">Give teachers their <em>time back.</em></h1>
-      <p class="home-hero-sub">Three tools that take care of the formatting, scaffolding, and admin work. So you can teach at a humane pace.</p>
-
-      <div class="home-hero-ctas">
-        <a href="shop.html" class="home-cta-primary">Browse lessons &rarr;</a>
-        <a href="#products" class="home-cta-secondary" id="all-tools-link">See all tools &rarr;</a>
-      </div>
-
-      <div class="home-hero-trust">
-        <span>Built by a teacher</span>
-        <span class="trust-sep">&middot;</span>
-        <span>Math first</span>
-        <span class="trust-sep">&middot;</span>
-        <span>Student data never stored</span>
-      </div>
+<section class="notebook-hero" aria-labelledby="home-title">
+  <div class="home-frame hero-layout">
+    <div class="hero-copy">
+      <p class="eyebrow">Independent tools for teachers</p>
+      <h1 id="home-title">Less prep.<br>More <em>teaching.</em></h1>
+      <p class="hero-intro">Good teaching takes thought.<br>The busywork shouldn't take your evening.</p>
+      <p class="hero-description">Math lessons, classroom games, quizzes, and parent outreach. Made by a teacher who knows the work.</p>
+      <div class="home-actions"><a class="ink-button" href="#products">Find your classroom tool <span aria-hidden="true">↗</span></a><a class="text-link" href="shop.html">Browse lessons <span aria-hidden="true">→</span></a></div>
+      <div class="hero-footnote"><span class="small-mark" aria-hidden="true">E.</span><span>Built by a teacher.<br>For the work of teaching.</span></div>
     </div>
-
-    <div class="home-hero-tools" aria-label="Three tools">
-      <div class="tools-eyebrow">
-        <span class="eyebrow-dot"></span>
-        <span>Three tools. One job: give you your time back.</span>
-      </div>
-      <div class="tools-list">
-
-        <article class="tool-item">
-          <span class="tool-num">I.</span>
-          <div class="tool-body">
-            <h3>Ready-to-Go Lessons</h3>
-            <p>Standards-aligned bundles for secondary math.</p>
-          </div>
-          <div class="tool-glyph tool-glyph-lines" aria-hidden="true">
-            <svg viewBox="0 0 36 24" xmlns="http://www.w3.org/2000/svg">
-              <line x1="2" y1="6" x2="34" y2="6"/>
-              <line x1="2" y1="12" x2="28" y2="12"/>
-              <line x1="2" y1="18" x2="22" y2="18"/>
-            </svg>
-          </div>
-        </article>
-
-        <article class="tool-item">
-          <span class="tool-num">II.</span>
-          <div class="tool-body">
-            <h3>Euclidia Outreach</h3>
-            <p>Turn your gradebook into personalized parent emails in minutes.</p>
-          </div>
-          <div class="tool-glyph tool-glyph-arrow" aria-hidden="true">
-            <svg viewBox="0 0 36 24" xmlns="http://www.w3.org/2000/svg">
-              <line x1="4" y1="20" x2="30" y2="6"/>
-              <polyline points="22,5 30,6 29,14"/>
-            </svg>
-          </div>
-        </article>
-
-      </div>
-    </div>
-
+    <figure class="construction">
+      <div class="figure-heading"><span>From the mathematics notebook</span><span>01 / Geometry</span></div>
+      <svg viewBox="0 0 560 430" role="img" aria-labelledby="construction-title construction-desc">
+        <title id="construction-title">An equilateral triangle, constructed from two circles</title>
+        <desc id="construction-desc">Two circles of equal radius are centered at A and B. Their upper intersection C completes triangle ABC. Each side is a radius of one of the circles, so all three sides are equal.</desc>
+        <defs><pattern id="notebook-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M 28 0 L 0 0 0 28" fill="none" stroke="currentColor" stroke-opacity=".09" stroke-width="1"/></pattern></defs>
+        <rect width="560" height="430" fill="url(#notebook-grid)"/>
+        <g fill="none" stroke-width="1.2" class="construction-circles"><circle cx="200" cy="260" r="160"/><circle cx="360" cy="260" r="160"/></g>
+        <path d="M200 260 L280 121.436 L360 260 Z" fill="#c9983b" fill-opacity=".09" stroke="#b78024" stroke-width="2"/>
+        <path d="M200 260 H360" stroke="#152c3e" stroke-width="2"/>
+        <g fill="#152c3e"><circle cx="200" cy="260" r="4"/><circle cx="360" cy="260" r="4"/><circle cx="280" cy="121.436" r="4"/></g>
+        <g class="point-label"><text x="187" y="291">A</text><text x="354" y="291">B</text><text x="273" y="105">C</text></g>
+        <g class="diagram-note"><text x="215" y="182" transform="rotate(-60 215 182)">radius</text><text x="336" y="173" transform="rotate(60 336 173)">radius</text><text x="245" y="334">AB = AC = BC</text></g>
+      </svg>
+      <figcaption><span class="figure-number">I.</span><p>A few simple things.<br><strong>Something worth understanding.</strong></p><span class="figure-ref">Euclid<br>Book I, Proposition 1</span></figcaption>
+    </figure>
   </div>
-
-  <div class="home-hero-footer-strip">
-    <span>Built for the prep work that eats your evenings</span>
-    <span>By a teacher, for teachers</span>
+  <div class="home-frame tool-index" aria-label="Explore classroom tools">
+    <a href="#lessons"><span>01</span> Plan a lesson <b aria-hidden="true">↓</b></a>
+    <a href="#play"><span>02</span> Make practice play <b aria-hidden="true">↓</b></a>
+    <a href="#quiz"><span>03</span> Build a quiz <b aria-hidden="true">↓</b></a>
+    <a href="#outreach"><span>04</span> Reach a parent <b aria-hidden="true">↓</b></a>
   </div>
 </section>
-
-<div class="section-divider" aria-hidden="true"></div>
-
-<section id="products" class="section-wrap section-alt-bg" aria-labelledby="products-h">
-  <div class="section-inner">
-    <div class="reveal problem-copy">
-      <span class="section-label">Why Euclidia Exists</span>
-      <h2 class="section-title" id="products-h">Teachers carry an impossible workload.</h2>
-      <div class="gold-rule"></div>
-      <p>You teach with rigor, carry an impossible workload, and still have a life at home. Euclidia handles the formatting, scaffolding, and admin work, so you can work at a humane pace.</p>
-    </div>
-
-    <div class="product-cards reveal">
-      <article class="product-card">
-        <span class="product-status product-status-live">Live · Free to play</span>
-        <h3 class="product-title">Euclidia Play</h3>
-        <p>The math practice your students actually ask for, and it grades itself into your Canvas gradebook. Ten game modes where the only way to win is answering the math. You connect it in your own course settings in about five minutes. No IT ticket. Before each question, students lock in how sure they are, so they learn to separate what they truly know from what they're only guessing. Every game hands you a report on who is struggling and why. Kids join with a room code, so there's no email, no real name, and nothing to install.</p>
-        <a href="https://play.euclidiamath.com" class="btn-primary">Play now, free</a>
-        <a href="https://play.euclidiamath.com/canvas-setup.html" class="btn-secondary" style="margin-top:8px;">Canvas setup in 5 minutes</a>
-      </article>
-
-      <article class="product-card">
-        <span class="product-status product-status-live">Available now</span>
-        <h3 class="product-title">Ready-to-Go Lessons</h3>
-        <p>Standards-aligned, no-prep math lesson bundles for grades 6 to 9. Every bundle includes a teacher lesson plan, scaffolded student worksheet, and answer key. Print, copy, and teach. Starting at $2.25.</p>
-        <a href="shop.html" class="btn-primary">Browse lessons</a>
-      </article>
-
-      <article class="product-card">
-        <span class="product-status product-status-live">Live · 3-day free trial</span>
-        <h3 class="product-title">Euclidia Outreach</h3>
-        <p>Turn your gradebook into personalized parent emails, sent from your Gmail, in about ten minutes a week. Includes Roster Builder, Gradebook Outreach for flagged students, and Broadcast for tier-based class-wide notes. Student and gradebook data is never stored.</p>
-        <a href="outreach.html" class="btn-secondary">Learn more</a>
-        <a href="https://outreach.euclidiamath.com" class="btn-primary" style="margin-top:8px;">Start 3-day free trial</a>
-      </article>
-
-      <article class="product-card">
-        <span class="product-status product-status-live">Live · 3-day free trial</span>
-        <h3 class="product-title">Euclidia Quiz</h3>
-        <p>Build verified-math quizzes for any CCSS 7-12 standard. Pick a topic, set the question count, and deliver three ways: one-click push to Canvas, download as a QTI .zip for any LMS, or print a branded Word doc with answer key for in-person classes. Every problem is professionally authored and verified. No AI-written mistakes, no surprise wrong answers. Your Canvas API token (if you use one) stays in your browser, never on our server.</p>
-        <a href="canvas-quiz.html" class="btn-secondary">Learn more</a>
-        <a href="https://canvas.euclidiamath.com" class="btn-primary" style="margin-top:8px;">Start 3-day free trial</a>
-      </article>
-    </div>
+<section id="products" class="tool-collection" aria-labelledby="products-title">
+  <div class="home-frame">
+    <header class="collection-heading"><div><p class="eyebrow">The teacher's toolkit</p><h2 id="products-title">For the work around<br><em>the work you love.</em></h2></div><p>Choose what helps today.<br>Each tool works on its own.</p></header>
+    <article class="tool-feature" id="lessons">
+      <div class="feature-copy"><p class="feature-number">01 / Prepare</p><h3>Your next lesson.<br>Already thought through.</h3><p>A lesson plan, scaffolded student worksheet, and answer key, together in one bundle. Print the PDF or make it your own in Word.</p><ul class="feature-facts"><li>Standards-aligned math</li><li>Free sample available</li><li>Paid bundles from $2.25</li></ul><a class="light-button" href="shop.html">Explore the lessons <span aria-hidden="true">↗</span></a><a class="quiet-link" href="lessons/two-step-inequalities.html">Start with the free inequalities lesson →</a></div>
+      <figure class="feature-visual lesson-visual"><a href="lessons/two-step-equations.html" aria-label="View the Two-Step Equations lesson bundle"><img src="images/two-step-equations.png" alt="Two-Step Equations bundle: previews of the lesson plan, student worksheet, and worked answer key" width="2000" height="2000" loading="lazy"></a><figcaption>From the catalog <span>Grade 7 · 7.EE.B.4</span></figcaption></figure>
+    </article>
+    <article class="tool-feature reverse" id="play">
+      <div class="feature-copy"><p class="feature-number">02 / Practice</p><h3>A little competition.<br>A lot of mathematics.</h3><p>Give practice a place in the game. Students join Euclidia Play with a room code and answer math questions to move forward.</p><ul class="feature-facts"><li>Free to play</li><li>Join with a room code</li><li>Canvas connection available</li></ul><a class="light-button" href="https://play.euclidiamath.com">Open Euclidia Play <span aria-hidden="true">↗</span></a><a class="quiet-link" href="https://play.euclidiamath.com/canvas-setup.html">Connect it to Canvas →</a></div>
+      <figure class="feature-visual play-visual"><a href="https://play.euclidiamath.com" aria-label="Explore Euclidia Play"><img src="images/play-sky-climb.webp" alt="Sky Climb game artwork: a colorful world of floating islands and climbing characters" width="1280" height="720" loading="lazy"></a><figcaption>Euclidia Play <span>Sky Climb · Game artwork</span></figcaption></figure>
+    </article>
+    <article class="tool-feature" id="quiz">
+      <div class="feature-copy"><p class="feature-number">03 / Assess</p><h3>Choose the math.<br>The quiz comes together.</h3><p>Build from authored math questions, organized by topic and standard. Send your quiz to Canvas, export a QTI file, or print it with an answer key.</p><ul class="feature-facts"><li>Grades 7–12</li><li>Canvas, QTI, or Word</li><li>3-day free trial</li></ul><a class="light-button" href="canvas-quiz.html">Explore Euclidia Quiz <span aria-hidden="true">↗</span></a><a class="quiet-link" href="https://canvas.euclidiamath.com">Start your free trial →</a></div>
+      <figure class="feature-visual quiz-visual"><a href="canvas-quiz-guide.html" aria-label="See the quiz builder step-by-step guide"><img src="images/guide/step4-quiz-builder.png" alt="Euclidia Quiz builder with question count, difficulty, grade, standard, and topic controls" width="1280" height="800" loading="lazy"></a><figcaption>Inside the quiz builder <span>See the setup guide ↗</span></figcaption></figure>
+    </article>
+    <article class="tool-feature reverse" id="outreach">
+      <div class="feature-copy"><p class="feature-number">04 / Connect</p><h3>A parent update.<br>With your voice in it.</h3><p>Turn your gradebook into personalized email drafts. Review and edit each message, then send through your Gmail account.</p><ul class="feature-facts"><li>You review before sending</li><li>Roster and broadcast tools</li><li>3-day free trial</li></ul><a class="light-button" href="outreach.html">Explore Outreach <span aria-hidden="true">↗</span></a><a class="quiet-link" href="https://outreach.euclidiamath.com">Start your free trial →</a></div>
+      <figure class="feature-visual outreach-example"><div class="example-heading"><span>A note home</span><span>Illustrative draft</span></div><div class="example-mail"><p class="mail-subject">A quick check-in about math</p><p>Hello,</p><p>I wanted to check in about the assignments we're working on. There are a few still to finish, and I'd like to help make a plan.</p><p>Please let me know if there's anything I should know or a good time to talk.</p><p class="mail-signature">Thank you,<br>Your student's teacher</p></div><figcaption>Gradebook → Draft → Your review <span>Then send.</span></figcaption></figure>
+    </article>
   </div>
 </section>
-
-<div class="section-divider" aria-hidden="true"></div>
-
-<section class="section-wrap" aria-labelledby="economics-h">
-  <div class="section-inner">
-    <div class="reveal story-wrap">
-      <span class="section-label">The Real Math</span>
-      <h2 class="section-title" id="economics-h">What if your time was worth twice as much?</h2>
-      <div class="gold-rule center"></div>
-      <div style="text-align:left;">
-        <p>Your raise this year was probably somewhere between 1 and 3 percent. Inflation was right there with it, often ahead of it. That's a pay cut disguised as a pay raise.</p>
-        <p>Euclidia can't change your hourly rate. That's not in our hands.</p>
-        <p>But what if you could cut your weekly prep from 50 hours to 25? The effective value of every hour you put in just doubled. Same salary. Half the time. That's not marketing. That's arithmetic.</p>
-        <p>We build this so you can spend your energy on students, not formatting.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider" aria-hidden="true"></div>
-
-<section class="section-wrap section-alt-bg" aria-labelledby="story-h">
-  <div class="section-inner">
-    <div class="reveal story-wrap">
-      <span class="section-label">Our Mission</span>
-      <h2 class="section-title" id="story-h">Built by one teacher who teaches the same classroom you do.</h2>
-      <div class="gold-rule center"></div>
-      <div style="text-align:left;">
-        <p>Euclidia exists because teachers do the most important work for underappreciated pay. I built this as an individual teacher, not a corporate publisher, after too many nights spent doing prep work that could have been done faster and better. Our mission is simple. We want to give you your time back so you can teach with energy, be present for your people, and end the day feeling human.</p>
-        <a href="about.html">Learn our story</a>
-      </div>
-    </div>
-  </div>
-</section>
-
+<section class="teacher-note" aria-labelledby="teacher-title"><div class="home-frame note-layout"><div><p class="eyebrow">A note from the teacher behind it</p><span class="note-monogram" aria-hidden="true">E.</span></div><div><h2 id="teacher-title">The evening belongs<br>to you, too.</h2><p>I built Euclidia after too many nights spent on prep work that could have been simpler. These are the tools I wanted in my own classroom.</p><p>The aim is straightforward: useful materials, less admin, and more energy left for students and the people at home.</p><a class="text-link" href="about.html">Meet the teacher behind Euclidia <span aria-hidden="true">↗</span></a></div></div></section>
 </main>
-
-<script src="nav.js"></script>
-<script src="main.js"></script>
-<script>
-const allToolsLink = document.getElementById('all-tools-link');
-if (allToolsLink) {
-  allToolsLink.addEventListener('click', function (e) {
-    e.preventDefault();
-    document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-}
-</script>
+<script src="nav.js"></script><script src="main.js"></script>
 </body>
 </html>

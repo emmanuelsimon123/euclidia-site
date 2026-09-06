@@ -166,13 +166,13 @@ def build_card_html(product, slug):
         '<div class="product-body">'
         f'<div class="product-tags">{tag_chips}</div>'
         f'<a href="{lesson_url}" class="product-title-link">'
-        f'<div class="product-title">{title}</div>'
+        f'<div class="product-title">{title.split(" | ")[0]}</div>'
         f"</a>"
         f'<div class="product-desc">{description}</div>'
         '<div class="product-includes">'
-        "<span>&#128203; Lesson Plan</span>"
-        "<span>&#128221; Worksheet</span>"
-        "<span>&#9989; Answer Key</span>"
+        "<span>Lesson plan</span>"
+        "<span>Worksheet</span>"
+        "<span>Answer key</span>"
         "</div>"
         "</div>"
         '<div class="product-footer">'
@@ -199,7 +199,7 @@ def build_filter_buttons(products):
     for t in sorted_tags:
         buttons += (
             f'<button class="filter-btn" data-filter="{html_escape(t)}" '
-            f"onclick=\"filterProducts(this,'{html_escape(t)}')\">{html_escape(t)}</button>"
+            f"onclick=\"filterProducts(this,'{html_escape(t)}')\">{html_escape(t.replace("-", " "))}</button>"
         )
     return buttons
 
@@ -292,6 +292,7 @@ main {{ max-width: 980px; margin: 0 auto; padding: 120px 24px 80px; width: 100%;
 .lesson-back:hover {{ text-decoration: underline; }}
 @media (max-width: 768px) {{ .lesson-grid {{ grid-template-columns: 1fr; }} .lesson-title {{ font-size: 1.8rem; }} main {{ padding: 104px 20px 64px; }} .lesson-buy-card {{ position: static; }} }}
 </style>
+<link rel="stylesheet" href="/notebook.css">
 </head>
 <body data-page="">
 

@@ -1,0 +1,74 @@
+/* Shared notebook edition. Loaded after page-specific rules. */
+:root { --gold:#e5b76b; --gold-light:#f3ce92; --gold-pale:rgba(229,183,107,.10); --gold-border:rgba(229,183,107,.28); --border-gold:rgba(229,183,107,.22); --text:#d2d9db; --text-dim:#a6b4bc; --text-bright:#f3f0e8; --white:#f8f5ed; --radius:4px; --radius-lg:6px; }
+body::before { display:none; }
+html { scroll-padding-top:90px; }
+nav { height:76px; padding-inline:max(32px,calc((100vw - 1216px)/2)); background:#091525; backdrop-filter:none; border-bottom:1px solid #35414b; }
+.nav-logo { font-size:26px; letter-spacing:-.04em; }
+.nav-links { gap:22px; }
+.nav-links a { letter-spacing:0; font-size:.875rem; }
+.nav-cta { border-radius:2px; padding:10px 18px!important; }
+.nav-hamburger { width:44px; height:44px; align-items:center; justify-content:center; }
+.nav-mobile { top:76px; max-height:calc(100dvh - 76px); overflow-y:auto; }
+.nav-mobile .nav-cta { border-radius:2px; }
+.btn-primary,.btn-secondary,.btn-buy,.shop-cta-primary,.outreach-cta-primary,.notify-btn,.modal-submit { border-radius:2px; min-height:46px; white-space:normal; text-align:center; }
+.btn-primary:hover,.btn-secondary:hover { transform:none; box-shadow:none; }
+.section-label,.footer-col-title { font-size:.75rem; letter-spacing:.14em; }
+.section-title { font-weight:400; letter-spacing:-.025em; }
+.section-sub,.page-hero p { font-weight:400; }
+.page-hero h1 { font-weight:400; font-size:clamp(2.6rem,5vw,4.5rem); letter-spacing:-.035em; }
+.section-inner { max-width:1216px; }
+.reveal { opacity:1; transform:none; }
+.step-card p,.feature-card p,.faq-answer p { font-size:1rem; line-height:1.75; }
+.step-card h3,.feature-card h3 { font-size:1.25rem; }
+.step-card,.feature-card { border-radius:3px; }
+.faq-q { font-size:1.125rem; }
+.faq-item.open .faq-answer { max-height:none; }
+footer { background:#091525; padding-block:64px 32px; }
+.footer-logo { font-size:30px; }
+.footer-grid { max-width:1216px; grid-template-columns:1.5fr 1fr 1fr; }
+.footer-tagline { font-size:.9375rem; max-width:330px; line-height:1.75; }
+.footer-bottom { max-width:1216px; }
+.footer-copy,.footer-legal a { font-size:.8125rem; }
+/* Main product pages retain their own content and interaction structure. */
+.shop-hero-title,.quiz-hero-title,.outreach-hero-title { font-weight:400; letter-spacing:-.035em; }
+.shop-hero-title { font-size:clamp(3rem,5vw,4.7rem); }
+.shop-hero-sub,.quiz-hero-sub,.outreach-hero-sub { font-size:1.0625rem; line-height:1.8; }
+.shop-hero-eyebrow,.quiz-hero-eyebrow,.outreach-hero-eyebrow { font-size:.75rem; }
+.shop-hero-trust,.outreach-hero-trust { font-size:.8125rem; }
+.catalog-preview { padding:24px; background:#efeade; color:#263a47; border:1px solid #d3c8b3; }
+.catalog-preview img { width:100%; height:auto; display:block; }
+.catalog-preview figcaption { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; padding-top:18px; font-size:.8125rem; }
+.catalog-preview a { display:block; }
+body[data-page="shop"] .product-card { border-color:#46515b; border-radius:3px; }
+body[data-page="shop"] .product-card:hover { transform:translateY(-2px); box-shadow:none; }
+body[data-page="shop"] .product-body { padding:25px; }
+body[data-page="shop"] .product-title { font-size:1.45rem; font-weight:400; }
+body[data-page="shop"] .product-desc { font-size:1rem; line-height:1.75; }
+body[data-page="shop"] .product-tag,body[data-page="shop"] .product-includes { font-size:.8125rem; }
+body[data-page="shop"] .product-price-note { font-size:.75rem; }
+body[data-page="shop"] .filter-btn { font-size:.875rem; min-height:44px; border-radius:2px; }
+body[data-page="shop"] .shop-note { background:none; border:0; border-block:1px solid var(--border-gold); border-radius:0; padding:22px 0; }
+body[data-page="shop"] .shop-note p { font-size:1rem; }
+.quiz-product-preview { max-width:880px; margin:40px auto 0; border:1px solid #46515b; background:#102337; }
+.quiz-product-preview img { display:block; width:100%; height:auto; }
+.quiz-product-preview figcaption { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; padding:16px 22px; font-size:.875rem; }
+.quiz-product-preview a { color:var(--gold); }
+.outreach-hero-visual { border-radius:3px; }
+.visual-meta { font-size:.75rem; }
+@media(max-width:1150px){.nav-links{gap:15px}.nav-links a{font-size:.8125rem}nav{padding-inline:24px}}
+@media(max-width:1000px){.nav-links{display:none}.nav-hamburger{display:flex}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1 / -1}}
+@media(min-width:1001px){.nav-mobile.open{display:none}}
+@media(max-width:600px){nav{padding-inline:20px}.nav-logo{font-size:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px 20px}.section-inner{padding:60px 20px}.section-inner.narrow{padding:60px 20px}.catalog-preview{padding:14px}.quiz-hero-title,.outreach-hero-title{font-size:2.65rem}.shop-hero-title{font-size:3rem}.faq-btn{padding:20px}.faq-q{font-size:1rem}.faq-item.open .faq-answer{padding:0 20px 24px}}
+/* The reading room uses the same paper and ink as the homepage. */
+body[data-page="blog"] main { background:#f5f2ea; --white:#172c3b; --text:#44555f; --text-bright:#203746; --text-dim:#65716f; --gold:#926520; --gold-light:#80591c; --border-gold:#d2c8b5; --card-bg:#ede8dc; --navy-card:#ede8dc; }
+body[data-page="blog"] .blog-wrap { max-width:840px; padding-inline:32px; }
+body[data-page="blog"] .post-title { font-size:clamp(2rem,4vw,3.2rem); font-weight:400; letter-spacing:-.025em; }
+body[data-page="blog"] .blog-card { background:none; border:0; border-top:1px solid #d2c8b5; border-radius:0; padding:28px 0; }
+body[data-page="blog"] .blog-card h2 { font-size:1.8rem; font-weight:400; }
+body[data-page="blog"] .blog-card p { font-size:1rem; }
+body[data-page="blog"] .signup input[type=email] { background:#f9f7f1; border-color:#aba99d; }
+body[data-page="blog"] .signup button { background:#172c3b; color:#fff; border-radius:2px; }
+body[data-page="about"] .page-hero { background:#f5f2ea; --white:#172c3b; --gold:#93651c; --text:#526168; border-bottom:1px solid #d2c8b5; }
+@media(max-width:480px){body[data-page="blog"] .blog-wrap{padding-inline:20px}.signup{padding:22px 16px}.signup input[type=email]{min-width:0;width:100%}}
+/* Long setup URLs remain readable on narrow phones. */
+main code { overflow-wrap:anywhere; }
