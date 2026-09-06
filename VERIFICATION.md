@@ -67,3 +67,6 @@ Checks completed:
 - New gallery image links fall back to the original files without JavaScript; enhancement-only controls remain hidden until initialized.
 
 Earned limitation: the in-app browser's Page.captureScreenshot operation repeatedly timed out, including after tab recreation and on the nonanimated shop page. Both documented screenshot interfaces and browser visibility recovery were attempted. DOM interaction and geometry checks succeeded, and source images were visually inspected, but a composed-page screenshot review could not be completed in this run. A functioning browser capture would close this remaining visual-review condition.
+
+
+Final live review: screenshot capture recovered on the public HTTPS site. Inspected the actual published homepage animation and desktop/mobile gameplay showcase. The initial capture limitation above is closed for those views. The phone review exposed an unused black margin within the source game screenshot; the game frame now crops that margin. Public files (3 pages, 3 styles/scripts, 5 images) returned HTTP 200 and matched the tested source before this final CSS crop adjustment. Production workflow: https://github.com/emmanuelsimon123/euclidia-site/actions/runs/34063691502 (passed build, page verification, and motion checks).
