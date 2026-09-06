@@ -33,4 +33,10 @@ Baseline: 14f8197 (clean checkout, synchronized with origin/main)
 
 This redesign changes the public marketing site, not the separate paid applications. Purchase, sign-in, and subscription operations were not performed. Their links are retained; end-to-end purchases require a real transaction and are outside this design change.
 
-Production deployment and live-site verification will be recorded after GitHub Pages completes.
+## Production proof
+
+- Published implementation commit: `21ae6f52478d8b105f97d6fef77eead4367252df`.
+- GitHub Pages workflow completed successfully, including build and verification: https://github.com/emmanuelsimon123/euclidia-site/actions/runs/34062598614
+- Live HTTPS verification: all 15 HTML pages plus 8 styles/scripts/images returned HTTP 200. SHA-256 comparisons matched local verified contents for all 23 resources (text line endings normalized).
+- Opened https://euclidiamath.com/ in the browser after deployment. Confirmed the new headline, loaded home.css, all four tool sections, and working shared navigation. Visually inspected the actual public homepage.
+- This final ledger update changes documentation only; deployed product files remain identical to the verified implementation commit.
