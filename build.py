@@ -109,7 +109,7 @@ def build_card_html(product, slug):
     description = html_escape(product.get("description", ""))
     standard = html_escape(product.get("standard", ""))
     grade = html_escape(product.get("grade", ""))
-    price = html_escape(product.get("price", "$2.25"))
+    price = html_escape(product.get("price", "$2.50"))
     tpt_price = html_escape(product.get("tpt_price", ""))
     buy_url = html_escape(product.get("buy_url", "#"))
     lesson_url = f"lessons/{slug}.html"
@@ -138,7 +138,7 @@ def build_card_html(product, slug):
             '</div>'
         )
         btn_class = "btn-buy free"
-        btn_text = "Download &uarr;"
+        btn_text = "Free on TPT &uarr;"
     else:
         tpt_block = (
             f'<div class="product-price-tpt">{tpt_price}</div>' if tpt_price else ""
@@ -151,7 +151,7 @@ def build_card_html(product, slug):
             '</div>'
         )
         btn_class = "btn-buy"
-        btn_text = "Buy now &uarr;"
+        btn_text = "Buy on TPT &uarr;"
 
     tags_attr = " ".join(product.get("tags", []))
     tag_chips = ""
@@ -344,7 +344,7 @@ def build_lesson_page(product):
     description = product.get("description", "")
     standard = product.get("standard", "")
     grade = product.get("grade", "")
-    price = product.get("price", "$2.25")
+    price = product.get("price", "$2.50")
     tpt_price = product.get("tpt_price", "")
     buy_url = product.get("buy_url", "#")
     thumb = product.get("thumbnail", "")
@@ -406,7 +406,7 @@ def build_lesson_page(product):
             '<div class="lesson-buy-note">Print-ready PDF &middot; instant download</div>'
         )
         btn_modifier = " free"
-        btn_text = "Download free &rarr;"
+        btn_text = "Get it free on TPT &rarr;"
     else:
         tpt_block = (
             f'<div class="lesson-buy-tpt">{html_escape(tpt_price)} on TPT</div>'
@@ -419,7 +419,7 @@ def build_lesson_page(product):
             '<div class="lesson-buy-note">Print-ready PDF &middot; instant download</div>'
         )
         btn_modifier = ""
-        btn_text = "Buy on Payhip &rarr;"
+        btn_text = "Buy on TPT &rarr;"
 
     og_image = (
         f"https://euclidiamath.com/{thumb}"

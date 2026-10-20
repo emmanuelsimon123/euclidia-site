@@ -1,5 +1,8 @@
 # Euclidia Site — Maintenance Guide (for humans)
 
+> **Since 2026-10-19: lessons are sold only on TPT.** The owner is joining TPT's Exclusive Seller plan, which allows digital lessons to be sold only on TPT. Every Buy button links to the TPT listing and shows the TPT price. Do not add Payhip links. The Payhip steps below are kept for history only.
+
+
 Last updated: 2026-05-19
 
 This is the human-readable operations guide for the marketing site at euclidiamath.com. For the SaaS app (Euclidia Outreach), see the separate `gradebook_outreach` repo.

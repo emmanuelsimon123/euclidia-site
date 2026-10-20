@@ -200,11 +200,11 @@ def main():
     if data['is_free']:
         data['price']     = "FREE"
         data['tpt_price'] = ""
-        data['buy_url']   = ask("Payhip download link", required=True)
+        data['buy_url']   = ask("TPT listing link", required=True)
     else:
-        data['price']     = ask("Your website price (e.g. $2.25)", required=True)
-        data['tpt_price'] = ask("TPT price (e.g. $3.25 on TPT)", required=False, default="")
-        data['buy_url']   = ask("Payhip buy link", required=True)
+        data['price']     = ask("TPT price (e.g. $2.50)", required=True)
+        data['tpt_price'] = ""
+        data['buy_url']   = ask("TPT listing link", required=True)
 
     data['description'] = ask("Short description (1-2 sentences)", required=True)
     data['tags']        = ask("Tags for filtering (e.g. 6-8 equations exponents)", required=False, default="")

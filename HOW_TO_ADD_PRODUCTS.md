@@ -1,5 +1,8 @@
 # How to Add a New Product to the Shop
 
+> **Since 2026-10-19: lessons are sold only on TPT.** The owner is joining TPT's Exclusive Seller plan, which allows digital lessons to be sold only on TPT. Every Buy button links to the TPT listing and shows the TPT price. Do not add Payhip links. The Payhip steps below are kept for history only.
+
+
 This guide walks you through adding a new product to euclidiamath.com/shop using the `add_product.py` script in GitHub Codespaces. No coding knowledge needed.
 
 ---
