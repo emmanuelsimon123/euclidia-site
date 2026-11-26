@@ -24,6 +24,7 @@ import sys
 from datetime import date
 
 import blog  # zero-dep blog builder (posts/*.md -> blog/*.html + blog.html)
+import curriculum  # course > unit > lesson pages from data/catalog.json
 
 PRODUCTS_FILE = "products.json"
 SHOP_FILE = "shop.html"
@@ -220,6 +221,10 @@ def replace_marked_section(source, start_marker, end_marker, replacement):
 def update_shop_html(products):
     with open(SHOP_FILE, "r", encoding="utf-8") as f:
         source = f.read()
+    if SHOP_CONTAINER_START not in source:
+        # shop.html is now the curriculum hub (curriculum.py fills its course cards)
+        print("  shop.html has no product markers; skipping product cards")
+        return
 
     cards = "\n".join(build_card_html(p, product_slug(p)) for p in products)
     if products:
@@ -506,8 +511,11 @@ def main():
     print("Building blog...")
     blog_urls = blog.build_blog()
 
+    print("Building curriculum pages...")
+    curriculum_urls = curriculum.build()
+
     print("Updating sitemap.xml...")
-    write_sitemap(products, blog_urls)
+    write_sitemap(products, list(blog_urls or []) + curriculum_urls)
 
     print("Done.")
 

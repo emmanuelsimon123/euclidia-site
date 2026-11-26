@@ -18,7 +18,7 @@ class Document(HTMLParser):
   if self.script is not None:self.script+=text
  def handle_endtag(self,tag):
   if tag=='script' and self.script is not None:self.scripts.append(self.script);self.script=None
-files=list(root.glob('*.html'))+list((root/'lessons').glob('*.html'))+list((root/'blog').glob('*.html'))
+files=list(root.glob('*.html'))+list((root/'lessons').glob('*.html'))+list((root/'blog').glob('*.html'))+list((root/'curriculum').rglob('*.html'))
 docs={p:Document(p.read_text(encoding='utf-8')) for p in files}
 errors=[];refs=0
 for p,d in docs.items():
