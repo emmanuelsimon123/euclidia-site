@@ -217,12 +217,13 @@ a.product-thumb-placeholder:hover { opacity:0.95; }
 
     <h2 class="cur-h2" id="courses">Full-year courses</h2>
 <!-- BUILD:COURSES:START -->
-<div class="cur-courses"><a class="cur-course" href="/curriculum/6th-grade-math.html"><h3>6th Grade Math</h3><p>78 lessons, 10 units</p><p>Full year $79.00 on TPT</p><span class="cur-course-go">See every lesson &rarr;</span></a><a class="cur-course" href="/curriculum/7th-grade-math.html"><h3>7th Grade Math</h3><p>80 lessons, 10 units</p><p>Full year $79.00 on TPT</p><span class="cur-course-go">See every lesson &rarr;</span></a><a class="cur-course" href="/curriculum/8th-grade-math.html"><h3>8th Grade Math</h3><p>83 lessons, 10 units</p><p>Full year $79.00 on TPT</p><span class="cur-course-go">See every lesson &rarr;</span></a><a class="cur-course" href="/curriculum/pre-algebra.html"><h3>Pre-Algebra</h3><p>97 lessons, 11 units</p><p>Full year $79.00 on TPT</p><span class="cur-course-go">See every lesson &rarr;</span></a><a class="cur-course" href="/curriculum/algebra-1.html"><h3>Algebra 1</h3><p>84 lessons, 10 units</p><p>Full year $79.00 on TPT</p><span class="cur-course-go">See every lesson &rarr;</span></a><a class="cur-course" href="/curriculum/geometry.html"><h3>Geometry</h3><p>85 lessons, 11 units</p><p>Full year $79.00 on TPT</p><span class="cur-course-go">See every lesson &rarr;</span></a><a class="cur-course" href="/curriculum/algebra-2.html"><h3>Algebra 2</h3><p>82 lessons, 10 units</p><p>Full year $79.00 on TPT</p><span class="cur-course-go">See every lesson &rarr;</span></a><a class="cur-course" href="/curriculum/statistics-precalculus.html"><h3>Statistics and Precalculus</h3><p>9 lessons</p><p>Single lessons and bundles</p><span class="cur-course-go">See every lesson &rarr;</span></a></div>
+<h3 class="cur-band">Middle school: 6th, 7th and 8th grade</h3><div class="cur-courses"><a class="cur-course" href="/curriculum/6th-grade-math.html"><span class="cur-course-grade">6th grade</span><h3>6th Grade Math</h3><p>78 lessons, 10 units</p><p>Full year $79.00 on TPT</p><span class="cur-course-go">See every lesson &rarr;</span></a><a class="cur-course" href="/curriculum/7th-grade-math.html"><span class="cur-course-grade">7th grade</span><h3>7th Grade Math</h3><p>80 lessons, 10 units</p><p>Full year $79.00 on TPT</p><span class="cur-course-go">See every lesson &rarr;</span></a><a class="cur-course" href="/curriculum/8th-grade-math.html"><span class="cur-course-grade">8th grade</span><h3>8th Grade Math</h3><p>83 lessons, 10 units</p><p>Full year $79.00 on TPT</p><span class="cur-course-go">See every lesson &rarr;</span></a><a class="cur-course" href="/curriculum/pre-algebra.html"><span class="cur-course-grade">7th and 8th grade</span><h3>Pre-Algebra</h3><p>97 lessons, 11 units</p><p>Full year $79.00 on TPT</p><span class="cur-course-go">See every lesson &rarr;</span></a></div><h3 class="cur-band">High school: 9th to 12th grade</h3><div class="cur-courses"><a class="cur-course" href="/curriculum/algebra-1.html"><span class="cur-course-grade">High school</span><h3>Algebra 1</h3><p>84 lessons, 10 units</p><p>Full year $79.00 on TPT</p><span class="cur-course-go">See every lesson &rarr;</span></a><a class="cur-course" href="/curriculum/geometry.html"><span class="cur-course-grade">High school</span><h3>Geometry</h3><p>85 lessons, 11 units</p><p>Full year $79.00 on TPT</p><span class="cur-course-go">See every lesson &rarr;</span></a><a class="cur-course" href="/curriculum/algebra-2.html"><span class="cur-course-grade">High school</span><h3>Algebra 2</h3><p>82 lessons, 10 units</p><p>Full year $79.00 on TPT</p><span class="cur-course-go">See every lesson &rarr;</span></a><a class="cur-course" href="/curriculum/statistics-precalculus.html"><span class="cur-course-grade">High school</span><h3>Statistics and Precalculus</h3><p>9 lessons</p><p>Single lessons and bundles</p><span class="cur-course-go">See every lesson &rarr;</span></a></div>
 <!-- BUILD:COURSES:END -->
 
     <h2 class="cur-h2" id="finder">Find a lesson</h2>
     <div class="cur-finder" role="search">
-      <input type="search" id="f-q" placeholder="Search by topic or standard, for example slope or 7.EE" aria-label="Search lessons">
+      <input type="search" id="f-q" placeholder="Search a topic or standard, like slope or 7.EE" aria-label="Search lessons">
+      <select id="f-grade" aria-label="Grade"><option value="">All grades</option><option>6th grade</option><option>7th grade</option><option>8th grade</option><option>High school</option></select>
       <select id="f-course" aria-label="Course"><option value="">All courses</option></select>
       <select id="f-kind" aria-label="Type"><option value="">All types</option></select>
     </div>
@@ -249,12 +250,13 @@ a.product-thumb-placeholder:hover { opacity:0.95; }
     unit_test: 'Unit Test', full_year: 'Full Year', guide: 'Pacing Guide', sub_plans: 'Sub Plans',
     bell_ringers: 'Bell Ringers', exam: 'Exam', other: 'Resource'};
   var rows = [], shown = 50;
-  var q = document.getElementById('f-q'), fc = document.getElementById('f-course'), fk = document.getElementById('f-kind');
+  var q = document.getElementById('f-q'), fg = document.getElementById('f-grade'), fc = document.getElementById('f-course'), fk = document.getElementById('f-kind');
   var list = document.getElementById('f-results'), count = document.getElementById('f-count'), more = document.getElementById('f-more');
   function opt(sel, value, text) { var o = document.createElement('option'); o.value = value; o.textContent = text; sel.appendChild(o); }
   function match() {
     var words = q.value.toLowerCase().split(/\s+/).filter(Boolean);
     return rows.filter(function (r) {
+      if (fg.value && (r.g || []).indexOf(fg.value) === -1) return false;
       if (fc.value && r.c !== fc.value) return false;
       if (fk.value && r.k !== fk.value) return false;
       var t = r.t.toLowerCase();
@@ -274,7 +276,7 @@ a.product-thumb-placeholder:hover { opacity:0.95; }
     count.textContent = 'Showing ' + Math.min(shown, m.length) + ' of ' + m.length + ' resources';
     more.hidden = m.length <= shown;
   }
-  [q, fc, fk].forEach(function (el) { el.addEventListener('input', function () { shown = 50; render(); }); });
+  [q, fg, fc, fk].forEach(function (el) { el.addEventListener('input', function () { shown = 50; render(); }); });
   more.addEventListener('click', function () { shown += 50; render(); });
   fetch('/curriculum/catalog.json').then(function (r) { return r.json(); }).then(function (data) {
     rows = data;

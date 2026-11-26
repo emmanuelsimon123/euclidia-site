@@ -37,6 +37,17 @@ KIND_LABEL = {
 }
 
 
+# Grade levels, as the listings are tagged on TPT (high school listings are tagged 9th to 12th as one group)
+COURSE_GRADES = {
+    "grade6": ["6th grade"],
+    "grade7": ["7th grade"],
+    "grade8": ["8th grade"],
+    "prealgebra": ["7th grade", "8th grade"],
+}
+GRADE_LABEL = {"grade6": "6th grade", "grade7": "7th grade", "grade8": "8th grade", "prealgebra": "7th and 8th grade"}
+GRADE_BAND = {"grade6": "middle", "grade7": "middle", "grade8": "middle", "prealgebra": "middle"}
+
+
 def esc(text):
     return html.escape(str(text), quote=True)
 
@@ -260,15 +271,20 @@ def write_shop_cards(cat, shop="shop.html"):
     if start not in src or end not in src:
         print("  shop.html has no course markers; skipping cards")
         return
-    cards = ['<div class="cur-courses">']
-    for c in cat["courses"]:
-        n = lesson_count(c)
-        fy = c.get("full_year")
-        price = f"Full year {price_text(fy)} on TPT" if fy else "Single lessons and bundles"
-        what = (f"{n} lessons, {len(c['units'])} units" if not is_topic_group(c) else f"{n} lessons")
-        cards.append(f'<a class="cur-course" href="/{course_path(c)}"><h3>{esc(c["name"])}</h3>'
-                     f'<p>{esc(what)}</p><p>{esc(price)}</p><span class="cur-course-go">See every lesson &rarr;</span></a>')
-    cards.append("</div>")
+    cards = []
+    for band, title in (("middle", "Middle school: 6th, 7th and 8th grade"), ("high", "High school: 9th to 12th grade")):
+        cards.append(f'<h3 class="cur-band">{esc(title)}</h3><div class="cur-courses">')
+        for c in cat["courses"]:
+            if (GRADE_BAND.get(c["key"]) or "high") != band:
+                continue
+            n = lesson_count(c)
+            fy = c.get("full_year")
+            price = f"Full year {price_text(fy)} on TPT" if fy else "Single lessons and bundles"
+            what = (f"{n} lessons, {len(c['units'])} units" if not is_topic_group(c) else f"{n} lessons")
+            cards.append(f'<a class="cur-course" href="/{course_path(c)}"><span class="cur-course-grade">'
+                         f'{esc(GRADE_LABEL.get(c["key"], "High school"))}</span><h3>{esc(c["name"])}</h3>'
+                         f'<p>{esc(what)}</p><p>{esc(price)}</p><span class="cur-course-go">See every lesson &rarr;</span></a>')
+        cards.append("</div>")
     i, j = src.index(start) + len(start), src.index(end)
     src = src[:i] + "\n" + "".join(cards) + "\n" + src[j:]
     with open(shop, "w", encoding="utf-8") as f:
@@ -283,9 +299,10 @@ def filter_rows(cat):
             return
         seen.add(x["id"])
         rows.append({"t": x["title"], "u": tpt_link(x, "shop-filter"), "p": price_text(x), "k": x["kind"],
-                     "c": course, "n": unit})
+                     "c": course, "n": unit, "g": grades})
 
     for c in cat["courses"]:
+        grades = COURSE_GRADES.get(c["key"], ["High school"])
         add(c.get("full_year"), c["name"])
         for u in c["units"]:
             add(u.get("bundle"), c["name"], u["num"])
@@ -298,6 +315,7 @@ def filter_rows(cat):
         for x in c["extras"]:
             add(x, c["name"])
     names = {"prealgebra": "Pre-Algebra", "hs_extra": "High School", "other": "Other"}
+    grades = ["High school"]
     for k, items in cat.get("more", {}).items():
         for x in items:
             add(x, names.get(k, k))
