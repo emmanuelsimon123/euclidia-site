@@ -1,5 +1,9 @@
 # Euclidia Site — Maintenance Guide (for humans)
 
+> **Do not remove: Google Search Console line (since 2026-11-26).** `index.html` has a hidden line in its `<head>`:
+> `<meta name="google-site-verification" content="Gk-0XmMyYvaGIz_lyFXBusBXY5za8_m0o3J4zXmJO90">`
+> It proves to Google Search Console that we own euclidiamath.com (sitemap submitted there). The home page can be redesigned freely; just keep this line in the new version. `verify_site.py` fails the build if it is missing. If it is ever lost, re-verify in Search Console (Settings > Ownership verification).
+
 > **Since 2026-10-19: lessons are sold only on TPT.** The owner is joining TPT's Exclusive Seller plan, which allows digital lessons to be sold only on TPT. Every Buy button links to the TPT listing and shows the TPT price. Do not add Payhip links. The Payhip steps below are kept for history only.
 
 

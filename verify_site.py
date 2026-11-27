@@ -37,6 +37,8 @@ for p,d in docs.items():
   refs+=1
   if not dest.exists():errors.append(f'{p.relative_to(root)}: missing {url}')
   elif u.fragment and dest in docs and u.fragment not in docs[dest].ids:errors.append(f'{p.name}: missing anchor {url}')
+home=(root/'index.html').read_text(encoding='utf-8')
+if 'name="google-site-verification" content="Gk-0XmMyYvaGIz_lyFXBusBXY5za8_m0o3J4zXmJO90"' not in home:errors.append('index.html: the Google Search Console verification line is missing (see MAINTENANCE.md)')
 print(f'Checked {len(docs)} HTML pages, {refs} local references, image alt text, unique IDs, H1 headings, JSON-LD.')
 for e in errors:print(e)
 raise SystemExit(bool(errors))
