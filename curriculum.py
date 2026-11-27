@@ -33,6 +33,7 @@ KIND_LABEL = {
     "sub_plans": "Sub Plans",
     "bell_ringers": "Bell Ringers",
     "exam": "Exam",
+    "winter": "Winter Break Packet",
     "other": "Resource",
 }
 
